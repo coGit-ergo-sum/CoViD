@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CoViD.CL.Grid">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <NestedTypes>
+      <Delegate Name="CoViD.CL.Grid.RemoveDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>class.Grid.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="CoViD.CL.Grid.AddDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>class.Grid.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAIIAAAAACAABAAAAAFjBIAAAAACCAIAIBAAAAIAQAA=</HashCode>
+      <FileName>class.Grid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

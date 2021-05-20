@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>CoViD.CL</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensions.Random.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Tools">
+      <HintPath>..\Tools.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
