@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
-using CoViD.GUI.Tools.Extensions.Person;
-using Vi.Tools.Extensions.Random;
-using Vi.Tools.Extensions.String;
-using Vi.Tools.Extensions.Object;
 
 namespace CoViD.GUI.Forms
 {
+	/// <summary>
+	/// Represents 1) the dynamic of viruses; 2) the movement of the person 3) the place contaminated by the person. 
+	/// (This form shows the same data shown from the other forms, limited to one person.)
+	/// </summary>
 	public partial class Person : Form
 	{
 
@@ -23,10 +14,15 @@ namespace CoViD.GUI.Forms
 
 
 		#region Form's events
+
+		/// <summary>
+		/// Main CTor It just runs 'InitializeComponent'. 
+		/// </summary>
 		public Person()
 		{
 			InitializeComponent();
 		}
+
 
 		private void Person_Load(object sender, EventArgs e)
 		{

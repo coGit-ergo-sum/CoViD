@@ -1,0 +1,621 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GUI</name>
+    </assembly>
+    <members>
+        <member name="F:CoViD.GUI.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Form2.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Form2.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.Form2.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Form3.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Form3.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.Form3.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:CoViD.GUI.Forms.Infection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Infection.btnNewEvolution_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Infection.Loop(CoViD.CL.Person)">
+            <summary>
+            
+            </summary>
+            <param name="person"></param>
+        </member>
+        <member name="F:CoViD.GUI.Forms.Infection.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Infection.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Infection.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:CoViD.GUI.Forms.Person">
+            <summary>
+            Represents 1) the dynamic of viruses; 2) the movement of the person 3) the place contaminated by the person. 
+            (This form shows the same data shown from the other forms, limited to one person.)
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Person.#ctor">
+            <summary>
+            Main CTor It just runs 'InitializeComponent'. 
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Forms.Person.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Person.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Person.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Forms.Spread.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Spread.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Spread.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Spread.InitializeStatusStrip">
+            <summary>
+            Adjust the widths of the items in the 'StatusStrip' based on the current settings.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Forms.MFI.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.MFI.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.Forms.MFI.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.MDI.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.MDI.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.MDI.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Tools.Watcher._watcher">
+            <summary>
+            Watcher. Butta
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Tools.Watcher.Init">
+            <summary>
+            Init.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Tools.Watcher._watcher_Changed(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            Handler.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Tools.Form5.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Tools.Form5.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.Tools.Form5.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:CoViD.GUI.UC.Cartesian">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.Cartesian.Graph">
+            <summary>
+            To persist the diagram on screen, points are 'written' on a 'Drawing.Bitmap'. 
+            This Field (a 'Cartesian.Bitmap') manages the interaction with it.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Cartesian.YMax">
+            <summary>
+            The maximum Y value the diagram can represents.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Cartesian.YMin">
+            <summary>
+            The Minimum Y value the diagram can represents.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Cartesian.XMax">
+            <summary>
+            The maximum X value the diagram can represents.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Cartesian.XMin">
+            <summary>
+            The Minimum X value the diagram can represents.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Cartesian.ResolutionX">
+            <summary>
+            The number of X unities a pixel represents.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Cartesian.ResolutionY">
+            <summary>
+            The number of Y unities a pixel represents.
+            </summary>
+        </member>
+        <member name="T:CoViD.GUI.UC.Cartesian.Bitmap">
+            <summary>
+            Specialize a 'Drawing.Graphics' to interact with a fixed rectangle grid and a given range of x-y values. 
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.Cartesian.Bitmap.X2W">
+            <summary>
+            Maps a X value (within the given range) to the w (width) value in the drawing grid.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.Cartesian.Bitmap.Y2H">
+            <summary>
+            Maps a Y value (within the given range) to the h (height) value in the drawing grid.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Bitmap.#ctor(System.Int32,System.Int32,System.Func{System.Single,System.Int32},System.Func{System.Single,System.Int32})">
+            <summary>
+            Initialize a Drawing.Bitmap(width, height), a 'Drawing.Graphics' and stores the 
+            mapping 'functions'.
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="x2w"></param>
+            <param name="y2h"></param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Bitmap.Clear(System.Drawing.Color)">
+            <summary>
+            Clears the entire drawing surface and fills it with the specified background color.
+            </summary>
+            <param name="color">System.Drawing.Color structure that represents the background color of the drawing surface.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Bitmap.Point(CoViD.CL.Point,System.Drawing.Color)">
+            <summary>
+            Draws a point (a 1x1 rectangle) in the drawing surface.
+            </summary>
+            <param name="point">The coordinates of the point.</param>
+            <param name="color">The color of the point.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Bitmap.Point(System.Single,System.Single,System.Drawing.Color)">
+            <summary>
+            Draws a point (a 1x1 rectangle) in the drawing surface.
+            </summary>
+            <param name="x">The x coordinates of the point.</param>
+            <param name="y">The y coordinates of the point.</param>
+            <param name="color">The color of the point.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Bitmap.Point(System.Single,System.Single,System.Drawing.Brush)">
+            <summary>
+            Draws a point (a 1x1 rectangle) in the drawing surface. (this is the method that performs the job
+            </summary>
+            <param name="x">The x coordinates of the point.</param>
+            <param name="y">The y coordinates of the point.</param>
+            <param name="color">The color of the point.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Bitmap.Save(System.String)">
+            <summary>
+            Saves the graph to a file in the 'bmp' format, Creates the containing directory if does not exists.
+            </summary>
+            <param name="filename">The full file name</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Bitmap.Save(System.String,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Saves the graph to a file in the 'bmp' format, Creates the containing directory if does not exists.
+            </summary>
+            <param name="filename">The full file name</param>
+            <param name="format">The format for the file.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.#ctor(System.Windows.Forms.PictureBox,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Stores the provided parameter and assigns a 'this.NewGraph' to the field 'this.Grap'
+            </summary>
+            <param name="pct">The container of the graph of the diagram (only the graph, without axes, label, ... </param>
+            <param name="xMin">The minimum value for the x coordinate.</param>
+            <param name="xMax">The maximum value for the x coordinate.</param>
+            <param name="yMin">The minimum value for the y coordinate.</param>
+            <param name="yMax">The maximum value for the y coordinate.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Point(System.Single,System.Single,System.Drawing.Brush)">
+            <summary>
+            Draws a point over the drawing grid at position x, y.
+            (to write a set of points draw all the points with 'this.Graph.Point' and then  'this.Flush'.; 
+            </summary>
+            <param name="x">The 'x' position of the new point.</param>
+            <param name="y">The 'y' position of the new point.</param>
+            <param name="color">The color of the new point.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Clear">
+            <summary>
+            Clears the drawing grid.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.Pct_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raises the event 'Coordinates' providing to the outside the actual position of the cursor. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:CoViD.GUI.UC.ToolStrip.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.ToolStrip.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.ToolStrip.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.Item.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Item.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Item.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.Legend.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Legend.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Legend.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Grid.Point(CoViD.CL.Point,System.Drawing.Color)">
+            <summary>
+            Draws a point over the drawing grid at position x, y
+            </summary>
+            <param name="point">The 'location' of the point.</param>
+            <param name="color">The color of the new point.</param>
+        </member>
+        <member name="F:CoViD.GUI.UC.Grid.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Grid.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Grid.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.Led.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Led.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Led.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.UpDown.Value">
+            <summary>
+            The value shown.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.UpDown.Caption">
+            <summary>
+            The message to show.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.UpDown.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.UpDown.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.UpDown.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.XY.UCGraphics">
+            <summary>
+            The Graphics for the usercontrol.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.XY.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.XY.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.XY.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:CoViD.GUI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.biohazard_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Check">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.LedBlue_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.LedGreen_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.LedGrey_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.LedRed_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.LedWhite_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.LedYellow_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.New_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Pause_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Pause_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Pause_32x32_gray">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Play_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.refresh_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.refresh_32x32_gray">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.refresh_New_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.refresh_New1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.settings_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Start_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Start_32x32_gray">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Stop_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Users_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="M:CoViD.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+    </members>
+</doc>

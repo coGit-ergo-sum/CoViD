@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CoViD.GUI.Tools.Extensions.Person;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-
-using CoViD.GUI.Tools.Extensions.Person;
-using Vi.Tools.Extensions.Random;
-using Vi.Tools.Extensions.String;
-using Vi.Tools.Extensions.Int;
 using Vi.Tools.Extensions.Float;
-using Vi.Tools.Extensions.Object;
+using Vi.Tools.Extensions.Int;
 
 namespace CoViD.GUI.Forms
 {

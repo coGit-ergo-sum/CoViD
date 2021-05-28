@@ -2,6 +2,9 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CoViD.CL.Grid">
     <Position X="0.5" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Delegate Name="CoViD.CL.Grid.RemoveDelegate" Collapsed="true">
         <TypeIdentifier>
@@ -18,6 +21,10 @@
       <HashCode>gAIIAAAAACAABAAAAAFjBIAAAAACCAIAIBAAAAIAQAA=</HashCode>
       <FileName>class.Grid.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

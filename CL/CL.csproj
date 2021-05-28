@@ -5,14 +5,16 @@
     <RootNamespace>CoViD.CL</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Vi\Code\coGit-ergo-sum\CoViD\CL\CL.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Extensions.Random.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Tools">
-      <HintPath>..\Tools.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\Tools\Tools.csproj" />
   </ItemGroup>
 
 </Project>

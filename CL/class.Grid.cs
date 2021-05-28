@@ -8,8 +8,7 @@ using Vi.Tools.Extensions.Object;
 namespace CoViD.CL
 {
 	/// <summary>
-	/// Is a square region made of points. (Simulates the place where the people lives and where the epidemic spreads.)
-	/// 
+	/// Is a square region made of points. (Simulates the place where the people lives and where the epidemic spreads.) 
 	/// </summary>
 	public class Grid
 	{

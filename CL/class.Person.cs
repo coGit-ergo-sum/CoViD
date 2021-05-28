@@ -36,30 +36,94 @@ namespace CoViD.CL
 		private static Random Rnd = new Random();
 
 		#region enums
+
+		/// <summary>
+		/// The possible states in this simulation
+		/// </summary>
 		public enum States
 		{
+			/// <summary>
+			/// Who can be affected by an illness (the same as the SIR Model)
+			/// </summary>
 			Susceptible = 0,
+
+			/// <summary>
+			/// The symptomless incubation period
+			/// </summary>
 			Latency,
+
+			/// <summary>
+			/// The infection become evident and contagious.
+			/// </summary>
 			Ill,
+
+			/// <summary>
+			/// The disease has crossed a threshold and the person needs hospitalization.
+			/// </summary>
 			Severe,
+
+			/// <summary>
+			/// The disease has passed its peak and the person is doing better (not the concept of recovery in SIR)
+			/// </summary>
 			Convalescent,
+
+			/// <summary>
+			/// The illness is gone and the person is protected from disease.
+			/// </summary>
 			Immune,
+
+			/// <summary>
+			/// The person is dead.
+			/// </summary>
 			Dead
 		}
 
+		/// <summary>
+		/// The possible states in a SIR model
+		/// </summary>
 		public enum SIRStates
 		{
+			/// <summary>
+			/// Who can be affected by an illness
+			/// </summary>
 			Susceptible = 0,
+
+			/// <summary>
+			/// Who is affected by an illness
+			/// </summary>
 			Infected = 1,
+
+			/// <summary>
+			/// The disease has passed its peak, regardless the person is dead or alive
+			/// </summary>
 			Recovered = 2
 		}
 
-		public enum Ages
+		public enum Agessss
 		{
+			/// <summary>
+			/// Who with the age under 5 years
+			/// </summary>
 			Under5s = 1,
+
+			/// <summary>
+			/// Who with the age under 15 years
+			/// </summary>
 			Under15 = 2,
+
+			/// <summary>
+			/// Who with the age under 25 years
+			/// </summary>
 			Under25 = 3,
+
+			/// <summary>
+			/// Who with the age under 65 years
+			/// </summary>
 			Under65 = 4,
+
+			/// <summary>
+			/// Who with the age over 65 years
+			/// </summary>
 			Plus65
 		}
 		#endregion
@@ -527,12 +591,21 @@ namespace CoViD.CL
 			this.Configure(locations);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="locations"></param>
+		/// <param name="virusGrowth"></param>
+		/// <param name="antibodyGrowth"></param>
+		/// <param name="antibodyDecay"></param>
+		/// <param name="deadThreshold"></param>
+		/// <param name="mobility"></param>
 		public Person(
 			CoViD.CL.Locations locations,
-			CoViD.Types.Percent virusGrowth, 
-			CoViD.Types.Percent antibodyGrowth,
-			CoViD.Types.Percent antibodyDecay,
-			CoViD.Types.Percent deadThreshold,
+			Vi.Tools.Types.Percent virusGrowth,
+			Vi.Tools.Types.Percent antibodyGrowth,
+			Vi.Tools.Types.Percent antibodyDecay,
+			Vi.Tools.Types.Percent deadThreshold,
 			byte mobility
 		)
 		{

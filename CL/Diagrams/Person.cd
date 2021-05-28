@@ -19,6 +19,11 @@
           <NewMemberFileName>class.Person.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
+      <Enum Name="CoViD.CL.Person.Agessss" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>class.Person.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
       <Class Name="CoViD.CL.Person.Values" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>class.Person.cs</NewMemberFileName>

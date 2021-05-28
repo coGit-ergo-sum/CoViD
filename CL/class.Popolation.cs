@@ -20,15 +20,29 @@ namespace CoViD.CL
 		public int DRecovered = 0;
 		#endregion
 
-
+		/// <summary>
+		/// The number of person in 'Latency': infected but still not contagious.
+		/// </summary>
 		public int Latency = 0;
+
+		/// <summary>
+		/// The number of person 'ill'
+		/// </summary>
 		public int Ill = 0;
+
+		/// <summary>
+		/// The number of person in need of Hospitalization
+		/// </summary>
 		public int Severe = 0;
+
+		/// <summary>
+		/// The number of person 
+		/// </summary>
 		public int Convalescent = 0;
 		public int Immunes = 0;
 		public int Deads = 0;
 
-		new public void Reset() {
+		public void Reset() {
 			//////////base.Reset();
 			this.ForEach(person => person.Reset()); 
 		}
@@ -92,53 +106,3 @@ namespace CoViD.CL
 		//new void Add(Person person);
 	}
 }
-/*
-private Random Rnd;
-public Popolation(int radius)
-{
-this.Rnd = new Random();
-
-Func<int, List<CoViD.CL.Point>> getLocations = (index) =>
-{
-int x = this.Rnd.Next(-radius, radius, iterations: steps);
-int y = this.Rnd.Next(-radius, radius, iterations: steps);
-
-var locations = new List<CoViD.CL.Point>() { new CoViD.CL.Point(x, y) };
-return locations;
-};
-
-var popolation = new CoViD.CL.Popolation();
-
-for (int i = 0; i < people; i++)
-{
-var locations = this.Locations();
-var person = new CoViD.CL.Person(locations);
-person.Sneeze += this.Person_Sneeze;
-person.Inhale += this.Person_Inhale;
-
-popolation.Add(person);
-}
-
-}
-*/
-//public int Count { get { return this.People.Count; } }
-
-////////////public delegate int LocationDelegate(int x, int y);
-////////////public event LocationDelegate Location;
-////////////private int OnLocation(int x, int y)
-////////////{
-////////////	return (this.Location == null) ? 0 : this.Location(x, y);
-////////////}
-
-////////////List<Person> People;
-
-
-////////////public void Add(Person persona)
-////////////{
-////////////	this.People.Add(persona);
-////////////}
-
-//////////////public Popolation(int count)
-//////////////{
-//////////////	this.People = new List<Person>();
-//////////////}
