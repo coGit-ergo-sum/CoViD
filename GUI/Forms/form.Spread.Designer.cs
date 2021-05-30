@@ -521,7 +521,7 @@
 			this.udTicks.Name = "udTicks";
 			this.udTicks.Size = new System.Drawing.Size(214, 45);
 			this.udTicks.TabIndex = 74;
-			this.udTicks.Value = 25000F;
+			this.udTicks.Value = 25000;
 			// 
 			// udSegregationThreshold
 			// 
@@ -533,7 +533,7 @@
 			this.udSegregationThreshold.Name = "udSegregationThreshold";
 			this.udSegregationThreshold.Size = new System.Drawing.Size(177, 45);
 			this.udSegregationThreshold.TabIndex = 73;
-			this.udSegregationThreshold.Value = 0F;
+			this.udSegregationThreshold.Value = 0;
 			// 
 			// udSteps
 			// 
@@ -545,7 +545,7 @@
 			this.udSteps.Name = "udSteps";
 			this.udSteps.Size = new System.Drawing.Size(172, 45);
 			this.udSteps.TabIndex = 51;
-			this.udSteps.Value = 1F;
+			this.udSteps.Value = 1;
 			this.udSteps.Click += new System.EventHandler(this.up_Click);
 			// 
 			// udPeople
@@ -558,7 +558,7 @@
 			this.udPeople.Name = "udPeople";
 			this.udPeople.Size = new System.Drawing.Size(215, 45);
 			this.udPeople.TabIndex = 50;
-			this.udPeople.Value = 10000F;
+			this.udPeople.Value = 10000;
 			this.udPeople.Click += new System.EventHandler(this.up_Click);
 			// 
 			// udRadius
@@ -571,7 +571,7 @@
 			this.udRadius.Name = "udRadius";
 			this.udRadius.Size = new System.Drawing.Size(227, 45);
 			this.udRadius.TabIndex = 48;
-			this.udRadius.Value = 12000F;
+			this.udRadius.Value = 12000;
 			this.udRadius.Click += new System.EventHandler(this.up_Click);
 			// 
 			// Spread

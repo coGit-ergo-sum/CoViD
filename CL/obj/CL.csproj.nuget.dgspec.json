@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Vi\\Code\\coGit-ergo-sum\\CoViD\\CL\\CL.csproj": {}
+    "C:\\CoViD\\CL\\CL.csproj": {}
   },
   "projects": {
-    "C:\\Vi\\Code\\coGit-ergo-sum\\CoViD\\CL\\CL.csproj": {
+    "C:\\CoViD\\CL\\CL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Vi\\Code\\coGit-ergo-sum\\CoViD\\CL\\CL.csproj",
+        "projectUniqueName": "C:\\CoViD\\CL\\CL.csproj",
         "projectName": "CL",
-        "projectPath": "C:\\Vi\\Code\\coGit-ergo-sum\\CoViD\\CL\\CL.csproj",
+        "projectPath": "C:\\CoViD\\CL\\CL.csproj",
         "packagesPath": "C:\\Users\\Vi\\.nuget\\packages\\",
-        "outputPath": "C:\\Vi\\Code\\coGit-ergo-sum\\CoViD\\CL\\obj\\",
+        "outputPath": "C:\\CoViD\\CL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -31,11 +31,7 @@
         },
         "frameworks": {
           "netstandard2.0": {
-            "projectReferences": {
-              "C:\\Vi\\Code\\coGit-ergo-sum\\Tools\\Tools.csproj": {
-                "projectPath": "C:\\Vi\\Code\\coGit-ergo-sum\\Tools\\Tools.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -66,17 +62,6 @@
           "warn": true,
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
-      }
-    },
-    "C:\\Vi\\Code\\coGit-ergo-sum\\Tools\\Tools.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Vi\\Code\\coGit-ergo-sum\\Tools\\Tools.csproj",
-        "projectName": "Tools",
-        "projectPath": "C:\\Vi\\Code\\coGit-ergo-sum\\Tools\\Tools.csproj"
-      },
-      "frameworks": {
-        "net45": {}
       }
     }
   }

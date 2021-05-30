@@ -17,6 +17,7 @@ namespace CoViD.GUI
 		public MDI()
 		{
 			InitializeComponent();
+			tsmSpread_Click(null, null);
 		}
 
 		private void ShowNewForm(object sender, EventArgs e)

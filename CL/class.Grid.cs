@@ -33,7 +33,7 @@ namespace CoViD.CL
 		/// <summary>
 		/// Points over the surface contaminated by the viruses
 		/// </summary>
-		private float[,] Contamination;
+		private decimal[,] Contamination;
 
 		/// <summary>
 		/// The list of the contaminated points (is a kind of indexing)
@@ -118,7 +118,7 @@ namespace CoViD.CL
 			this.IndexMax = (int)Math.Ceiling(((decimal)2 * (decimal)radius) / (decimal)100);
 			int _radius = 50 * this.IndexMax;
 
-			this.Contamination = new float[this.IndexMax, this.IndexMax];
+			this.Contamination = new decimal[this.IndexMax, this.IndexMax];
 			this.Contaminated = new List<CoViD.CL.Point>();
 
 			this.M = (decimal)(this.IndexMax - 1) / ((decimal)2 * (decimal)_radius);
@@ -131,7 +131,7 @@ namespace CoViD.CL
 			this.Radius = radius;
 		}
 
-		public void Contaminate(float viruses, CoViD.CL.Point location)
+		public void Contaminate(decimal viruses, CoViD.CL.Point location)
 		{
 			if (viruses > 0)
 			{
@@ -164,9 +164,9 @@ namespace CoViD.CL
 				var c = this.Y2C(point.Y);
 
 				var virusesRC = this.Contamination[r, c];
-				virusesRC = virusesRC * 0.9F;
+				virusesRC = virusesRC * (decimal)0.9;
 
-				if (virusesRC > 0.001F)
+				if (virusesRC > (decimal)0.001)
 				{
 					this.Contamination[r, c] = virusesRC;
 				}
@@ -184,7 +184,7 @@ namespace CoViD.CL
 			this.Ticks++;
 		}
 
-		public float GetViruses(CoViD.CL.Point point)
+		public decimal GetViruses(CoViD.CL.Point point)
 		{
 			var r = this.X2R(point.X);
 			var c = this.Y2C(point.Y);

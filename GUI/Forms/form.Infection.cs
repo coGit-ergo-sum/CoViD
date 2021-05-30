@@ -89,14 +89,14 @@ namespace CoViD.GUI.Forms
 			);
 
 			var viruses = udVirusesN.Value;
-			Func<CoViD.CL.Point, float> person_Inhale = (location) => { 
+			Func<CoViD.CL.Point, decimal> person_Inhale = (location) => { 
 				return viruses; 
 			};
 			person.Inhale += new CoViD.CL.Person.InhaleDelegate(person_Inhale);
 
-			udVirusesGrowth.Value = person.VirusGrowthPercent * 100F;
-			udAntibodiesGrowth.Value = person.AntibodyGrowthPercent * 100F;
-			udAntibodiesDecay.Value = person.AntibodyDecayPercent * 100F;
+			udVirusesGrowth.Value = person.VirusGrowth * 100;
+			udAntibodiesGrowth.Value = person.AntibodyGrowth * 100;
+			udAntibodiesDecay.Value = person.AntibodyDecay * 100;
 
 			int iMax = txtXMax.Text.ToInt(1000);
 
@@ -117,10 +117,10 @@ namespace CoViD.GUI.Forms
 
 		private void ud_Click(object sender, EventArgs e) 
 		{
-			var virusGrowth = udVirusesGrowth.Value / 100F;
-			var antibodyGrowth = udAntibodiesGrowth.Value / 100;
-			var antibodyDecay = udAntibodiesDecay.Value / 100;
-			var deadThreshold = 0.95F;
+			var virusGrowth = (decimal)(udVirusesGrowth.Value / 100);
+			var antibodyGrowth = (decimal)(udAntibodiesGrowth.Value / 100);
+			var antibodyDecay = (decimal)(udAntibodiesDecay.Value / 100);
+			var deadThreshold = (decimal)0.95;
 			byte mobility = 100;
 
 			var locations = new CoViD.CL.Locations();

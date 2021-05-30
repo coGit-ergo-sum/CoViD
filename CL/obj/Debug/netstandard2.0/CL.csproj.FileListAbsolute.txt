@@ -29,4 +29,14 @@ C:\Vi\Code\coGit-ergo-sum\CoViD\CL\obj\Debug\netstandard2.0\CL.csproj.CopyComple
 C:\Vi\Code\coGit-ergo-sum\CoViD\CL\obj\Debug\netstandard2.0\CL.dll
 C:\Vi\Code\coGit-ergo-sum\CoViD\CL\obj\Debug\netstandard2.0\CL.pdb
 C:\Vi\Code\coGit-ergo-sum\CoViD\CL\bin\Debug\netstandard2.0\CL.xml
-C:\Vi\Code\coGit-ergo-sum\CoViD\CL\bin\Debug\netstandard2.0\Tools.xml
+C:\CoViD\CL\bin\Debug\netstandard2.0\CL.deps.json
+C:\CoViD\CL\bin\Debug\netstandard2.0\CL.dll
+C:\CoViD\CL\bin\Debug\netstandard2.0\CL.pdb
+C:\CoViD\CL\bin\Debug\netstandard2.0\CL.xml
+C:\CoViD\CL\bin\Debug\netstandard2.0\Tools.dll
+C:\CoViD\CL\bin\Debug\netstandard2.0\Tools.pdb
+C:\CoViD\CL\obj\Debug\netstandard2.0\CL.AssemblyInfoInputs.cache
+C:\CoViD\CL\obj\Debug\netstandard2.0\CL.AssemblyInfo.cs
+C:\CoViD\CL\obj\Debug\netstandard2.0\CL.csproj.CopyComplete
+C:\CoViD\CL\obj\Debug\netstandard2.0\CL.dll
+C:\CoViD\CL\obj\Debug\netstandard2.0\CL.pdb

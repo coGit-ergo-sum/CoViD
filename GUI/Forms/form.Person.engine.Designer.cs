@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Vi.Tools.Extensions.Float;
+using Vi.Tools.Extensions.Decimal;
 using Vi.Tools.Extensions.Int;
 
 namespace CoViD.GUI.Forms
@@ -96,7 +97,7 @@ namespace CoViD.GUI.Forms
 
 				this.tsTicks.Text = this.Grid.Ticks.ToText();
 
-				var percent = (int)Math.Min(100, Math.Round((100F * ((float)this.Grid.Ticks / this.udTicks.Value))));
+				var percent = (int)Math.Min(100, Math.Round((100 * ((decimal)this.Grid.Ticks / this.udTicks.Value))));
 				if (!this.tsProgressBar.IsDisposed) { this.tsProgressBar.Value = percent; }
 
 				if ((ticks % 10) == 0) { Application.DoEvents(); }
@@ -155,7 +156,7 @@ namespace CoViD.GUI.Forms
 
 		private void InitializeStatusStrip()
 		{
-			Action<ToolStripStatusLabel, float> adjust = (ts, value) =>
+			Action<ToolStripStatusLabel, decimal> adjust = (ts, value) =>
 			{
 				ts.AutoSize = true;
 				ts.Text = value.ToText(0);
@@ -175,17 +176,17 @@ namespace CoViD.GUI.Forms
 			adjust(this.tsImmune, ticks);
 			adjust(this.tsDead, ticks);
 
-			var contaminatedGrids = (float)Math.Pow((this.udRadius.Value / 100F), 2);
+			var contaminatedGrids = (decimal)Math.Pow(((double)this.udRadius.Value / (double)100), 2);
 
 			adjust(this.tsContaminatedGrids, contaminatedGrids);
 		}
 
-		private float Person_Inhale(CoViD.CL.Point location)
+		private decimal Person_Inhale(CoViD.CL.Point location)
 		{
 			return 1000 + this.Grid.GetViruses(location);
 		}
 
-		private void Person_Sneeze(float viruses, CoViD.CL.Point location)
+		private void Person_Sneeze(decimal viruses, CoViD.CL.Point location)
 		{
 			this.Grid.Contaminate(viruses, location);
 		}

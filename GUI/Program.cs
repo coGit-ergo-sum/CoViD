@@ -32,19 +32,25 @@ namespace CoViD
 		[STAThread]
 		static void Main()
 		{
+			var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-			if (Process.GetProcessesByName("Watcher").Length == 0)
-			{
-				var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-				var path = System.IO.Path.Combine(baseDirectory, "Watcher.exe");
-				Process.Start(path);
-				//System.Threading.Thread.Sleep(100);
+			if (baseDirectory.ToUpper().StartsWith(@"c:\vi\code".ToUpper())){
+
+				// Whatcher is a tool to backup all the changes made to the code, 
+				// every time the application starts
 				if (Process.GetProcessesByName("Watcher").Length == 0)
 				{
-					throw new System.Exception("Il programma 'Watcher' non è in esecuzione.");
+					var path = System.IO.Path.Combine(baseDirectory, "Watcher.exe");
+					if (System.IO.File.Exists(path))
+					{
+						var watcher = Process.Start(path);
+						if (Process.GetProcessesByName("Watcher").Length == 0)
+						{
+							throw new System.Exception("'Watcher' is not running.");
+						}
+					}
 				}
 			}
-
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

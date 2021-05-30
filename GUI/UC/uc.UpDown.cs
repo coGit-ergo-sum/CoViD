@@ -29,8 +29,8 @@ namespace CoViD.GUI.UC
 		[DisplayName("Value")]
 		[Category("CoViD")]
 		[Description("The value shown.")]
-		public float Value {
-			get { return this.lblValue.Text.ToFloat(0); }
+		public decimal Value {
+			get { return this.lblValue.Text.ToDecimal(0); }
 			set {
 				var format = "#,##0" + ((this.Decimals == 0) ? "" : "." + new string('0', this.Decimals));
 				lblValue.Text = value.ToString(format);
@@ -72,7 +72,7 @@ namespace CoViD.GUI.UC
 			var value = this.Value;
 
 			int step = (int)Math.Pow(10, Decimals);
-			value += ((float)amount / (float)step);
+			value += ((decimal)amount / (decimal)step);
 			//value = Math.Max(0, value);
 			this.Value = value;
 			//////var format = "#,##0" + ((this.Decimals == 0) ? "" : "." + new string('0', this.Decimals));

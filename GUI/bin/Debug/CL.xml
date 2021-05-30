@@ -170,7 +170,7 @@
             <param name="x">The x location of the person.</param>
             <param name="y">The y location of the person.</param>
         </member>
-        <member name="M:CoViD.CL.Person.OnSneeze(System.Single,CoViD.CL.Point)">
+        <member name="M:CoViD.CL.Person.OnSneeze(System.Decimal,CoViD.CL.Point)">
             <summary>
             Infrastructural methods: prevents the null reference exception
             </summary>
@@ -199,7 +199,7 @@
             (It is a linear interpolation between 1 and VirusGrowthRatio.)
             </summary>
         </member>
-        <member name="P:CoViD.CL.Person.VirusGrowthPercent">
+        <member name="P:CoViD.CL.Person.VirusGrowth">
             <summary>
             The 'theoric' growth percentage for the virus. (here plays the rule of the maximum growth percentage.)
             </summary>
@@ -248,7 +248,7 @@
             the number of viruses. Should be regarded as the number of "unities" of viruses
             </summary>
         </member>
-        <member name="M:CoViD.CL.Person.#ctor(CoViD.CL.Locations,Vi.Tools.Types.Percent,Vi.Tools.Types.Percent,Vi.Tools.Types.Percent,Vi.Tools.Types.Percent,System.Byte)">
+        <member name="M:CoViD.CL.Person.#ctor(CoViD.CL.Locations,Vi.Types.Percentage,Vi.Types.Percentage,Vi.Types.Percentage,Vi.Types.Percentage,System.Byte)">
             <summary>
             
             </summary>
@@ -312,7 +312,7 @@
             <param name="distribution">Change the distribution of the probability.</param>
             <returns>A List of points simulating someone moving.</returns>
         </member>
-        <member name="M:CoViD.CL.Locations.#ctor(System.Int32,System.Byte,Vi.Tools.Types.Percent)">
+        <member name="M:CoViD.CL.Locations.#ctor(System.Int32,System.Byte,Vi.Types.Percentage)">
             <summary>
             Create a list of points on the grid to simulate a person's movements.
             The "grid is splitted in 4 different sub grids: cities. Each people moves

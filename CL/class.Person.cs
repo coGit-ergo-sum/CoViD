@@ -245,7 +245,7 @@ namespace CoViD.CL
 		*/
 		
 		#region Sneeze
-		public delegate void SneezeDelegate(float viruses, CL.Point location);
+		public delegate void SneezeDelegate(decimal viruses, CL.Point location);
 
 		/// <summary>
 		/// The person sneezes and spreads viruses
@@ -261,7 +261,7 @@ namespace CoViD.CL
 		/// <param name="viruses">Tghe number of viruses spreaded by the sneeze.</param>
 		/// <param name="location">The current location of the person</param>
 		[DebuggerStepThrough]
-		private void OnSneeze(float viruses, CL.Point location)
+		private void OnSneeze(decimal viruses, CL.Point location)
 		{
 			if (this.Sneeze != null) { this.Sneeze(viruses, location); }
 		}
@@ -278,10 +278,10 @@ namespace CoViD.CL
 		#endregion
 
 		#region Inhale
-		public delegate float InhaleDelegate(CL.Point location);
+		public delegate decimal InhaleDelegate(CL.Point location);
 		public event InhaleDelegate Inhale;
 		//[DebuggerStepThrough]
-		private float OnInhale()
+		private decimal OnInhale()
 		{
 			//return 
 			//	((this.Inhale == null) || (this.Location == null)) ? 0 : this.Inhale(this.Location);
@@ -315,31 +315,31 @@ namespace CoViD.CL
 		/// <summary>
 		///  Antibodies's growth ratio
 		/// </summary>
-		public float AntibodyGrowthRatio { get; private set; }
-		public float AntibodyGrowthPercent { get; private set; }
+		public decimal AntibodyGrowthRatio { get; private set; }
+		public Vi.Types.Percentage AntibodyGrowth { get; private set; }
 
 		/// <summary>
 		///  Antibodies's decay ratio
 		/// </summary>
-		public float AntibodyDecayRatio { get; private set; }
-		public float AntibodyDecayPercent { get; private set; }
+		public decimal AntibodyDecayRatio { get; private set; }
+		public Vi.Types.Percentage AntibodyDecay { get; private set; }
 
 		/// <summary>
 		/// The 'theoric' growth ratio for the virus. (here plays the rule of the maximum growth ratio.)
 		/// </summary>
-		public float VirusGrowthRatio { get; private set; }
+		public decimal VirusGrowthRatio { get; private set; }
 
 		/// <summary>
 		/// The 'ongoing' growth ratio:  
 		/// _VirusGrowthRatio = VirusGrowthRatio - ((VirusGrowthRatio - 1)/100) * VirusPercent
 		/// (It is a linear interpolation between 1 and VirusGrowthRatio.)
 		/// </summary>
-		public float _VirusGrowthRatio{ get; private set; }
+		public decimal _VirusGrowthRatio{ get; private set; }
 
 		/// <summary>
 		/// The 'theoric' growth percentage for the virus. (here plays the rule of the maximum growth percentage.)
 		/// </summary>
-		public float VirusGrowthPercent { get; private set; }
+		public Vi.Types.Percentage VirusGrowth { get; private set; }
 
 
 		public float Age { get; private set; }
@@ -530,7 +530,7 @@ namespace CoViD.CL
 		static int counterMin = 500;
 		static int counterMax = counterMin + 100;
 		int counter = 0;
-		public void Tick(float newViruses)
+		public void Tick(decimal newViruses)
 		{
 			
 			this.Antibodies = 0;
@@ -602,10 +602,10 @@ namespace CoViD.CL
 		/// <param name="mobility"></param>
 		public Person(
 			CoViD.CL.Locations locations,
-			Vi.Tools.Types.Percent virusGrowth,
-			Vi.Tools.Types.Percent antibodyGrowth,
-			Vi.Tools.Types.Percent antibodyDecay,
-			Vi.Tools.Types.Percent deadThreshold,
+			Vi.Types.Percentage virusGrowth,
+			Vi.Types.Percentage antibodyGrowth,
+			Vi.Types.Percentage antibodyDecay,
+			Vi.Types.Percentage deadThreshold,
 			byte mobility
 		)
 		{
@@ -618,18 +618,18 @@ namespace CoViD.CL
 		{
 			// ATTENTION: do not create a new Rnd. Use  the static variable.
 			var rnd = Person.Rnd;
-			var antibodyGrowthPercent = ((float)rnd.Next(10, 40)) / (float)1000;
-			var antibodyDecayPercent = ((float)rnd.Next(0, 12)) / (float)1000;
-			var virusGrowthPercent = ((float)rnd.Next(20, 40)) / (float)1000;
+			var antibodyGrowth = ((decimal)rnd.Next(10, 40)) / (decimal)1000;
+			var antibodyDecay = ((decimal)rnd.Next(0, 12)) / (decimal)1000;
+			var virusGrowth = ((decimal)rnd.Next(20, 40)) / (decimal)1000;
 			var mobility = (byte)rnd.Next(0, 255);
 
-			this.Configure(locations, virusGrowthPercent, antibodyGrowthPercent, antibodyDecayPercent, mobility);
+			this.Configure(locations, virusGrowth, antibodyGrowth, antibodyDecay, mobility);
 
 		}
 
 
 
-		private void Configure(CoViD.CL.Locations locations, float virusGrowthPercent, float antibodyGrowthPercent, float antibodyDecayPercent, byte mobility)
+		private void Configure(CoViD.CL.Locations locations, Vi.Types.Percentage virusGrowth, Vi.Types.Percentage antibodyGrowth, Vi.Types.Percentage antibodyDecay, byte mobility)
 		{
 			///this.Reset();
 
@@ -637,16 +637,16 @@ namespace CoViD.CL
 			this.SIR = SIRStates.Susceptible;
 			this.State = States.Susceptible;
 
-			this.AntibodyGrowthPercent = antibodyGrowthPercent;
-			this.AntibodyDecayPercent = antibodyDecayPercent;
-			this.VirusGrowthPercent = virusGrowthPercent;
+			this.AntibodyGrowth = antibodyGrowth;
+			this.AntibodyDecay = antibodyDecay;
+			this.VirusGrowth = virusGrowth;
 			this.DeadThreshold = ((float)Person.Rnd.Next(72, 100, 3)) / (float)100;
 			//this.DeadThreshold = (float)((float)Person.Rnd.Next(50000, 100000) / 100000F);
 			this.Age = Person.Rnd.Next(0, 100, 4);
 
-			this.AntibodyGrowthRatio = (float)1 + antibodyGrowthPercent;
-			this.AntibodyDecayRatio = (float)1 - antibodyDecayPercent;
-			this.VirusGrowthRatio = (float)1 + virusGrowthPercent;
+			this.AntibodyGrowthRatio = (decimal)1 + antibodyGrowth.Value;
+			this.AntibodyDecayRatio = (decimal)1 - antibodyDecay;
+			this.VirusGrowthRatio = (decimal)1 + virusGrowth.Value;
 
 			this._VirusGrowthRatio = this.VirusGrowthRatio;
 

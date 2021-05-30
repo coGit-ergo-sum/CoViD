@@ -145,7 +145,7 @@
 			this.udAntibodiesDecay.Name = "udAntibodiesDecay";
 			this.udAntibodiesDecay.Size = new System.Drawing.Size(221, 45);
 			this.udAntibodiesDecay.TabIndex = 65;
-			this.udAntibodiesDecay.Value = 0F;
+			this.udAntibodiesDecay.Value = 0;
 			this.udAntibodiesDecay.Click += new System.EventHandler(this.ud_Click);
 			// 
 			// udAntibodiesGrowth
@@ -158,7 +158,7 @@
 			this.udAntibodiesGrowth.Name = "udAntibodiesGrowth";
 			this.udAntibodiesGrowth.Size = new System.Drawing.Size(216, 45);
 			this.udAntibodiesGrowth.TabIndex = 64;
-			this.udAntibodiesGrowth.Value = 0F;
+			this.udAntibodiesGrowth.Value = 0;
 			this.udAntibodiesGrowth.Click += new System.EventHandler(this.ud_Click);
 			// 
 			// udVirusesGrowth
@@ -171,7 +171,7 @@
 			this.udVirusesGrowth.Name = "udVirusesGrowth";
 			this.udVirusesGrowth.Size = new System.Drawing.Size(209, 45);
 			this.udVirusesGrowth.TabIndex = 63;
-			this.udVirusesGrowth.Value = 0F;
+			this.udVirusesGrowth.Value = 0;
 			this.udVirusesGrowth.Click += new System.EventHandler(this.ud_Click);
 			// 
 			// udVirusesN
@@ -184,7 +184,7 @@
 			this.udVirusesN.Name = "udVirusesN";
 			this.udVirusesN.Size = new System.Drawing.Size(200, 45);
 			this.udVirusesN.TabIndex = 61;
-			this.udVirusesN.Value = 1000F;
+			this.udVirusesN.Value = 1000;
 			this.udVirusesN.Click += new System.EventHandler(this.ud_Click);
 			// 
 			// btnNewEvolution

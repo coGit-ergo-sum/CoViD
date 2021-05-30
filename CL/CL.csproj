@@ -14,7 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Tools\Tools.csproj" />
+    <Reference Include="Tools">
+      <HintPath>..\Tools.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

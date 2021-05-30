@@ -73,7 +73,7 @@ namespace CoViD.CL
 		/// <param name="radius">"Grid" is a square which side is twice 'radius'.</param>
 		/// <param name="distribution">Change the distribution from 1: Omogeneous, 2:triangular, 3: parabolic ... Gaussian (should be  'The Central limit theorem' if I'm right.)</param>
 		/// <param name="traveller"></param>
-		public Locations(int radius, byte distribution, Vi.Tools.Types.Percent traveller)
+		public Locations(int radius, byte distribution, Vi.Types.Percentage traveller)
 		{
 			var subRadius = radius / 20;
 
