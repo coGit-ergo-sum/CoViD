@@ -186,11 +186,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CoViD\\CL\\CL.csproj",
+      "projectUniqueName": "C:\\Vi\\Code\\coGit-ergo-sum\\CoViD\\CL\\CL.csproj",
       "projectName": "CL",
-      "projectPath": "C:\\CoViD\\CL\\CL.csproj",
+      "projectPath": "C:\\Vi\\Code\\coGit-ergo-sum\\CoViD\\CL\\CL.csproj",
       "packagesPath": "C:\\Users\\Vi\\.nuget\\packages\\",
-      "outputPath": "C:\\CoViD\\CL\\obj\\",
+      "outputPath": "C:\\Vi\\Code\\coGit-ergo-sum\\CoViD\\CL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
