@@ -77,6 +77,26 @@
             <param name="c">The 'column' value in the bidimensionale array 'Contamination'.</param>
             <returns>The corrisponding 'y' value.</returns>
         </member>
+        <member name="T:CoViD.CL.Hospitals">
+            <summary>
+            A list of all the hospitals
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Hospitals.#ctor">
+            <summary>
+            Main CTor (empty)
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Hospitals.Reset">
+            <summary>
+            Resets each hospital in the list.
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Hospitals.Tick">
+            <summary>
+            Ticks each hospital in the list.
+            </summary>
+        </member>
         <member name="T:CoViD.CL.Person.States">
             <summary>
             The possible states in this simulation
@@ -325,6 +345,53 @@
             <param name="radius">"Grid" is a square which side is twice 'radius'.</param>
             <param name="distribution">Change the distribution from 1: Omogeneous, 2:triangular, 3: parabolic ... Gaussian (should be  'The Central limit theorem' if I'm right.)</param>
             <param name="traveller"></param>
+        </member>
+        <member name="T:CoViD.CL.Home">
+            <summary>
+            The starting point for every 'jorney'
+            </summary>
+        </member>
+        <member name="T:CoViD.CL.Hospital">
+            <summary>
+            The place where a person goes when its ilness become severe. 
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Hospital.Location">
+            <summary>
+            The posizion on the grid.
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Hospital.Beds">
+            <summary>
+            The number of bed available in the hospital.
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Hospital.#ctor(CoViD.CL.Point,System.Int32)">
+            <summary>
+            Main CTor (sets location and beds).
+            </summary>
+            <param name="location">The posizion on the grid.</param>
+            <param name="beds">The number of bed available in the hospital.</param>
+        </member>
+        <member name="M:CoViD.CL.Hospital.Tick">
+            <summary>
+            A unity of time (not implemented.)
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Hospital.Reset">
+            <summary>
+            Re sets the hospital at its inizial status (not implemented.)
+            </summary>
+        </member>
+        <member name="T:CoViD.CL.School">
+            <summary>
+            it's an accumulation point for youngsters
+            </summary>
+        </member>
+        <member name="T:CoViD.CL.Workplace">
+            <summary>
+            The accumulation point for mature people.
+            </summary>
         </member>
         <member name="T:CoViD.CL.Point">
             <summary>
