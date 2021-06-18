@@ -152,7 +152,7 @@ namespace CoViD.GUI.UC
 
 				int w = this.X2W(x) & 536870911;
 				int h = this.Y2H(y) & 536870911;
-				this.Graphics.FillRectangle(color, w, h, 3, 3);
+				this.Graphics.FillRectangle(color, w, h, 2, 2);
 			}
 
 			/*

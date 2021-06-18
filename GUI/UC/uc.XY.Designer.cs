@@ -175,7 +175,6 @@
 			this.Controls.Add(this.pctDrawingGrid);
 			this.Name = "XY";
 			this.Size = new System.Drawing.Size(559, 401);
-			this.Load += new System.EventHandler(this.XY_Load);
 			this.Resize += new System.EventHandler(this.XY_Resize);
 			((System.ComponentModel.ISupportInitialize)(this.pctDrawingGrid)).EndInit();
 			this.ResumeLayout(false);

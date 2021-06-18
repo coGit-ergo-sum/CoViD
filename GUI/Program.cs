@@ -67,8 +67,8 @@ namespace CoViD
 			//Application.Run(new CoViD.GUI.Form3());
 			//Application.Run(new CoViD.GUI.Forms.MFI());
 
-			//Application.Run(new CoViD.GUI.Forms.Spread());
-			Application.Run(new CoViD.GUI.MDI());
+			Application.Run(new CoViD.GUI.Forms.Spread());
+			//Application.Run(new CoViD.GUI.MDI());
 		}
 	}
 }

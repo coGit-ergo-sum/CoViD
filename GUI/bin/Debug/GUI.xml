@@ -486,7 +486,7 @@
         <member name="T:CoViD.GUI.XY">
             <summary>
             2D Diagram specialized to display CoViD spread's data.
-            It's a wrapper around a 'Cartesian'
+            This class is a wrapper around a 'Cartesian' adding 
             </summary>
         </member>
         <member name="T:CoViD.GUI.XY.CoordinatesDelegate">

@@ -405,7 +405,7 @@
 			// toolStripStatusLabel2
 			// 
 			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-			this.toolStripStatusLabel2.Size = new System.Drawing.Size(116, 17);
+			this.toolStripStatusLabel2.Size = new System.Drawing.Size(115, 17);
 			this.toolStripStatusLabel2.Text = "Contaminated grids:";
 			this.toolStripStatusLabel2.ToolTipText = "The number of place contaminated by the virus.";
 			// 
@@ -521,7 +521,11 @@
 			this.udTicks.Name = "udTicks";
 			this.udTicks.Size = new System.Drawing.Size(214, 45);
 			this.udTicks.TabIndex = 74;
-			this.udTicks.Value = 25000;
+			this.udTicks.Value = new decimal(new int[] {
+            25000,
+            0,
+            0,
+            0});
 			// 
 			// udSegregationThreshold
 			// 
@@ -533,7 +537,11 @@
 			this.udSegregationThreshold.Name = "udSegregationThreshold";
 			this.udSegregationThreshold.Size = new System.Drawing.Size(177, 45);
 			this.udSegregationThreshold.TabIndex = 73;
-			this.udSegregationThreshold.Value = 0;
+			this.udSegregationThreshold.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// udSteps
 			// 
@@ -545,7 +553,11 @@
 			this.udSteps.Name = "udSteps";
 			this.udSteps.Size = new System.Drawing.Size(172, 45);
 			this.udSteps.TabIndex = 51;
-			this.udSteps.Value = 1;
+			this.udSteps.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
 			this.udSteps.Click += new System.EventHandler(this.up_Click);
 			// 
 			// udPeople
@@ -558,7 +570,11 @@
 			this.udPeople.Name = "udPeople";
 			this.udPeople.Size = new System.Drawing.Size(215, 45);
 			this.udPeople.TabIndex = 50;
-			this.udPeople.Value = 10000;
+			this.udPeople.Value = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
 			this.udPeople.Click += new System.EventHandler(this.up_Click);
 			// 
 			// udRadius
@@ -571,7 +587,11 @@
 			this.udRadius.Name = "udRadius";
 			this.udRadius.Size = new System.Drawing.Size(227, 45);
 			this.udRadius.TabIndex = 48;
-			this.udRadius.Value = 12000;
+			this.udRadius.Value = new decimal(new int[] {
+            12000,
+            0,
+            0,
+            0});
 			this.udRadius.Click += new System.EventHandler(this.up_Click);
 			// 
 			// Spread
@@ -593,7 +613,6 @@
 			this.MinimumSize = new System.Drawing.Size(730, 730);
 			this.Name = "Spread";
 			this.Text = "Spread";
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Spread_FormClosing);
 			this.Load += new System.EventHandler(this.Spread_Load);
 			this.Click += new System.EventHandler(this.Spread_Click);

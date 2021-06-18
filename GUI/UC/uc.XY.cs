@@ -15,7 +15,7 @@ namespace CoViD.GUI
 {
 	/// <summary>
 	/// 2D Diagram specialized to display CoViD spread's data.
-	/// It's a wrapper around a 'Cartesian'
+	/// This class is a wrapper around a 'Cartesian' adding 
 	/// </summary>
 	public partial class XY : UserControl
 	{
@@ -56,10 +56,6 @@ namespace CoViD.GUI
 		public XY()
 		{
 			InitializeComponent();
-		}
-
-		private void XY_Load(object sender, EventArgs e)
-		{
 		}
 
 		/// <summary>
