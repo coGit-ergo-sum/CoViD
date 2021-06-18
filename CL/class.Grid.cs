@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-
-using Vi.Tools.Extensions.Random;
 using Vi.Tools.Extensions.Object;
 
 namespace CoViD.CL
@@ -13,15 +10,45 @@ namespace CoViD.CL
 	public class Grid
 	{
 		#region Events
+		/// <summary>
+		/// The delegate for the event Remove
+		/// </summary>
+		/// <param name="x">The x coordinate of the removing point.</param>
+		/// <param name="y">The y coordinate of the removing point.</param>
 		public delegate void RemoveDelegate(float x, float y);
+
+		/// <summary>
+		/// Event raised when a point is removed
+		/// </summary>
 		public event RemoveDelegate Remove;
+
+		/// <summary>
+		/// Infrastructural methods: prevents the null reference exception
+		/// </summary>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
 		private void OnRemove(float x, float y)
 		{
 			if (this.Remove.IsNotNull()) { this.Remove(x, y); }
 		}
 
+		/// <summary>
+		/// The delegate for the event 'Add' 
+		/// </summary>
+		/// <param name="x">The x coordinate of the removing point.</param>
+		/// <param name="y">The y coordinate of the removing point.</param>
 		public delegate void AddDelegate(float x, float y);
+
+		/// <summary>
+		/// Event raised when a new contaminated point is added
+		/// </summary>
 		public event AddDelegate Add;
+
+		/// <summary>
+		/// Infrastructural methods: prevents the null reference exception
+		/// </summary>
+		/// <param name="x">The x coordinate of the removing point.</param>
+		/// <param name="y">The y coordinate of the removing point.</param>
 		private void OnAdd(float x, float y)
 		{
 			if (this.Add.IsNotNull()) { this.Add(x, y); }
@@ -49,7 +76,7 @@ namespace CoViD.CL
 		/// <summary>
 		/// Who lives in the grid
 		/// </summary>
-		public CoViD.CL.Popolation Popolation;
+		public CoViD.CL.Population Population;
 		#endregion
 
 
@@ -110,9 +137,18 @@ namespace CoViD.CL
 		// ----------------------------------------------------------------------------------------------- //
 
 
-
+		/// <summary>
+		/// 
+		/// </summary>
 		int IndexMax;
-		public Grid(int radius, CoViD.CL.Popolation popolation, CoViD.CL.Hospitals hospitals)
+
+		/// <summary>
+		/// Main Constructor: initializes the grid
+		/// </summary>
+		/// <param name="radius">The extention of the grid.</param>
+		/// <param name="population">One instance of the Population object.</param>
+		/// <param name="hospitals">The collection of Hospitals where people with 'severe' illnes are sent</param>
+		public Grid(int radius, CoViD.CL.Population population, CoViD.CL.Hospitals hospitals)
 		{
 
 			this.IndexMax = (int)Math.Ceiling(((decimal)2 * (decimal)radius) / (decimal)100);
@@ -125,12 +161,17 @@ namespace CoViD.CL
 			this.Y0 = (decimal)_radius * this.M;
 
 
-			this.Popolation = popolation;
+			this.Population = population;
 			this.Hospitals = hospitals;
 
 			this.Radius = radius;
 		}
 
+		/// <summary>
+		///  Sets the contamination for a point 
+		/// </summary>
+		/// <param name="viruses">The number of viruses (unity of viruses) in the provided point.</param>
+		/// <param name="location">The location where is the contamination</param>
 		public void Contaminate(decimal viruses, CoViD.CL.Point location)
 		{
 			if (viruses > 0)
@@ -154,6 +195,9 @@ namespace CoViD.CL
 			}
 		}
 
+		/// <summary>
+		/// Evolves the dynamic of one unit of time.
+		/// </summary>
 		public void Tick()
 		{
 			for (int index = this.Contaminated.Count - 1; index >= 0; index--)
@@ -180,10 +224,15 @@ namespace CoViD.CL
 				}
 			}
 
-			this.Popolation.Tick();
+			this.Population.Tick();
 			this.Ticks++;
 		}
 
+		/// <summary>
+		/// Gets the viruses on the grid in the provided point.
+		/// </summary>
+		/// <param name="point">The point on the grid from where get the number of viruses.</param>
+		/// <returns>Hov many unity of viruses there are in the provided point.</returns>
 		public decimal GetViruses(CoViD.CL.Point point)
 		{
 			var r = this.X2R(point.X);
@@ -192,11 +241,14 @@ namespace CoViD.CL
 			return isInternal ? this.Contamination[r, c] : 0;
 		}
 
+		/// <summary>
+		/// Resets all the grid: clears contaminated, set Ticks = 0, calls Population.Reset() and sets to 0 the matrix Contamination
+		/// </summary>
 		public void Reset()
 		{
 			this.Ticks = 0;
 			this.Contaminated.Clear();
-			this.Popolation.Reset();
+			this.Population.Reset();
 
 			var xMax = this.Contamination.GetLength(0);
 			var yMax = this.Contamination.GetLength(1);

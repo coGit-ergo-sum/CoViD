@@ -34,7 +34,7 @@ namespace CoViD.GUI.Forms
 
 			// ------------------------------------------------------------------------------------- //
 
-			var popolation = new CoViD.CL.Popolation();
+			var population = new CoViD.CL.Population();
 
 			for (int i = 0; i < people; i++)
 			{
@@ -43,7 +43,7 @@ namespace CoViD.GUI.Forms
 				person.Sneeze += this.Person_Sneeze;
 				person.Inhale += this.Person_Inhale;
 
-				popolation.Add(person);
+				population.Add(person);
 			}
 
 			// ------------------------------------------------------------------------------------- //
@@ -52,7 +52,7 @@ namespace CoViD.GUI.Forms
 				new CoViD.CL.Hospital(new CoViD.CL.Point(radius, radius), 500)
 			};
 
-			this.Grid = new CoViD.CL.Grid(radius, popolation, hospitals);
+			this.Grid = new CoViD.CL.Grid(radius, population, hospitals);
 
 			this.Grid.Remove += this.Grid_Remove;
 			this.Grid.Add += this.Grid_Add;
@@ -83,8 +83,8 @@ namespace CoViD.GUI.Forms
 
 			//	this.ShowPeople(this.Grid.Ticks);
 
-			//	this.grid1.Cartesian.Point(0, 0, this.Grid.Popolation[0].State.ToColor());
-			//	this.xyViruses.Cartesian.Point(counter, this.Grid.Popolation[0].VirusPercent, this.Grid.Popolation[0].State.ToColor());
+			//	this.grid1.Cartesian.Point(0, 0, this.Grid.Population[0].State.ToColor());
+			//	this.xyViruses.Cartesian.Point(counter, this.Grid.Population[0].VirusPercent, this.Grid.Population[0].State.ToColor());
 			//	counter++;
 			//}
 
@@ -115,7 +115,7 @@ namespace CoViD.GUI.Forms
 		private void ShowPeople(int tick)
 		{
 
-			foreach (var person in this.Grid.Popolation)
+			foreach (var person in this.Grid.Population)
 			{
 				var location = person.IsSevere ? this.Grid.Hospitals[0].Location : person.Location;
 				this.grid1.Cartesian.Point(location.X, location.Y, person.State.ToColor());
@@ -124,11 +124,11 @@ namespace CoViD.GUI.Forms
 
 			this.tsContaminatedGrids.Text = this.Grid.Contaminated.Count.ToText();
 
-			this.tsSusceptibles.Text = this.Grid.Popolation.Susceptibles.ToText();
-			this.tsInfected.Text = this.Grid.Popolation.Infected.ToText();
-			this.tsRecovered.Text = this.Grid.Popolation.Recovered.ToText();
-			this.tsImmune.Text = this.Grid.Popolation.Immunes.ToText();
-			this.tsDead.Text = this.Grid.Popolation.Deads.ToText();
+			this.tsSusceptibles.Text = this.Grid.Population.Susceptibles.ToText();
+			this.tsInfected.Text = this.Grid.Population.Infected.ToText();
+			this.tsRecovered.Text = this.Grid.Population.Recovered.ToText();
+			this.tsImmune.Text = this.Grid.Population.Immunes.ToText();
+			this.tsDead.Text = this.Grid.Population.Deads.ToText();
 
 			//Application.DoEvents();
 		}

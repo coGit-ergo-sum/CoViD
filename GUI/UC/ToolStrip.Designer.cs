@@ -61,7 +61,6 @@
 			this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
 			this.toolStrip1.Size = new System.Drawing.Size(234, 27);
 			this.toolStrip1.TabIndex = 72;
-			this.toolStrip1.Text = "";
 			// 
 			// tsbSettings
 			// 
@@ -70,7 +69,6 @@
 			this.tsbSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbSettings.Name = "tsbSettings";
 			this.tsbSettings.Size = new System.Drawing.Size(24, 24);
-			this.tsbSettings.Text = "";
 			this.tsbSettings.ToolTipText = "Shows the setting\'s page.";
 			this.tsbSettings.Click += new System.EventHandler(this.tsbSettings_Click);
 			// 
@@ -88,8 +86,8 @@
 			this.tsbContamination.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
 			this.tsbContamination.Name = "tsbContamination";
 			this.tsbContamination.Size = new System.Drawing.Size(24, 24);
-			this.tsbContamination.Text = "";
 			this.tsbContamination.ToolTipText = "Shows the contaminated grids.";
+			this.tsbContamination.Visible = false;
 			// 
 			// tsbPeople
 			// 
@@ -99,8 +97,8 @@
 			this.tsbPeople.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
 			this.tsbPeople.Name = "tsbPeople";
 			this.tsbPeople.Size = new System.Drawing.Size(24, 24);
-			this.tsbPeople.Text = "";
 			this.tsbPeople.ToolTipText = "Shows the distribution of people and their movements";
+			this.tsbPeople.Visible = false;
 			this.tsbPeople.Click += new System.EventHandler(this.tsbPeople_Click);
 			// 
 			// toolStripSeparator1
@@ -116,7 +114,6 @@
 			this.tsbNew.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
 			this.tsbNew.Name = "tsbNew";
 			this.tsbNew.Size = new System.Drawing.Size(24, 24);
-			this.tsbNew.Text = "";
 			this.tsbNew.ToolTipText = "Starts a totally new simulation.";
 			this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
 			// 
@@ -128,7 +125,6 @@
 			this.tsbReplay.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
 			this.tsbReplay.Name = "tsbReplay";
 			this.tsbReplay.Size = new System.Drawing.Size(24, 24);
-			this.tsbReplay.Text = "";
 			this.tsbReplay.ToolTipText = "Restarts from the beginning, the current simulation.";
 			this.tsbReplay.Click += new System.EventHandler(this.tsbReplay_Click);
 			// 
@@ -140,7 +136,6 @@
 			this.tsbPlay.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
 			this.tsbPlay.Name = "tsbPlay";
 			this.tsbPlay.Size = new System.Drawing.Size(24, 24);
-			this.tsbPlay.Text = "";
 			this.tsbPlay.ToolTipText = "Starts / Resumes the current simulation.";
 			this.tsbPlay.Click += new System.EventHandler(this.tsbPlay_Click);
 			// 
@@ -155,7 +150,6 @@
 			this.tsbPause.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
 			this.tsbPause.Name = "tsbPause";
 			this.tsbPause.Size = new System.Drawing.Size(24, 24);
-			this.tsbPause.Text = "";
 			this.tsbPause.ToolTipText = "Pauses the simulation.";
 			this.tsbPause.Click += new System.EventHandler(this.tsbPause_Click);
 			// 

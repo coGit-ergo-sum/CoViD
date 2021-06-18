@@ -211,6 +211,25 @@
             
             </summary>
         </member>
+        <member name="T:CoViD.GUI.UC.Cartesian.CoordinatesDelegate">
+            <summary>
+            The delegate for the event 'Coordinates'
+            </summary>
+            <param name="x">The 'x' value.</param>
+            <param name="y">The 'y' value.</param>
+        </member>
+        <member name="E:CoViD.GUI.UC.Cartesian.Coordinates">
+            <summary>
+            Exposes the coordinate of the moving mouse.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Cartesian.OnCoordinates(System.Single,System.Single)">
+            <summary>
+            Method to 'safely' call the event 'Coordinates'.
+            </summary>
+            <param name="x">The 'x' value.</param>
+            <param name="y">The 'y' value.</param>
+        </member>
         <member name="F:CoViD.GUI.UC.Cartesian.Graph">
             <summary>
             To persist the diagram on screen, points are 'written' on a 'Drawing.Bitmap'. 
@@ -464,10 +483,60 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:CoViD.GUI.XY">
+            <summary>
+            2D Diagram specialized to display CoViD spread's data.
+            It's a wrapper around a 'Cartesian'
+            </summary>
+        </member>
+        <member name="T:CoViD.GUI.XY.CoordinatesDelegate">
+            <summary>
+            The delegate for the event 'Coordinates'
+            </summary>
+            <param name="x">The 'x' value.</param>
+            <param name="y">The 'y' value.</param>
+        </member>
+        <member name="E:CoViD.GUI.XY.Coordinates">
+            <summary>
+            Exposes the coordinate of the moving mouse.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.XY.OnCoordinates(System.Single,System.Single)">
+            <summary>
+            Method to 'safely' call the event 'Coordinates'.
+            </summary>
+            <param name="x">The 'x' value.</param>
+            <param name="y">The 'y' value.</param>
+        </member>
+        <member name="F:CoViD.GUI.XY.Cartesian">
+            <summary>
+            The local instance of a plot area
+            </summary>
+        </member>
         <member name="F:CoViD.GUI.XY.UCGraphics">
             <summary>
             The Graphics for the usercontrol.
             </summary>
+        </member>
+        <member name="M:CoViD.GUI.XY.#ctor">
+            <summary>
+            Main CTor
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.XY.SetXY(System.Single,System.Single,System.String,System.String,System.String,System.Single,System.Single,System.String,System.String,System.String)">
+            <summary>
+            Initialize the Diagram.
+            </summary>
+            <param name="xMin">The min value for the x axis.</param>
+            <param name="xMax">The max value for the x axis.</param>
+            <param name="textXMin">The text to show for the min value for the x axis.</param>
+            <param name="textXMax">The text to show for the max value for the x axis.</param>
+            <param name="labelX">The text for the x axis</param>
+            <param name="yMin">The min value for the y axis.</param>
+            <param name="yMax">The max value for the x axis.</param>
+            <param name="textYMin">The text to show for the min value for the y axis.</param>
+            <param name="textYMax">The text to show for the max value for the y axis.</param>
+            <param name="labelY">The text for the y axis</param>
         </member>
         <member name="F:CoViD.GUI.XY.components">
             <summary> 

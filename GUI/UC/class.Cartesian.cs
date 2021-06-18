@@ -8,8 +8,23 @@ namespace CoViD.GUI.UC
 	/// </summary>
 	public class Cartesian
 	{
+		/// <summary>
+		/// The delegate for the event 'Coordinates'
+		/// </summary>
+		/// <param name="x">The 'x' value.</param>
+		/// <param name="y">The 'y' value.</param>
 		public delegate void CoordinatesDelegate(float x, float y);
+
+		/// <summary>
+		/// Exposes the coordinate of the moving mouse.
+		/// </summary>
 		public event CoordinatesDelegate Coordinates;
+
+		/// <summary>
+		/// Method to 'safely' call the event 'Coordinates'.
+		/// </summary>
+		/// <param name="x">The 'x' value.</param>
+		/// <param name="y">The 'y' value.</param>
 		private void OnCoordinates(float x, float y) { if (this.Coordinates != null) { this.Coordinates(x, y); } }
 
 		/// <summary>
@@ -137,7 +152,7 @@ namespace CoViD.GUI.UC
 
 				int w = this.X2W(x) & 536870911;
 				int h = this.Y2H(y) & 536870911;
-				this.Graphics.FillRectangle(color, w, h, 1, 1);
+				this.Graphics.FillRectangle(color, w, h, 3, 3);
 			}
 
 			/*
@@ -278,120 +293,3 @@ namespace CoViD.GUI.UC
 
 	}
 }
-
-
-////////////////////int height = this.Pct.ClientSize.Height;
-////////////////////int width = this.Pct.ClientSize.Width;
-
-////////////////////// Like 'array' the position of a pixel (in a control) is 'zero based' and this is the max index a pixel can have. 
-////////////////////int hMax = height - 1;
-////////////////////int wMax = width - 1;
-
-////////////////////// Parameters for the equation of a line to map values from X axes to the width of the control.
-////////////////////this.MX = (float)wMax / (this.XMax - this.XMin);
-////////////////////this.KX = -this.MX * this.XMin;
-
-////////////////////// Parameters for the equation of a line to map values from Y axes to the height of the control.
-////////////////////this.MY = (float)hMax / (this.YMax - this.YMin);
-////////////////////this.KY = this.MY * this.YMax;
-
-////////////////////// Equation of a line to map a point from the x/y domain to the width/height.
-////////////////////Func<float, int> x2w = x => (int)(this.KX + (float)(this.MX * x));
-////////////////////Func<float, int> y2h = y => (int)(this.KY - (float)(this.MY * y));
-
-////////////////////////////this._Graph = new System.Drawing.Bitmap(width, height);
-//////////////////////////////this._Graph = new CoViD.GUI.UC.Cartesian.Bitmap(width, height System.Drawing.Bitmap(width, height);
-///////////////////////////////this.Graphics = System.Drawing.Graphics.FromImage(this._Graph);
-///////////////////////////this.Pct.Image = this._Graph.Image;
-
-////////////////////this._Graph = new Cartesian.Bitmap(
-////////////////////	width, height,
-////////////////////	x2w, y2h
-////////////////////);
-///
-
-
-/////////// <summary>
-/////////// Like 'array' the position of a pixel (in a control) is 'zero based' and this is the max vertical index a pixel can have. (Control.Height - 1)
-/////////// </summary>
-////////private int HMax;
-
-/////////// <summary>
-/////////// Like 'array' the position of a pixel (in a control) is 'zero based' and this is the max horizzontal index a pixel can have. (Control.Width - 1).
-/////////// </summary>
-////////private int WMax;
-//////private float KX;
-//////private float MX;
-
-//////private float KY;
-//////private float MY;
-///
-//////////private int X2W(float x) { return (int)(this.KX + (float)(this.MX * x)); }
-//////////private int Y2H(float y) { return (int)(this.KY - (float)(this.MY * y)); }
-//////////private float W2X(int w) { return ((float)w - this.KX) / this.MX; }
-//////////private float H2Y(int h) { return (this.KY - (float)h) / this.MY; }
-////////////private void XY_Resize(object sender, EventArgs e)
-////////////{
-////////////	this.Graphics = this.Pct.CreateGraphics();
-
-////////////	this.HMax = this.Pct.Height - 1;
-////////////	this.WMax = this.Pct.Width - 1;
-
-////////////	this.Image = new System.Drawing.Bitmap(this.Pct.Width, this.Pct.Height);
-////////////	this.Graphics = System.Drawing.Graphics.FromImage(this.Image);
-////////////	this.Pct.Image = this.Image;
-////////////}
-/*
-/// <summary>
-/// Raises the event 'Coordinates' providing to the outside the actual position of the cursor. 
-/// </summary>
-/// <param name="sender"></param>
-/// <param name="e"></param>
-private void pctDrawingGrid_MouseMove(object sender, MouseEventArgs e)
-{
-	float x = (e.X + this.X0) / this.MX;
-	float y = (e.Y - this.Y0) / this.MY;
-	lblX.Text = x.ToString("#,##0.00");
-	lblY.Text = y.ToText();
-	this.OnCoordinates(x, y);
-}
-
-private void pctDrawingGrid_MouseLeave(object sender, EventArgs e)
-{
-	lblX.Text = 0.ToString("#,##0.00");
-	lblY.Text = 0.ToText();
-	this.OnCoordinates(0, 0);
-}
-*/
-
-/////////////// <summary> 
-/////////////// Required designer variable.
-/////////////// </summary>
-////////////private System.ComponentModel.IContainer components = null;
-
-/////////////// <summary> 
-/////////////// Clean up any resources being used.
-/////////////// </summary>
-/////////////// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-////////////protected override void Dispose(bool disposing)
-////////////{
-////////////	if (disposing && (components != null))
-////////////	{
-////////////		components.Dispose();
-////////////	}
-////////////	base.Dispose(disposing);
-////////////}
-
-////////////#region Component Designer generated code
-
-/////////////// <summary> 
-/////////////// Required method for Designer support - do not modify 
-/////////////// the contents of this method with the code editor.
-/////////////// </summary>
-////////////private void InitializeComponent()
-////////////{
-////////////	components = new System.ComponentModel.Container();
-////////////	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-////////////}
-
-////////////#endregion

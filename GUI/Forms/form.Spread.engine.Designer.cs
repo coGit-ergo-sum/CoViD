@@ -37,7 +37,7 @@ namespace CoViD.GUI.Forms
 				0, people, "0", people.ToText(), ""
 			);
 
-			int deltaMax = 100; /// (int)Math.Round((double)(people / (double)10));
+			int deltaMax = 10; /// (int)Math.Round((double)(people / (double)10));
 			this.xyDSIR.SetXY(
 				0, this.TicksMax, "0", this.TicksMax.ToText(), "Ticks",
 				-deltaMax, deltaMax, (-deltaMax).ToText(), deltaMax.ToText(), ""
@@ -61,7 +61,7 @@ namespace CoViD.GUI.Forms
 			Application.DoEvents();
 			// ------------------------------------------------------------------------------------- //
 
-			var popolation = new CoViD.CL.Popolation();
+			var population = new CoViD.CL.Population();
 			var locations0 = new CoViD.CL.Locations(radius, steps);
 			var p0 = new CoViD.CL.Person(locations0);
 
@@ -82,7 +82,7 @@ namespace CoViD.GUI.Forms
 				person.Sneeze += this.Person_Sneeze;
 				person.Inhale += this.Person_Inhale;
 
-				popolation.Add(person);
+				population.Add(person);
 			}
 
 			// ------------------------------------------------------------------------------------- //
@@ -91,7 +91,7 @@ namespace CoViD.GUI.Forms
 				new CoViD.CL.Hospital(new CoViD.CL.Point(radius, radius), 500)
 			};
 
-			this.Grid = new CoViD.CL.Grid(radius, popolation, hospitals);
+			this.Grid = new CoViD.CL.Grid(radius, population, hospitals);
 
 			this.Grid.Remove += this.Grid_Remove;
 			this.Grid.Add += this.Grid_Add;
@@ -137,44 +137,83 @@ namespace CoViD.GUI.Forms
 				this.ShowPeople();
 
 				var ticks = this.Grid.Ticks;
-				var popolation = this.Grid.Popolation;
-				this.xySIR.Cartesian.Point(ticks, popolation.Susceptibles, CoViD.CL.Person.SIRStates.Susceptible.ToColor());
-				this.xySIR.Cartesian.Point(ticks, popolation.Infected, CoViD.CL.Person.SIRStates.Infected.ToColor());
-				this.xySIR.Cartesian.Point(ticks, popolation.Recovered, CoViD.CL.Person.SIRStates.Recovered.ToColor());
+				var population = this.Grid.Population;
+				this.xySIR.Cartesian.Point(ticks, population.Susceptibles, CoViD.CL.Person.SIRStates.Susceptible.ToColor());
+				this.xySIR.Cartesian.Point(ticks, population.Infected, CoViD.CL.Person.SIRStates.Infected.ToColor());
+				this.xySIR.Cartesian.Point(ticks, population.Recovered, CoViD.CL.Person.SIRStates.Recovered.ToColor());
 
-				//if (popolation.Susceptibles != 0 && popolation.Infected != 0)
-				if (popolation.Infected != 0)
+				/*
+				//if (population.Susceptibles != 0 && population.Infected != 0)
+				if (population.Infected != 0)
 				{
-					//float ds = 1000F * 1000F * 10 * (float)popolation.DSusceptibles / ((float)popolation.Susceptibles  * (float)popolation.Infected);
-					float ds = 1000F * ((float)popolation.DSusceptibles / (float)popolation.Infected);
-					//float ds = -(1000F * 1000F * 10) / ((float)popolation.Susceptibles * (float)popolation.Infected);
+					//float ds = 1000F * 1000F * 10 * (float)population.DSusceptibles / ((float)population.Susceptibles  * (float)population.Infected);
+					float ds = 1000F * ((float)population.DSusceptibles / (float)population.Infected);
+					//float ds = -(1000F * 1000F * 10) / ((float)population.Susceptibles * (float)population.Infected);
 					this.xyDSIR.Cartesian.Point(ticks, ds, CoViD.CL.Person.SIRStates.Susceptible.ToColor());
 				}
 
-				if (popolation.Infected != 0) // && popolation.DInfected == 1
+				if (population.Infected != 0) // && population.DInfected == 1
 				{
-					float di = 1000F * (float)popolation.DInfected / (float)popolation.Infected;
-					//float di = (float)popolation.DInfected10;
-					//float di = 1000F / (float)popolation.Infected;
+					float di = 1000F * (float)population.DInfected / (float)population.Infected;
+					//float di = (float)population.DInfected10;
+					//float di = 1000F / (float)population.Infected;
 					this.xyDSIR.Cartesian.Point(ticks, di, CoViD.CL.Person.SIRStates.Infected.ToColor());
 				}
 
-				if (popolation.Recovered != 0)
+				if (population.Recovered != 0)
 				{
-					float dr = 1000F * (float)popolation.DRecovered / (float)popolation.Recovered;
-					//float dr = 1000F  / (float)popolation.Infected;
+					float dr = 1000F * (float)population.DRecovered / (float)population.Recovered;
+					//float dr = 1000F  / (float)population.Infected;
 					this.xyDSIR.Cartesian.Point(ticks, dr, CoViD.CL.Person.SIRStates.Recovered.ToColor());
 				}
+				*/
+				//if (population.Susceptibles != 0 && population.Infected != 0)
+				////////////////if (population.Infected != 0)
+				////////////////{
+				////////////////	//float ds = 1000F * 1000F * 10 * (float)population.DSusceptibles / ((float)population.Susceptibles  * (float)population.Infected);
+				////////////////	float ds = 1000F * ((float)population.DSusceptibles / (float)population.Infected);
+				////////////////	//float ds = -(1000F * 1000F * 10) / ((float)population.Susceptibles * (float)population.Infected);
+				////////////////	this.xyDSIR.Cartesian.Point(ticks, ds, CoViD.CL.Person.SIRStates.Susceptible.ToColor());
+				////////////////}
+
+				////////////////if (population.Infected != 0) // && population.DInfected == 1
+				////////////////{
+				////////////////	float di = 1000F * (float)population.DInfected / (float)population.Infected;
+				////////////////	//float di = (float)population.DInfected10;
+				////////////////	//float di = 1000F / (float)population.Infected;
+				////////////////	this.xyDSIR.Cartesian.Point(ticks, di, CoViD.CL.Person.SIRStates.Infected.ToColor());
+				////////////////}
+
+				if (population.Recovered != 0)
+				{
+					/*
+					var logγ = (float)Math.Log(population.γ);
+					this.xyDSIR.Cartesian.Point(ticks, logγ, CoViD.CL.Person.SIRStates.Recovered.ToColor());
+
+					var logβ = (float)Math.Log(population.β);
+					this.xyDSIR.Cartesian.Point(ticks, logβ, CoViD.CL.Person.SIRStates.Infected.ToColor());
+					*/
+
+					/*
+					this.xyDSIR.Cartesian.Point(ticks, (float)population.γ, CoViD.CL.Person.SIRStates.Recovered.ToColor());
+					this.xyDSIR.Cartesian.Point(ticks, (float)population.β, CoViD.CL.Person.SIRStates.Infected.ToColor());
+					*/
+					var logγ = (float)Math.Log(10F * population.γ);
+					this.xyDSIR.Cartesian.Point(ticks, logγ, CoViD.CL.Person.SIRStates.Recovered.ToColor());
+
+					this.xyDSIR.Cartesian.Point(ticks, (float)population.β, CoViD.CL.Person.SIRStates.Infected.ToColor());
+				}
+
 
 				this.xyContaminated.Cartesian.Point(ticks, this.Grid.Contaminated.Count, Color.Red);
 
 				this.tsTicks.Text = ticks.ToText();
 
-				this.tsSusceptibles.Text = this.Grid.Popolation.Susceptibles.ToText();
-				this.tsInfected.Text = this.Grid.Popolation.Infected.ToText();
-				this.tsRecovered.Text = this.Grid.Popolation.Recovered.ToText();
-				this.tsImmune.Text = this.Grid.Popolation.Immunes.ToText();
-				this.tsDead.Text = this.Grid.Popolation.Deads.ToText();
+				this.tsSusceptibles.Text = this.Grid.Population.Susceptibles.ToText();
+				this.tsInfected.Text = this.Grid.Population.Infected.ToText();
+				this.tsRecovered.Text = this.Grid.Population.Recovered.ToText();
+				this.tsImmune.Text = this.Grid.Population.Immunes.ToText();
+				this.tsDead.Text = this.Grid.Population.Deads.ToText();
 				
 				this.tsContaminatedGrids.Text = this.Grid.Contaminated.Count.ToText();
 							   				 
@@ -211,7 +250,7 @@ namespace CoViD.GUI.Forms
 
 			var image1 = this.grid1.Cartesian.NewGraph();
 
-			foreach (var person in this.Grid.Popolation)
+			foreach (var person in this.Grid.Population)
 			{
 				var location = person.IsSevere ? this.Grid.Hospitals[0].Location : person.Location;
 				//var location = person.Location;

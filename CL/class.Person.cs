@@ -99,7 +99,10 @@ namespace CoViD.CL
 			Recovered = 2
 		}
 
-		public enum Agessss
+		/// <summary>
+		/// Partition in five age ranges
+		/// </summary>
+		public enum Ages
 		{
 			/// <summary>
 			/// Who with the age under 5 years
@@ -129,7 +132,14 @@ namespace CoViD.CL
 		#endregion
 
 		#region events
+		/// <summary>
+		/// The delegate for the 'Sick' event.
+		/// </summary>
 		public delegate void SickDelegate();
+
+		/// <summary>
+		/// Event raised when a person become 'Ill' (contagious)
+		/// </summary>
 		public event SickDelegate Sick;
 
 		/*
@@ -245,20 +255,22 @@ namespace CoViD.CL
 		*/
 		
 		#region Sneeze
+		/// <summary>
+		/// The delegate for the 'Sneeze' event. (Sneezing is one way that lets the viruses spread)
+		/// </summary>
+		/// <param name="viruses">The number of (unity of) viruses emitted with the sneeze.</param>
+		/// <param name="location">The 'Point' infected by the sneeze.</param>
 		public delegate void SneezeDelegate(decimal viruses, CL.Point location);
 
 		/// <summary>
-		/// The person sneezes and spreads viruses
+		/// Event raised each time the person sneezes, spreading viruses.
 		/// </summary>
-		/// <param name="viruses">The number of viruses a sneeze can emit.</param>
-		/// <param name="x">The x location of the person.</param>
-		/// <param name="y">The y location of the person.</param>
 		public event SneezeDelegate Sneeze;
 
 		/// <summary>
 		/// Infrastructural methods: prevents the null reference exception
 		/// </summary>
-		/// <param name="viruses">Tghe number of viruses spreaded by the sneeze.</param>
+		/// <param name="viruses">The number of viruses spreaded by the sneeze.</param>
 		/// <param name="location">The current location of the person</param>
 		[DebuggerStepThrough]
 		private void OnSneeze(decimal viruses, CL.Point location)
@@ -268,8 +280,24 @@ namespace CoViD.CL
 		#endregion
 
 		#region Touch
+		/// <summary>
+		/// The delegate for the 'Touch' event. (Touching is the oter way that lets the viruses spread)
+		/// </summary>
+		/// <param name="viruses">The number of viruses spreaded by the sneeze.</param>
+		/// <param name="location">The current location of the person</param>
+		/// <returns></returns>
 		public delegate ulong TouchDelegate(ulong viruses, CL.Point location);
+
+		/// <summary>
+		/// Event raised each time the person touches something, spreading viruses.
+		/// </summary>
 		public event TouchDelegate Touch;
+
+		/// <summary>
+		/// Infrastructural methods: prevents the null reference exception
+		/// </summary>
+		/// <param name="viruses"></param>
+		/// <returns></returns>
 		[DebuggerStepThrough]
 		private ulong OnTouch(ulong viruses)
 		{
@@ -278,8 +306,16 @@ namespace CoViD.CL
 		#endregion
 
 		#region Inhale
+		/// <summary>
+		/// The delegate for the 'Inhale' event. (Inhaling is a way that lets the viruses enter the body)
+		/// </summary>
 		public delegate decimal InhaleDelegate(CL.Point location);
 		public event InhaleDelegate Inhale;
+
+		/// <summary>
+		/// Infrastructural methods: prevents the null reference exception
+		/// </summary>
+		/// <returns></returns>
 		//[DebuggerStepThrough]
 		private decimal OnInhale()
 		{
@@ -291,7 +327,17 @@ namespace CoViD.CL
 		#endregion
 
 		#region Exhale
+		/// <summary>
+		/// The delegate for the 'Exhale' event. (Inhaling is a way that lets the viruses enter the body)
+		/// </summary>
+		/// <param name="viruses">The number of viruses a sneeze can emit.</param>
+		/// <param name="x">The x location of the person.</param>
+		/// <param name="y">The y location of the person.</param>
 		public delegate void ExhaleDelegate(int viruses, int x, int y);
+
+		/// <summary>
+		/// Infrastructural methods: prevents the null reference exception
+		/// </summary>
 		public event ExhaleDelegate Exhale;
 		[DebuggerStepThrough]
 		private void OnExhale(int viruses, int x, int y)
@@ -303,6 +349,13 @@ namespace CoViD.CL
 		#region Cough
 		public delegate void CoughDelegate(int viruses, int x, int y);
 		public event CoughDelegate Cough;
+
+		/// <summary>
+		/// Infrastructural methods: prevents the null reference exception
+		/// </summary>
+		/// <param name="viruses"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
 		[DebuggerStepThrough]
 		private void OnCough(int viruses, int x, int y)
 		{
@@ -316,6 +369,10 @@ namespace CoViD.CL
 		///  Antibodies's growth ratio
 		/// </summary>
 		public decimal AntibodyGrowthRatio { get; private set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public Vi.Types.Percentage AntibodyGrowth { get; private set; }
 
 		/// <summary>
@@ -341,7 +398,9 @@ namespace CoViD.CL
 		/// </summary>
 		public Vi.Types.Percentage VirusGrowth { get; private set; }
 
-
+		/// <summary>
+		/// The age of the person
+		/// </summary>
 		public float Age { get; private set; }
 
 		/// <summary>
@@ -350,6 +409,9 @@ namespace CoViD.CL
 		/// </summary>
 		public static float VirusLimit = 1000 * 1000 * 1000;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public float DeadThreshold{ get; private set; }
 
 
@@ -462,30 +524,6 @@ namespace CoViD.CL
 				this.VirusPercent = (value / Person.VirusLimit);
 				this.VirusMaxPercent = Math.Max(this.VirusMaxPercent, this.VirusPercent);
 
-				//////////if (this.VirusPercent > this.DeadThreshold) { 
-				//////////	this.State = States.Dead; }
-				//////////else if (this.VirusPercent > 0.666) { this.State = States.Severe; }
-				//////////else if (this.VirusPercent > 0.333 && isWorsening) { this.State = States.Ill; }
-				//////////else if (this.VirusPercent > 0.001 && isWorsening) { this.State = States.Latency; }
-				//////////else if (this.VirusPercent < 0.001 && this.VirusMax > value) { this.State = States.Immune; }
-				//////////else if (this.VirusPercent < 0.666 && isRecovering) { this.State = States.Convalescent; }
-				//////////else { this.State = States.Susceptible; }
-
-				//////////if (this.IsSusceptible) { this.SIR = SIRStates.Susceptible; }
-				//////////else if (this.IsLatency || this.IsIll || this.IsSevere || this.IsConvalescent) { this.SIR = SIRStates.Infected; }
-				//////////else if (this.IsImmune || this.IsDead)  { this.SIR = SIRStates.Recovered; }
-				//////////else { throw new System.Exception("Unexpected condition."); }
-				///////////isWorsening = true;
-				////////this.State =
-				////////	(this.VirusPercent > this.DeadThreshold) ? States.Dead :
-				////////	(this.VirusPercent > 0.666) ? States.Severe :
-				////////	(this.VirusPercent > 0.333 && isWorsening) ? States.Ill :
-				////////	(this.VirusPercent > 0.001 && isWorsening) ? States.Latency :
-				////////	(this.VirusPercent < 0.001 && this.VirusMax > value) ? States.Immune :
-				////////	(this.VirusPercent < 0.666 && isRecovering) ? States.Convalescent :
-				////////	States.Susceptible;
-				///
-
 				this.State =
 					(this.VirusPercent > this.DeadThreshold) ? States.Dead :
 					isSteady ? this.State :
@@ -570,7 +608,7 @@ namespace CoViD.CL
 			//rv = Y - (m * p);
 
 
-			// the new viruses's popolation.
+			// the new viruses's population.
 			viruses = newViruses + (viruses * this._VirusGrowthRatio);
 			antibodies = (antibodies + (viruses * AntibodyGrowthPercent * VirusGrowthPercent)) * (AntibodyDecayRatio * 1F);
 
@@ -585,7 +623,10 @@ namespace CoViD.CL
 
 		#region CTors
 
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="locations"></param>
 		public Person(CoViD.CL.Locations locations)
 		{
 			this.Configure(locations);
@@ -628,10 +669,16 @@ namespace CoViD.CL
 		}
 
 
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="locations"></param>
+		/// <param name="virusGrowth"></param>
+		/// <param name="antibodyGrowth"></param>
+		/// <param name="antibodyDecay"></param>
+		/// <param name="mobility"></param>
 		private void Configure(CoViD.CL.Locations locations, Vi.Types.Percentage virusGrowth, Vi.Types.Percentage antibodyGrowth, Vi.Types.Percentage antibodyDecay, byte mobility)
 		{
-			///this.Reset();
 
 			this.Locations = locations;
 			this.SIR = SIRStates.Susceptible;

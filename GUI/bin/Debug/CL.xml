@@ -9,6 +9,44 @@
             Is a square region made of points. (Simulates the place where the people lives and where the epidemic spreads.) 
             </summary>
         </member>
+        <member name="T:CoViD.CL.Grid.RemoveDelegate">
+            <summary>
+            The delegate for the event Remove
+            </summary>
+            <param name="x">The x coordinate of the removing point.</param>
+            <param name="y">The y coordinate of the removing point.</param>
+        </member>
+        <member name="E:CoViD.CL.Grid.Remove">
+            <summary>
+            Event raised when a point is removed
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Grid.OnRemove(System.Single,System.Single)">
+            <summary>
+            Infrastructural methods: prevents the null reference exception
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="T:CoViD.CL.Grid.AddDelegate">
+            <summary>
+            The delegate for the event 'Add' 
+            </summary>
+            <param name="x">The x coordinate of the removing point.</param>
+            <param name="y">The y coordinate of the removing point.</param>
+        </member>
+        <member name="E:CoViD.CL.Grid.Add">
+            <summary>
+            Event raised when a new contaminated point is added
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Grid.OnAdd(System.Single,System.Single)">
+            <summary>
+            Infrastructural methods: prevents the null reference exception
+            </summary>
+            <param name="x">The x coordinate of the removing point.</param>
+            <param name="y">The y coordinate of the removing point.</param>
+        </member>
         <member name="F:CoViD.CL.Grid.Contamination">
             <summary>
             Points over the surface contaminated by the viruses
@@ -24,7 +62,7 @@
             Information about the Hospitals in the region.
             </summary>
         </member>
-        <member name="F:CoViD.CL.Grid.Popolation">
+        <member name="F:CoViD.CL.Grid.Population">
             <summary>
             Who lives in the grid
             </summary>
@@ -76,6 +114,43 @@
             </summary>
             <param name="c">The 'column' value in the bidimensionale array 'Contamination'.</param>
             <returns>The corrisponding 'y' value.</returns>
+        </member>
+        <member name="F:CoViD.CL.Grid.IndexMax">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Grid.#ctor(System.Int32,CoViD.CL.Population,CoViD.CL.Hospitals)">
+            <summary>
+            Main Constructor: initializes the grid
+            </summary>
+            <param name="radius">The extention of the grid.</param>
+            <param name="population">One instance of the Population object.</param>
+            <param name="hospitals">The collection of Hospitals where people with 'severe' illnes are sent</param>
+        </member>
+        <member name="M:CoViD.CL.Grid.Contaminate(System.Decimal,CoViD.CL.Point)">
+            <summary>
+             Sets the contamination for a point 
+            </summary>
+            <param name="viruses">The number of viruses (unity of viruses) in the provided point.</param>
+            <param name="location">The location where is the contamination</param>
+        </member>
+        <member name="M:CoViD.CL.Grid.Tick">
+            <summary>
+            Evolves the dynamic of one unit of time.
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Grid.GetViruses(CoViD.CL.Point)">
+            <summary>
+            Gets the viruses on the grid in the provided point.
+            </summary>
+            <param name="point">The point on the grid from where get the number of viruses.</param>
+            <returns>Hov many unity of viruses there are in the provided point.</returns>
+        </member>
+        <member name="M:CoViD.CL.Grid.Reset">
+            <summary>
+            Resets all the grid: clears contaminated, set Ticks = 0, calls Population.Reset() and sets to 0 the matrix Contamination
+            </summary>
         </member>
         <member name="T:CoViD.CL.Hospitals">
             <summary>
@@ -157,49 +232,125 @@
             The disease has passed its peak, regardless the person is dead or alive
             </summary>
         </member>
-        <member name="F:CoViD.CL.Person.Agessss.Under5s">
+        <member name="T:CoViD.CL.Person.Ages">
+            <summary>
+            Partition in five age ranges
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Person.Ages.Under5s">
             <summary>
             Who with the age under 5 years
             </summary>
         </member>
-        <member name="F:CoViD.CL.Person.Agessss.Under15">
+        <member name="F:CoViD.CL.Person.Ages.Under15">
             <summary>
             Who with the age under 15 years
             </summary>
         </member>
-        <member name="F:CoViD.CL.Person.Agessss.Under25">
+        <member name="F:CoViD.CL.Person.Ages.Under25">
             <summary>
             Who with the age under 25 years
             </summary>
         </member>
-        <member name="F:CoViD.CL.Person.Agessss.Under65">
+        <member name="F:CoViD.CL.Person.Ages.Under65">
             <summary>
             Who with the age under 65 years
             </summary>
         </member>
-        <member name="F:CoViD.CL.Person.Agessss.Plus65">
+        <member name="F:CoViD.CL.Person.Ages.Plus65">
             <summary>
             Who with the age over 65 years
             </summary>
         </member>
+        <member name="T:CoViD.CL.Person.SickDelegate">
+            <summary>
+            The delegate for the 'Sick' event.
+            </summary>
+        </member>
+        <member name="E:CoViD.CL.Person.Sick">
+            <summary>
+            Event raised when a person become 'Ill' (contagious)
+            </summary>
+        </member>
+        <member name="T:CoViD.CL.Person.SneezeDelegate">
+            <summary>
+            The delegate for the 'Sneeze' event. (Sneezing is one way that lets the viruses spread)
+            </summary>
+            <param name="viruses">The number of (unity of) viruses emitted with the sneeze.</param>
+            <param name="location">The 'Point' infected by the sneeze.</param>
+        </member>
         <member name="E:CoViD.CL.Person.Sneeze">
             <summary>
-            The person sneezes and spreads viruses
+            Event raised each time the person sneezes, spreading viruses.
             </summary>
-            <param name="viruses">The number of viruses a sneeze can emit.</param>
-            <param name="x">The x location of the person.</param>
-            <param name="y">The y location of the person.</param>
         </member>
         <member name="M:CoViD.CL.Person.OnSneeze(System.Decimal,CoViD.CL.Point)">
             <summary>
             Infrastructural methods: prevents the null reference exception
             </summary>
-            <param name="viruses">Tghe number of viruses spreaded by the sneeze.</param>
+            <param name="viruses">The number of viruses spreaded by the sneeze.</param>
             <param name="location">The current location of the person</param>
+        </member>
+        <member name="T:CoViD.CL.Person.TouchDelegate">
+            <summary>
+            The delegate for the 'Touch' event. (Touching is the oter way that lets the viruses spread)
+            </summary>
+            <param name="viruses">The number of viruses spreaded by the sneeze.</param>
+            <param name="location">The current location of the person</param>
+            <returns></returns>
+        </member>
+        <member name="E:CoViD.CL.Person.Touch">
+            <summary>
+            Event raised each time the person touches something, spreading viruses.
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Person.OnTouch(System.UInt64)">
+            <summary>
+            Infrastructural methods: prevents the null reference exception
+            </summary>
+            <param name="viruses"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoViD.CL.Person.InhaleDelegate">
+            <summary>
+            The delegate for the 'Inhale' event. (Inhaling is a way that lets the viruses enter the body)
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Person.OnInhale">
+            <summary>
+            Infrastructural methods: prevents the null reference exception
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CoViD.CL.Person.ExhaleDelegate">
+            <summary>
+            The delegate for the 'Exhale' event. (Inhaling is a way that lets the viruses enter the body)
+            </summary>
+            <param name="viruses">The number of viruses a sneeze can emit.</param>
+            <param name="x">The x location of the person.</param>
+            <param name="y">The y location of the person.</param>
+        </member>
+        <member name="E:CoViD.CL.Person.Exhale">
+            <summary>
+            Infrastructural methods: prevents the null reference exception
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Person.OnCough(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Infrastructural methods: prevents the null reference exception
+            </summary>
+            <param name="viruses"></param>
+            <param name="x"></param>
+            <param name="y"></param>
         </member>
         <member name="P:CoViD.CL.Person.AntibodyGrowthRatio">
             <summary>
              Antibodies's growth ratio
+            </summary>
+        </member>
+        <member name="P:CoViD.CL.Person.AntibodyGrowth">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:CoViD.CL.Person.AntibodyDecayRatio">
@@ -224,10 +375,20 @@
             The 'theoric' growth percentage for the virus. (here plays the rule of the maximum growth percentage.)
             </summary>
         </member>
+        <member name="P:CoViD.CL.Person.Age">
+            <summary>
+            The age of the person
+            </summary>
+        </member>
         <member name="F:CoViD.CL.Person.VirusLimit">
             <summary>
             Max number of ("unities") of viruses in a body.
             (Used to get a limit to the growth of the number of viruses.)
+            </summary>
+        </member>
+        <member name="P:CoViD.CL.Person.DeadThreshold">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:CoViD.CL.Person.Location">
@@ -268,6 +429,12 @@
             the number of viruses. Should be regarded as the number of "unities" of viruses
             </summary>
         </member>
+        <member name="M:CoViD.CL.Person.#ctor(CoViD.CL.Locations)">
+            <summary>
+            
+            </summary>
+            <param name="locations"></param>
+        </member>
         <member name="M:CoViD.CL.Person.#ctor(CoViD.CL.Locations,Vi.Types.Percentage,Vi.Types.Percentage,Vi.Types.Percentage,Vi.Types.Percentage,System.Byte)">
             <summary>
             
@@ -279,24 +446,105 @@
             <param name="deadThreshold"></param>
             <param name="mobility"></param>
         </member>
-        <member name="F:CoViD.CL.Popolation.Latency">
+        <member name="M:CoViD.CL.Person.Configure(CoViD.CL.Locations,Vi.Types.Percentage,Vi.Types.Percentage,Vi.Types.Percentage,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="locations"></param>
+            <param name="virusGrowth"></param>
+            <param name="antibodyGrowth"></param>
+            <param name="antibodyDecay"></param>
+            <param name="mobility"></param>
+        </member>
+        <member name="T:CoViD.CL.Population">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CoViD.CL.Population.N">
+            <summary>
+            The total number of persons
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.Susceptibles">
+            <summary>
+             The number of susceptible individuals. When a susceptible and an infectious individual come into "infectious contact", the susceptible individual contracts the disease and transitions to the infectious compartment. [Wiki]
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.Infected">
+            <summary>
+            The number of infectious individuals. These are individuals who have been infected and are capable of infecting susceptible individuals. [Wiki]
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.Recovered">
+            <summary>
+            for the number of removed (and immune) or deceased individuals. These are individuals who have been infected and have either recovered from the disease and entered the removed compartment, or died. It is assumed that the number of deaths is negligible with respect to the total population. This compartment may also be called "recovered" or "resistant". [Wiki]
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.DSusceptibles">
+            <summary>
+            Delta Susceptibles. The increments of the 'Susceptibles'.
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.DInfected">
+            <summary>
+            Delta Infected. The increments of the 'Infected'.
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.DRecovered">
+            <summary>
+            Delta Recovered. The increments of the 'Recovered'.
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.Latency">
             <summary>
             The number of person in 'Latency': infected but still not contagious.
             </summary>
         </member>
-        <member name="F:CoViD.CL.Popolation.Ill">
+        <member name="F:CoViD.CL.Population.Ill">
             <summary>
             The number of person 'ill'
             </summary>
         </member>
-        <member name="F:CoViD.CL.Popolation.Severe">
+        <member name="F:CoViD.CL.Population.Severe">
             <summary>
             The number of person in need of Hospitalization
             </summary>
         </member>
-        <member name="F:CoViD.CL.Popolation.Convalescent">
+        <member name="F:CoViD.CL.Population.Convalescent">
             <summary>
             The number of person 
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.Immunes">
+            <summary>
+            The number of people recovered alive from the illness.
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.Deads">
+            <summary>
+            The number of people recovered dead from the illness.
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.γ">
+            <summary>
+            In the theory of SIR equation γ the probability of an infectious individual recovering. 
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Population.β">
+            <summary>
+            In the theory of SIR equation β is the average number of contacts per person per time and is a given value
+            In this model is a calculated  value. 
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Population.Reset">
+            <summary>
+            Resets all the Person in this Population
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Population.Tick">
+            <summary>
+            Runs the single unit of time. (Resets all the counter calls 'Tick' on all the person and sets all the statistics):
             </summary>
         </member>
         <member name="T:CoViD.CL.Locations">

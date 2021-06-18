@@ -6,17 +6,50 @@ using Vi.Tools.Extensions.Random;
 
 namespace CoViD.CL
 {
-	public class Popolation : System.Collections.Generic.List<CoViD.CL.Person>
+	/// <summary>
+	/// 
+	/// </summary>
+	public class Population : System.Collections.Generic.List<CoViD.CL.Person>
 	{
 		#region SIR
+
+		/// <summary>
+		/// The total number of persons
+		/// </summary>
+		public int N
+		{
+			get { return this.Count; }
+			private set { }
+		}
+
+		/// <summary>
+		///  The number of susceptible individuals. When a susceptible and an infectious individual come into "infectious contact", the susceptible individual contracts the disease and transitions to the infectious compartment. [Wiki]
+		/// </summary>
 		public int Susceptibles = 0;
+
+		/// <summary>
+		/// The number of infectious individuals. These are individuals who have been infected and are capable of infecting susceptible individuals. [Wiki]
+		/// </summary>
 		public int Infected = 0;
+
+		/// <summary>
+		/// for the number of removed (and immune) or deceased individuals. These are individuals who have been infected and have either recovered from the disease and entered the removed compartment, or died. It is assumed that the number of deaths is negligible with respect to the total population. This compartment may also be called "recovered" or "resistant". [Wiki]
+		/// </summary>
 		public int Recovered = 0;
 
+		/// <summary>
+		/// Delta Susceptibles. The increments of the 'Susceptibles'.
+		/// </summary>
 		public int DSusceptibles = 0;
+
+		/// <summary>
+		/// Delta Infected. The increments of the 'Infected'.
+		/// </summary>
 		public int DInfected = 0;
-		//////////////public float DInfected10 = 0;
-		////////////public List<int> _DInfected10 = new List<int>();
+
+		/// <summary>
+		/// Delta Recovered. The increments of the 'Recovered'.
+		/// </summary>
 		public int DRecovered = 0;
 		#endregion
 
@@ -39,22 +72,44 @@ namespace CoViD.CL
 		/// The number of person 
 		/// </summary>
 		public int Convalescent = 0;
+
+		/// <summary>
+		/// The number of people recovered alive from the illness.
+		/// </summary>
 		public int Immunes = 0;
+
+		/// <summary>
+		/// The number of people recovered dead from the illness.
+		/// </summary>
 		public int Deads = 0;
 
+		/// <summary>
+		/// In the theory of SIR equation γ the probability of an infectious individual recovering. 
+		/// </summary>
+		public double γ = 0;
+
+		/// <summary>
+		/// In the theory of SIR equation β is the average number of contacts per person per time and is a given value
+		/// In this model is a calculated  value. 
+		/// </summary>
+		public double β = 0;
+
+		/// <summary>
+		/// Resets all the Person in this Population
+		/// </summary>
 		public void Reset() {
-			//////////base.Reset();
 			this.ForEach(person => person.Reset()); 
 		}
-		new public void Tick()
+
+
+
+		/// <summary>
+		/// Runs the single unit of time. (Resets all the counter calls 'Tick' on all the person and sets all the statistics):
+		/// </summary>
+		public void Tick()
 		{
-			//int susceptibles = 0; ;
 			int infected = 0;
 			int recovered = 0;
-
-			//this.DSusceptibles = 0;
-			//this.DInfected = 0;
-			//this.DRecovered = 0;
 
 			this.Latency = 0;
 			this.Ill = 0;
@@ -65,10 +120,8 @@ namespace CoViD.CL
 
 			this.ForEach((person) =>
 			{
-				//this.Susceptibles = this.Count;
 				person.Tick();
 
-				/////susceptibles += person.IsSusceptible ? 1 : 0;
 				infected += person.IsI ? 1 : 0;
 				recovered += person.IsR ? 1 : 0;
 
@@ -80,29 +133,21 @@ namespace CoViD.CL
 				this.Deads += person.IsDead ? 1 : 0;
 			});
 
-			/////int susceptibles = this.Count - (infected + recovered); ;
-
-			////////this.DSusceptibles = this.Susceptibles - (infected + recovered);
 			this.DInfected = infected - this.Infected;
-			////////////this._DInfected10.Add(this.DInfected);
-			////////////if (this._DInfected10.Count > 20) { this._DInfected10.RemoveAt(0); }
-			////////////if (this._DInfected10.Count > 20) { this._DInfected10.RemoveAt(0); }
-			////////////if (this._DInfected10.Count == 20) { 
-			////////////	this.DInfected10 = 
-			////////////		(float)(
-			////////////		this._DInfected10[0] + this._DInfected10[1] + this._DInfected10[2] + this._DInfected10[3] + this._DInfected10[4] + this._DInfected10[5] + this._DInfected10[6] + this._DInfected10[7] + this._DInfected10[8] + this._DInfected10[9] +
-			////////////		this._DInfected10[10] + this._DInfected10[11] + this._DInfected10[12] + this._DInfected10[13] + this._DInfected10[14] + this._DInfected10[15] + this._DInfected10[16] + this._DInfected10[17] + this._DInfected10[18] + this._DInfected10[19]) / 20F; 
-			
-			////////////}
 
 			this.DRecovered = recovered -  this.Recovered;
 			this.DSusceptibles =  - (this.DInfected + this.DRecovered);
+
+			this.γ = (double)this.DRecovered / (double)this.Infected;
+
+			double IS = (double)this.Infected * (double)this.Susceptibles;
+			this.β = (this.N / IS) * (double)this.DSusceptibles;
+
 
 			this.Susceptibles = this.Count - (infected + recovered);
 			this.Infected = infected;
 			this.Recovered = recovered;
 		}
 
-		//new void Add(Person person);
 	}
 }

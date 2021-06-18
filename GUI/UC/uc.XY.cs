@@ -13,12 +13,34 @@ using Vi.Tools.Extensions.Float;
 
 namespace CoViD.GUI
 {
+	/// <summary>
+	/// 2D Diagram specialized to display CoViD spread's data.
+	/// It's a wrapper around a 'Cartesian'
+	/// </summary>
 	public partial class XY : UserControl
 	{
+		/// <summary>
+		/// The delegate for the event 'Coordinates'
+		/// </summary>
+		/// <param name="x">The 'x' value.</param>
+		/// <param name="y">The 'y' value.</param>
 		public delegate void CoordinatesDelegate(float x, float y);
-		public event CoordinatesDelegate Coordinates;
-		private void OnCoordinates(float x, float y)		{ if (this.Coordinates != null) { this.Coordinates(x, y); }	}
 
+		/// <summary>
+		/// Exposes the coordinate of the moving mouse.
+		/// </summary>
+		public event CoordinatesDelegate Coordinates;
+
+		/// <summary>
+		/// Method to 'safely' call the event 'Coordinates'.
+		/// </summary>
+		/// <param name="x">The 'x' value.</param>
+		/// <param name="y">The 'y' value.</param>
+		private void OnCoordinates(float x, float y){ if (this.Coordinates != null) { this.Coordinates(x, y); }	}
+
+		/// <summary>
+		/// The local instance of a plot area
+		/// </summary>
 		public CoViD.GUI.UC.Cartesian Cartesian;
 
 		/// <summary>
@@ -28,6 +50,9 @@ namespace CoViD.GUI
 
 		private Color ColorAxis = Color.FromArgb(74, 74, 74);
 
+		/// <summary>
+		/// Main CTor
+		/// </summary>
 		public XY()
 		{
 			InitializeComponent();
@@ -35,9 +60,21 @@ namespace CoViD.GUI
 
 		private void XY_Load(object sender, EventArgs e)
 		{
-
 		}
 
+		/// <summary>
+		/// Initialize the Diagram.
+		/// </summary>
+		/// <param name="xMin">The min value for the x axis.</param>
+		/// <param name="xMax">The max value for the x axis.</param>
+		/// <param name="textXMin">The text to show for the min value for the x axis.</param>
+		/// <param name="textXMax">The text to show for the max value for the x axis.</param>
+		/// <param name="labelX">The text for the x axis</param>
+		/// <param name="yMin">The min value for the y axis.</param>
+		/// <param name="yMax">The max value for the x axis.</param>
+		/// <param name="textYMin">The text to show for the min value for the y axis.</param>
+		/// <param name="textYMax">The text to show for the max value for the y axis.</param>
+		/// <param name="labelY">The text for the y axis</param>
 		public void SetXY(
 			float xMin, float xMax, string textXMin, string textXMax, string labelX,
 			float yMin, float yMax, string textYMin, string textYMax, string labelY
@@ -58,6 +95,7 @@ namespace CoViD.GUI
 			this.UCGraphics.FillRectangle(new SolidBrush(ColorAxis), this.pctDrawingGrid.Left - 1, this.pctDrawingGrid.Top + this.pctDrawingGrid.Height, this.pctDrawingGrid.Width, 1);
 			this.UCGraphics.FillRectangle(new SolidBrush(ColorAxis), this.pctDrawingGrid.Left - 1, this.pctDrawingGrid.Top, 1, this.pctDrawingGrid.Height);
 		}
+
 
 		private void Cartesian_Coordinates(float x, float y)
 		{
@@ -96,6 +134,7 @@ namespace CoViD.GUI
 
 			}
 		}
+
 
 		private void XY_Resize(object sender, EventArgs e)
 		{
