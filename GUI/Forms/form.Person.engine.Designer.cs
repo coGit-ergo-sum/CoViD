@@ -17,7 +17,7 @@ namespace CoViD.GUI.Forms
 			this.InitializeStatusStrip();
 
 			var radius = (int)udRadius.Value;
-			var people = 1; // (int)this.udPeople.Value;
+			var people = 1;
 			byte steps = (byte)udSteps.Value;
 			this.TicksMax = (int)udTicks.Value;
 			CoViD.CL.Person.SegregationThreshold = (byte)this.udSegregationThreshold.Value;

@@ -47,9 +47,9 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbSettings,
             this.toolStripSeparator2,
+            this.toolStripSeparator1,
             this.tsbContamination,
             this.tsbPeople,
-            this.toolStripSeparator1,
             this.tsbNew,
             this.tsbReplay,
             this.tsbPlay,
@@ -70,7 +70,7 @@
 			this.tsbSettings.Name = "tsbSettings";
 			this.tsbSettings.Size = new System.Drawing.Size(24, 24);
 			this.tsbSettings.ToolTipText = "Shows the setting\'s page.";
-			this.tsbSettings.Click += new System.EventHandler(this.tsbSettings_Click);
+			this.tsbSettings.Click += new System.EventHandler(this.TsbSettings_Click);
 			// 
 			// toolStripSeparator2
 			// 
@@ -99,7 +99,7 @@
 			this.tsbPeople.Size = new System.Drawing.Size(24, 24);
 			this.tsbPeople.ToolTipText = "Shows the distribution of people and their movements";
 			this.tsbPeople.Visible = false;
-			this.tsbPeople.Click += new System.EventHandler(this.tsbPeople_Click);
+			this.tsbPeople.Click += new System.EventHandler(this.TsbPeople_Click);
 			// 
 			// toolStripSeparator1
 			// 
@@ -115,7 +115,7 @@
 			this.tsbNew.Name = "tsbNew";
 			this.tsbNew.Size = new System.Drawing.Size(24, 24);
 			this.tsbNew.ToolTipText = "Starts a totally new simulation.";
-			this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
+			this.tsbNew.Click += new System.EventHandler(this.TsbNew_Click);
 			// 
 			// tsbReplay
 			// 
@@ -126,7 +126,7 @@
 			this.tsbReplay.Name = "tsbReplay";
 			this.tsbReplay.Size = new System.Drawing.Size(24, 24);
 			this.tsbReplay.ToolTipText = "Restarts from the beginning, the current simulation.";
-			this.tsbReplay.Click += new System.EventHandler(this.tsbReplay_Click);
+			this.tsbReplay.Click += new System.EventHandler(this.TsbReplay_Click);
 			// 
 			// tsbPlay
 			// 
@@ -137,7 +137,7 @@
 			this.tsbPlay.Name = "tsbPlay";
 			this.tsbPlay.Size = new System.Drawing.Size(24, 24);
 			this.tsbPlay.ToolTipText = "Starts / Resumes the current simulation.";
-			this.tsbPlay.Click += new System.EventHandler(this.tsbPlay_Click);
+			this.tsbPlay.Click += new System.EventHandler(this.TsbPlay_Click);
 			// 
 			// tsbPause
 			// 
@@ -151,7 +151,7 @@
 			this.tsbPause.Name = "tsbPause";
 			this.tsbPause.Size = new System.Drawing.Size(24, 24);
 			this.tsbPause.ToolTipText = "Pauses the simulation.";
-			this.tsbPause.Click += new System.EventHandler(this.tsbPause_Click);
+			this.tsbPause.Click += new System.EventHandler(this.TsbPause_Click);
 			// 
 			// ToolStrip
 			// 

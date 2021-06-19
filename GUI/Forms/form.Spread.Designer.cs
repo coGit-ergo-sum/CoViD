@@ -46,19 +46,16 @@
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.tsbSettings = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.tsbContamination = new System.Windows.Forms.ToolStripButton();
-			this.tsbPeople = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbNew = new System.Windows.Forms.ToolStripButton();
 			this.tsbReplay = new System.Windows.Forms.ToolStripButton();
 			this.tsbPlay = new System.Windows.Forms.ToolStripButton();
 			this.tsbPause = new System.Windows.Forms.ToolStripButton();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tsPeople = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsTicks = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.tsContaminatedGrids = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsSusceptibles = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -69,12 +66,10 @@
 			this.tsImmune = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel9 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsDead = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tsContaminatedGrids = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
 			this.legend1 = new CoViD.GUI.UC.Legend();
-			this.udTicks = new CoViD.GUI.UC.UpDown();
-			this.udSegregationThreshold = new CoViD.GUI.UC.UpDown();
-			this.udSteps = new CoViD.GUI.UC.UpDown();
-			this.udPeople = new CoViD.GUI.UC.UpDown();
-			this.udRadius = new CoViD.GUI.UC.UpDown();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -102,10 +97,10 @@
 			this.tabControl1.Controls.Add(this.tabDSIR);
 			this.tabControl1.Controls.Add(this.tabPage3);
 			this.tabControl1.Controls.Add(this.tabPerformances);
-			this.tabControl1.Location = new System.Drawing.Point(9, 93);
+			this.tabControl1.Location = new System.Drawing.Point(0, 33);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1121, 610);
+			this.tabControl1.Size = new System.Drawing.Size(1133, 671);
 			this.tabControl1.TabIndex = 65;
 			this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
 			// 
@@ -116,7 +111,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(1113, 584);
+			this.tabPage1.Size = new System.Drawing.Size(1125, 645);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Region";
 			// 
@@ -134,7 +129,7 @@
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1102, 574);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1114, 635);
 			this.tableLayoutPanel1.TabIndex = 0;
 			// 
 			// grid1
@@ -145,7 +140,7 @@
 			this.grid1.Location = new System.Drawing.Point(3, 3);
 			this.grid1.MinimumSize = new System.Drawing.Size(258, 297);
 			this.grid1.Name = "grid1";
-			this.grid1.Size = new System.Drawing.Size(545, 568);
+			this.grid1.Size = new System.Drawing.Size(551, 629);
 			this.grid1.TabIndex = 0;
 			// 
 			// grid2
@@ -153,10 +148,10 @@
 			this.grid2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
 			this.grid2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grid2.Label = "Title";
-			this.grid2.Location = new System.Drawing.Point(554, 3);
+			this.grid2.Location = new System.Drawing.Point(560, 3);
 			this.grid2.MinimumSize = new System.Drawing.Size(258, 297);
 			this.grid2.Name = "grid2";
-			this.grid2.Size = new System.Drawing.Size(545, 568);
+			this.grid2.Size = new System.Drawing.Size(551, 629);
 			this.grid2.TabIndex = 1;
 			// 
 			// tabPage2
@@ -166,7 +161,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(1113, 584);
+			this.tabPage2.Size = new System.Drawing.Size(1125, 645);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "SIR";
 			// 
@@ -187,7 +182,7 @@
 			this.tabDSIR.Controls.Add(this.xyDSIR);
 			this.tabDSIR.Location = new System.Drawing.Point(4, 22);
 			this.tabDSIR.Name = "tabDSIR";
-			this.tabDSIR.Size = new System.Drawing.Size(1113, 584);
+			this.tabDSIR.Size = new System.Drawing.Size(1125, 645);
 			this.tabDSIR.TabIndex = 4;
 			this.tabDSIR.Text = "Delta SIR";
 			// 
@@ -208,7 +203,7 @@
 			this.tabPage3.Controls.Add(this.xyContaminated);
 			this.tabPage3.Location = new System.Drawing.Point(4, 22);
 			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.Size = new System.Drawing.Size(1113, 584);
+			this.tabPage3.Size = new System.Drawing.Size(1125, 645);
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "Contaminated grids";
 			// 
@@ -229,7 +224,7 @@
 			this.tabPerformances.Controls.Add(this.xyPerformances);
 			this.tabPerformances.Location = new System.Drawing.Point(4, 22);
 			this.tabPerformances.Name = "tabPerformances";
-			this.tabPerformances.Size = new System.Drawing.Size(1113, 584);
+			this.tabPerformances.Size = new System.Drawing.Size(1125, 645);
 			this.tabPerformances.TabIndex = 3;
 			this.tabPerformances.Text = "Performances";
 			// 
@@ -250,9 +245,6 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbSettings,
             this.toolStripSeparator2,
-            this.tsbContamination,
-            this.tsbPeople,
-            this.toolStripSeparator1,
             this.tsbNew,
             this.tsbReplay,
             this.tsbPlay,
@@ -278,32 +270,6 @@
 			this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
-			// 
-			// tsbContamination
-			// 
-			this.tsbContamination.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbContamination.Image = global::CoViD.GUI.Properties.Resources.biohazard_32x32;
-			this.tsbContamination.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbContamination.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-			this.tsbContamination.Name = "tsbContamination";
-			this.tsbContamination.Size = new System.Drawing.Size(24, 24);
-			this.tsbContamination.ToolTipText = "Shows the contaminated grids.";
-			// 
-			// tsbPeople
-			// 
-			this.tsbPeople.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbPeople.Image = global::CoViD.GUI.Properties.Resources.Users_32x32;
-			this.tsbPeople.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbPeople.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
-			this.tsbPeople.Name = "tsbPeople";
-			this.tsbPeople.Size = new System.Drawing.Size(24, 24);
-			this.tsbPeople.ToolTipText = "Shows the distribution of people and their movements";
-			this.tsbPeople.Click += new System.EventHandler(this.tsbPeople_Click);
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
 			// 
 			// tsbNew
 			// 
@@ -356,11 +322,11 @@
 			// statusStrip1
 			// 
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel4,
+            this.tsPeople,
             this.tsLabel1,
             this.tsTicks,
             this.tsProgressBar,
-            this.toolStripStatusLabel2,
-            this.tsContaminatedGrids,
             this.toolStripStatusLabel1,
             this.tsSusceptibles,
             this.toolStripStatusLabel3,
@@ -370,11 +336,29 @@
             this.toolStripStatusLabel7,
             this.tsImmune,
             this.toolStripStatusLabel9,
-            this.tsDead});
+            this.tsDead,
+            this.toolStripStatusLabel2,
+            this.tsContaminatedGrids});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 710);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Size = new System.Drawing.Size(1135, 22);
 			this.statusStrip1.TabIndex = 76;
+			// 
+			// toolStripStatusLabel4
+			// 
+			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+			this.toolStripStatusLabel4.Size = new System.Drawing.Size(43, 17);
+			this.toolStripStatusLabel4.Text = "People";
+			// 
+			// tsPeople
+			// 
+			this.tsPeople.AutoSize = false;
+			this.tsPeople.ForeColor = System.Drawing.Color.DarkRed;
+			this.tsPeople.Name = "tsPeople";
+			this.tsPeople.Size = new System.Drawing.Size(50, 17);
+			this.tsPeople.Text = "12.000";
+			this.tsPeople.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.tsPeople.ToolTipText = "The number of people in this simulation.";
 			// 
 			// tsLabel1
 			// 
@@ -396,26 +380,12 @@
 			// 
 			// tsProgressBar
 			// 
+			this.tsProgressBar.AutoToolTip = true;
 			this.tsProgressBar.Margin = new System.Windows.Forms.Padding(1, 3, 5, 3);
 			this.tsProgressBar.Name = "tsProgressBar";
 			this.tsProgressBar.Size = new System.Drawing.Size(100, 16);
 			this.tsProgressBar.Step = 1;
 			this.tsProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-			// 
-			// toolStripStatusLabel2
-			// 
-			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-			this.toolStripStatusLabel2.Size = new System.Drawing.Size(115, 17);
-			this.toolStripStatusLabel2.Text = "Contaminated grids:";
-			this.toolStripStatusLabel2.ToolTipText = "The number of place contaminated by the virus.";
-			// 
-			// tsContaminatedGrids
-			// 
-			this.tsContaminatedGrids.ForeColor = System.Drawing.Color.DarkRed;
-			this.tsContaminatedGrids.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
-			this.tsContaminatedGrids.Name = "tsContaminatedGrids";
-			this.tsContaminatedGrids.Size = new System.Drawing.Size(13, 19);
-			this.tsContaminatedGrids.Text = "0";
 			// 
 			// toolStripStatusLabel1
 			// 
@@ -468,7 +438,7 @@
 			this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
 			this.toolStripStatusLabel7.Size = new System.Drawing.Size(55, 20);
 			this.toolStripStatusLabel7.Text = "Immune:";
-			this.toolStripStatusLabel7.ToolTipText = "These  is a portion of \'Recovered\'.";
+			this.toolStripStatusLabel7.ToolTipText = "This  is the healed portion of \'Recovered\'.";
 			// 
 			// tsImmune
 			// 
@@ -494,6 +464,28 @@
 			this.tsDead.Size = new System.Drawing.Size(13, 19);
 			this.tsDead.Text = "0";
 			// 
+			// toolStripStatusLabel2
+			// 
+			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+			this.toolStripStatusLabel2.Size = new System.Drawing.Size(122, 17);
+			this.toolStripStatusLabel2.Text = "Contaminated points:";
+			this.toolStripStatusLabel2.ToolTipText = "The number of place contaminated by the virus.";
+			// 
+			// tsContaminatedGrids
+			// 
+			this.tsContaminatedGrids.ForeColor = System.Drawing.Color.DarkRed;
+			this.tsContaminatedGrids.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
+			this.tsContaminatedGrids.Name = "tsContaminatedGrids";
+			this.tsContaminatedGrids.Size = new System.Drawing.Size(13, 19);
+			this.tsContaminatedGrids.Text = "0";
+			// 
+			// toolStrip2
+			// 
+			this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+			this.toolStrip2.Name = "toolStrip2";
+			this.toolStrip2.Size = new System.Drawing.Size(100, 25);
+			this.toolStrip2.TabIndex = 0;
+			// 
 			// legend1
 			// 
 			this.legend1.BackColor = System.Drawing.SystemColors.Control;
@@ -506,93 +498,10 @@
 			this.legend1.IsSevere = true;
 			this.legend1.IsSIR = false;
 			this.legend1.IsSusceptible = true;
-			this.legend1.Location = new System.Drawing.Point(388, 98);
+			this.legend1.Location = new System.Drawing.Point(388, 34);
 			this.legend1.Name = "legend1";
 			this.legend1.Size = new System.Drawing.Size(717, 15);
 			this.legend1.TabIndex = 77;
-			// 
-			// udTicks
-			// 
-			this.udTicks.Caption = "Ticks";
-			this.udTicks.Decimals = ((sbyte)(0));
-			this.udTicks.Location = new System.Drawing.Point(643, 42);
-			this.udTicks.MaximumSize = new System.Drawing.Size(335, 45);
-			this.udTicks.MinimumSize = new System.Drawing.Size(162, 45);
-			this.udTicks.Name = "udTicks";
-			this.udTicks.Size = new System.Drawing.Size(214, 45);
-			this.udTicks.TabIndex = 74;
-			this.udTicks.Value = new decimal(new int[] {
-            25000,
-            0,
-            0,
-            0});
-			// 
-			// udSegregationThreshold
-			// 
-			this.udSegregationThreshold.Caption = "Segregation level";
-			this.udSegregationThreshold.Decimals = ((sbyte)(0));
-			this.udSegregationThreshold.Location = new System.Drawing.Point(946, 42);
-			this.udSegregationThreshold.MaximumSize = new System.Drawing.Size(335, 45);
-			this.udSegregationThreshold.MinimumSize = new System.Drawing.Size(162, 45);
-			this.udSegregationThreshold.Name = "udSegregationThreshold";
-			this.udSegregationThreshold.Size = new System.Drawing.Size(177, 45);
-			this.udSegregationThreshold.TabIndex = 73;
-			this.udSegregationThreshold.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			// 
-			// udSteps
-			// 
-			this.udSteps.Caption = "Steps";
-			this.udSteps.Decimals = ((sbyte)(0));
-			this.udSteps.Location = new System.Drawing.Point(465, 42);
-			this.udSteps.MaximumSize = new System.Drawing.Size(335, 45);
-			this.udSteps.MinimumSize = new System.Drawing.Size(162, 45);
-			this.udSteps.Name = "udSteps";
-			this.udSteps.Size = new System.Drawing.Size(172, 45);
-			this.udSteps.TabIndex = 51;
-			this.udSteps.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.udSteps.Click += new System.EventHandler(this.up_Click);
-			// 
-			// udPeople
-			// 
-			this.udPeople.Caption = "People";
-			this.udPeople.Decimals = ((sbyte)(0));
-			this.udPeople.Location = new System.Drawing.Point(244, 42);
-			this.udPeople.MaximumSize = new System.Drawing.Size(335, 45);
-			this.udPeople.MinimumSize = new System.Drawing.Size(162, 45);
-			this.udPeople.Name = "udPeople";
-			this.udPeople.Size = new System.Drawing.Size(215, 45);
-			this.udPeople.TabIndex = 50;
-			this.udPeople.Value = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-			this.udPeople.Click += new System.EventHandler(this.up_Click);
-			// 
-			// udRadius
-			// 
-			this.udRadius.Caption = "Radius";
-			this.udRadius.Decimals = ((sbyte)(0));
-			this.udRadius.Location = new System.Drawing.Point(11, 42);
-			this.udRadius.MaximumSize = new System.Drawing.Size(335, 45);
-			this.udRadius.MinimumSize = new System.Drawing.Size(162, 45);
-			this.udRadius.Name = "udRadius";
-			this.udRadius.Size = new System.Drawing.Size(227, 45);
-			this.udRadius.TabIndex = 48;
-			this.udRadius.Value = new decimal(new int[] {
-            12000,
-            0,
-            0,
-            0});
-			this.udRadius.Click += new System.EventHandler(this.up_Click);
 			// 
 			// Spread
 			// 
@@ -601,13 +510,8 @@
 			this.ClientSize = new System.Drawing.Size(1135, 732);
 			this.Controls.Add(this.legend1);
 			this.Controls.Add(this.statusStrip1);
-			this.Controls.Add(this.udTicks);
-			this.Controls.Add(this.udSegregationThreshold);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.tabControl1);
-			this.Controls.Add(this.udSteps);
-			this.Controls.Add(this.udPeople);
-			this.Controls.Add(this.udRadius);
 			this.DoubleBuffered = true;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MinimumSize = new System.Drawing.Size(730, 730);
@@ -639,22 +543,14 @@
 		private System.Windows.Forms.TabControl tabControl1;
 		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.TabPage tabPage2;
-		private UC.UpDown udSteps;
-		private UC.UpDown udPeople;
-		private UC.UpDown udRadius;
 		private XY xySIR;
 		private System.Windows.Forms.TabPage tabPage3;
 		private System.Windows.Forms.ToolStrip toolStrip1;
 		private System.Windows.Forms.ToolStripButton tsbReplay;
 		private System.Windows.Forms.ToolStripButton tsbPlay;
 		private System.Windows.Forms.ToolStripButton tsbPause;
-		private System.Windows.Forms.ToolStripButton tsbPeople;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripButton tsbContamination;
 		private System.Windows.Forms.ToolStripButton tsbNew;
 		private XY xyContaminated;
-		private UC.UpDown udSegregationThreshold;
-		private UC.UpDown udTicks;
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripStatusLabel tsLabel1;
 		private System.Windows.Forms.ToolStripStatusLabel tsTicks;
@@ -681,5 +577,8 @@
 		private UC.Grid grid2;
 		private System.Windows.Forms.TabPage tabDSIR;
 		private XY xyDSIR;
+		private System.Windows.Forms.ToolStrip toolStrip2;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+		private System.Windows.Forms.ToolStripStatusLabel tsPeople;
 	}
 }

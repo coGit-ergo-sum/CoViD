@@ -45,28 +45,15 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tools">
-      <HintPath>..\Tools.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="class.Settings.cs" />
+    <Compile Include="Tools\Extensions\Extension.Profile.cs" />
+    <Compile Include="Tools\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="Tools\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\form.Infection.cs">
       <SubType>Form</SubType>
@@ -83,6 +70,12 @@
     <Compile Include="Forms\form.Person.engine.Designer.cs">
       <DependentUpon>form.Person.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\form.Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\form.Settings.Designer.cs">
+      <DependentUpon>form.Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\form.Spread.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,35 +85,11 @@
     <Compile Include="Forms\form.Spread.engine.Designer.cs">
       <DependentUpon>form.Spread.cs</DependentUpon>
     </Compile>
-    <Compile Include="MDI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MDI.Designer.cs">
-      <DependentUpon>MDI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MFI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MFI.Designer.cs">
-      <DependentUpon>MFI.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Class1.cs" />
     <Compile Include="Tools\Extensions\Extension.Person.cs" />
-    <Compile Include="Tools\Form5.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tools\Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC\class.Cartesian.cs" />
-    <Compile Include="UC\ToolStrip.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC\ToolStrip.Designer.cs">
-      <DependentUpon>ToolStrip.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC\uc.Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,14 +129,8 @@
     <Compile Include="UC\uc.XY.Designer.cs">
       <DependentUpon>uc.XY.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="Tools\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\form.Infection.resx">
       <DependentUpon>form.Infection.cs</DependentUpon>
@@ -175,14 +138,11 @@
     <EmbeddedResource Include="Forms\form.Person.resx">
       <DependentUpon>form.Person.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\form.Settings.resx">
+      <DependentUpon>form.Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\form.Spread.resx">
       <DependentUpon>form.Spread.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MDI.resx">
-      <DependentUpon>MDI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MFI.resx">
-      <DependentUpon>MFI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -194,12 +154,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Tools\Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC\ToolStrip.resx">
-      <DependentUpon>ToolStrip.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC\uc.Item.resx">
       <DependentUpon>uc.Item.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +187,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Tools\Tools.csproj">
+      <Project>{8c4a272a-375e-4615-bd00-e1e3633a25ae}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CL\CL.csproj">
       <Project>{c0e6f3ea-5d09-43b9-b9f1-8a47c846bb37}</Project>
       <Name>CL</Name>

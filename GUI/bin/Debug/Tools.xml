@@ -1,0 +1,2515 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tools</name>
+    </assembly>
+    <members>
+        <member name="M:Vi.API.Wtsapi32.WTSQuerySessionInformationW(System.IntPtr,System.Int32,Vi.API.Wtsapi32.WTS_INFO_CLASS,System.IntPtr@,System.IntPtr@)">
+            <summary>
+            Retrieves session information for the specified session on the specified Remote Desktop Session Host (RD Session Host) server. 
+            It can be used to query session information on local and remote RD Session Host servers.
+            </summary>
+            <param name="hServer">A handle to an RD (Remote Desktop) Session Host server. Specify a handle opened by the WTSOpenServer function, 
+            or specify WTS_CURRENT_SERVER_HANDLE to indicate the RD Session Host server on which your application is running.</param>
+            <param name="SessionId">A Remote Desktop Services session identifier. To indicate the session in which the calling application is 
+            running (or the current session) specify WTS_CURRENT_SESSION. Only specify WTS_CURRENT_SESSION when obtaining session information on 
+            the local server. If WTS_CURRENT_SESSION is specified when querying session information on a remote server, the returned session 
+            information will be inconsistent. Do not use the returned data.</param>
+            <param name="WTSInfoClass">A value of the WTS_INFO_CLASS enumeration that indicates the type of session information to retrieve in 
+            a call to the WTSQuerySessionInformation function.</param>
+            <param name="ppBuffer">A pointer to a variable that receives a pointer to the requested information. The format and contents of the 
+            data depend on the information class specified in the WTSInfoClass parameter. To free the returned buffer, call the WTSFreeMemory 
+            function.</param>
+            <param name="pBytesReturned">A pointer to a variable that receives the size, in bytes, of the data returned in ppBuffer.</param>
+            <returns>If the function succeeds, the return value is a nonzero value. If the function fails, the return value is zero.
+            To get extended error information, call GetLastError.</returns>
+        </member>
+        <member name="T:Vi.API.Wtsapi32.WTS_INFO_CLASS">
+            <summary>
+            Contains values that indicate the type of session information to retrieve in a call to the WTSQuerySessionInformation function.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSInitialProgram">
+            <summary>
+            A null-terminated string that contains the name of the initial program that Remote Desktop Services runs when the user logs on.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSApplicationName">
+            <summary>
+            A null-terminated string that contains the published name of the application that the session is running. 
+            Windows Server 2008 R2, Windows 7, Windows Server 2008 and Windows Vista:  This value is not supported
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSWorkingDirectory">
+            <summary>
+            A null-terminated string that contains the default directory used when launching the initial program.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSOEMId">
+            <summary>
+            This value is not used.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSSessionId">
+            <summary>
+            A ULONG value that contains the session identifier.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSUserName">
+            <summary>
+            A null-terminated string that contains the name of the user associated with the session.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSWinStationName">
+            <summary>
+            A null-terminated string that contains the name of the Remote Desktop Services session.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSDomainName">
+            <summary>
+            A null-terminated string that contains the name of the domain to which the logged-on user belongs.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSConnectState">
+            <summary>
+            The session's current connection state. For more information, see
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSClientBuildNumber">
+            <summary>
+            A ULONG value that contains the build number of the client.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSClientName">
+            <summary>
+            A null-terminated string that contains the name of the client.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSClientDirectory">
+            <summary>
+            A null-terminated string that contains the directory in which the client is installed.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSClientProductId">
+            <summary>
+            A USHORT client-specific product identifier.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSClientHardwareId">
+            <summary>
+            A ULONG value that contains a client-specific hardware identifier. This option is reserved for future use.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSClientAddress">
+            <summary>
+            The network type and network address of the client. For more information, see WTS_CLIENT_ADDRESS.
+            The IP address is offset by two bytes from the start of the Address member of the WTS_CLIENT_ADDRESS structure.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSClientDisplay">
+            <summary>
+            Information about the display resolution of the client. For more information, see
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSClientProtocolType">
+            <summary>
+            A USHORT value that specifies information about the protocol type for the session. This is one of the following values.
+            can be: {0: The console session, 1: This value is retained for legacy purposes, 2: The RDP protocol.}
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSIdleTime">
+            <summary>
+            This value returns FALSE. If you call GetLastError to get extended error information, GetLastError returns ERROR_NOT_SUPPORTED.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSLogonTime">
+            <summary>
+            This value returns FALSE. If you call GetLastError to get extended error information, GetLastError returns ERROR_NOT_SUPPORTED.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSIncomingBytes">
+            <summary>
+            This value returns FALSE. If you call GetLastError to get extended error information, GetLastError returns ERROR_NOT_SUPPORTED.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSOutgoingBytes">
+            <summary>
+            This value returns FALSE. If you call GetLastError to get extended error information, GetLastError returns ERROR_NOT_SUPPORTED.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSIncomingFrames">
+            <summary>
+            This value returns FALSE. If you call GetLastError to get extended error information, GetLastError returns ERROR_NOT_SUPPORTED.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSOutgoingFrames">
+            <summary>
+            This value returns FALSE. If you call GetLastError to get extended error information, GetLastError returns ERROR_NOT_SUPPORTED.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSClientInfo">
+            <summary>
+            Information about a Remote Desktop Connection (RDC) client. For more information, see WTSCLIENT.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSSessionInfo">
+            <summary>
+            Information about a client session on a RD Session Host server. For more information, see WTSINFO.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSSessionInfoEx">
+            <summary>
+            Extended information about a session on a RD Session Host server. For more information, see WTSINFOEX.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSConfigInfo">
+            <summary>
+            A WTSCONFIGINFO structure that contains information about the configuration of a RD Session Host server.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSValidationInfo">
+            <summary>
+            This value is not supported.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSSessionAddressV4">
+            <summary>
+            A WTS_SESSION_ADDRESS structure that contains the IPv4 address assigned to the session.
+            If the session does not have a virtual IP address, the WTSQuerySessionInformation function returns ERROR_NOT_SUPPORTED.
+            </summary>
+        </member>
+        <member name="F:Vi.API.Wtsapi32.WTS_INFO_CLASS.WTSIsRemoteSession">
+            <summary>
+            Determines whether the current session is a remote session. The WTSQuerySessionInformation function 
+            returns a value of TRUE to indicate that the current session is a remote session, and FALSE to indicate 
+            that the current session is a local session. This value can only be used for the local machine, so 
+            the hServer parameter of the WTSQuerySessionInformation function must contain WTS_CURRENT_SERVER_HANDLE.
+            </summary>
+        </member>
+        <member name="T:Vi.API.Kernel32">
+            <summary>
+            Translates the mothods of the API 'Kernel32' to make them usable like mormal c# methods. 
+            </summary>
+        </member>
+        <member name="M:Vi.API.Kernel32.WritePrivateProfileString(System.String,System.String,System.String,System.String)">
+            <summary>
+            Copies a string into the specified section of an initialization file. Using the native unmanaged kernel's function.
+            </summary>
+            <param name="section">The name of the section to which the string will be copied. If the section does not exist, it is created. The name of the section is case-independent; the string can be any combination of uppercase and lowercase letters.</param>
+            <param name="key">The name of the key to be associated with a string. If the key does not exist in the specified section, it is created. If this parameter is NULL, the entire section, including all entries within the section, is deleted.</param>
+            <param name="lpString">A string to be written to the file. If this parameter is NULL, the key pointed to by the 'key' parameter is deleted.</param>
+            <param name="fileName">The name of the initialization file. (If the file was created using Unicode characters, the function writes Unicode characters to the file. Otherwise, the function writes ANSI characters.)</param>
+            <returns>If the function successfully copies the string to the initialization file, the return value is nonzero. If the function fails, or if it flushes the cached version of the most recently accessed initialization file, the return value is zero.To get extended error information, call GetLastError.</returns>
+        </member>
+        <member name="M:Vi.API.Kernel32.GetPrivateProfileString(System.String,System.String,System.String,System.Text.StringBuilder,System.Int32,System.String)">
+            <summary>
+            Retrieves a string from the specified section in an initialization file.
+            </summary>
+            <param name="section">The name of the section to which the string will be copied. If the section does not exist, it is created. The name of the section is case-independent; the string can be any combination of uppercase and lowercase letters.</param>
+            <param name="key">The name of the key to be associated with a string. If the key does not exist in the specified section, it is created. If this parameter is NULL, the entire section, including all entries within the section, is deleted.</param>
+            <param name="default">The returnig value if enything goes wrong.</param>
+            <param name="sb">The string.Builder used to compose the resulting string.</param>
+            <param name="size">The dimension of the buffer.</param>
+            <param name="fileName">The name of the INI file.</param>
+            <returns>A number segnalating if the function succeded.</returns>
+        </member>
+        <member name="M:Vi.API.Kernel32.GetPrivateProfileString(System.String,System.String,System.String,System.Char[],System.Int32,System.String)">
+            <summary>
+            Retrieves an array of characters from the specified section in an initialization file.
+            </summary>
+            <param name="section">The name of the section to which the string will be copied. If the section does not exist, it is created. The name of the section is case-independent; the string can be any combination of uppercase and lowercase letters.</param>
+            <param name="key">The name of the key to be associated with a string. If the key does not exist in the specified section, it is created. If this parameter is NULL, the entire section, including all entries within the section, is deleted.</param>
+            <param name="default">The returnig value if enything goes wrong.</param>
+            <param name="characters">The container used to keep the result.</param>
+            <param name="size">The dimension of the buffer.</param>
+            <param name="fileName">The name of the INI file.</param>
+            <returns>A number segnalating if the function succeded.</returns>
+        </member>
+        <member name="M:Vi.API.Kernel32.GetPrivateProfileString(System.String,System.String,System.String,System.Byte[],System.Int32,System.String)">
+            <summary>
+            Retrieves an array of bytes from the specified section in an initialization file
+            </summary>
+            <param name="section">The name of the section to which the string will be copied. If the section does not exist, it is created. The name of the section is case-independent; the string can be any combination of uppercase and lowercase letters.</param>
+            <param name="key">The name of the key to be associated with a string. If the key does not exist in the specified section, it is created. If this parameter is NULL, the entire section, including all entries within the section, is deleted.</param>
+            <param name="default">The returnig value if enything goes wrong.</param>
+            <param name="bytes">The container used to keep the result.</param>
+            <param name="size">The dimension of the buffer.</param>
+            <param name="fileName">The name of the INI file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.Kernel32.GetPrivateProfileSectionNames(System.Char[],System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="characters"></param>
+            <param name="size"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.Kernel32.GetPrivateProfileSectionNames(System.Byte[],System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="bytes"></param>
+            <param name="size"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.Kernel32.GetPrivateProfileSectionNames(System.IntPtr,System.UInt32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="lpszReturnBuffer"></param>
+            <param name="size"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.Kernel32.GetPrivateProfileSection(System.String,System.Byte[],System.Int32,System.String)">
+            <summary>
+            Retrieves all the keys and values for the specified section of an initialization file.
+            </summary>
+            <param name="section">The name of the section in the initialization file.</param>
+            <param name="bytes">A buffer that receives the key name and value pairs associated with the named section. The buffer is filled with one or more null-terminated strings; the last string is followed by a second null character.</param>
+            <param name="size">The size of the buffer pointed to by the lpReturnedString parameter, in characters. The maximum profile section size is 32,767 characters.</param>
+            <param name="fileName">The name of the initialization file. If this parameter does not contain a full path to the file, the system searches for the file in the Windows directory.</param>
+            <returns>The return value specifies the number of characters copied to the buffer, not including the terminating null character. If the buffer is not large enough to contain all the key name and value pairs associated with the named section, the return value is equal to nSize minus two.</returns>
+        </member>
+        <member name="M:Vi.API.Kernel32.GetLastError">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Vi.API.User32">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Vi.API.User32.SetForegroundWindow(System.IntPtr)">
+            <summary>
+            
+            </summary>
+            <param name="hWnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.User32.SwitchToThisWindow(System.IntPtr,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="hWnd"></param>
+            <param name="fAltTab"></param>
+        </member>
+        <member name="M:Vi.API.User32.FindWindowW(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="lpClassName"></param>
+            <param name="lpWindowName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.User32.SendMessage(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            
+            </summary>
+            <param name="hWnd"></param>
+            <param name="wMsg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.User32.SendMessage(System.IntPtr,System.Int32,System.IntPtr,System.Text.StringBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="hWnd"></param>
+            <param name="Msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.User32.SendMessage(System.IntPtr,System.Int32,System.IntPtr,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hWnd"></param>
+            <param name="Msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.User32.SendMessage(System.IntPtr,System.Int32,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hWnd"></param>
+            <param name="Msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.User32.SendMessage(System.IntPtr,System.Int32,System.Int32,System.IntPtr@)">
+            <summary>
+            
+            </summary>
+            <param name="hWnd"></param>
+            <param name="Msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.API.User32.SendMessage(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
+            <summary>
+            
+            </summary>
+            <param name="hWnd"></param>
+            <param name="Msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Vi.API.CS.Wtsapi32">
+            <summary>
+            La versione 'C#' delle rispettive funzione API.
+            </summary>
+        </member>
+        <member name="M:Vi.API.CS.Wtsapi32.WTSQuerySessionInformationW(System.IntPtr,System.Int32,Vi.API.Wtsapi32.WTS_INFO_CLASS)">
+            <summary>
+            Retrieves session information for the specified session on the specified Remote Desktop Session Host (RD Session Host) server. It can be used to query session information on local and remote RD Session Host servers.
+            </summary>
+            <param name="hServer">A handle to an RD Session Host server. Specify a handle opened by the WTSOpenServer function, or specify WTS_CURRENT_SERVER_HANDLE to indicate the RD Session Host server on which your application is running.</param>
+            <param name="sessionId">A Remote Desktop Services session identifier. To indicate the session in which the calling application is running (or the current session) specify WTS_CURRENT_SESSION. Only specify WTS_CURRENT_SESSION when obtaining session information on the local server. If WTS_CURRENT_SESSION is specified when querying session information on a remote server, the returned session information will be inconsistent. Do not use the returned data.</param>
+            <param name="WTSInfoClass">A value of the WTS_INFO_CLASS enumeration that indicates the type of session information to retrieve in a call to the WTSQuerySessionInformation function.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Vi.Tools.Profile">
+            <summary>
+            Provides methods to manipulate a 'INI' file. This class is a wrapper around the static class: 'Vi.Tools.statics.Profile' where methods are truly implemented.
+            It provides an object oriented way to interact with the INI file. (for example: if your application needs more than one INI file, have many instances 
+            of this class is a good way to cope with this requirement.)
+            </summary>
+        </member>
+        <member name="F:Vi.Tools.Profile.FileName">
+            <summary>
+            The full path of the INI file.
+            </summary>
+            <value>The full path of the INI file.</value>
+        </member>
+        <member name="M:Vi.Tools.Profile.#ctor(System.String)">
+            <summary>
+            Creates an object 'Profile'.
+            </summary>
+            <param name="fileName">The name of the INI file currently used.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.#ctor(System.String,Vi.Tools.Profile.WarningDelegate)">
+            <summary>
+            Creates an object 'Profile' that sends back information on its flows.
+            </summary>
+            <param name="fileName">The name of the INI file currently used.</param>
+            <param name="warning">This function is called each time somenthing goes wrong. It ia a way to move outside of this class the management of the 'exceptions'.</param>
+        </member>
+        <member name="T:Vi.Tools.Profile.WarningDelegate">
+            <summary>
+            The 'delegate' for the event 'Warning'.
+            </summary>
+            <param name="parameter">The name of the parameter with something wrong.</param>
+            <param name="message">The info about what went wrong.</param>
+        </member>
+        <member name="E:Vi.Tools.Profile.Warning">
+            <summary>
+            This event is fired, instead of a 'System.Exception' everytime something goes wrong.
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Profile.OnWarning(System.String,System.String,System.String)">
+            <summary>
+            Internal method used to call properly the event 'Warning'
+            </summary>
+            <param name="parameter">The name of the parameter with something wrong.</param>
+            <param name="message">The info about what went wrong.</param>
+            <param name="fileName">The name of the INI file currently used.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Sections">
+            <summary>
+            Retrives all the 'Sections' in an INI file.
+            </summary>
+            <returns>The names of all the Sections.</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Keys(System.String)">
+            <summary>
+            Retrives all the 'Keys' belonging to a 'Sections' in an INI file.
+            </summary>
+            <param name="section">The name of the section to read.</param>
+            <returns>The names of all the Keys in the provided section.</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Read(System.String,System.String,System.String)">
+            <summary>
+            Reads a string from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Read(System.String,System.String,System.Boolean)">
+            <summary>
+            Reads a boolean from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Read(System.String,System.String,System.Int32)">
+            <summary>
+            Reads an integer from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Read(System.String,System.String,System.Int64)">
+            <summary>
+            Reads a long from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Read(System.String,System.String,System.DateTime)">
+            <summary>
+            Reads a DateTime from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Read(System.String,System.String,System.Int32[])">
+            <summary>
+            Reads an array of integer from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Read(System.String,System.String,System.Drawing.Point)">
+            <summary>
+            Reads a points.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <returns>A System.Drawing.Point from the INI file, if possible. 'default' otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Read(System.String,System.String,System.Drawing.Size)">
+            <summary>
+            Reads s 'Size'
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default"></param>
+            <returns>A System.Drawing.Size from the INI file, if possible. 'default' otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.Decimal)">
+            <summary>
+            Writes a 'decimal' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.String)">
+            <summary>
+            Writes a 'string' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.Int32)">
+            <summary>
+            Writes an 'integer' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.Int64)">
+            <summary>
+            Writes a 'long' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.DateTime)">
+            <summary>
+            Writes 'DateTime.Ticks' in the INI file, (Wites also the date  in the format "yyyy-MM-dd HH:mm:ss.fff" only to make it human readable. This is ignored.)
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.Boolean)">
+            <summary>
+            Writes a 'boolean' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.Int32[])">
+            <summary>
+            Writes an array of integer separated by ';' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="values">The array of integer to write in the INI file.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.Boolean[])">
+            <summary>
+            Writes an array of boolean separated by ';' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="values">The array of booleans to write in the INI file.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.Drawing.Point)">
+            <summary>
+            Writes a 'System.Drawing.Point' value (can store the form position when the form is closing.)
+            </summary>
+            <param name="section">The name of t/he section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="point">A location object.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.Write(System.String,System.String,System.Drawing.Size)">
+            <summary>
+            Writes a 'System.Drawing.Size' value (Can store the form size when the form is closing.)
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="size">A size object.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.DeleteKey(System.String,System.String)">
+            <summary>
+            Deletes a 'Key' (and its value) from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.DeleteKeys(System.String)">
+            <summary>
+            Deletes all the keys under the provided section.
+            </summary>
+            <param name="section">The section to clear from all its keys.</param>
+            <param name="key"></param>
+        </member>
+        <member name="M:Vi.Tools.Profile.DeleteSection(System.String)">
+            <summary>
+            Deletes an entire section (and all its keys) from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.Profile.DeleteAll">
+            <summary>
+            Deletes everything. (Clears the INI file)
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Profile.Show">
+            <summary>
+            Opens the 'INI' file with the default application.
+            </summary>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Vi.Tools.statics.Profile" -->
+        <member name="T:Vi.Tools.statics.Profile.WarningDelegate">
+            <summary>
+            The 'delegate' for the event 'Warning'.
+            </summary>
+            <param name="parameter">The name of the parameter with something wrong.</param>
+            <param name="message">The info about what went wrong.</param>
+            <param name="fileName">The name of the INI file currently used.</param>
+        </member>
+        <member name="E:Vi.Tools.statics.Profile.Warning">
+            <summary>
+            This event is fired instead of a 'System.Exception' anytime something goes wrong.
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.OnWarning(System.String,System.String,System.String)">
+            <summary>
+            Private method used to call properly the event 'Warning'
+            </summary>
+            <param name="parameter">The name of the parameter with something wrong.</param>
+            <param name="message">The info about what went wrong.</param>
+            <param name="fileName">The name of the INI file currently used.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Create(System.String)">
+            <summary>
+            Creates the file INI If doesn't exist.
+            </summary>
+            <param name="filename"></param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Sections(System.Int32,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Retrives all the 'Sections' in an INI file.
+            </summary>
+            <param name="fileName">The name of the initialization file. (If the file was created using Unicode characters, the function writes Unicode characters to the file. Otherwise, the function writes ANSI characters.)</param>
+            <param name="bufferSize">The number of bytes fetched by the method 'GetPrivateProfileString'. If the buffer is not enough to contain all the data. 'GetPrivateProfileString' is acalled again.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The names of all the Sections or an empty array (a zero length array.)</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Sections(System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Retrives all the 'Sections' in an INI file.
+            </summary>
+            <param name="fileName">The name of the initialization file. (If the file was created using Unicode characters, the function writes Unicode characters to the file. Otherwise, the function writes ANSI characters.)</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The names of all the Sections.</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Keys(System.String,System.Int32,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Retrives all the 'Keys' belonging to a 'Sections' in an INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="fileName">The full path of the INI file from which read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="bufferSize">The number of bytes fetched by the method 'GetPrivateProfileString'. If the buffer is not enough to contain all the data. 'GetPrivateProfileString' is acalled again.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The names of all the Keys under a section.</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Keys(System.String,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Retrives all the 'Keys' belonging to a 'Sections' in an INI file.
+            </summary>
+            <param name="section"></param>
+            <param name="fileName"></param>
+            <param name="onWarning"></param>
+            <returns>The names of all the Keys.</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.String,System.Int32,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Reads data from the 'INI' using the method 'GetPrivateProfileString'
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file from which read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="bufferSize">The number of bytes fetched by the method 'GetPrivateProfileString'. If the buffer is not enough to contain all the data. 'GetPrivateProfileString' is acalled again.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.String,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Reads a string from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file from which read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.DateTime,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Reads a DateTime from the INI file. The dateTime is stored as a 'long': (the value of the property 'ticks')
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file from which read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write``1(System.String,System.String,``0,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            This is the 'method' used by all the other version of the method 'Write'
+            </summary>
+            <typeparam name="T">Can be any type with the method 'ToString'.</typeparam>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.DateTime,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Writes 'DateTime.Ticks' in the INI file, (Writes also the date  in the format "yyyy-MM-dd HH:mm:ss.fff" only to have a human readable copy.)
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.DeleteKey(System.String,System.String,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Deletes a 'Key' (and its value) from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.DeleteKeys(System.String,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Deletes all the keys in a session, without deleting the session.
+            </summary>
+            <param name="section">The name of the section to clear from its keys. (The section will not be removed.)</param>
+            <param name="fileName">The full path of the INI file.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.DeleteSection(System.String,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Deletes an entire section (all its keys and the section itself) from the INI file.
+            </summary>
+            <param name="section">The name of the section to totally remove from the 'INI file..</param>
+            <param name="fileName">The full path of the INI file.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.DeleteAll(System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Deletes everything. (Clears the INI file)
+            </summary>
+            <param name="fileName">The full path of the INI file to clear.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.CheckSection(System.String,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Check the correctness of the parameter 'section'
+            </summary>
+            <param name="section">The name of a section in the INI file. (Can't be: null; empty; spaces.)</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>True if 'section' passes the checks. False otherwise and the callback 'onWarning' is called also.</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.CheckKey(System.String,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Check the correctness of the parameter 'key'
+            </summary>
+            <param name="key">The name of a key in the INI file. (Can't be: null; empty; spaces.)</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>True if 'section' passes the checks. False otherwise and the callback 'onWarning' is called also.</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.CheckValue(System.String@,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Check the correctness of the parameter 'value' (When it is a string)
+            </summary>
+            <param name="value">The name of a key in the INI file. (Can't be: null; empty; spaces. Any Chr(0) will be removed)</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>True if 'section' passes the checks. False otherwise and the callback 'onWarning' is called also.</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.CheckValues(System.Int32[],System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Check the correctness of the parameter 'value' (when it is an array of integer.)
+            </summary>
+            <param name="value">The name of a key in the INI file. (Can't be: null.)</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>True if 'section' passes the checks. False otherwise and the callback 'onWarning' is called also.</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.CheckFileName(System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Check the correctness of the parameter 'filename' (when it is an array of integer.)
+            </summary>
+            <param name="fileName">The full path of the INI file where write data. Must be a valid full file path and the file must exist.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>True if 'section' passes the checks. False otherwise and the callback 'onWarning' is called also.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.statics.Profile.ToArray(System.String)" -->
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Boolean,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Reads a boolean from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file from which read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Int32,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Reads an integer from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file from which read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Int64,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Reads a long from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file from which read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Int32[],System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Reads an array of integer from the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file from which read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.String,System.String)">
+            <summary>
+            Reads a string from the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Reads a boolean from the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Reads an integer from the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Int64,System.String)">
+            <summary>
+            Reads a long from the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Int32[],System.String)">
+            <summary>
+            Reads an array of integer from the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <returns>The data read from the INI file. '@default' if something  whent wrong. (This method should't raise any exception).</returns>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Drawing.Point,System.String)">
+            <summary>
+            Reads a points.
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data.  If null the callback 'onWarning' will be called.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <returns>A System.Drawing.Point from the INI file, if possible. 'default' otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Read(System.String,System.String,System.Drawing.Size,System.String)">
+            <summary>
+            Reads s 'Size'
+            </summary>
+            <param name="section">The name of the section to which the string will be read. If null the callback 'onWarning' will be called.</param>
+            <param name="default">The return value in case something  goes wrong.</param>
+            <param name="key">The name of the 'key' (in a 'section') from where read data. If null the callback 'onWarning' will be called.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <returns>A System.Drawing.Size from the INI file, if possible. 'default' otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Int32,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Writes an 'integer' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Int64,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Writes a 'long' in the INI file.
+            </summary>
+            <param name="section">The name of the section where the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Boolean,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Writes a 'boolean' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Decimal,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Writes a 'decimal' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.String,System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Writes a 'string' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Int32[],System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Writes an array of integer separated by ';' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="values">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Boolean[],System.String,Vi.Tools.statics.Profile.WarningDelegate)">
+            <summary>
+            Writes an array of booleans separated by ';' in the INI file.
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="values">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data. If null the callback 'onWarning' will be called.</param>
+            <param name="onWarning">The callback used to manage exceptions.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Writes an 'integer' in the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Int64,System.String)">
+            <summary>
+            Writes a 'long' in the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section where the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Writes a 'boolean' in the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.String,System.String)">
+            <summary>
+            Writes a 'string' in the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="value">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Int32[],System.String)">
+            <summary>
+            Writes an array of integer separated by ';' in the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="values">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Boolean[],System.String)">
+            <summary>
+            Writes an array of booleans separated by ';' in the INI file. (Any exception triggers the static event 'Profile.Worning')
+            </summary>
+            <param name="section">The name of the section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="values">The value to write in the INI file.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+            <exception cref="T:System.Exception">If filename is null</exception>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Drawing.Point,System.String)">
+            <summary>
+            Writes a 'System.Drawing.Point' value (can store the form position when the form is closing.)
+            </summary>
+            <param name="section">The name of t/he section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="location">A 'point' object.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+        </member>
+        <member name="M:Vi.Tools.statics.Profile.Write(System.String,System.String,System.Drawing.Size,System.String)">
+            <summary>
+            Writes a 'System.Drawing.size' value (can store the form size when the form is closing.)
+            </summary>
+            <param name="section">The name of t/he section to which the string will be writed. If null the callback 'onWarning' will be called.</param>
+            <param name="key">The name of the 'key' (in a 'section') where write data.  If null the callback 'onWarning' will be called.</param>
+            <param name="size">A 'size' object.</param>
+            <param name="fileName">The full path of the INI file where write data.</param>
+        </member>
+        <member name="T:Vi.Tools.Settings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Settings.#ctor(System.String)">
+            <summary>
+            Main CTor: sets the fileName.
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="T:Vi.Tools.Delegates.TraceDelegate">
+            <summary>
+            Da utilizzare nei log destinati ai tecnici.
+            </summary>
+            <param name="messaggio">il messaggio da registrare.</param>
+            <param name="line">La linea del codice dove il metodo Trace è stato chiamato.</param>
+            <param name="member">Il ni dove il metodo Trace è stato chiamato.</param>
+            <param name="file"></param>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Array.Methods">
+            <summary>
+            Collection of Utility Extention methods
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Array.Methods.MaxIndex(System.Array)">
+            <summary>
+            Provides the max index for the array. Max index is (Length - 1) for zero based array.
+            </summary>
+            <param name="value">The array object.</param>
+            <returns>value.Length - 1.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Array.Methods.Last``1(``0[])">
+            <summary>
+            Return the last item of the array
+            </summary>
+            <typeparam name="T">The generic type of the array.</typeparam>
+            <param name="value">The array object.</param>
+            <returns>value[value.Length - 1];.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Array.Methods.First``1(``0[])">
+            <summary>
+            Returns the first item of the array.
+            </summary>
+            <typeparam name="T">The generic type of the array.</typeparam>
+            <param name="value">The array object.</param>
+            <returns>value[0].</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Array.Methods.First(System.Int32[])">
+            <summary>
+            Returns the first item of the array (Overload for 'int').
+            </summary>
+            <param name="value">The array object.</param>
+            <returns>value[0].</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Array.Methods.Append``1(``0[],``0)">
+            <summary>
+            Appends an item at the end of the array.
+            </summary>
+            <typeparam name="T">The generic type of the array.</typeparam>
+            <param name="value">The array object.</param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Array.Methods.Slice``1(``0[],System.Int32,System.Int32)">
+            <summary>
+            Gets the array slice.
+            </summary>
+            <typeparam name="T">The generic type</typeparam>
+            <param name="source">The source array (the array from which 'cut the slice'.</param>
+            <param name="start">The stating index (inclusive).</param>
+            <param name="length">The number of item in the new array (the slice).</param>
+            <returns>A new array made of 'length' elements extracted from 'value' starting at 'start' (included).</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Array.Methods.Slice``1(``0[],System.Int32)">
+            <summary>
+            Gets the array starting from the position 'Start' (included), till the end.
+            </summary>
+            <typeparam name="T">The generic type</typeparam>
+            <param name="source">The source array (the array from which 'cut the slice'.</param>
+            <param name="start">The stating index (inclusive).</param>
+            <returns>A new array made of the remaining elements extracted from 'value' starting at 'start' (included).</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Array.Methods.ToMessage(System.Array,System.String)">
+            <summary>
+            Defined for debug/Log pourposes. Joins the array using the provided separator
+            </summary>
+            <param name="value">The array to convert to string.</param>
+            <param name="separator">The separator used to join the array.</param>
+            <returns>Null if null; empty if length = 0. Otherwise the array {1, 2, 3 4} become the string "1; 2; 3, 4".</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Bool.Methods">
+            <summary>
+            Collection of 'extension methods' for boolean
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Bool.Methods.ToConditional(System.Boolean,System.String,System.String)">
+            <summary>
+            checks the variable and returns one of the two provided parameters.
+            </summary>
+            <param name="value">The value to check.</param>
+            <param name="onTrue">The parameter to return if value is true.</param>
+            <param name="onFalse">The parameter to return if value is false.</param>
+            <returns>The parameter 'onTrue' if value is true.  'onFalse' otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Bool.Methods.ToYN(System.Boolean)">
+            <summary>
+            Return "Y" or "N";
+            </summary>
+            <param name="value">The value to check.</param>
+            <returns>'Y' on true. 'N' otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Bool.Methods.ToYesNo(System.Boolean)">
+            <summary>
+            Return "Yes" or "No";
+            </summary>
+            <param name="value">The value to check.</param>
+            <returns>'Yes' on true. 'No' otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Bool.Methods.ToTF(System.Boolean)">
+            <summary>
+            Return "T" or "F";
+            </summary>
+            <param name="value">The value to check.</param>
+            <returns>'T' on true. 'F' otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Bool.Methods.ToTrueFalse(System.Boolean)">
+            <summary>
+            Return the string: "True" or "False";
+            </summary>
+            <param name="value">The value to check.</param>
+            <returns>'True' on true. 'False' otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Bool.Methods.ToConditional(System.Boolean,System.Action,System.Action)">
+            <summary>
+            checks the variable and executes one of the two provided callback ('Action')
+            </summary>
+            <param name="value">The value to check.</param>
+            <param name="onTrue">The action to be executed if value is true.</param>
+            <param name="onFalse">The action to be executed if value is false.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.DateTime.Methods">
+            <summary>
+            Collection of 'extension methods' for DateTime
+            </summary>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Enums.Methods">
+            <summary>
+            Collection of 'extension methods' for Enums
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Enums.Methods.ToInt``1(``0,System.Int32)">
+            <summary>
+            Casts the value 'source' into an integer.
+            </summary>
+            <typeparam name="T">Any type derived from 'IConvertible'.</typeparam>
+            <param name="source">The type we want to convert into aint value..</param>
+            <param name="default">The int obtained casting value. @default otherwise.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Enums.Methods.Count``1(``0)">
+            <summary>
+            Counts the number of element contained in any type derived from 'IConvertible'.
+            </summary>
+            <typeparam name="T">Any type derived from 'IConvertible'.</typeparam>
+            <param name="source">The type we want count how many elements it has.</param>
+            <returns>The number of elements the type has.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Enums.Methods.Description``1(``0)">
+            <summary>
+            Gets the description (from the decorator) of the value.
+            </summary>
+            <typeparam name="T">Any type derived from 'IConvertible'.</typeparam>
+            <param name="value">The value from which we want to get its description (if any).</param>
+            <returns></returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Exception.Methods">
+            <summary>
+            Collection of 'extension methods' for Exception
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Exception.Methods.Trace(System.Exception)">
+            <summary>
+            Calls 'System.Diagnostics.Trace.TraceError': Writes an error message to the trace listeners in the System.Diagnostics.Trace.Listeners collection using the specified message.
+            </summary>
+            <param name="se">The instance of the exception.</param>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Exception.Methods.Log(System.Exception)">
+            <summary>
+            Logs the error calling 'Vi.Tools.Log.Error(se);'
+            </summary>
+            <param name="se">The system.Exception</param>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Exception.Methods.Show(System.Exception)">
+            <summary>
+            Visualizza la 'MessageBox' standard di Microsoft già configurata per visualizzare un messaggio d'errore. La 'Caption' è il nome della applicazione in cui gira questa extension.
+            </summary>
+            <param name="se">L'exception alla quale aggiungere questo extension method.</param>
+            <returns>MessageBoxButtons.OK (se viene premuto il tasto 'OK'; MessageBoxButtons.None Altrimenti.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Exception.Methods.Show(System.Exception,System.String)">
+            <summary>
+            Visualizza la 'MessageBox' standard di Microsoft già configurata per visualizzare un messaggio d'errore.
+            </summary>
+            <param name="se">L'exception alla quale aggiungere questo extension method.</param>
+            <param name="caption">La caption della message box. (Il titolo.)</param>
+            <returns>MessageBoxButtons.OK (if 'OK' is clicked; MessageBoxButtons.None othrwise.</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Byte.Methods">
+            <summary>
+            Collection of 'extension methods' for byte
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Byte.Methods.IsEven(System.Byte)" -->
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Byte.Methods.IsOdd(System.Byte)" -->
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Byte.Methods.IsBetween(System.Byte,System.Byte,System.Byte)" -->
+        <member name="M:Vi.Tools.Extensions.Byte.Methods.Between(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Forces the value between 'min and 'max' (included)
+            </summary>
+            <param name="value">The number to limit.</param>
+            <param name="min">Minimum value allowed.</param>
+            <param name="max">Maximun value allowed.</param>
+            <returns>Math.Min(Math.Max(value, min), max);</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Decimal.Methods">
+            <summary>
+            Collection of 'extension methods' for decimal
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Decimal.Methods.IsBetween(System.Decimal,System.Decimal,System.Decimal)" -->
+        <member name="M:Vi.Tools.Extensions.Decimal.Methods.Between(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Forces the value between 'min and 'max' (included
+            </summary>
+            <param name="value">The number to limit.</param>
+            <param name="min">Minimum value allowed.</param>
+            <param name="max">Maximun value allowed.</param>
+            <returns>Math.Min(Math.Max(value, min), max);</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Decimal.Methods.ToPercent(System.Decimal,System.SByte)">
+            <summary>
+            Converts a decimal (Percentage) in a string with a fixed number of decimals.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="decimals">The number of decimals.</param>
+            <returns>Text representation of a Percentage with fixed number of decimal figures.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Decimal.Methods.ToText(System.Decimal,System.Byte)">
+            <summary>
+            Converts a decimal in a string with a fixed number of decimals.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="decimals">The number of decimals.</param>
+            <returns>text representation of a decimal with fixed number of decimal figures.</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Float.Methods">
+            <summary>
+            Collection of 'extension methods' for float
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Float.Methods.IsBetween(System.Single,System.Single,System.Single)" -->
+        <member name="M:Vi.Tools.Extensions.Float.Methods.Between(System.Single,System.Single,System.Single)">
+            <summary>
+            Forces the value between 'min and 'max' (included
+            </summary>
+            <param name="value">The number to limit.</param>
+            <param name="min">Minimum value allowed.</param>
+            <param name="max">Maximun value allowed.</param>
+            <returns>Math.Min(Math.Max(value, min), max);</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Float.Methods.ToPercent(System.Single,System.SByte)">
+            <summary>
+            Converts a float in a string with a fixed number of decimals in the format used for percentages.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="decimals">The number of decimals.</param>
+            <returns>Text representation of a Percentage with fixed number of decimal figures.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Float.Methods.ToText(System.Single,System.Byte)">
+            <summary>
+            Converts a float in a string with a fixed number of decimals.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="decimals">The number of decimals.</param>
+            <returns>text representation of a decimal with fixed number of decimal figures.</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.NameValueCollection.Methods">
+            <summary>
+            Collection of 'extension methods' for NameValueCollection
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.NameValueCollection.Methods.ToInt(System.Collections.Specialized.NameValueCollection,System.String,System.Int32)">
+            <summary>
+            Reads the value of the itmem with the provided 'name' in the 'NameValueCollection'.
+            </summary>
+            <param name="nvc">The 'NameValueCollection'.</param>
+            <param name="name">The name of the item in the collection.</param>
+            <param name="default">The value to return if the reading fails.</param>
+            <returns>The value casted as 'int', of the item with the provided 'name' (nvc[name]). @default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.NameValueCollection.Methods.GetString(System.Collections.Specialized.NameValueCollection,System.String,System.String)">
+            <summary>
+            Reads the value of the itmem with the provided 'name' in the 'NameValueCollection'.
+            </summary>
+            <param name="nvc">The 'NameValueCollection'.</param>
+            <param name="name">The name of the item in the collection.</param>
+            <param name="default">The value to return if the reading fails.</param>
+            <returns>The value of the item with the provided 'name' (nvc[name]). @default otherwise.</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Object.Methods">
+            <summary>
+            Collection of 'extension methods' for Int
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Object.Methods.IsNull(System.Object)">
+            <summary>
+            Checks if an instance of an object is null.
+            </summary>
+            <param name="value">The to check.</param>
+            <returns>Returns value == null;.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Object.Methods.IsNotNull(System.Object)">
+            <summary>
+            Checks if an instance of an object is NOT null.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="default">Makes this method exception resislient.</param>
+            <returns>Returns value != null;.</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Int.Methods">
+            <summary>
+            Collection of 'extension methods' for Int
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Int.Methods.IsEven(System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Int.Methods.IsOdd(System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Int.Methods.IsBetween(System.Int32,System.Int32,System.Int32)" -->
+        <member name="M:Vi.Tools.Extensions.Int.Methods.Between(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Forces the value between 'min and 'max' (included
+            </summary>
+            <param name="value">The number to limit.</param>
+            <param name="min">Minimum value allowed.</param>
+            <param name="max">Maximun value allowed.</param>
+            <returns>Math.Min(Math.Max(value, min), max);</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Long.Methods">
+            <summary>
+            Collection of 'extension methods' for Long
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Long.Methods.IsEven(System.Byte)" -->
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Long.Methods.IsOdd(System.Byte)" -->
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Extensions.Long.Methods.IsBetween(System.Int64,System.Int64,System.Int64)" -->
+        <member name="M:Vi.Tools.Extensions.Long.Methods.Between(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Forces the value between 'min and 'max' (included
+            </summary>
+            <param name="value">The number to limit.</param>
+            <param name="min">Minimum value allowed.</param>
+            <param name="max">Maximun value allowed.</param>
+            <returns>Math.Min(Math.Max(value, min), max);</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Long.Methods.ToDateTime(System.Int64,System.DateTime)">
+            <summary>
+            Converts 'DateTime.Ticks' to 'DateTime'.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="default">Makes this method exception resislient.</param>
+            <returns>The DateTime associated to the value, @default otherwise.</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.String.Methods">
+            <summary>
+            Collection of extention methods for 'string'
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToInt(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Applies 'int.TryParse'
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="default">The result if 'tryParse' fails.</param>
+            <returns>The integer associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToFloat(System.String,System.Single)">
+            <summary>
+            Converts a string to 'float'
+            </summary>
+            <param name="value">the value to convert.</param>
+            <param name="default">The default value in case conversion fails.</param>
+            <returns>The float representation of the 'value' (if any). default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToDecimal(System.String,System.Decimal)">
+            <summary>
+            Converts a string to 'decimal'
+            </summary>
+            <param name="value">the value to convert.</param>
+            <param name="default">The default value in case conversion fails.</param>
+            <returns>The float representation of the 'value' (if any). default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToInt(System.String,System.Int32)">
+            <summary>
+            Applies 'int.TryParse'
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="default">The result if 'tryParse' fails.</param>
+            <returns>The int associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToByte(System.String,System.Byte)">
+            <summary>
+            Applies 'byte.TryParse'
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="default">The result if 'tryParse' fails.</param>
+            <returns>The int associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToLong(System.String,System.Int64)">
+            <summary>
+            Applies 'long.TryParse'
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="default">The result if 'tryParse' fails.</param>
+            <returns>The long associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToBool(System.String,System.Boolean)">
+            <summary>
+            Applies 'bool.TryParse'
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="default">The result if 'tryParse' fails.</param>
+            <returns>The boolean associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToPercentage(System.String,Vi.Types.Percentage)">
+            <summary>
+            Applies 'Vi.Types.Percentage.TryParse'
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="default">The result if 'tryParse' fails.</param>
+            <returns>The percentage associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToInt(System.String,System.Char,System.Int32[])">
+            <summary>
+            Applies 'int.TryParse to a 'separator' separated values'.
+            </summary>
+            <param name="value">The list of values to convert. Values are separated by the caracter in the parameter 'separator'.</param>
+            <param name="separator">The characters used as separator.</param>
+            <param name="default">The result if the parse fails.</param>
+            <returns>An array of integer associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToInt(System.String,System.Int32[])">
+            <summary>
+            Applies 'int.TryParse to a ';' separated values'.
+            </summary>
+            <param name="value">The list of values to convert. Values are separated by the caracter in the parameter 'separator'.</param>
+            <param name="default">The result if the parse fails.</param>
+            <returns>An array of integer associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToLong(System.String,System.Char,System.Int64[])">
+            <summary>
+            Applies 'long.TryParse to a 'separator' separated values'.
+            </summary>
+            <param name="value">The list of values to convert. Values are separated by the caracter in the parameter 'separator'.</param>
+            <param name="separator">The characters used as separator.</param>
+            <param name="default">The result if the parse fails.</param>
+            <returns>An array of long associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToLong(System.String,System.Int64[])">
+            <summary>
+            Applies 'long.TryParse to a ';' separated values'.
+            </summary>
+            <param name="value">The list of values to convert. Values are separated by the caracter in the parameter 'separator'.</param>
+            <param name="default">The result if the parse fails.</param>
+            <returns>An array of long associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToBool(System.String,System.Char,System.Boolean[])">
+            <summary>
+            Applies 'bool.TryParse to a 'separator' separated values'.
+            </summary>
+            <param name="value">The list of values to convert. Values are separated by the caracter in the parameter 'separator'.</param>
+            <param name="separator">The characters used as separator.</param>
+            <param name="default">The result if the parse fails.</param>
+            <returns>An array of long associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToBool(System.String,System.Boolean[])">
+            <summary>
+            Applies 'bool.TryParse to a ';' separated values'.
+            </summary>
+            <param name="value">The list of values to convert. Values are separated by the caracter in the parameter 'separator'.</param>
+            <param name="default">The result if the parse fails.</param>
+            <returns>An array of long associated with the 'value', default otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.ToT``1(System.String,System.Char,``0[],System.Func{System.String,``0,``0})">
+            <summary>
+            Applies 'T.ToXyz' to a 'separator' separated values. E.g. if T is bool applies ToBool to each value in the list of values.
+            ATTENTION: each 'ToXyz' shold never raise an exception. ToT&lt;T&gt; could.
+            </summary>
+            <typeparam name="T">The destination type for the parse.</typeparam>
+            <param name="value">The list of values to convert. Values are separated by the caracter in the parameter 'separator'.</param>
+            <param name="separator">The characters used as separator.</param>
+            <param name="default">The result if the parse fails.</param>
+            <param name="toT">The lambda expression to parse eachitem. E.g. if 'T' is 'bool' then 'toT = (v, @d) => v.ToBool(@d)'.</param>
+            <returns>An array of 'T' associated with the 'value', default otherwise.</returns>
+            <exception cref="T:System.ArgumentNullException">If default is 'null'.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">If default is shorter than ''value.Split(separator).Length'.</exception>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.IsEmpty(System.String)">
+            <summary>
+            Checks if the string is Empty
+            </summary>
+            <param name="value">The string to check.</param>
+            <returns>'value == String.Empty'</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.IsNull(System.String)">
+            <summary>
+            Checks if the string is null.
+            </summary>
+            <param name="value">The string to check.</param>
+            <returns>The result of this check: (value == null).</returns>
+            <!-- Failed to insert some or all of included XML --><include file="help/XMLs/Extensions/Extension.string.xml" path="Docs/method[@name=&quot;IsNull&quot;]/*" />
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.IsNotNull(System.String)">
+            <summary>
+            Checks if the string is NOT null
+            </summary>
+            <param name="value">The string to check.</param>
+            <returns>the return value is !value.isNull</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.IsSpaces(System.String)">
+            <summary>
+            Check if the string is made of zero or more spaces.
+            (Usually an input is not valid if made of any number of spaces, included 
+            the empty string. That's why this function is true also for the empty string.)
+            </summary>
+            <param name="value">The string to check.</param>
+            <returns>value.Trim().IsEmpty() (When value is not null). False otherwise.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.IsNullOrSpaces(System.String)">
+            <summary>
+            Check if the string is 'null', 'empty' or made of spaces.
+            </summary>
+            <param name="value">The string to check.</param>
+            <returns>value.IsNull() || value.IsSpaces()</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.IsNumber(System.String)">
+            <summary>
+            Checks if the string can be converted to double (the numeric type with the wider range).
+            </summary>
+            <param name="value">The string to check.</param>
+            <returns>System.Double.TryParse(value, out _)</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.Remove(System.String,System.String[])">
+            <summary>
+            Removes from the string the occourrences of the items in 'oldValues'. Is the same of Replace(oldValues, String.Empty).
+            </summary>
+            <param name="value">The string with the substrings to remove. (Runs: Replace(oldValues, String.Empty);)</param>
+            <param name="oldValues">The list of item to remove from the string.</param>
+            <returns>The original string purged from the substring in 'oldValues'</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.String.Methods.Replace(System.String,System.String[],System.String)">
+            <summary>
+            Replaces each value in 'oldValues' with 'newValue'. (if newValue == String.Empty then use Replace(newValues);
+            </summary>
+            <param name="value">The string with the substrings to remove.</param>
+            <param name="oldValues">The list of item to replace from the string.</param>
+            <param name="newValue">The new value for all the items in 'oldValues'.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.DialogResult.Methods">
+            <summary>
+            Collection of 'extension methods' for DialogResult
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.DialogResult.Methods.IsOk(System.Windows.Forms.DialogResult)">
+            <summary>
+            Checks the value of 'DialogResult'
+            </summary>
+            <param name="dr">True s è uguale a 'DialogResult.OK'. False altrimenti.</param>
+            <returns>True if dr == OK</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.DialogResult.Methods.IsAbort(System.Windows.Forms.DialogResult)">
+            <summary>
+            Checks the value of 'DialogResult'
+            </summary>
+            <param name="dr">True s è uguale a 'DialogResult.Abort'. False altrimenti.</param>
+            <returns>True if dr == Abort</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.DialogResult.Methods.IsCancel(System.Windows.Forms.DialogResult)">
+            <summary>
+            Checks the value of 'DialogResult'
+            </summary>
+            <param name="dr">True s è uguale a 'DialogResult.Cancel'. False altrimenti.</param>
+            <returns>True if dr == Cancel</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.DialogResult.Methods.IsIgnore(System.Windows.Forms.DialogResult)">
+            <summary>
+            Checks the value of 'DialogResult'
+            </summary>
+            <param name="dr">True s è uguale a 'DialogResult.Ignore'. False altrimenti.</param>
+            <returns>True if dr == Ignore</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.DialogResult.Methods.IsNo(System.Windows.Forms.DialogResult)">
+            <summary>
+            Checks the value of 'DialogResult'
+            </summary>
+            <param name="dr">True s è uguale a 'DialogResult.No'. False altrimenti.</param>
+            <returns>True if dr == No</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.DialogResult.Methods.IsNone(System.Windows.Forms.DialogResult)">
+            <summary>
+            Checks the value of 'DialogResult'
+            </summary>
+            <param name="dr">True s è uguale a 'DialogResult.None'. False altrimenti.</param>
+            <returns>True if dr == None</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.DialogResult.Methods.IsRetry(System.Windows.Forms.DialogResult)">
+            <summary>
+            Checks the value of 'DialogResult'
+            </summary>
+            <param name="dr">True s è uguale a 'DialogResult.Retry'. False altrimenti.</param>
+            <returns>True if dr == Retry</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.DialogResult.Methods.IsYes(System.Windows.Forms.DialogResult)">
+            <summary>
+            Checks the value of 'DialogResult'
+            </summary>
+            <param name="dr">True s è uguale a 'DialogResult.Yes'. False altrimenti.</param>
+            <returns>True if dr == Yes</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.SqlDataReader.Methods">
+            <summary>
+            Collection of extention methods for the SqlDataReader
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlDataReader.Methods.GetInt32(System.Data.SqlClient.SqlDataReader,System.String)">
+            <summary>
+            Converts value in column 'name' to 'Int32?'.
+            </summary>
+            <param name="dataReader">The 'DataReader' containing the data.</param>
+            <param name="name">The name of the column to convert to 'Int32'.</param>
+            <returns>dataReader.GetInt32(name) if possible, 'null' otherwise ('System.Exception' included).</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlDataReader.Methods.GetInt32(System.Data.SqlClient.SqlDataReader,System.String,System.Int32)">
+            <summary>
+            Converts value in column 'name' to 'Int32?'. 
+            </summary>
+            <param name="dataReader">The 'DataReader' containing the data.</param>
+            <param name="name">The name of the column to convert to 'Int32'.</param>
+            <param name="default">The returning valu is when the cast in not possible.</param>
+            <returns>dataReader.GetInt32(name) if possible, 'default' otherwise ('System.Exception' included).</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlDataReader.Methods.GetInt32(System.Data.SqlClient.SqlDataReader,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Converts value in column 'name' to 'Int32?'. 
+            </summary>
+            <param name="dataReader">The 'DataReader' containing the data.</param>
+            <param name="name">The name of the column to convert to 'Int32'.</param>
+            <param name="default">The returning valu is when the cast in not possible.</param>
+            <returns>dataReader.GetInt32(name) if possible, 'default' otherwise ('System.Exception' included).</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlDataReader.Methods.GetString(System.Data.SqlClient.SqlDataReader,System.String)">
+            <summary>
+            Converts value in column 'name' to 'string?'.
+            </summary>
+            <param name="dataReader">The 'DataReader' containing the data.</param>
+            <param name="name">The name of the column to convert to 'string'.</param>
+            <returns>dataReader.GetString(name) if possible, 'null' otherwise ('System.Exception' included).</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlDataReader.Methods.GetString(System.Data.SqlClient.SqlDataReader,System.String,System.String)">
+            <summary>
+            Converts value in column 'name' to 'string?'. 
+            </summary>
+            <param name="dataReader">The 'DataReader' containing the data.</param>
+            <param name="name">The name of the column to convert to 'string'.</param>
+            <param name="default">The returning value default when the cast in not possible.</param>
+            <returns>dataReader.GetString(name) if possible, 'default' otherwise ('System.Exception' included).</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlDataReader.Methods.GetDateTime(System.Data.SqlClient.SqlDataReader,System.String,System.DateTime)">
+            <summary>
+            Converts value in column 'name' to 'DateTime?'.
+            </summary>
+            <param name="dataReader">The 'DataReader' containing the data.</param>
+            <param name="name">The name of the column to convert to 'string'.</param>
+            <param name="default">The returning value when the cast in not possible.</param>
+            <returns>dataReader.GetDateTime(name) if possible, 'null' otherwise ('System.Exception' included).</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.SqlCommand.Methods">
+            <summary>
+            Collection of 'extension methods' for 'SqlClient.SqlCommand'
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlCommand.Methods.ExecuteReader(System.Data.SqlClient.SqlCommand,System.Func{System.Data.SqlClient.SqlDataReader,System.Boolean})">
+            <summary>
+            Esegue il command ottenendo un 'DataReader'. Se per il 'DataReader', 'HasRows = true' e 'dr.Read = true' cicla sul 'DataReader' ed evoca la 'callBack' ad ogni iterazione.
+            </summary>
+            <param name="command">Il command da eseguire.</param>
+            <param name="row">La callback da eseguire su ogni singola riga dati del 'DataReader'.</param>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlCommand.Methods.ExecuteReader(System.Data.SqlClient.SqlCommand,System.Action{System.Data.SqlClient.SqlDataReader},System.Func{System.Data.SqlClient.SqlDataReader,System.Boolean})">
+            <summary>
+            Esegue il command ottenendo un 'DataReader'. Se per il 'DataReader', 'HasRows = true' e 'dr.Read = true' cicla sul 'DataReader' ed evoca la 'callBack' ad ogni iterazione.
+            </summary>
+            <param name="command">Il command da eseguire.</param>
+            <param name="header">La callback da eseguire per realizzare una intestazione di tabelle dal 'DataReader'.</param>
+            <param name="row">La callback da eseguire su ogni singola riga dati del 'DataReader'.</param>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlCommand.Methods.ExecuteReaderAsync(System.Data.SqlClient.SqlCommand,System.Action{System.Data.SqlClient.SqlDataReader},System.Func{System.Data.SqlClient.SqlDataReader,System.Boolean})">
+            <summary>
+            Implementazione asincrona (semplificata) del metodo executeReader
+            </summary>
+            <param name="command">L'oggetto con le 'istruzioni' per interrogare il DB.</param>
+            <param name="header">CallBack da eseguire non appena ricevuto il dataReader. Dovrebbe contenere i comandi per manipolare le colonne.</param>
+            <param name="row">CallBack che viene chiamata iterativamente (ad ogni esecuzione di dr.HasRows). Per terminare il loop sul DataReader è sufficiente che il return sia false.</param>
+        </member>
+        <member name="T:Vi.Tools.Extensions.TimeSpan.Methods">
+            <summary>
+            Collection of extention methods for TimeSpan
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.TimeSpan.Methods.ToHHMM(System.TimeSpan)">
+            <summary>
+            Converts a TimeSpan into a string (format HH:MM)
+            </summary>
+            <param name="value">The timespan to convert.</param>
+            <returns>A string in the format of 'HH:MM'.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.TimeSpan.Methods.ToHHMM(System.Nullable{System.TimeSpan})">
+            <summary>
+            Converts a TimeSpan into a string (format HH:MM)
+            </summary>
+            <param name="value">Il timespan da convertire.</param>
+            <returns>Una stringa nel formato 'HH:MM' se il TimeSpan e not null, empty altrimenti.</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.Random.Methods">
+            <summary>
+            Collection of extention methods for the 'System.Random' Object.
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Random.Methods.Next(System.Random,System.Int32,System.Int32,System.Byte)">
+            <summary>
+            Returns a non-negative random integer between 'min' and 'max'.
+            </summary>
+            <param name="rnd">The current instance of the 'System.Random' object.</param>
+            <param name="min">The min value for the resulting value.</param>
+            <param name="max">The max value for the resulting value.</param>
+            <param name="iterations">Set the distribution 1: Linear (omogeneous) 2: Triangular; ... Gaussian</param>
+            <returns>A  random value between min and max with a specified distribution.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Random.Methods.Bet(System.Random,System.Byte,Vi.Types.Percentage)">
+            <summary>
+            Compare a random value between 0 and 100 against the value of 'probability'
+            </summary>
+            <param name="rnd"></param>
+            <param name="grade">The grade of the polinomial distribution.</param>
+            <param name="probability">a number between 0 and 100. Grater becom 100 smallest becom 0</param>
+            <returns>A true if 'brobability is grater than a random value (rnd.next > probability)(</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Random.Methods.Bet(System.Random,Vi.Types.Percentage)">
+            <summary>
+            
+            </summary>
+            <param name="rnd">The current instance of the 'System.Random object.</param>
+            <param name="probability">A value between 0 and 100. The expected probability an event is successfull.</param>
+            <returns>A random value (rnd.next > probability)</returns>
+        </member>
+        <member name="T:Vi.Tools.Log">
+            <summary>
+            Exposes  methods  to log and format messages: Debug; Info; Warn; Error; Fatal; Format.    
+            </summary>    
+            <!-- Failed to insert some or all of included XML --><include file="Logger/XMLs/Logger.xml" path="Docs/type[@name=&quot;Logger&quot;]/*" />
+            <summary>
+            Exposes  methods  to log and format messages: Debug; Info; Warn; Error; Fatal; Format.    
+            </summary>    
+            <!-- Failed to insert some or all of included XML --><include file="Logger/XMLs/Logger.xml" path="Docs/type[@name=&quot;Logger&quot;]/*" />
+        </member>
+        <member name="T:Vi.Tools.Log.Levels">
+            <summary>
+            Enumeration of the possible types of log (method)
+            </summary>
+        </member>
+        <member name="F:Vi.Tools.Log.Levels.DEBUG">
+            <summary>
+            This is the most verbose logging level (maximum volume setting). Debug should be out-of-bounds for a production system and used only for development and testing.
+            </summary>
+        </member>
+        <member name="F:Vi.Tools.Log.Levels.INFO">
+            <summary>
+            The 'Info' level is typically used to output information that is useful to the running and management of your system (production). 'Info' would also be the level used to log Entry and Exit points in key grids of your application. However, you may choose to add more entry and exit points at Debug level for more granularity during development and testing.
+            </summary>
+        </member>
+        <member name="F:Vi.Tools.Log.Levels.WARN">
+            <summary>
+            Warning is often used for handled 'exceptions' or other important log events. For example, if your application requires a configuration setting but has a default in case the setting is missing, then the Warning level should be used to log the missing configuration setting.
+            </summary>
+        </member>
+        <member name="F:Vi.Tools.Log.Levels.ERROR">
+            <summary>
+            Error is used to log all unhandled exceptions. This is typically logged inside a catch block at the boundary of your application.
+            </summary>
+        </member>
+        <member name="F:Vi.Tools.Log.Levels.FATAL">
+            <summary>
+            Fatal is reserved for special exceptions/conditions where it is imperative that you can quickly pick out these events. Fatal should to be used early in an application's development. It's usually only with experience it is possible identify situations worthy of the FATAL moniker experience do specific events become worth of promotion to Fatal. After all, an error's an error.
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Log.Debug(System.String)">
+            <summary>
+            This is the most verbose logging level (maximum volume setting). Debug should be out-of-bounds for a production system and 
+            used only for development and testing.
+            Logs a 'Debug in the log file if skepDebug (in config file) is false.
+            </summary>
+            <param name="text">The text to log.</param>
+        </member>
+        <member name="M:Vi.Tools.Log.Debug(System.String,System.String[])">
+            <summary>
+            This is the most verbose logging level (maximum volume setting). Debug should be out-of-bounds for a production system and 
+            used only for development and testing.
+            Logs a 'Debug in the log file if skepDebug (in config file) is false.
+            </summary>
+            <param name="format">the message to log in the format used for 'String.Format()'.</param>
+            <param name="values">The params array like in 'String.Format()'.</param>
+        </member>
+        <member name="M:Vi.Tools.Log.Info(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            The 'Info' level is typically used to output information useful to the running and management of your system (production). 
+            'Info' would also be the level used to log Entry and Exit points in key grids of your application. However, you may choose 
+            to add more entry and exit points at Debug level for more granularity during development and testing.
+            </summary>
+            <param name="text">The text to log.</param>
+            <param name="file">The name of the file from where this method is called.</param>
+            <param name="member">The name of the member where this method is called.</param>
+            <param name="line">The Line of the file where this method is called.</param>
+            <!-- Failed to insert some or all of included XML --><include file="Logger/XMLs/Logger.xml" path="Docs/method[@name=&quot;Info&quot;]/*" />
+        </member>
+        <member name="M:Vi.Tools.Log.Info(System.String,System.String[])">
+            <summary>
+            The 'Info' level is typically used to output information useful to the running and management of your system (production). 
+            'Info' would also be the level used to log Entry and Exit points in key grids of your application. However, you may choose 
+            to add more entry and exit points at Debug level for more granularity during development and testing.
+            </summary>
+            <param name="format"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:Vi.Tools.Log.Warn(System.String)">
+            <summary>
+            Warning is often used for handled 'exceptions' or other important log events. For example, if your application requires a 
+            configuration setting but has a default in case the setting is missing, then the Warning level should be used to log the 
+            missing configuration setting.
+            </summary>
+            <param name="text">The text to log.</param>
+            <param name="file">The name of the file from where this method is called.</param>
+            <param name="member">The name of the member where this method is called.</param>
+            <param name="line">The Line of the file where this method is called.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Vi.Tools.Log.Warn(System.String,System.String[])" -->
+        <member name="M:Vi.Tools.Log.Error(System.Exception)">
+            <summary>
+            Error is used to log all unhandled exceptions. This is typically logged inside a catch block at the boundary of your application.
+            </summary>
+            <param name="se">The exception to log.</param>
+            <param name="line">The line from where this method was called.</param>
+            <param name="member">The member from where this method was called.</param>
+            <param name="file">The file from where this method was called.</param>
+        </member>
+        <member name="M:Vi.Tools.Log.Fatal(System.String)">
+            <summary>
+            Fatal is reserved for special exceptions/conditions where it is imperative that you can quickly pick out these events. Fatal should 
+            to be used early in an application's development. It's usually only with experience it is possible identify situations worthy of the
+            FATAL moniker experience do specific events become worth of promotion to Fatal. After all, an error's an error.
+            </summary>
+            <param name="text">The text to log.</param>
+            <param name="file">The name of the file from where this method is called.</param>
+            <param name="member">The name of the member where this method is called.</param>
+            <param name="line">The Line of the file where this method is called.</param>
+        </member>
+        <member name="M:Vi.Tools.Log.Fatal(System.String,System.String[])">
+            <summary>
+            Fatal is reserved for special exceptions/conditions where it is imperative that you can quickly pick out these events. Fatal should to 
+            be used early in an application's development. It's usually only with experience it is possible identify situations worthy of the FATAL
+            moniker experience do specific events become worth of promotion to Fatal. After all, an error's an error.
+            </summary>
+            <param name="format">Like the 'format' parameter for the function string.format().</param>
+            <param name="values">The values to replace in the placeholder in the parameter 'format'.</param>
+            <returns>An instance of 'FormatClass' with the method 'Format' used to compose the text to log like the 'String.Format'</returns>
+        </member>
+        <member name="T:Vi.Tools.Properties.Ico">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Ico.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Ico.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Ico.Logo_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="T:Vi.Tools.Properties.Images3D">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Images3D.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Images3D.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Images3D.Piu_12x12">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Images3D.Piu_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Images3D.Piu_20x20">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Images3D.Piu_25x25">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Images3D.Piu_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Vi.Tools.Properties.ImagesDFlat">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Configurazione_Verde_25x25">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.elimina_Rosso_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.elimina_Rosso_30x30">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.elimina_Verde_30x30">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Home_Verde_30x30">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Modifica_Verde_25x25">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Operatore_Verde_25x25">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Piu_Rosso_20x20">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Piu_Verde_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Piu_Verde_25x25">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Progettazione_Verde_25x25">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.Responsabile_Verde_25x25">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.save_Verde_30x30">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesDFlat.SMS_Verde_25x25">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Vi.Tools.Properties.ImagesRFlat">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Bin_Gray_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Bin_Rosso_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Down_Green_27x27">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Left_Green_27x27">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Pencil_Gray_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Piu_Gray_20x20">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Piu_Verde_14x14">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Piu_Verde_18x18">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Piu_Verde_20x20">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.QuestionMark_Orange_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Right_Green_27x27">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.ImagesRFlat.Up_Green_27x27">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Vi.Tools.Properties.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Resource.Dotted">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Resource.Underline">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Vi.Tools.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Resources.Dotted">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Properties.Resources.Underline">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Utilities.Join(System.Object[])">
+            <summary>
+            Una variante del Metodo 'String.Join' Converte il parametro 'value' in una stringa di valori separati da ';'  
+            /// </summary>
+            <param name="values">Lista di oggetti da mettere in sequenza. Di ognuno viene convertito in stringa e vengono rimosse le enetuali occorrenze di ';'. Si esegue  'value[x].ToString().Replace(";", " ").</param>
+            <returns>Una sequenza di stringhe separate da ' ; ' (compresi gli spazi). 'null' viene convertito in 'Empty'.</returns>
+        </member>
+        <member name="T:Vi.Tools.Watcher">
+            <summary>
+            Observes a Directory and it's subDirectories, waiting for changes.
+            If a change occours writes a copy of the changed file (before the change) in a backup diretory.
+            </summary>
+        </member>
+        <member name="T:Vi.Tools.Watcher.CopyDelegate">
+            <summary>
+            It's 'boilerplate code': the delegate for the event 'Copy'
+            </summary>
+            <param name="changeType">Changes that might occur to a file or directory.</param>
+            <param name="subPath">The sub path where the file is stored (relative to the root path from where this watching is 'observing')</param>
+            <param name="fileName">The name of the file copied.</param>
+        </member>
+        <member name="F:Vi.Tools.Watcher.Copy">
+            <summary>
+            Notifies the ouside world that a backup copy was created.
+            </summary>
+        </member>
+        <member name="T:Vi.Tools.Watcher.ExceptionDelegate">
+            <summary>
+            It's 'boilerplate code': the delegate for the event 'Exception'
+            </summary>
+            <param name="se"></param>
+        </member>
+        <member name="F:Vi.Tools.Watcher.Exception">
+            <summary>
+             Notifies the ouside world that an exception occurren in this class.
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Watcher.OnException(System.Exception)">
+            <summary>
+            It's 'boilerplate code', but this method should be called instead of 'this.Exception'.
+            </summary>
+        </member>
+        <member name="F:Vi.Tools.Watcher.FSW">
+            <summary>
+            The 'pointer' to the watcher!
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Watcher.Path">
+            <summary>
+            The directory to monitor, in standard or Universal Naming Convention (UNC) notation.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Watcher.Filter">
+            <summary>
+            The type of files to watch. For example, "*.txt" watches for changes to all 'txt' files.
+            </summary>
+        </member>
+        <member name="P:Vi.Tools.Watcher.Backup">
+            <summary>
+            The full path of the backup directory, in standard or Universal Naming Convention (UNC) notation.
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Watcher.#ctor(System.String,System.String,System.IO.NotifyFilters,System.String)">
+            <summary>
+            Initialize a FileSystemWatcher.
+            </summary>
+            <param name="backup">The full path of the backup directory, in standard or Universal Naming Convention (UNC) notation.</param>
+            <param name="path">The directory to monitor, in standard or Universal Naming Convention (UNC) notation.</param>
+            <param name="notifyFilters">Specifies changes to watch for in a file or folder.</param>
+            <param name="filter">The type of files to watch. For example, "*.txt" watches for changes to all 'txt' files.</param>
+        </member>
+        <member name="M:Vi.Tools.Watcher.Store(System.IO.FileSystemEventArgs)">
+            <summary>
+            Creates a copy of the modified file in the backup directory. 
+            The backup directory is a 'mirror' of the original directory. 
+            Each day there is a new backup diretory under the root folder.
+            </summary>
+            <param name="e">the parameter provided by all the managed events:{Changed, Created, Deleted, Renamed}</param>
+        </member>
+        <member name="T:Vi.SQLLogger">
+            <summary>
+             <img src="C:\Vi\Code\coGit-ergo-sum\Tools\Sandcastle\Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
+            <p>
+            Writes log directly into ad SQLServer Database  
+            comment added just to see what happens:
+            See /<see cref="T:System.Collections.Generic.IEnumerable`1" /> for more information.
+            <p />Another reference to IEnumerable&lt;T&gt;.</p>
+            </summary>
+            <summary>
+      <img src="Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
+      <img src=".\Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
+      <img src="..\Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
+      <img src="/Images/SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
+      <img src="./Images/SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
+      <img src="C:\Vi\Code\coGit-ergo-sum\Tools\Sandcastle\Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
+      <img src="Tools/Images/SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
+      <a href="#">LINK</a>
+      <br />
+      <p style="Padding: 15px 0px 0px 0px;">
+        This Interface is defined to implement the <b>"dependency injection"</b> in this project, by the method 'Vi.Logger.SetLogger'.<br />
+        Every class used to log messages (regardles the implementation), to be used by this Logger, must inherit from the Vi.ILog interface.
+      </p>
+
+      bla bla bla 56
+      <img src="Images/SQLLogger.pngHelp\Images\SQLLogger.png" />
+
+      <img src="Images/SQLLogger.png" />
+      <img src="tools/help/Images/SQLLogger.png" />
+      <img src="../../help/Images/SQLLogger.png" />
+      <img src="../../Images/SQLLogger.png" />
+      <img src="./Images/SQLLogger.png" />
+      <img src="Tools/Images/SQLLogger.png" />
+      the end !
+
+    </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="F:Vi.SQLLogger.ConnectionString">
+            <summary>
+            The classic connection strint ot the SQL Server DB.
+            </summary>
+        </member>
+        <member name="M:Vi.SQLLogger.#ctor(System.String)">
+            <summary>
+            Main CTor (The only think it does is to store the connection string)
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:Vi.SQLLogger.Debug(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            This is the most verbose logging level (maximum volume setting). Debug should be out-of-bounds for a production system and used only for development and testing.
+            </summary>
+            <param name="text">The text to log.</param>
+            <param name="line">The line from where this method was called.</param>
+            <param name="member">The member from where this method was called.</param>
+            <param name="file">The file from where this method was called.</param>
+            <summary>
+        <para>
+          <p style="padding:9px 0px 7px 0px;" />
+        </para>
+
+      </summary>
+        </member>
+        <member name="M:Vi.SQLLogger.Fatal(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Fatal is reserved for special exceptions/conditions where it is imperative that you can quickly pick out these events. 
+            </summary>
+            <param name="text">The text to log.</param>
+            <param name="line">The line from where this method was called.</param>
+            <param name="member">The member from where this method was called.</param>
+            <param name="file">The file from where this method was called.</param>
+            <summary>
+      <para>
+        <p style="padding:9px 0px 7px 0px;">
+          Fatal should to be used early in an application's development. It's usually only with experience it is possible identify situations worthy of the FATAL moniker experience do specific events become worth of promotion to Fatal. After all, an error's an error.
+        </p>
+      </para>
+
+    
+  </summary>
+        </member>
+        <member name="M:Vi.SQLLogger.Info(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            The 'Info' level is typically used to output information that is useful to the running and management of your system (production). 
+            </summary>
+            <param name="text">The text to log.</param>
+            <param name="line">The line from where this method was called.</param>
+            <param name="member">The member from where this method was called.</param>
+            <param name="file">The file from where this method was called.</param>
+            <summary>
+      <para>
+        <p style="padding:9px 0px 7px 0px;">
+          'Info' would also be the level used to log Entry and Exit points in key areas of your application. However, you may choose to add more entry and exit points at Debug level for more granularity during development and testing.
+        </p>
+      </para>
+
+    </summary>
+        </member>
+        <member name="M:Vi.SQLLogger.Warn(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Warning is often used for handled 'exceptions' or other important log events.
+            </summary>
+            <param name="text">The text to log.</param>
+            <param name="line">The line from where this method was called.</param>
+            <param name="member">The member from where this method was called.</param>
+            <param name="file">The file from where this method was called.</param>
+            <summary>
+      <para>
+        <p style="padding:9px 0px 7px 0px;">
+          For example, if your application requires a configuration setting but has a default in case the setting is missing, then the Warning level should be used to log the missing configuration setting.
+        </p>
+      </para>
+    
+    </summary>
+        </member>
+        <member name="M:Vi.SQLLogger.Error(System.Exception,System.Int32,System.String,System.String)">
+            <summary>
+            Error is used to log all unhandled exceptions. 
+            </summary>
+            <param name="se">The exception to log.</param>
+            <param name="line">The line from where this method was called.</param>
+            <param name="member">The member from where this method was called.</param>
+            <param name="file">The file from where this method was called.</param>
+            <summary>
+      <para>
+        <p style="padding:9px 0px 7px 0px;">
+          This is typically logged inside a catch block at the boundary of your application.
+        </p>
+      </para>
+      
+  </summary>
+        </member>
+        <member name="T:Vi.Types.Percentage">
+            <summary>
+            A number or ratio expressed as a fraction of 1 (internally represented using the built-in 'System.decimal'. 
+            
+            It is often denoted using the percent sign, "%", although the abbreviations "pct.", "pct" and sometimes "pc" are also used. 
+            A percentage is a dimensionless number; it has no unit of measurement. [Wikipedia]
+            </summary>
+        </member>
+        <member name="F:Vi.Types.Percentage.Value">
+            <summary>
+            Decimal representation of the value: a number less-equal 1.
+            </summary>
+        </member>
+        <member name="M:Vi.Types.Percentage.#ctor(System.Decimal)">
+            <summary>
+            Main Constructor.
+            </summary>
+            <param name="value">Il tipo della sede in formato stringa.</param>
+        </member>
+        <member name="M:Vi.Types.Percentage.TryParse(System.String,Vi.Types.Percentage@)">
+            <summary>
+            Converts the string representation of a number to its Decimal equivalent. A return value indicates whether the conversion succeeded or failed.
+            </summary>
+            <param name="value">The string representation of the number to convert.</param>
+            <param name="result">When this method returns, contains the Percentage number that is equivalent 
+            to the numeric value contained in the parameter 'value', if the conversion succeeded, or zero if the conversion failed. 
+            The conversion fails if the 'value' parameter is null or Empty, is not a number in a format compliant 
+            with style, or represents a number less than MinValue or greater than MaxValue. This parameter is 
+            passed uininitialized; any value originally supplied in result is overwritten.</param>
+            <returns>true if 'value' was converted successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:Vi.Types.Percentage.op_Implicit(Vi.Types.Percentage)~System.Decimal">
+            <summary>
+            'Casts' the struct to its original type.
+            </summary>
+            <param name="percent">An instance of 'Percentage'.</param>
+            <returns>The 'decimal' associated with this 'struct'. (percent.value</returns>
+        </member>
+        <member name="M:Vi.Types.Percentage.op_Implicit(System.Decimal)~Vi.Types.Percentage">
+            <summary>
+            'Casts' the decimal to Percentage.
+            </summary>
+            <param name="value">The built in typy to cast to Percentage.</param>
+            <returns>New instance of a 'percent' struct.</returns>
+        </member>
+    </members>
+</doc>

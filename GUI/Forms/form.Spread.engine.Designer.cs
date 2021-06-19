@@ -24,10 +24,10 @@ namespace CoViD.GUI.Forms
 		{
 			this.InitializeStatusStrip();
 
-			var radius = (int)udRadius.Value;
-			var people = (int)this.udPeople.Value;
-			byte steps = (byte)udSteps.Value;
-			this.TicksMax = (int)udTicks.Value;
+			var radius = (int)this.Settings.Radius; ;
+			var people = this.Settings.People;
+			byte steps = this.Settings.Steps; ;
+			this.TicksMax = this.Settings.Ticks; ;
 
 			this.grid1.SetXY(radius, "People");
 			this.grid2.SetXY(radius, "Contamination");
@@ -102,7 +102,7 @@ namespace CoViD.GUI.Forms
 
 		private void Contaminate()
 		{
-			var radius = (int)udRadius.Value;
+			var radius = this.Settings.Radius; 
 
 			// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX //
 			// Simulate the sneeze of the first infected person. This creates a contaminated grid
@@ -128,7 +128,7 @@ namespace CoViD.GUI.Forms
 
 			while (this.Grid.Ticks < this.TicksMax)
 			{
-				CoViD.CL.Person.SegregationThreshold = (byte)this.udSegregationThreshold.Value;
+				CoViD.CL.Person.SegregationThreshold = (byte)this.Settings.Segregation;
 
 				CoViD.Program.stopwatch.Restart();
 				//CoViD.Program.stopwatch.Start();
@@ -217,8 +217,11 @@ namespace CoViD.GUI.Forms
 				
 				this.tsContaminatedGrids.Text = this.Grid.Contaminated.Count.ToText();
 							   				 
-				var percent = (int)Math.Min(100, Math.Round((100 * ((decimal)ticks / this.udTicks.Value))));
-				if (!this.tsProgressBar.IsDisposed) { this.tsProgressBar.Value = percent; }
+				var percent = (int)Math.Min(100, Math.Round((100 * ((decimal)ticks / this.Settings.Ticks))));
+				if (!this.tsProgressBar.IsDisposed) { 
+					this.tsProgressBar.Value = percent;
+					this.tsProgressBar.ToolTipText = percent.ToString() + "%";
+				}
 
 				System.Threading.Thread.Sleep(0);
 
@@ -234,7 +237,7 @@ namespace CoViD.GUI.Forms
 				this.Contaminate();
 			}
 
-			if (this.Grid.Ticks >= this.udTicks.Value)
+			if (this.Grid.Ticks >= this.Settings.Ticks)
 			{
 				tsbPlay.Enabled = false;
 				tsbPause.Enabled = false;
@@ -303,16 +306,16 @@ namespace CoViD.GUI.Forms
 				ts.TextAlign = ContentAlignment.MiddleLeft;
 			};
 
-			var people = this.udPeople.Value;
+			var people = this.Settings.People;
 
-			adjust(this.tsTicks, this.udTicks.Value);
+			adjust(this.tsTicks, this.Settings.Ticks);
 			adjust(this.tsSusceptibles, people);
 			adjust(this.tsInfected, people);
 			adjust(this.tsRecovered, people);
 			adjust(this.tsImmune, people);
 			adjust(this.tsDead, people);
 
-			var contaminatedGrids = (decimal)Math.Pow(((double)this.udRadius.Value / (double)100), 2);
+			var contaminatedGrids = (decimal)Math.Pow(((double)this.Settings.Radius / (double)100), 2);
 
 			adjust(this.tsContaminatedGrids, contaminatedGrids);
 		}

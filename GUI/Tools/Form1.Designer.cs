@@ -125,6 +125,6 @@
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.CheckBox checkBox1;
 		private UC.Legend legend1;
-		private UC.ToolStrip toolStrip1;
+		//////private UC.ToolStrip toolStrip1;
 	}
 }

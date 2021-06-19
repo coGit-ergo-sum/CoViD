@@ -4,21 +4,68 @@
         <name>GUI</name>
     </assembly>
     <members>
-        <member name="F:CoViD.GUI.Form1.components">
+        <member name="F:CoViD.CovidSettings.Radius">
             <summary>
-            Required designer variable.
+            
             </summary>
         </member>
-        <member name="M:CoViD.GUI.Form1.Dispose(System.Boolean)">
+        <member name="F:CoViD.CovidSettings.People">
             <summary>
-            Clean up any resources being used.
+            The number of people in the simulation;
             </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
-        <member name="M:CoViD.GUI.Form1.InitializeComponent">
+        <member name="F:CoViD.CovidSettings.Steps">
             <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
+            Specifies the kind of distribution
+            </summary>
+        </member>
+        <member name="F:CoViD.CovidSettings.Ticks">
+            <summary>
+            The max number of time unit. 
+            </summary>
+        </member>
+        <member name="F:CoViD.CovidSettings.Segregation">
+            <summary>
+            The percentage of people segregated at home.
+            </summary>
+        </member>
+        <member name="T:CoViD.GUI.Tools.Extensions.Profile.Methods">
+            <summary>
+            Collection of extension specific for this project.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Tools.Extensions.Profile.Methods.Read(Vi.Tools.Profile,System.String,System.String,CoViD.CovidSettings)">
+            <summary>
+            Reads the settings for the CoViD simulation.
+            </summary>
+            <param name="profile">The class Profile extended by this extension method.</param>
+            <param name="section">The section of the INI file.</param>
+            <param name="key">The Key of the INI file.</param>
+            <param name="default">The default values to return it is not possible read the INI (for any reason).</param>
+            <returns>The values in the INI files. Default if any issue raises.</returns>
+        </member>
+        <member name="M:CoViD.GUI.Tools.Extensions.Profile.Methods.Write(Vi.Tools.Profile,System.String,System.String,CoViD.CovidSettings)">
+            <summary>
+            Writes the settings for the CoViD simulation.
+            </summary>
+            <param name="profile">The class Profile extended by this extension method.</param>
+            <param name="section">The section of the INI file.</param>
+            <param name="key">The Key of the INI file.</param>
+            <param name="settings">The set of values to store in the INI file.</param>
+        </member>
+        <member name="F:CoViD.GUI.Tools.Watcher._watcher">
+            <summary>
+            Watcher. Butta
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Tools.Watcher.Init">
+            <summary>
+            Init.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Tools.Watcher._watcher_Changed(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            Handler.
             </summary>
         </member>
         <member name="F:CoViD.GUI.Form2.components">
@@ -33,23 +80,6 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:CoViD.GUI.Form2.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="F:CoViD.GUI.Form3.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.Form3.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:CoViD.GUI.Form3.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -118,6 +148,23 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="F:CoViD.GUI.Forms.Settings.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Settings.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Settings.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="F:CoViD.GUI.Forms.Spread.components">
             <summary>
             Required designer variable.
@@ -138,72 +185,6 @@
         <member name="M:CoViD.GUI.Forms.Spread.InitializeStatusStrip">
             <summary>
             Adjust the widths of the items in the 'StatusStrip' based on the current settings.
-            </summary>
-        </member>
-        <member name="F:CoViD.GUI.Forms.MFI.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.Forms.MFI.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:CoViD.GUI.Forms.MFI.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="F:CoViD.GUI.MDI.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.MDI.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:CoViD.GUI.MDI.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="F:CoViD.GUI.Tools.Watcher._watcher">
-            <summary>
-            Watcher. Butta
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.Tools.Watcher.Init">
-            <summary>
-            Init.
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.Tools.Watcher._watcher_Changed(System.Object,System.IO.FileSystemEventArgs)">
-            <summary>
-            Handler.
-            </summary>
-        </member>
-        <member name="F:CoViD.GUI.Tools.Form5.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.Tools.Form5.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:CoViD.GUI.Tools.Form5.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:CoViD.GUI.UC.Cartesian">
@@ -363,23 +344,6 @@
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
-        </member>
-        <member name="F:CoViD.GUI.UC.ToolStrip.components">
-            <summary> 
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.UC.ToolStrip.Dispose(System.Boolean)">
-            <summary> 
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:CoViD.GUI.UC.ToolStrip.InitializeComponent">
-            <summary> 
-            Required method for Designer support - do not modify 
-            the contents of this method with the code editor.
-            </summary>
         </member>
         <member name="F:CoViD.GUI.UC.Item.components">
             <summary> 

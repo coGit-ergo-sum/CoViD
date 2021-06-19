@@ -8,12 +8,14 @@ using System.Windows.Forms;
 
 using Vi.Tools.Extensions.Float;
 
+
 namespace CoViD
 {
 	static class Program
 	{
 
 		public static Stopwatch stopwatch = new Stopwatch();
+		public static Vi.Tools.Profile profile; // new Vi.Tools.Profile(
 
 
 		static Brush red = (Brush)Brushes.Red;
@@ -33,6 +35,8 @@ namespace CoViD
 		static void Main()
 		{
 			var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+			var fileName = System.IO.Path.Combine(baseDirectory, "Settings.ini");
+			Program.profile = new Vi.Tools.Profile(fileName);
 
 			if (baseDirectory.ToUpper().StartsWith(@"c:\vi\code".ToUpper())){
 
@@ -54,6 +58,7 @@ namespace CoViD
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+
 			//Application.Run(new CoViD.GUI.Plot());
 			//Application.Run(new CoViD.GUI.Form1());
 			//Application.Run(new GUI.Forms.Infection());

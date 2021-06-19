@@ -111,7 +111,7 @@ namespace CoViD.GUI.Forms
 				if (person.IsDead) { break; }
 			}
 			{
-				lblVmax2.Text = person.VirusMaxPercent.ToPercent2();
+				lblVmax2.Text = "0"; // person.VirusMaxPercent.ToPercent2();
 			}
 		}
 
