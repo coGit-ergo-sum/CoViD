@@ -4,27 +4,27 @@
         <name>GUI</name>
     </assembly>
     <members>
-        <member name="F:CoViD.CovidSettings.Radius">
+        <member name="F:CoViD.INI.Radius">
             <summary>
             
             </summary>
         </member>
-        <member name="F:CoViD.CovidSettings.People">
+        <member name="F:CoViD.INI.People">
             <summary>
             The number of people in the simulation;
             </summary>
         </member>
-        <member name="F:CoViD.CovidSettings.Steps">
+        <member name="F:CoViD.INI.Steps">
             <summary>
             Specifies the kind of distribution
             </summary>
         </member>
-        <member name="F:CoViD.CovidSettings.Ticks">
+        <member name="F:CoViD.INI.Ticks">
             <summary>
             The max number of time unit. 
             </summary>
         </member>
-        <member name="F:CoViD.CovidSettings.Segregation">
+        <member name="F:CoViD.INI.Segregation">
             <summary>
             The percentage of people segregated at home.
             </summary>
@@ -34,23 +34,19 @@
             Collection of extension specific for this project.
             </summary>
         </member>
-        <member name="M:CoViD.GUI.Tools.Extensions.Profile.Methods.Read(Vi.Tools.Profile,System.String,System.String,CoViD.CovidSettings)">
+        <member name="M:CoViD.GUI.Tools.Extensions.Profile.Methods.Read(Vi.Tools.Profile,CoViD.INI)">
             <summary>
             Reads the settings for the CoViD simulation.
             </summary>
             <param name="profile">The class Profile extended by this extension method.</param>
-            <param name="section">The section of the INI file.</param>
-            <param name="key">The Key of the INI file.</param>
             <param name="default">The default values to return it is not possible read the INI (for any reason).</param>
             <returns>The values in the INI files. Default if any issue raises.</returns>
         </member>
-        <member name="M:CoViD.GUI.Tools.Extensions.Profile.Methods.Write(Vi.Tools.Profile,System.String,System.String,CoViD.CovidSettings)">
+        <member name="M:CoViD.GUI.Tools.Extensions.Profile.Methods.Write(Vi.Tools.Profile,CoViD.INI)">
             <summary>
             Writes the settings for the CoViD simulation.
             </summary>
             <param name="profile">The class Profile extended by this extension method.</param>
-            <param name="section">The section of the INI file.</param>
-            <param name="key">The Key of the INI file.</param>
             <param name="settings">The set of values to store in the INI file.</param>
         </member>
         <member name="F:CoViD.GUI.Tools.Watcher._watcher">

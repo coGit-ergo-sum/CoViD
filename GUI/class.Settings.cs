@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoViD
 {
-	public class CovidSettings
+	public class INI
 	{
 		/// <summary>
 		/// 
@@ -33,10 +33,10 @@ namespace CoViD
 		/// </summary>
 		public Vi.Types.Percentage Segregation; //////
 
-		public CovidSettings() : this(radius: 12000, people: 10000, steps: 1, ticks: 25000, segregation: 0) { }
+		public INI() : this(radius: 12000, people: 10000, steps: 1, ticks: 25000, segregation: 0) { }
 
 
-		public CovidSettings(decimal radius, int people, byte steps, int ticks, decimal segregation)
+		public INI(decimal radius, int people, byte steps, int ticks, decimal segregation)
 		{
 			this.Radius = radius;
 			this.People = people;

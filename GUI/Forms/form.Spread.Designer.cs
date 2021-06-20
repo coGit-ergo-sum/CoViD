@@ -205,7 +205,7 @@
 			this.tabPage3.Name = "tabPage3";
 			this.tabPage3.Size = new System.Drawing.Size(1125, 645);
 			this.tabPage3.TabIndex = 2;
-			this.tabPage3.Text = "Contaminated grids";
+			this.tabPage3.Text = "Contaminated points";
 			// 
 			// xyContaminated
 			// 
@@ -498,7 +498,7 @@
 			this.legend1.IsSevere = true;
 			this.legend1.IsSIR = false;
 			this.legend1.IsSusceptible = true;
-			this.legend1.Location = new System.Drawing.Point(388, 34);
+			this.legend1.Location = new System.Drawing.Point(374, 37);
 			this.legend1.Name = "legend1";
 			this.legend1.Size = new System.Drawing.Size(717, 15);
 			this.legend1.TabIndex = 77;

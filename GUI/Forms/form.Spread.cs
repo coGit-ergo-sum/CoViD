@@ -24,7 +24,7 @@ namespace CoViD.GUI.Forms
 
 		private CoViD.CL.Grid Grid;
 
-		private CoViD.CovidSettings Settings;
+		private CoViD.INI Settings;
 
 
 		#region Form's events
@@ -38,7 +38,7 @@ namespace CoViD.GUI.Forms
 			this.Location = Program.profile.Read(this.Name, "Location", this.Location);
 			this.Size = Program.profile.Read(this.Name, "Size", this.Size);
 
-			this.Settings = Program.profile.Read(this.Name, "Settings", new CoViD.CovidSettings());
+			this.Settings = Program.profile.Read(new CoViD.INI());
 			this.tsPeople.Text = Settings.People.ToText();
 			this.legend1.IsSusceptible = false;
 			this.legend1.IsImmune = false;
@@ -50,7 +50,7 @@ namespace CoViD.GUI.Forms
 		{
 			Program.profile.Write(this.Name, "Location", this.Location);
 			Program.profile.Write(this.Name, "Size", this.Size);
-			Program.profile.Write(this.Name, "Settings", this.Settings);
+
 			this.tsbPause_Click(null, null);
 		}
 		#endregion

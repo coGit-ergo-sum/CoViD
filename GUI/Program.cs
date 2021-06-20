@@ -13,7 +13,7 @@ namespace CoViD
 {
 	static class Program
 	{
-
+		public const string Name = "Program";
 		public static Stopwatch stopwatch = new Stopwatch();
 		public static Vi.Tools.Profile profile; // new Vi.Tools.Profile(
 
@@ -35,7 +35,7 @@ namespace CoViD
 		static void Main()
 		{
 			var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-			var fileName = System.IO.Path.Combine(baseDirectory, "Settings.ini");
+			var fileName = System.IO.Path.Combine(baseDirectory, "CoViD.ini");
 			Program.profile = new Vi.Tools.Profile(fileName);
 
 			if (baseDirectory.ToUpper().StartsWith(@"c:\vi\code".ToUpper())){
