@@ -39,3 +39,4 @@ C:\Vi\Code\coGit-ergo-sum\CoViD\CL\obj\Debug\netstandard2.0\CL.AssemblyInfo.cs
 C:\Vi\Code\coGit-ergo-sum\CoViD\CL\obj\Debug\netstandard2.0\CL.csproj.CopyComplete
 C:\Vi\Code\coGit-ergo-sum\CoViD\CL\obj\Debug\netstandard2.0\CL.dll
 C:\Vi\Code\coGit-ergo-sum\CoViD\CL\obj\Debug\netstandard2.0\CL.pdb
+C:\Vi\Code\coGit-ergo-sum\CoViD\CL\obj\Debug\netstandard2.0\CL.csprojAssemblyReference.cache

@@ -24,22 +24,38 @@ namespace CoViD.GUI.Forms
 
 		private CoViD.CL.Grid Grid;
 
-		private CoViD.INI Settings;
+		/// <summary>
+		/// The settings for this page.
+		/// </summary>
+		public CoViD.INI INI;
+
+		private bool isRunning
+		{
+			get { return tsbPause.Visible; }
+		}
 
 
 		#region Form's events
+
+		/// <summary>
+		/// Manin CTor. Runs 'InitializeComponent'.
+		/// </summary>
 		public Spread()
 		{
 			InitializeComponent();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void Spread_Load(object sender, EventArgs e)
 		{
-			this.Location = Program.profile.Read(this.Name, "Location", this.Location);
-			this.Size = Program.profile.Read(this.Name, "Size", this.Size);
+			this.Location = Program.INIGUI.Read(this.Name, "Location", this.Location);
+			this.Size = Program.INIGUI.Read(this.Name, "Size", this.Size);
 
-			this.Settings = Program.profile.Read(new CoViD.INI());
-			this.tsPeople.Text = Settings.People.ToText();
+			this.INI = Program.INICoViD.Read(new CoViD.INI());
 			this.legend1.IsSusceptible = false;
 			this.legend1.IsImmune = false;
 			Initialize();
@@ -48,8 +64,8 @@ namespace CoViD.GUI.Forms
 
 		private void Spread_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			Program.profile.Write(this.Name, "Location", this.Location);
-			Program.profile.Write(this.Name, "Size", this.Size);
+			Program.INIGUI.Write(this.Name, "Location", this.Location);
+			Program.INIGUI.Write(this.Name, "Size", this.Size);
 
 			this.tsbPause_Click(null, null);
 		}
@@ -72,7 +88,7 @@ namespace CoViD.GUI.Forms
 			tsbPlay.Visible = false;
 			tsbPause.Visible = true;
 
-			this.TicksMax = (int)this.Settings.Ticks;
+			this.TicksMax = (int)this.INI.Ticks;
 			this.Play();
 		}
 
@@ -82,7 +98,7 @@ namespace CoViD.GUI.Forms
 			tsbPause.Visible = true;
 			tsbPause.Enabled = true;
 
-			this.TicksMax = (int)this.Settings.Ticks;
+			this.TicksMax = (int)this.INI.Ticks;
 
 			this.grid2.Cartesian.Clear();
 			this.xySIR.Cartesian.Clear();
@@ -92,7 +108,6 @@ namespace CoViD.GUI.Forms
 
 			this.Grid.Reset();
 			this.Contaminate();
-			//this.Spread_Load(null, null);
 
 			this.Play();
 		}
@@ -104,38 +119,35 @@ namespace CoViD.GUI.Forms
 			tsbPause.Enabled = true;
 
 			Initialize();
-			//this.Spread_Load(null, null);
-			//this.tsbReplay_Click(null, null);
 			this.Play();
 		}
 		#endregion
-	
 
-		private void up_Click(object sender, EventArgs e)
-		{
-			this.grid1.Cartesian.Clear();
-			this.grid2.Cartesian.Clear();
-			this.xySIR.Cartesian.Clear();
-			this.xyContaminated.Cartesian.Clear();
-			//this.Initialize();
-		}
 
 		private void tsbSettings_Click(object sender, EventArgs e)
 		{
-			var isRunning = tsbPause.Visible;
+			var isRunning = this.isRunning;
 			tsbPause_Click(null, null);
 			var frmSettings = new CoViD.GUI.Forms.Settings();
-			//frmSettings.FormClosed += (_sender, _e) => {
-			//	if (isRunning)
-			//	{
-			//		//tsbPlay_Click(null, null);
-			//		//frmSettings.Close();
-			//	}
-			//};
 			frmSettings.ShowDialog();
 			if (isRunning)
 			{
-				tsbPlay_Click(null, null);
+
+				var ini = Program.INICoViD.Read(new CoViD.INI());
+				if (ini == this.INI)
+				{
+					tsbPlay_Click(null, null);
+				}
+				else
+				{
+					this.INI = ini;
+					////////this.grid1.Cartesian.Clear();
+					////////this.grid2.Cartesian.Clear();
+					////////this.xySIR.Cartesian.Clear();
+					////////this.xyContaminated.Cartesian.Clear();
+					//this.Initialize();
+					tsbNew_Click(null, null);
+				}
 				//frmSettings.Close();
 			}
 		}

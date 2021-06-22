@@ -356,7 +356,7 @@
 			this.tsPeople.ForeColor = System.Drawing.Color.DarkRed;
 			this.tsPeople.Name = "tsPeople";
 			this.tsPeople.Size = new System.Drawing.Size(50, 17);
-			this.tsPeople.Text = "12.000";
+			this.tsPeople.Text = "0";
 			this.tsPeople.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.tsPeople.ToolTipText = "The number of people in this simulation.";
 			// 

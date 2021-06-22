@@ -29,6 +29,54 @@
             The percentage of people segregated at home.
             </summary>
         </member>
+        <member name="M:CoViD.INI.#ctor">
+            <summary>
+            Default CTor create an instance of an 'INI' having radius: 12000, people: 10000, steps: 1, ticks: 25000, segregation: 0
+            </summary>
+        </member>
+        <member name="M:CoViD.INI.#ctor(CoViD.GUI.UC.UpDown,CoViD.GUI.UC.UpDown,CoViD.GUI.UC.UpDown,CoViD.GUI.UC.UpDown,CoViD.GUI.UC.UpDown)">
+            <summary>
+            Create an instance of an 'INI' from the UpDown controls
+            </summary>
+            <param name="radius">The extention of the grid.</param>
+            <param name="people"></param>
+            <param name="steps"></param>
+            <param name="ticks"></param>
+            <param name="segregation"></param>
+        </member>
+        <member name="M:CoViD.INI.#ctor(System.Decimal,System.Int32,System.Byte,System.Int32,System.Decimal)">
+            <summary>
+            Main CTor Create an instance of INI set with the provided values		
+            </summary>
+            <param name="radius"></param>
+            <param name="people"></param>
+            <param name="steps"></param>
+            <param name="ticks"></param>
+            <param name="segregation"></param>
+        </member>
+        <member name="M:CoViD.INI.op_Equality(CoViD.INI,CoViD.INI)">
+            <summary>
+            Compares two instance of the class INI checking if they are equal fied by field.
+            </summary>
+            <param name="iniL">One instance of the class INI</param>
+            <param name="iniR">The other instance of the class INI</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoViD.INI.op_Inequality(CoViD.INI,CoViD.INI)">
+            <summary>
+            Compares two instance of the class INI checking for disuguality 
+            </summary>
+            <param name="iniL">One instance of the class INI</param>
+            <param name="iniR">The other instance of the class INI</param>
+            <returns>True if both the parameters are not null and each filed in the left parameter is ugual to the same field in the right parameter. False otherwise.</returns>
+        </member>
+        <member name="M:CoViD.INI.Equals(CoViD.INI)">
+            <summary>
+            compare this instance with the provided instance of The INI class.
+            </summary>
+            <param name="ini">The other INI object to compare with this.</param>
+            <returns>True if both the parameters are not null and each filed in the left parameter is ugual to the same field in the right parameter. False otherwise.</returns>
+        </member>
         <member name="T:CoViD.GUI.Tools.Extensions.Profile.Methods">
             <summary>
             Collection of extension specific for this project.
@@ -144,6 +192,21 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:CoViD.GUI.Forms.Settings">
+            <summary>
+            Form specialized to manage the settings.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Forms.Settings.INI">
+            <summary>
+            contains the settings from the INI file (if exists) Default values otherwise.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Settings.#ctor">
+            <summary>
+            Main CTor inizializes component.
+            </summary>
+        </member>
         <member name="F:CoViD.GUI.Forms.Settings.components">
             <summary>
             Required designer variable.
@@ -161,6 +224,28 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:CoViD.GUI.Forms.Spread">
+            <summary>
+            Contains the functionsthat are not event of the page.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Forms.Spread.INI">
+            <summary>
+            The settings for this page.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Spread.#ctor">
+            <summary>
+            Manin CTor. Runs 'InitializeComponent'.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Spread.Spread_Load(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="F:CoViD.GUI.Forms.Spread.components">
             <summary>
             Required designer variable.
@@ -176,6 +261,11 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.Forms.Spread.TicksMax">
+            <summary>
+            Stores the max number of ticks.
             </summary>
         </member>
         <member name="M:CoViD.GUI.Forms.Spread.InitializeStatusStrip">

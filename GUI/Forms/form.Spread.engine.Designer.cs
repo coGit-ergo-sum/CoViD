@@ -15,8 +15,14 @@ using Vi.Tools.Extensions.Decimal;
 
 namespace CoViD.GUI.Forms
 {
+	/// <summary>
+	/// Contains the functionsthat are not event of the page.
+	/// </summary>
 	partial class Spread
 	{
+		/// <summary>
+		/// Stores the max number of ticks.
+		/// </summary>
 		int TicksMax;
 
 
@@ -24,10 +30,12 @@ namespace CoViD.GUI.Forms
 		{
 			this.InitializeStatusStrip();
 
-			var radius = (int)this.Settings.Radius; ;
-			var people = this.Settings.People;
-			byte steps = this.Settings.Steps; ;
-			this.TicksMax = this.Settings.Ticks; ;
+			var radius = (int)this.INI.Radius; ;
+			var people = this.INI.People;
+			byte steps = this.INI.Steps; ;
+			this.TicksMax = this.INI.Ticks; ;
+
+			this.tsPeople.Text = people.ToText();
 
 			this.grid1.SetXY(radius, "People");
 			this.grid2.SetXY(radius, "Contamination");
@@ -70,15 +78,6 @@ namespace CoViD.GUI.Forms
 				var locations = new CoViD.CL.Locations(radius, steps);
 				var person = new CoViD.CL.Person(locations);
 
-				//var person = new CoViD.CL.Person(
-				//	locations,
-				//	p0.VirusGrowthPercent,
-				//	p0.AntibodyGrowthPercent,
-				//	p0.AntibodyDecayPercent,
-				//	p0.DeadThreshold,
-				//	p0.Mobility
-				//);
-
 				person.Sneeze += this.Person_Sneeze;
 				person.Inhale += this.Person_Inhale;
 
@@ -102,11 +101,11 @@ namespace CoViD.GUI.Forms
 
 		private void Contaminate()
 		{
-			var radius = this.Settings.Radius; 
-
 			// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX //
-			// Simulate the sneeze of the first infected person. This creates a contaminated grid
-			//this.Grid.Contaminate(1000, new CoViD.CL.Point(-(radius / 2), (radius / 2)));
+			// Simulate the sneeze of the first infected person. This creates a contaminated point 
+			// on the region.
+			// There is one method for this simple line just because this action is called many 
+			// times in different code positions
 			this.Grid.Contaminate(1000, new CoViD.CL.Point(0, 0));
 			// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX //
 		}
@@ -128,7 +127,7 @@ namespace CoViD.GUI.Forms
 
 			while (this.Grid.Ticks < this.TicksMax)
 			{
-				CoViD.CL.Person.SegregationThreshold = (byte)this.Settings.Segregation;
+				CoViD.CL.Person.SegregationThreshold = (byte)this.INI.Segregation;
 
 				CoViD.Program.stopwatch.Restart();
 				//CoViD.Program.stopwatch.Start();
@@ -217,7 +216,7 @@ namespace CoViD.GUI.Forms
 				
 				this.tsContaminatedGrids.Text = this.Grid.Contaminated.Count.ToText();
 							   				 
-				var percent = (int)Math.Min(100, Math.Round((100 * ((decimal)ticks / this.Settings.Ticks))));
+				var percent = (int)Math.Min(100, Math.Round((100 * ((decimal)ticks / this.INI.Ticks))));
 				if (!this.tsProgressBar.IsDisposed) { 
 					this.tsProgressBar.Value = percent;
 					this.tsProgressBar.ToolTipText = percent.ToString() + "%";
@@ -237,7 +236,7 @@ namespace CoViD.GUI.Forms
 				this.Contaminate();
 			}
 
-			if (this.Grid.Ticks >= this.Settings.Ticks)
+			if (this.Grid.Ticks >= this.INI.Ticks)
 			{
 				tsbPlay.Enabled = false;
 				tsbPause.Enabled = false;
@@ -306,16 +305,17 @@ namespace CoViD.GUI.Forms
 				ts.TextAlign = ContentAlignment.MiddleLeft;
 			};
 
-			var people = this.Settings.People;
+			var ini = this.INI;
+			var people = ini.People;
 
-			adjust(this.tsTicks, this.Settings.Ticks);
+			adjust(this.tsTicks, ini.Ticks);
 			adjust(this.tsSusceptibles, people);
 			adjust(this.tsInfected, people);
 			adjust(this.tsRecovered, people);
 			adjust(this.tsImmune, people);
 			adjust(this.tsDead, people);
-
-			var contaminatedGrids = (decimal)Math.Pow(((double)this.Settings.Radius / (double)100), 2);
+	
+			var contaminatedGrids = (decimal)Math.Pow(((double)ini.Radius / (double)100), 2);
 
 			adjust(this.tsContaminatedGrids, contaminatedGrids);
 		}

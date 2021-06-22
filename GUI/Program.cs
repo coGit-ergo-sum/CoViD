@@ -15,7 +15,9 @@ namespace CoViD
 	{
 		public const string Name = "Program";
 		public static Stopwatch stopwatch = new Stopwatch();
-		public static Vi.Tools.Profile profile; // new Vi.Tools.Profile(
+		///////////////public static Vi.Tools.Profile profile;
+		public static Vi.Tools.Profile INICoViD; 
+		public static Vi.Tools.Profile INIGUI;
 
 
 		static Brush red = (Brush)Brushes.Red;
@@ -35,8 +37,14 @@ namespace CoViD
 		static void Main()
 		{
 			var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-			var fileName = System.IO.Path.Combine(baseDirectory, "CoViD.ini");
-			Program.profile = new Vi.Tools.Profile(fileName);
+
+			////////////var fileName = System.IO.Path.Combine(baseDirectory, "Settings.ini");
+			var fileNameCoViD = System.IO.Path.Combine(baseDirectory, "CoViD.ini");
+			var fileNameGUI = System.IO.Path.Combine(baseDirectory, "GUI.ini");
+
+			////////////Program.profile = new Vi.Tools.Profile(fileName);
+			Program.INIGUI = new Vi.Tools.Profile(fileNameGUI);
+			Program.INICoViD = new Vi.Tools.Profile(fileNameCoViD);
 
 			if (baseDirectory.ToUpper().StartsWith(@"c:\vi\code".ToUpper())){
 
