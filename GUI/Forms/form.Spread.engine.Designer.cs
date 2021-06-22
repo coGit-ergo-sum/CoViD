@@ -30,10 +30,10 @@ namespace CoViD.GUI.Forms
 		{
 			this.InitializeStatusStrip();
 
-			var radius = (int)this.INI.Radius; ;
-			var people = this.INI.People;
-			byte steps = this.INI.Steps; ;
-			this.TicksMax = this.INI.Ticks; ;
+			var radius = (int)this.INICoViD.Radius; ;
+			var people = this.INICoViD.People;
+			byte steps = this.INICoViD.Steps; ;
+			this.TicksMax = this.INICoViD.Ticks; ;
 
 			this.tsPeople.Text = people.ToText();
 
@@ -127,7 +127,7 @@ namespace CoViD.GUI.Forms
 
 			while (this.Grid.Ticks < this.TicksMax)
 			{
-				CoViD.CL.Person.SegregationThreshold = (byte)this.INI.Segregation;
+				CoViD.CL.Person.SegregationThreshold = (byte)this.INICoViD.Segregation;
 
 				CoViD.Program.stopwatch.Restart();
 				//CoViD.Program.stopwatch.Start();
@@ -216,7 +216,7 @@ namespace CoViD.GUI.Forms
 				
 				this.tsContaminatedGrids.Text = this.Grid.Contaminated.Count.ToText();
 							   				 
-				var percent = (int)Math.Min(100, Math.Round((100 * ((decimal)ticks / this.INI.Ticks))));
+				var percent = (int)Math.Min(100, Math.Round((100 * ((decimal)ticks / this.INICoViD.Ticks))));
 				if (!this.tsProgressBar.IsDisposed) { 
 					this.tsProgressBar.Value = percent;
 					this.tsProgressBar.ToolTipText = percent.ToString() + "%";
@@ -236,7 +236,7 @@ namespace CoViD.GUI.Forms
 				this.Contaminate();
 			}
 
-			if (this.Grid.Ticks >= this.INI.Ticks)
+			if (this.Grid.Ticks >= this.INICoViD.Ticks)
 			{
 				tsbPlay.Enabled = false;
 				tsbPause.Enabled = false;
@@ -305,7 +305,7 @@ namespace CoViD.GUI.Forms
 				ts.TextAlign = ContentAlignment.MiddleLeft;
 			};
 
-			var ini = this.INI;
+			var ini = this.INICoViD;
 			var people = ini.People;
 
 			adjust(this.tsTicks, ini.Ticks);

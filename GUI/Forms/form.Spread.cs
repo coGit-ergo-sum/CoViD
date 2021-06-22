@@ -1,21 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CoViD.GUI.Tools.Extensions.Profile;
+using System;
 using System.Windows.Forms;
-
-
-using CoViD.GUI.Tools.Extensions.Person;
-using Vi.Tools.Extensions.Random;
-using Vi.Tools.Extensions.String;
-using Vi.Tools.Extensions.Object;
-using Vi.Tools.Extensions.Int;
-
-using CoViD.GUI.Tools.Extensions.Profile;
 
 namespace CoViD.GUI.Forms
 {
@@ -27,7 +12,7 @@ namespace CoViD.GUI.Forms
 		/// <summary>
 		/// The settings for this page.
 		/// </summary>
-		public CoViD.INI INI;
+		public CoViD.INI INICoViD;
 
 		private bool isRunning
 		{
@@ -55,10 +40,19 @@ namespace CoViD.GUI.Forms
 			this.Location = Program.INIGUI.Read(this.Name, "Location", this.Location);
 			this.Size = Program.INIGUI.Read(this.Name, "Size", this.Size);
 
-			this.INI = Program.INICoViD.Read(new CoViD.INI());
+			this.INICoViD = Program.INICoViD.Read(new CoViD.INI());
 			this.legend1.IsSusceptible = false;
 			this.legend1.IsImmune = false;
 			Initialize();
+
+			// ToDo: remove this and fix the bug that clears the
+			//       diagrams the first time a tab become active
+			tabControl1.SelectedIndex = 4;
+			tabControl1.SelectedIndex = 3;
+			tabControl1.SelectedIndex = 2;
+			tabControl1.SelectedIndex = 1;
+			tabControl1.SelectedIndex = 0;
+
 		}
 
 
@@ -88,7 +82,7 @@ namespace CoViD.GUI.Forms
 			tsbPlay.Visible = false;
 			tsbPause.Visible = true;
 
-			this.TicksMax = (int)this.INI.Ticks;
+			this.TicksMax = (int)this.INICoViD.Ticks;
 			this.Play();
 		}
 
@@ -98,7 +92,7 @@ namespace CoViD.GUI.Forms
 			tsbPause.Visible = true;
 			tsbPause.Enabled = true;
 
-			this.TicksMax = (int)this.INI.Ticks;
+			this.TicksMax = (int)this.INICoViD.Ticks;
 
 			this.grid2.Cartesian.Clear();
 			this.xySIR.Cartesian.Clear();
@@ -130,25 +124,29 @@ namespace CoViD.GUI.Forms
 			tsbPause_Click(null, null);
 			var frmSettings = new CoViD.GUI.Forms.Settings();
 			frmSettings.ShowDialog();
+
+			var iniCovid = Program.INICoViD.Read(new CoViD.INI());
+
 			if (isRunning)
 			{
-
-				var ini = Program.INICoViD.Read(new CoViD.INI());
-				if (ini == this.INI)
+				if (iniCovid == this.INICoViD)
 				{
 					tsbPlay_Click(null, null);
 				}
 				else
 				{
-					this.INI = ini;
-					////////this.grid1.Cartesian.Clear();
-					////////this.grid2.Cartesian.Clear();
-					////////this.xySIR.Cartesian.Clear();
-					////////this.xyContaminated.Cartesian.Clear();
-					//this.Initialize();
+					this.INICoViD = iniCovid;
+					Initialize();
 					tsbNew_Click(null, null);
 				}
-				//frmSettings.Close();
+			}
+			else
+			{
+				if (iniCovid != this.INICoViD)
+				{
+					this.INICoViD = iniCovid;
+					Initialize();
+				}
 			}
 		}
 

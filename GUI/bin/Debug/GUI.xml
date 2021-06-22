@@ -229,7 +229,7 @@
             Contains the functionsthat are not event of the page.
             </summary>
         </member>
-        <member name="F:CoViD.GUI.Forms.Spread.INI">
+        <member name="F:CoViD.GUI.Forms.Spread.INICoViD">
             <summary>
             The settings for this page.
             </summary>

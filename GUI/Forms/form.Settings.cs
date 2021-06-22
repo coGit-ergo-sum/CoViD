@@ -82,7 +82,7 @@ namespace CoViD.GUI.Forms
 			switch (tabINI.SelectedTab.Name)
 			{
 				case "tabGUI":
-					Program.INIGUI.Write(new INI());
+					////////////////Program.INIGUI.Write(new INI());
 					txtINIGUI.Text = System.IO.File.ReadAllText(Program.INIGUI.FileName);
 					break;
 
