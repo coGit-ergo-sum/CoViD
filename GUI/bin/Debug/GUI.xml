@@ -229,9 +229,19 @@
             Contains the functionsthat are not event of the page.
             </summary>
         </member>
+        <member name="F:CoViD.GUI.Forms.Spread.Grid">
+            <summary>
+            The matrix that reperesents the rigion for the simulation.
+            </summary>
+        </member>
         <member name="F:CoViD.GUI.Forms.Spread.INICoViD">
             <summary>
             The settings for this page.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Forms.Spread.isRunning">
+            <summary>
+            True if the simulation is in progress.
             </summary>
         </member>
         <member name="M:CoViD.GUI.Forms.Spread.#ctor">
@@ -241,7 +251,36 @@
         </member>
         <member name="M:CoViD.GUI.Forms.Spread.Spread_Load(System.Object,System.EventArgs)">
             <summary>
-            
+            Inizializes the form.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:CoViD.GUI.Forms.Spread.Spread_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)" -->
+        <member name="M:CoViD.GUI.Forms.Spread.tsbPause_Click(System.Object,System.EventArgs)">
+            <summary>
+            Pauses the simulation.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Spread.tsbReplay_Click(System.Object,System.EventArgs)">
+            <summary>
+            Restart the current simulation
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Spread.tsbSettings_Click(System.Object,System.EventArgs)">
+            <summary>
+            Opens the form Settings stopping the process if running. When closed 
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An object that contains no event data.</param>
+        </member>
+        <member name="M:CoViD.GUI.Forms.Spread.tabControl1_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Manages the visibility of the UC legend
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -431,6 +470,37 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="P:CoViD.GUI.UC.Item.TooltipText">
+            <summary>
+            The toolTip message
+            </summary>
+        </member>
+        <member name="T:CoViD.GUI.UC.Item.CheckedChangedDelegate">
+            <summary>
+            the delegate for the 'CheckedChanged' event.
+            </summary>
+            <param name="isChecked">The value of the 'checked' property of the inner checkbox.</param>
+        </member>
+        <member name="E:CoViD.GUI.UC.Item.CheckedChanged">
+            <summary>
+            Event raised each time the inner checkbox change the 'checked' status.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Item.OnCheckedChanged">
+            <summary>
+            Method to 'safely' call the event 'Coordinates'.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Item.#ctor">
+            <summary>
+            The main CTor, Initialize Component.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Item.Checked">
+            <summary>
+            Gets/Sets the checked status of the inner checkbox.
+            </summary>
+        </member>
         <member name="F:CoViD.GUI.UC.Item.components">
             <summary> 
             Required designer variable.
@@ -446,6 +516,51 @@
             <summary> 
             Required method for Designer support - do not modify 
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Legend.CheckBoxes">
+            <summary>
+            Hides the checkboxes lefting the colored icon still visible;
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Legend.IsSIR">
+            <summary>
+            Sets the visibility of the Items related to the SIR visualization.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Legend.IsSusceptible">
+            <summary>
+            True if the checkbox 'Susceptible' is checked.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Legend.IsLatency">
+            <summary>
+            True if the checkbox 'Latency' is checked.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Legend.IsIll">
+            <summary>
+            True if the checkbox 'Ill' is checked.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Legend.IsSevere">
+            <summary>
+            True if the checkbox 'Severe' is checked.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Legend.IsConvalescent">
+            <summary>
+            True if the checkbox 'Convalescent' is checked.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Legend.IsImmune">
+            <summary>
+            True if the checkbox 'Immune' is checked.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Legend.IsDead">
+            <summary>
+            True if the checkbox 'Dead' is checked.
             </summary>
         </member>
         <member name="F:CoViD.GUI.UC.Legend.components">
@@ -707,6 +822,11 @@
             </summary>
         </member>
         <member name="P:CoViD.GUI.Properties.Resources.settings_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.snapshot_32x32">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

@@ -28,9 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.chk = new System.Windows.Forms.CheckBox();
 			this.pnl = new System.Windows.Forms.Panel();
 			this.lblText = new System.Windows.Forms.Label();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.SuspendLayout();
 			// 
 			// chk
@@ -64,6 +66,7 @@
 			this.lblText.Size = new System.Drawing.Size(35, 13);
 			this.lblText.TabIndex = 8;
 			this.lblText.Text = "label1";
+			this.toolTip1.SetToolTip(this.lblText, "ffffffffff");
 			this.lblText.Click += new System.EventHandler(this.lblText_Click);
 			// 
 			// Item
@@ -85,5 +88,6 @@
 		private System.Windows.Forms.Panel pnl;
 		private System.Windows.Forms.CheckBox chk;
 		private System.Windows.Forms.Label lblText;
+		private System.Windows.Forms.ToolTip toolTip1;
 	}
 }

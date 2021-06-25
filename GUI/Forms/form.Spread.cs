@@ -1,12 +1,16 @@
 ﻿using CoViD.GUI.Tools.Extensions.Profile;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
+using Vi.Tools.Extensions.Exception;
 
 namespace CoViD.GUI.Forms
 {
 	public partial class Spread : Form
 	{
-
+		/// <summary>
+		/// The matrix that reperesents the rigion for the simulation.
+		/// </summary>
 		private CoViD.CL.Grid Grid;
 
 		/// <summary>
@@ -14,6 +18,9 @@ namespace CoViD.GUI.Forms
 		/// </summary>
 		public CoViD.INI INICoViD;
 
+		/// <summary>
+		/// True if the simulation is in progress.
+		/// </summary>
 		private bool isRunning
 		{
 			get { return tsbPause.Visible; }
@@ -31,31 +38,42 @@ namespace CoViD.GUI.Forms
 		}
 
 		/// <summary>
-		/// 
+		/// Inizializes the form.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void Spread_Load(object sender, EventArgs e)
 		{
-			this.Location = Program.INIGUI.Read(this.Name, "Location", this.Location);
-			this.Size = Program.INIGUI.Read(this.Name, "Size", this.Size);
 
-			this.INICoViD = Program.INICoViD.Read(new CoViD.INI());
-			this.legend1.IsSusceptible = false;
-			this.legend1.IsImmune = false;
-			Initialize();
+			try
+			{
+				this.Location = Program.INIGUI.Read(this.Name, "Location", this.Location);
+				this.Size = Program.INIGUI.Read(this.Name, "Size", this.Size);
 
-			// ToDo: remove this and fix the bug that clears the
-			//       diagrams the first time a tab become active
-			tabControl1.SelectedIndex = 4;
-			tabControl1.SelectedIndex = 3;
-			tabControl1.SelectedIndex = 2;
-			tabControl1.SelectedIndex = 1;
-			tabControl1.SelectedIndex = 0;
+				this.INICoViD = Program.INICoViD.Read(new CoViD.INI());
+				this.legend1.IsSusceptible = false;
+				this.legend1.IsImmune = false;
+				Initialize();
 
+				// ToDo: remove this and fix the bug that clears the
+				//       diagrams the first time a tab become active
+				tabControl1.SelectedIndex = 4;
+				tabControl1.SelectedIndex = 3;
+				tabControl1.SelectedIndex = 2;
+				tabControl1.SelectedIndex = 1;
+				tabControl1.SelectedIndex = 0;
+			}
+			catch (System.Exception se)
+			{
+				se.Show();
+			}
 		}
 
-
+		/// <summary>
+		/// Saves the Location and Size of the form & calls 'tsbPause_Click'.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void Spread_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			Program.INIGUI.Write(this.Name, "Location", this.Location);
@@ -64,46 +82,78 @@ namespace CoViD.GUI.Forms
 			this.tsbPause_Click(null, null);
 		}
 		#endregion
-		
-	
+
+
 		#region Run stop resume
+
+		/// <summary>
+		/// Pauses the simulation.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void tsbPause_Click(object sender, EventArgs e)
 		{
-			tsbPause.Visible = false;
-			tsbPlay.Visible = true;
-			tsbPlay.Enabled = true;
+			try
+			{
+				tsbPause.Visible = false;
+				tsbPlay.Visible = true;
+				tsbPlay.Enabled = true;
 
-			this.TicksMax = this.Grid.Ticks;
-
+				this.TicksMax = this.Grid.Ticks;
+			}
+			catch (System.Exception se)
+			{
+				se.Show();
+			}
 		}
 
 		private void tsbPlay_Click(object sender, EventArgs e)
 		{
+
+			try
+			{
 			tsbPlay.Visible = false;
 			tsbPause.Visible = true;
 
 			this.TicksMax = (int)this.INICoViD.Ticks;
 			this.Play();
+			}
+			catch (System.Exception se)
+			{
+				se.Show();
+			}
 		}
 
+		/// <summary>
+		/// Restart the current simulation
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void tsbReplay_Click(object sender, EventArgs e)
 		{
-			tsbPlay.Visible = false;
-			tsbPause.Visible = true;
-			tsbPause.Enabled = true;
+			try
+			{
+				tsbPlay.Visible = false;
+				tsbPause.Visible = true;
+				tsbPause.Enabled = true;
 
-			this.TicksMax = (int)this.INICoViD.Ticks;
+				this.TicksMax = (int)this.INICoViD.Ticks;
 
-			this.grid2.Cartesian.Clear();
-			this.xySIR.Cartesian.Clear();
-			this.xyDSIR.Cartesian.Clear();
-			this.xyContaminated.Cartesian.Clear();
-			this.xyPerformances.Cartesian.Clear();
+				this.grid2.Cartesian.Clear();
+				this.xySIR.Cartesian.Clear();
+				this.xyDSIR.Cartesian.Clear();
+				this.xyContaminated.Cartesian.Clear();
+				this.xyPerformances.Cartesian.Clear();
 
-			this.Grid.Reset();
-			this.Contaminate();
+				this.Grid.Reset();
+				this.Contaminate();
 
-			this.Play();
+				this.Play();
+			}
+			catch (System.Exception se)
+			{
+				se.Show();
+			}
 		}
 
 		private void tsbNew_Click(object sender, EventArgs e)
@@ -117,105 +167,198 @@ namespace CoViD.GUI.Forms
 		}
 		#endregion
 
-
+		//     
+		//
+		//   e:
+		//     
+		/// <summary>
+		/// Opens the form Settings stopping the process if running. When closed 
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">An object that contains no event data.</param>
 		private void tsbSettings_Click(object sender, EventArgs e)
 		{
-			var isRunning = this.isRunning;
-			tsbPause_Click(null, null);
-			var frmSettings = new CoViD.GUI.Forms.Settings();
-			frmSettings.ShowDialog();
-
-			var iniCovid = Program.INICoViD.Read(new CoViD.INI());
-
-			if (isRunning)
+			try
 			{
-				if (iniCovid == this.INICoViD)
+				var isRunning = this.isRunning;
+				tsbPause_Click(null, null);
+				var frmSettings = new CoViD.GUI.Forms.Settings();
+				frmSettings.ShowDialog();
+
+				var iniCovid = Program.INICoViD.Read(new CoViD.INI());
+
+				if (isRunning)
 				{
-					tsbPlay_Click(null, null);
+					if (iniCovid == this.INICoViD)
+					{
+						tsbPlay_Click(null, null);
+					}
+					else
+					{
+						this.INICoViD = iniCovid;
+						Initialize();
+						tsbNew_Click(null, null);
+					}
 				}
 				else
 				{
-					this.INICoViD = iniCovid;
-					Initialize();
-					tsbNew_Click(null, null);
+					if (iniCovid != this.INICoViD)
+					{
+						this.INICoViD = iniCovid;
+						Initialize();
+					}
 				}
 			}
-			else
+			catch (System.Exception se)
 			{
-				if (iniCovid != this.INICoViD)
-				{
-					this.INICoViD = iniCovid;
-					Initialize();
-				}
+				se.Show();
 			}
 		}
 
 		private void tsbPeople_Click(object sender, EventArgs e)
 		{
+			try
+			{
 			this.ShowPeople();
+			}
+			catch (System.Exception se)
+			{
+				se.Show();
+			}
 		}
 
 		private void Spread_Resize(object sender, EventArgs e)
 		{
-			var spazio = this.grid1.Left;
-			var width = this.tabPage1.ClientSize.Width;
-			var w = (width - (4 * spazio)) / 2;
+			try
+			{
+				var spazio = this.grid1.Left;
+				var width = this.tabRegion.ClientSize.Width;
+				var w = (width - (4 * spazio)) / 2;
 
-			this.grid1.Width = w;
-			this.grid2.Width = w;
-			this.grid2.Left = this.grid2.Width + (3 * spazio);
+				this.grid1.Width = w;
+				this.grid2.Width = w;
+				this.grid2.Left = this.grid2.Width + (3 * spazio);
+			}
+			catch (System.Exception se)
+			{
+				se.Show();
+			}
 		}
 
 		private void Spread_Click(object sender, EventArgs e)
 		{
-			var spazio = (this.tabPage1.ClientSize.Width - (this.grid1.Width + this.grid2.Width)) / 4;
-			this.grid1.Left = spazio;
-			this.grid2.Left = (3 * spazio) + this.grid1.Width;
+			try
+			{
+				var spazio = (this.tabRegion.ClientSize.Width - (this.grid1.Width + this.grid2.Width)) / 4;
+				this.grid1.Left = spazio;
+				this.grid2.Left = (3 * spazio) + this.grid1.Width;
+			}
+			catch (System.Exception se)
+			{
+				se.Show();
+			}
 		}
 
 		private void Legend1_CheckedChanged(
-			bool isSusceptibles, 
-			bool isLatency, 
-			bool isIll, 
-			bool isSevere, 
-			bool isConvalescent, 
-			bool isImmune, 
+			bool isSusceptibles,
+			bool isLatency,
+			bool isIll,
+			bool isSevere,
+			bool isConvalescent,
+			bool isImmune,
 			bool isDead
 		)
 		{
-			this.ShowPeople();
+			try
+			{
+				this.ShowPeople();
+			}
+			catch (System.Exception se)
+			{
+				se.Show();
+			}
 		}
 
+		/// <summary>
+		/// Manages the visibility of the UC legend
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			this.legend1.CheckBoxes = this.tabControl1.SelectedIndex == 0;
-			this.legend1.IsSIR = this.tabControl1.SelectedIndex == 1;
-			this.legend1.Visible = this.tabControl1.SelectedIndex != 2;
+			try
+			{
+				this.legend1.CheckBoxes = this.tabControl1.SelectedIndex == 0;
+				this.legend1.IsSIR = this.tabControl1.SelectedIndex == 1;
+				this.legend1.Visible = this.tabControl1.SelectedIndex < 2;
+			}
+			catch (System.Exception se)
+			{
+				se.Show();
+			}
 		}
 
-		private void TsbPeople_Click(object sender, EventArgs e)
+		private void SnapshotForm_Click(object sender, EventArgs e)
 		{
-
+			this.DrawToBitmap(this, "Form");
 		}
 
-		private void TsbNew_Click(object sender, EventArgs e)
+		private void SnapshotDiagram_Click(object sender, EventArgs e)
 		{
-
+			this.DrawToBitmap(tabControl1.SelectedTab, "Diagram");
 		}
 
-		private void TsbReplay_Click(object sender, EventArgs e)
+		private string SnapshotsPath
 		{
-
+			get
+			{
+				var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Snapshots");
+				System.IO.Directory.CreateDirectory(path);
+				return path;
+			}
+			set { }
 		}
 
-		private void TsbPlay_Click(object sender, EventArgs e)
-		{
+		private void DrawToBitmap(Control control, string name) {
+			try
+			{
+				using (var bmp = new Bitmap(control.Width, control.Height))
+				{
+					var fileName = String.Format(
+						"{0:yyyy-MM-dd.hh-mm-ss}.{1}.{2}.png", 
+						DateTime.Now, 
+						name, 
+						tabControl1.SelectedTab.Name
+					);
+					var fullFileName = System.IO.Path.Combine(this.SnapshotsPath, fileName);
 
+					if (System.IO.File.Exists(fullFileName))
+					{
+						System.Threading.Thread.Sleep(1000);
+						this.DrawToBitmap(control, name);
+					}
+					else
+					{
+						control.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+						bmp.Save(fullFileName);
+						System.Diagnostics.Process.Start(fullFileName);
+					}
+				}
+			}
+			catch (System.Exception se) {
+				se.Show();
+			}
 		}
 
-		private void TsbPause_Click(object sender, EventArgs e)
+		private void SnapshotDirectory_Click(object sender, EventArgs e)
 		{
-
+			try
+			{
+				System.Diagnostics.Process.Start(this.SnapshotsPath);
+			}
+			catch (System.Exception se) {
+				se.Show();
+			}
 		}
 	}
 }

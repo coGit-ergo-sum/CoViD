@@ -243,6 +243,16 @@ namespace CoViD.GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap snapshot_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("snapshot.32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Start_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Start_32x32", resourceCulture);

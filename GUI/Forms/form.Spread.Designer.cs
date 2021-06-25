@@ -31,21 +31,21 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Spread));
 			this.tsmDisease = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.tabRegion = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.grid1 = new CoViD.GUI.UC.Grid();
-			this.grid2 = new CoViD.GUI.UC.Grid();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.xySIR = new CoViD.GUI.XY();
+			this.tabSIR = new System.Windows.Forms.TabPage();
 			this.tabDSIR = new System.Windows.Forms.TabPage();
-			this.xyDSIR = new CoViD.GUI.XY();
-			this.tabPage3 = new System.Windows.Forms.TabPage();
-			this.xyContaminated = new CoViD.GUI.XY();
+			this.tabContaminated = new System.Windows.Forms.TabPage();
 			this.tabPerformances = new System.Windows.Forms.TabPage();
-			this.xyPerformances = new CoViD.GUI.XY();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.tsbSettings = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.SnapshotForm = new System.Windows.Forms.ToolStripMenuItem();
+			this.SnapshotDiagram = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+			this.SnapshotDirectory = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbNew = new System.Windows.Forms.ToolStripButton();
 			this.tsbReplay = new System.Windows.Forms.ToolStripButton();
 			this.tsbPlay = new System.Windows.Forms.ToolStripButton();
@@ -53,8 +53,11 @@
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsPeople = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tsSegregation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsTicks = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsProgressBar = new System.Windows.Forms.ToolStripProgressBar();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsSusceptibles = new System.Windows.Forms.ToolStripStatusLabel();
@@ -70,12 +73,18 @@
 			this.tsContaminatedGrids = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
 			this.legend1 = new CoViD.GUI.UC.Legend();
+			this.grid1 = new CoViD.GUI.UC.Grid();
+			this.grid2 = new CoViD.GUI.UC.Grid();
+			this.xySIR = new CoViD.GUI.XY();
+			this.xyDSIR = new CoViD.GUI.XY();
+			this.xyContaminated = new CoViD.GUI.XY();
+			this.xyPerformances = new CoViD.GUI.XY();
 			this.tabControl1.SuspendLayout();
-			this.tabPage1.SuspendLayout();
+			this.tabRegion.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			this.tabPage2.SuspendLayout();
+			this.tabSIR.SuspendLayout();
 			this.tabDSIR.SuspendLayout();
-			this.tabPage3.SuspendLayout();
+			this.tabContaminated.SuspendLayout();
 			this.tabPerformances.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -92,28 +101,29 @@
 			this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.tabControl1.Controls.Add(this.tabPage1);
-			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Controls.Add(this.tabRegion);
+			this.tabControl1.Controls.Add(this.tabSIR);
 			this.tabControl1.Controls.Add(this.tabDSIR);
-			this.tabControl1.Controls.Add(this.tabPage3);
+			this.tabControl1.Controls.Add(this.tabContaminated);
 			this.tabControl1.Controls.Add(this.tabPerformances);
-			this.tabControl1.Location = new System.Drawing.Point(0, 33);
+			this.tabControl1.Location = new System.Drawing.Point(0, 36);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1133, 671);
+			this.tabControl1.Size = new System.Drawing.Size(1133, 635);
 			this.tabControl1.TabIndex = 65;
 			this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
 			// 
-			// tabPage1
+			// tabRegion
 			// 
-			this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.tabPage1.Controls.Add(this.tableLayoutPanel1);
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(1125, 645);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Region";
+			this.tabRegion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.tabRegion.Controls.Add(this.tableLayoutPanel1);
+			this.tabRegion.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.tabRegion.Location = new System.Drawing.Point(4, 22);
+			this.tabRegion.Name = "tabRegion";
+			this.tabRegion.Padding = new System.Windows.Forms.Padding(3);
+			this.tabRegion.Size = new System.Drawing.Size(1125, 609);
+			this.tabRegion.TabIndex = 0;
+			this.tabRegion.Text = "Region";
 			// 
 			// tableLayoutPanel1
 			// 
@@ -129,52 +139,19 @@
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1114, 635);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1114, 599);
 			this.tableLayoutPanel1.TabIndex = 0;
 			// 
-			// grid1
+			// tabSIR
 			// 
-			this.grid1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.grid1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.grid1.Label = "Title";
-			this.grid1.Location = new System.Drawing.Point(3, 3);
-			this.grid1.MinimumSize = new System.Drawing.Size(258, 297);
-			this.grid1.Name = "grid1";
-			this.grid1.Size = new System.Drawing.Size(551, 629);
-			this.grid1.TabIndex = 0;
-			// 
-			// grid2
-			// 
-			this.grid2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.grid2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.grid2.Label = "Title";
-			this.grid2.Location = new System.Drawing.Point(560, 3);
-			this.grid2.MinimumSize = new System.Drawing.Size(258, 297);
-			this.grid2.Name = "grid2";
-			this.grid2.Size = new System.Drawing.Size(551, 629);
-			this.grid2.TabIndex = 1;
-			// 
-			// tabPage2
-			// 
-			this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.tabPage2.Controls.Add(this.xySIR);
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(1125, 645);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "SIR";
-			// 
-			// xySIR
-			// 
-			this.xySIR.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.xySIR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.xySIR.Location = new System.Drawing.Point(5, 5);
-			this.xySIR.Name = "xySIR";
-			this.xySIR.Size = new System.Drawing.Size(1103, 574);
-			this.xySIR.TabIndex = 0;
+			this.tabSIR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.tabSIR.Controls.Add(this.xySIR);
+			this.tabSIR.Location = new System.Drawing.Point(4, 22);
+			this.tabSIR.Name = "tabSIR";
+			this.tabSIR.Padding = new System.Windows.Forms.Padding(3);
+			this.tabSIR.Size = new System.Drawing.Size(1125, 609);
+			this.tabSIR.TabIndex = 1;
+			this.tabSIR.Text = "SIR";
 			// 
 			// tabDSIR
 			// 
@@ -182,41 +159,19 @@
 			this.tabDSIR.Controls.Add(this.xyDSIR);
 			this.tabDSIR.Location = new System.Drawing.Point(4, 22);
 			this.tabDSIR.Name = "tabDSIR";
-			this.tabDSIR.Size = new System.Drawing.Size(1125, 645);
+			this.tabDSIR.Size = new System.Drawing.Size(1125, 609);
 			this.tabDSIR.TabIndex = 4;
 			this.tabDSIR.Text = "Delta SIR";
 			// 
-			// xyDSIR
+			// tabContaminated
 			// 
-			this.xyDSIR.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.xyDSIR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.xyDSIR.Location = new System.Drawing.Point(5, 5);
-			this.xyDSIR.Name = "xyDSIR";
-			this.xyDSIR.Size = new System.Drawing.Size(1103, 574);
-			this.xyDSIR.TabIndex = 1;
-			// 
-			// tabPage3
-			// 
-			this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.tabPage3.Controls.Add(this.xyContaminated);
-			this.tabPage3.Location = new System.Drawing.Point(4, 22);
-			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.Size = new System.Drawing.Size(1125, 645);
-			this.tabPage3.TabIndex = 2;
-			this.tabPage3.Text = "Contaminated points";
-			// 
-			// xyContaminated
-			// 
-			this.xyContaminated.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.xyContaminated.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.xyContaminated.Location = new System.Drawing.Point(5, 5);
-			this.xyContaminated.Name = "xyContaminated";
-			this.xyContaminated.Size = new System.Drawing.Size(1103, 574);
-			this.xyContaminated.TabIndex = 0;
+			this.tabContaminated.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.tabContaminated.Controls.Add(this.xyContaminated);
+			this.tabContaminated.Location = new System.Drawing.Point(4, 22);
+			this.tabContaminated.Name = "tabContaminated";
+			this.tabContaminated.Size = new System.Drawing.Size(1125, 609);
+			this.tabContaminated.TabIndex = 2;
+			this.tabContaminated.Text = "Contaminated points";
 			// 
 			// tabPerformances
 			// 
@@ -224,20 +179,9 @@
 			this.tabPerformances.Controls.Add(this.xyPerformances);
 			this.tabPerformances.Location = new System.Drawing.Point(4, 22);
 			this.tabPerformances.Name = "tabPerformances";
-			this.tabPerformances.Size = new System.Drawing.Size(1125, 645);
+			this.tabPerformances.Size = new System.Drawing.Size(1125, 609);
 			this.tabPerformances.TabIndex = 3;
 			this.tabPerformances.Text = "Performances";
-			// 
-			// xyPerformances
-			// 
-			this.xyPerformances.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.xyPerformances.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.xyPerformances.Location = new System.Drawing.Point(5, 5);
-			this.xyPerformances.Name = "xyPerformances";
-			this.xyPerformances.Size = new System.Drawing.Size(1103, 574);
-			this.xyPerformances.TabIndex = 0;
 			// 
 			// toolStrip1
 			// 
@@ -245,6 +189,8 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbSettings,
             this.toolStripSeparator2,
+            this.toolStripDropDownButton1,
+            this.toolStripSeparator1,
             this.tsbNew,
             this.tsbReplay,
             this.tsbPlay,
@@ -271,6 +217,55 @@
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
 			// 
+			// toolStripDropDownButton1
+			// 
+			this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SnapshotForm,
+            this.SnapshotDiagram,
+            this.toolStripMenuItem2,
+            this.SnapshotDirectory});
+			this.toolStripDropDownButton1.Image = global::CoViD.GUI.Properties.Resources.snapshot_32x32;
+			this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+			this.toolStripDropDownButton1.Size = new System.Drawing.Size(33, 24);
+			this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+			this.toolStripDropDownButton1.ToolTipText = "Takes snapshot.";
+			// 
+			// SnapshotForm
+			// 
+			this.SnapshotForm.Name = "SnapshotForm";
+			this.SnapshotForm.Size = new System.Drawing.Size(122, 22);
+			this.SnapshotForm.Text = "Form";
+			this.SnapshotForm.ToolTipText = "Takes a snapshot of the whole form.";
+			this.SnapshotForm.Click += new System.EventHandler(this.SnapshotForm_Click);
+			// 
+			// SnapshotDiagram
+			// 
+			this.SnapshotDiagram.Name = "SnapshotDiagram";
+			this.SnapshotDiagram.Size = new System.Drawing.Size(122, 22);
+			this.SnapshotDiagram.Text = "Diagram";
+			this.SnapshotDiagram.ToolTipText = "Takes a snapshot of the active diagram (the drawing region).";
+			this.SnapshotDiagram.Click += new System.EventHandler(this.SnapshotDiagram_Click);
+			// 
+			// toolStripMenuItem2
+			// 
+			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(119, 6);
+			// 
+			// SnapshotDirectory
+			// 
+			this.SnapshotDirectory.Name = "SnapshotDirectory";
+			this.SnapshotDirectory.Size = new System.Drawing.Size(122, 22);
+			this.SnapshotDirectory.Text = "Directory";
+			this.SnapshotDirectory.ToolTipText = "Opens the folder where all the snapshots are stored.";
+			this.SnapshotDirectory.Click += new System.EventHandler(this.SnapshotDirectory_Click);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+			// 
 			// tsbNew
 			// 
 			this.tsbNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -279,7 +274,7 @@
 			this.tsbNew.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
 			this.tsbNew.Name = "tsbNew";
 			this.tsbNew.Size = new System.Drawing.Size(24, 24);
-			this.tsbNew.ToolTipText = "Starts a totally new simulation.";
+			this.tsbNew.ToolTipText = "Starts a totally new simulation with new random parameters.";
 			this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
 			// 
 			// tsbReplay
@@ -324,8 +319,11 @@
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel4,
             this.tsPeople,
+            this.toolStripStatusLabel6,
+            this.tsSegregation,
             this.tsLabel1,
             this.tsTicks,
+            this.toolStripStatusLabel8,
             this.tsProgressBar,
             this.toolStripStatusLabel1,
             this.tsSusceptibles,
@@ -339,8 +337,9 @@
             this.tsDead,
             this.toolStripStatusLabel2,
             this.tsContaminatedGrids});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 710);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 674);
 			this.statusStrip1.Name = "statusStrip1";
+			this.statusStrip1.ShowItemToolTips = true;
 			this.statusStrip1.Size = new System.Drawing.Size(1135, 22);
 			this.statusStrip1.TabIndex = 76;
 			// 
@@ -349,16 +348,32 @@
 			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
 			this.toolStripStatusLabel4.Size = new System.Drawing.Size(43, 17);
 			this.toolStripStatusLabel4.Text = "People";
+			this.toolStripStatusLabel4.ToolTipText = "The number of people in the simulation.";
 			// 
 			// tsPeople
 			// 
 			this.tsPeople.AutoSize = false;
-			this.tsPeople.ForeColor = System.Drawing.Color.DarkRed;
+			this.tsPeople.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.tsPeople.Name = "tsPeople";
 			this.tsPeople.Size = new System.Drawing.Size(50, 17);
 			this.tsPeople.Text = "0";
 			this.tsPeople.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.tsPeople.ToolTipText = "The number of people in this simulation.";
+			// 
+			// toolStripStatusLabel6
+			// 
+			this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+			this.toolStripStatusLabel6.Size = new System.Drawing.Size(70, 17);
+			this.toolStripStatusLabel6.Text = "Segregation";
+			this.toolStripStatusLabel6.ToolTipText = "The percentage of people forced to stay at home.";
+			// 
+			// tsSegregation
+			// 
+			this.tsSegregation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.tsSegregation.Margin = new System.Windows.Forms.Padding(0, 3, 8, 2);
+			this.tsSegregation.Name = "tsSegregation";
+			this.tsSegregation.Size = new System.Drawing.Size(13, 17);
+			this.tsSegregation.Text = "0";
 			// 
 			// tsLabel1
 			// 
@@ -377,6 +392,14 @@
 			this.tsTicks.Name = "tsTicks";
 			this.tsTicks.Size = new System.Drawing.Size(13, 19);
 			this.tsTicks.Text = "0";
+			this.tsTicks.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// toolStripStatusLabel8
+			// 
+			this.toolStripStatusLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.toolStripStatusLabel8.Name = "toolStripStatusLabel8";
+			this.toolStripStatusLabel8.Size = new System.Drawing.Size(45, 17);
+			this.toolStripStatusLabel8.Text = "/15.000";
 			// 
 			// tsProgressBar
 			// 
@@ -503,11 +526,78 @@
 			this.legend1.Size = new System.Drawing.Size(717, 15);
 			this.legend1.TabIndex = 77;
 			// 
+			// grid1
+			// 
+			this.grid1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.grid1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grid1.Label = "Title";
+			this.grid1.Location = new System.Drawing.Point(3, 3);
+			this.grid1.MinimumSize = new System.Drawing.Size(258, 297);
+			this.grid1.Name = "grid1";
+			this.grid1.Size = new System.Drawing.Size(551, 593);
+			this.grid1.TabIndex = 0;
+			// 
+			// grid2
+			// 
+			this.grid2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.grid2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grid2.Label = "Title";
+			this.grid2.Location = new System.Drawing.Point(560, 3);
+			this.grid2.MinimumSize = new System.Drawing.Size(258, 297);
+			this.grid2.Name = "grid2";
+			this.grid2.Size = new System.Drawing.Size(551, 593);
+			this.grid2.TabIndex = 1;
+			// 
+			// xySIR
+			// 
+			this.xySIR.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.xySIR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.xySIR.Location = new System.Drawing.Point(5, 5);
+			this.xySIR.Name = "xySIR";
+			this.xySIR.Size = new System.Drawing.Size(1103, 593);
+			this.xySIR.TabIndex = 0;
+			// 
+			// xyDSIR
+			// 
+			this.xyDSIR.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.xyDSIR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.xyDSIR.Location = new System.Drawing.Point(5, 5);
+			this.xyDSIR.Name = "xyDSIR";
+			this.xyDSIR.Size = new System.Drawing.Size(1103, 593);
+			this.xyDSIR.TabIndex = 1;
+			// 
+			// xyContaminated
+			// 
+			this.xyContaminated.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.xyContaminated.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.xyContaminated.Location = new System.Drawing.Point(5, 5);
+			this.xyContaminated.Name = "xyContaminated";
+			this.xyContaminated.Size = new System.Drawing.Size(1103, 593);
+			this.xyContaminated.TabIndex = 0;
+			// 
+			// xyPerformances
+			// 
+			this.xyPerformances.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.xyPerformances.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.xyPerformances.Location = new System.Drawing.Point(5, 5);
+			this.xyPerformances.Name = "xyPerformances";
+			this.xyPerformances.Size = new System.Drawing.Size(1103, 593);
+			this.xyPerformances.TabIndex = 0;
+			// 
 			// Spread
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1135, 732);
+			this.BackColor = System.Drawing.SystemColors.Control;
+			this.ClientSize = new System.Drawing.Size(1135, 696);
 			this.Controls.Add(this.legend1);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.toolStrip1);
@@ -522,11 +612,11 @@
 			this.Click += new System.EventHandler(this.Spread_Click);
 			this.Resize += new System.EventHandler(this.Spread_Resize);
 			this.tabControl1.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
+			this.tabRegion.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tabPage2.ResumeLayout(false);
+			this.tabSIR.ResumeLayout(false);
 			this.tabDSIR.ResumeLayout(false);
-			this.tabPage3.ResumeLayout(false);
+			this.tabContaminated.ResumeLayout(false);
 			this.tabPerformances.ResumeLayout(false);
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
@@ -541,10 +631,10 @@
 		//private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem tsmDisease;
 		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tabPage1;
-		private System.Windows.Forms.TabPage tabPage2;
+		private System.Windows.Forms.TabPage tabRegion;
+		private System.Windows.Forms.TabPage tabSIR;
 		private XY xySIR;
-		private System.Windows.Forms.TabPage tabPage3;
+		private System.Windows.Forms.TabPage tabContaminated;
 		private System.Windows.Forms.ToolStrip toolStrip1;
 		private System.Windows.Forms.ToolStripButton tsbReplay;
 		private System.Windows.Forms.ToolStripButton tsbPlay;
@@ -580,5 +670,14 @@
 		private System.Windows.Forms.ToolStrip toolStrip2;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
 		private System.Windows.Forms.ToolStripStatusLabel tsPeople;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+		private System.Windows.Forms.ToolStripStatusLabel tsSegregation;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+		private System.Windows.Forms.ToolStripMenuItem SnapshotForm;
+		private System.Windows.Forms.ToolStripMenuItem SnapshotDiagram;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;
+		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+		private System.Windows.Forms.ToolStripMenuItem SnapshotDirectory;
 	}
 }

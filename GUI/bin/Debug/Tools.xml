@@ -2485,6 +2485,12 @@
             </summary>
             <param name="value">Il tipo della sede in formato stringa.</param>
         </member>
+        <member name="M:Vi.Types.Percentage.ToText">
+            <summary>
+            Returns the Value in the format "#0.00%"
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Vi.Types.Percentage.TryParse(System.String,Vi.Types.Percentage@)">
             <summary>
             Converts the string representation of a number to its Decimal equivalent. A return value indicates whether the conversion succeeded or failed.

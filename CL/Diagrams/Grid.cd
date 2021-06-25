@@ -18,12 +18,12 @@
       </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>gAIIAAAAACAABAAAAAFjBIAAAAACCAIAIBAAAAIAQAA=</HashCode>
+      <HashCode>gAIIAAAAACAABAAIAAFDBIAAAAACCAIAIBAAAAIAQAA=</HashCode>
       <FileName>class.Grid.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="System.Object" Collapsed="true">
-    <Position X="4.5" Y="1" Width="1.5" />
+  <Class Name="System.Object">
+    <Position X="4.5" Y="1" Width="1.75" />
     <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />

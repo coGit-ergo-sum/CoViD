@@ -79,8 +79,38 @@ namespace CoViD.GUI.UC
 
 			//this.pnlLatency.BackColor = CoViD.CL.Person.States.Latency.ToColor();
 			//this.chkLatency.Text = CoViD.CL.Person.States.Latency.ToString();
+
+			this.itmInfected.Left = this.itmLatency.Left;
+			this.itmRecovered.Left = this.itmIll.Left;
 		}
 
+		/// <summary>
+		/// Hides the checkboxes lefting the colored icon still visible;
+		/// </summary>
+		[DisplayName("CheckBox")]
+		[Category("CoViD")]
+		[Description("Sets the checkboxes visible or not.")]
+		public bool CheckBoxes
+		{
+			get { return this.itmSusceptible.CheckBox; }
+			set
+			{
+				this.itmSusceptible.CheckBox = value;
+				this.itmLatency.CheckBox = value;
+				this.itmIll.CheckBox = value;
+				this.itmSevere.CheckBox = value;
+				this.itmConvalescent.CheckBox = value;
+				this.itmImmune.CheckBox = value;
+				this.itmDead.CheckBox = value;
+				this.itmInfected.CheckBox = value;
+				this.itmRecovered.CheckBox = value;
+			}
+		}
+
+
+		/// <summary>
+		/// Sets the visibility of the Items related to the SIR visualization.
+		/// </summary>
 		public bool IsSIR
 		{
 			get { return itmInfected.Visible; }
@@ -99,67 +129,67 @@ namespace CoViD.GUI.UC
 			}
 		}
 
+		/// <summary>
+		/// True if the checkbox 'Susceptible' is checked.
+		/// </summary>
 		public bool IsSusceptible
 		{
 			get { return this.itmSusceptible.Checked; }
 			set { this.itmSusceptible.Checked = value; }
 		}
 
+		/// <summary>
+		/// True if the checkbox 'Latency' is checked.
+		/// </summary>
 		public bool IsLatency
 		{
 			get { return this.itmLatency.Checked; }
 			set { this.itmLatency.Checked = value; }
 		}
 
+		/// <summary>
+		/// True if the checkbox 'Ill' is checked.
+		/// </summary>
 		public bool IsIll
 		{
 			get { return this.itmIll.Checked; }
 			set { this.itmIll.Checked = value; }
 		}
 
+		/// <summary>
+		/// True if the checkbox 'Severe' is checked.
+		/// </summary>
 		public bool IsSevere
 		{
 			get { return this.itmSevere.Checked; }
 			set { this.itmSevere.Checked = value; }
 		}
 
+		/// <summary>
+		/// True if the checkbox 'Convalescent' is checked.
+		/// </summary>
 		public bool IsConvalescent
 		{
 			get { return this.itmConvalescent.Checked; }
 			set { this.itmConvalescent.Checked = value; }
 		}
 
+		/// <summary>
+		/// True if the checkbox 'Immune' is checked.
+		/// </summary>
 		public bool IsImmune
 		{
 			get { return this.itmImmune.Checked; }
 			set { this.itmImmune.Checked = value; }
 		}
 
+		/// <summary>
+		/// True if the checkbox 'Dead' is checked.
+		/// </summary>
 		public bool IsDead
 		{
 			get { return this.itmDead.Checked; }
 			set { this.itmDead.Checked = value; }
-		}
-
-		[DisplayName("CheckBox")]
-		[Category("CoViD")]
-		[Description("Sets the checkboxes visible or not.")]
-		public bool CheckBoxes
-		{
-			get { return this.itmSusceptible.CheckBox; }
-			set { 
-				this.itmSusceptible.CheckBox = value;
-
-				this.itmLatency.CheckBox = value;
-				this.itmIll.CheckBox = value;
-				this.itmSevere.CheckBox = value;
-				this.itmConvalescent.CheckBox = value;
-				this.itmImmune.CheckBox = value;
-				this.itmDead.CheckBox = value;
-
-				this.itmInfected.CheckBox = value;
-				this.itmRecovered.CheckBox = value;
-			}
 		}
 
 	}

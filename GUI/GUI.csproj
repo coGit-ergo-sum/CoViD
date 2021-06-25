@@ -197,6 +197,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\staff\snapshot.32x32.png" />
     <Content Include="Properties\Images\ALTEREGO.png" />
     <None Include="Properties\Images\settings.32x32.png" />
     <None Include="Properties\Images\refresh.New.32x32.png" />

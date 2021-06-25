@@ -118,17 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="settings_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\settings.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LedBlue.32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\LedBlue.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Start_32x32_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Start.32x32.gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pause_32x32_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\Pause.32x32.gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refresh.New1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\refresh.New.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,14 +145,20 @@
   <data name="LedWhite.32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\LedWhite.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Play.16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Play.16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh.New.32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\refresh.New.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Pause_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Pause.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LedGrey.32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\LedGrey.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Stop.16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Stop.16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Start_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\Start.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refresh_32x32_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\refresh.32x32.gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,25 +166,25 @@
   <data name="Pause.16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Pause.16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refresh.New.32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\refresh.New.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Start_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Start.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refresh_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\refresh.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LedGrey.32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\LedGrey.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pause_32x32_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Pause.32x32.gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LedYellow.32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\LedYellow.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Play.16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\Play.16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\settings.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LedGreen.32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\LedGreen.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\Check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="snapshot.32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\staff\snapshot.32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

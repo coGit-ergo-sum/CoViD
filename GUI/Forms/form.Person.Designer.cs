@@ -32,7 +32,7 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.tsmDisease = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.tabRegion = new System.Windows.Forms.TabPage();
 			this.grid2 = new CoViD.GUI.UC.Grid();
 			this.grid1 = new CoViD.GUI.UC.Grid();
 			this.xyViruses = new CoViD.GUI.XY();
@@ -73,7 +73,7 @@
 			this.udRadius = new CoViD.GUI.UC.UpDown();
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
-			this.tabPage1.SuspendLayout();
+			this.tabRegion.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -98,25 +98,25 @@
 			// 
 			// tabControl1
 			// 
-			this.tabControl1.Controls.Add(this.tabPage1);
+			this.tabControl1.Controls.Add(this.tabRegion);
 			this.tabControl1.Location = new System.Drawing.Point(9, 93);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(790, 778);
 			this.tabControl1.TabIndex = 65;
 			// 
-			// tabPage1
+			// tabRegion
 			// 
-			this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.tabPage1.Controls.Add(this.grid2);
-			this.tabPage1.Controls.Add(this.grid1);
-			this.tabPage1.Controls.Add(this.xyViruses);
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(782, 752);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Region";
+			this.tabRegion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.tabRegion.Controls.Add(this.grid2);
+			this.tabRegion.Controls.Add(this.grid1);
+			this.tabRegion.Controls.Add(this.xyViruses);
+			this.tabRegion.Location = new System.Drawing.Point(4, 22);
+			this.tabRegion.Name = "tabRegion";
+			this.tabRegion.Padding = new System.Windows.Forms.Padding(3);
+			this.tabRegion.Size = new System.Drawing.Size(782, 752);
+			this.tabRegion.TabIndex = 0;
+			this.tabRegion.Text = "Region";
 			// 
 			// grid2
 			// 
@@ -534,7 +534,7 @@
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
+			this.tabRegion.ResumeLayout(false);
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			this.statusStrip1.ResumeLayout(false);
@@ -548,7 +548,7 @@
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem tsmDisease;
 		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TabPage tabRegion;
 		private UC.UpDown udSteps;
 		private UC.UpDown udRadius;
 		private System.Windows.Forms.ToolStrip toolStrip1;

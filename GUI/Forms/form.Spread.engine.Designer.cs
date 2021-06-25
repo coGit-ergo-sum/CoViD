@@ -36,6 +36,7 @@ namespace CoViD.GUI.Forms
 			this.TicksMax = this.INICoViD.Ticks; ;
 
 			this.tsPeople.Text = people.ToText();
+			this.tsSegregation.Text = this.INICoViD.Segregation.ToText();
 
 			this.grid1.SetXY(radius, "People");
 			this.grid2.SetXY(radius, "Contamination");
@@ -167,21 +168,6 @@ namespace CoViD.GUI.Forms
 				}
 				*/
 				//if (population.Susceptibles != 0 && population.Infected != 0)
-				////////////////if (population.Infected != 0)
-				////////////////{
-				////////////////	//float ds = 1000F * 1000F * 10 * (float)population.DSusceptibles / ((float)population.Susceptibles  * (float)population.Infected);
-				////////////////	float ds = 1000F * ((float)population.DSusceptibles / (float)population.Infected);
-				////////////////	//float ds = -(1000F * 1000F * 10) / ((float)population.Susceptibles * (float)population.Infected);
-				////////////////	this.xyDSIR.Cartesian.Point(ticks, ds, CoViD.CL.Person.SIRStates.Susceptible.ToColor());
-				////////////////}
-
-				////////////////if (population.Infected != 0) // && population.DInfected == 1
-				////////////////{
-				////////////////	float di = 1000F * (float)population.DInfected / (float)population.Infected;
-				////////////////	//float di = (float)population.DInfected10;
-				////////////////	//float di = 1000F / (float)population.Infected;
-				////////////////	this.xyDSIR.Cartesian.Point(ticks, di, CoViD.CL.Person.SIRStates.Infected.ToColor());
-				////////////////}
 
 				if (population.Recovered != 0)
 				{
@@ -309,6 +295,8 @@ namespace CoViD.GUI.Forms
 			var people = ini.People;
 
 			adjust(this.tsTicks, ini.Ticks);
+			this.tsTicks.TextAlign = ContentAlignment.MiddleRight
+				;
 			adjust(this.tsSusceptibles, people);
 			adjust(this.tsInfected, people);
 			adjust(this.tsRecovered, people);

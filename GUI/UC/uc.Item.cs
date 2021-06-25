@@ -15,25 +15,70 @@ namespace CoViD.GUI.UC
 {
 	public partial class Item : UserControl
 	{
+		////////private ToolTip _tt = new ToolTip();
+
+		/// <summary>
+		/// The toolTip message
+		/// </summary>
+		public string TooltipText 
+		{
+			get { return this.toolTip1.GetToolTip(this.lblText); }
+			set { this.toolTip1.SetToolTip(this.lblText,value); }
+		}
+		/// <summary>
+		/// the delegate for the 'CheckedChanged' event.
+		/// </summary>
+		/// <param name="isChecked">The value of the 'checked' property of the inner checkbox.</param>
 		public delegate void CheckedChangedDelegate(bool isChecked);
+
+		/// <summary>
+		/// Event raised each time the inner checkbox change the 'checked' status.
+		/// </summary>
 		public event CheckedChangedDelegate CheckedChanged;
+
+		/// <summary>
+		/// Method to 'safely' call the event 'Coordinates'.
+		/// </summary>
 		private void OnCheckedChanged()
 		{
 			if (this.CheckedChanged.IsNotNull()) { this.CheckedChanged(this.Checked); }
 		}
 
+		/// <summary>
+		/// The main CTor, Initialize Component.
+		/// </summary>
 		public Item()
 		{
 			InitializeComponent();
+			////////////_tt.AutoPopDelay = 1500;
+			////////////_tt.InitialDelay = 400;
+			//////////////            _tt.IsBalloon = true;
+			////////////_tt.UseAnimation = true;
+			////////////_tt.UseFading = true;
+			////////////_tt.Active = true;
+			////////////this.MouseEnter += new EventHandler(this.lblText_MouseEnter);
 			//this.chk.Checked = false;
 			//this.pnl_Click(null, null);
 		}
 
+		/// <summary>
+		/// Gets/Sets the checked status of the inner checkbox.
+		/// </summary>
 		public bool Checked
 		{
 			get { return this.chk.Checked; }
 			set { this.chk.Checked = value; }
 		}
+
+
+		//////////private void lblText_MouseEnter(object sender, EventArgs ea)
+		//////////{
+		//////////	if (!string.IsNullOrEmpty(this.TooltipText))
+		//////////	{
+		//////////		_tt.SetToolTip(this, this.TooltipText);
+		//////////		_tt.Show(this.TooltipText, this.Parent);
+		//////////	}
+		//////////}
 
 		private CoViD.CL.Person.States _State;
 
