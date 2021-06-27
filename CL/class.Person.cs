@@ -471,20 +471,20 @@ namespace CoViD.CL
 		public bool IsR { get { return this.SIR == SIRStates.Recovered; } }
 
 		/// <summary>
-		/// True if the mobility of this person is lower than 'SegregationThreshold'.
+		/// True if the mobility of this person is lower than 'IsolationThreshold'.
 		/// (The person must stay at home (Locations[0]) when it is segregated.)
 		/// </summary>
-		public bool IsSegregated { get { return this.Mobility < CoViD.CL.Person.SegregationThreshold; } }
+		public bool IsSegregated { get { return this.Mobility < CoViD.CL.Person.IsolationThreshold; } }
 
 		#region Mobility
 		/// <summary>
-		/// A value imposed from the outside (a government) to decide who can move during a segregation period
+		/// A value imposed from the outside (a government) to decide who can move during an isolation period
 		/// and who is forced to stay at home. (0 everyone is free to move; 255 eveyone is confinated at home.)
 		/// </summary>
-		public static byte SegregationThreshold = 0;
+		public static byte IsolationThreshold = 0;
 
 		/// <summary>
-		/// Is the 'right' to move, a person has when 'segregation' is started: who has mobility < SegregationLevel 
+		/// Is the 'right' to move, a person has when 'isolation' is started: who has mobility < IsolationLevel 
 		/// is forced to stay at home.
 		/// </summary>
 		public byte Mobility { get; private set; }

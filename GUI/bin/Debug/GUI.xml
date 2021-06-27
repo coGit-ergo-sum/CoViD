@@ -24,14 +24,14 @@
             The max number of time unit. 
             </summary>
         </member>
-        <member name="F:CoViD.INI.Segregation">
+        <member name="F:CoViD.INI.Isolation">
             <summary>
             The percentage of people segregated at home.
             </summary>
         </member>
         <member name="M:CoViD.INI.#ctor">
             <summary>
-            Default CTor create an instance of an 'INI' having radius: 12000, people: 10000, steps: 1, ticks: 25000, segregation: 0
+            Default CTor create an instance of an 'INI' having radius: 12000, people: 10000, steps: 1, ticks: 25000, isolation: 0
             </summary>
         </member>
         <member name="M:CoViD.INI.#ctor(CoViD.GUI.UC.UpDown,CoViD.GUI.UC.UpDown,CoViD.GUI.UC.UpDown,CoViD.GUI.UC.UpDown,CoViD.GUI.UC.UpDown)">
@@ -42,7 +42,7 @@
             <param name="people"></param>
             <param name="steps"></param>
             <param name="ticks"></param>
-            <param name="segregation"></param>
+            <param name="isolation"></param>
         </member>
         <member name="M:CoViD.INI.#ctor(System.Decimal,System.Int32,System.Byte,System.Int32,System.Decimal)">
             <summary>
@@ -52,7 +52,7 @@
             <param name="people"></param>
             <param name="steps"></param>
             <param name="ticks"></param>
-            <param name="segregation"></param>
+            <param name="isolation"></param>
         </member>
         <member name="M:CoViD.INI.op_Equality(CoViD.INI,CoViD.INI)">
             <summary>

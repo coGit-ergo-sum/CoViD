@@ -68,7 +68,7 @@
 			this.toolStripStatusLabel9 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsDead = new System.Windows.Forms.ToolStripStatusLabel();
 			this.udTicks = new CoViD.GUI.UC.UpDown();
-			this.udSegregation = new CoViD.GUI.UC.UpDown();
+			this.udIsolation = new CoViD.GUI.UC.UpDown();
 			this.udSteps = new CoViD.GUI.UC.UpDown();
 			this.udRadius = new CoViD.GUI.UC.UpDown();
 			this.menuStrip1.SuspendLayout();
@@ -471,17 +471,17 @@
 			this.udTicks.TabIndex = 74;
 			this.udTicks.Value = 3750;
 			// 
-			// udSegregation
+			// udIsolation
 			// 
-			this.udSegregation.Caption = "Segregation level";
-			this.udSegregation.Decimals = ((sbyte)(0));
-			this.udSegregation.Location = new System.Drawing.Point(382, 42);
-			this.udSegregation.MaximumSize = new System.Drawing.Size(335, 45);
-			this.udSegregation.MinimumSize = new System.Drawing.Size(162, 45);
-			this.udSegregation.Name = "udSegregation";
-			this.udSegregation.Size = new System.Drawing.Size(177, 45);
-			this.udSegregation.TabIndex = 73;
-			this.udSegregation.Value = 5;
+			this.udIsolation.Caption = "Isolation level";
+			this.udIsolation.Decimals = ((sbyte)(0));
+			this.udIsolation.Location = new System.Drawing.Point(382, 42);
+			this.udIsolation.MaximumSize = new System.Drawing.Size(335, 45);
+			this.udIsolation.MinimumSize = new System.Drawing.Size(162, 45);
+			this.udIsolation.Name = "udIsolation";
+			this.udIsolation.Size = new System.Drawing.Size(177, 45);
+			this.udIsolation.TabIndex = 73;
+			this.udIsolation.Value = 5;
 			// 
 			// udSteps
 			// 
@@ -516,7 +516,7 @@
 			this.ClientSize = new System.Drawing.Size(801, 783);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.udTicks);
-			this.Controls.Add(this.udSegregation);
+			this.Controls.Add(this.udIsolation);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.udSteps);
@@ -559,7 +559,7 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton toolStripButton5;
 		private System.Windows.Forms.ToolStripButton tsbNew;
-		private UC.UpDown udSegregation;
+		private UC.UpDown udIsolation;
 		private UC.UpDown udTicks;
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripStatusLabel tsLabel1;

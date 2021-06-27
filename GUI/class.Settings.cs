@@ -32,12 +32,12 @@ namespace CoViD
 		/// <summary>
 		/// The percentage of people segregated at home.
 		/// </summary>
-		public Vi.Types.Percentage Segregation; //////
+		public Vi.Types.Percentage Isolation; //////
 
 		/// <summary>
-		/// Default CTor create an instance of an 'INI' having radius: 12000, people: 10000, steps: 1, ticks: 25000, segregation: 0
+		/// Default CTor create an instance of an 'INI' having radius: 12000, people: 10000, steps: 1, ticks: 25000, isolation: 0
 		/// </summary>
-		public INI() : this(radius: 12000, people: 10000, steps: 1, ticks: 25000, segregation: 0) { }
+		public INI() : this(radius: 12000, people: 10000, steps: 1, ticks: 25000, isolation: 0) { }
 
 		/// <summary>
 		/// Create an instance of an 'INI' from the UpDown controls
@@ -46,9 +46,9 @@ namespace CoViD
 		/// <param name="people"></param>
 		/// <param name="steps"></param>
 		/// <param name="ticks"></param>
-		/// <param name="segregation"></param>
-		public INI(CoViD.GUI.UC.UpDown radius, CoViD.GUI.UC.UpDown people, CoViD.GUI.UC.UpDown steps, CoViD.GUI.UC.UpDown ticks, CoViD.GUI.UC.UpDown segregation)
-			:this(radius.Value, (int)people.Value, (byte)steps.Value, (int)ticks.Value, segregation.Value){}
+		/// <param name="isolation"></param>
+		public INI(CoViD.GUI.UC.UpDown radius, CoViD.GUI.UC.UpDown people, CoViD.GUI.UC.UpDown steps, CoViD.GUI.UC.UpDown ticks, CoViD.GUI.UC.UpDown isolation)
+			:this(radius.Value, (int)people.Value, (byte)steps.Value, (int)ticks.Value, isolation.Value){}
 
 		/// <summary>
 		/// Main CTor Create an instance of INI set with the provided values		
@@ -57,14 +57,14 @@ namespace CoViD
 		/// <param name="people"></param>
 		/// <param name="steps"></param>
 		/// <param name="ticks"></param>
-		/// <param name="segregation"></param>
-		public INI(decimal radius, int people, byte steps, int ticks, decimal segregation)
+		/// <param name="isolation"></param>
+		public INI(decimal radius, int people, byte steps, int ticks, decimal isolation)
 		{
 			this.Radius = radius;
 			this.People = people;
 			this.Steps = steps;
 			this.Ticks = ticks;
-			this.Segregation = new Vi.Types.Percentage(segregation);
+			this.Isolation = new Vi.Types.Percentage(isolation);
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace CoViD
 					iniL.GetType() == iniR.GetType() &&
 					iniL.Radius == iniR.Radius &&
 					iniL.People == iniR.People &&
-					iniL.Segregation == iniR.Segregation &&
+					iniL.Isolation == iniR.Isolation &&
 					iniL.Steps == iniR.Steps &&
 					iniL.Ticks == iniR.Ticks
 				)

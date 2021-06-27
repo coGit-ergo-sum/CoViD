@@ -54,7 +54,7 @@
 			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsPeople = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.tsSegregation = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tsIsolation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tsTicks = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -320,7 +320,7 @@
             this.toolStripStatusLabel4,
             this.tsPeople,
             this.toolStripStatusLabel6,
-            this.tsSegregation,
+            this.tsIsolation,
             this.tsLabel1,
             this.tsTicks,
             this.toolStripStatusLabel8,
@@ -364,16 +364,16 @@
 			// 
 			this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
 			this.toolStripStatusLabel6.Size = new System.Drawing.Size(70, 17);
-			this.toolStripStatusLabel6.Text = "Segregation";
+			this.toolStripStatusLabel6.Text = "Isolation";
 			this.toolStripStatusLabel6.ToolTipText = "The percentage of people forced to stay at home.";
 			// 
-			// tsSegregation
+			// tsIsolation
 			// 
-			this.tsSegregation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.tsSegregation.Margin = new System.Windows.Forms.Padding(0, 3, 8, 2);
-			this.tsSegregation.Name = "tsSegregation";
-			this.tsSegregation.Size = new System.Drawing.Size(13, 17);
-			this.tsSegregation.Text = "0";
+			this.tsIsolation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.tsIsolation.Margin = new System.Windows.Forms.Padding(0, 3, 8, 2);
+			this.tsIsolation.Name = "tsIsolation";
+			this.tsIsolation.Size = new System.Drawing.Size(13, 17);
+			this.tsIsolation.Text = "0";
 			// 
 			// tsLabel1
 			// 
@@ -671,7 +671,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
 		private System.Windows.Forms.ToolStripStatusLabel tsPeople;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
-		private System.Windows.Forms.ToolStripStatusLabel tsSegregation;
+		private System.Windows.Forms.ToolStripStatusLabel tsIsolation;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
 		private System.Windows.Forms.ToolStripMenuItem SnapshotForm;

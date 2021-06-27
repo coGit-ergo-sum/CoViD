@@ -20,7 +20,7 @@ namespace CoViD.GUI.Forms
 			var people = 1;
 			byte steps = (byte)udSteps.Value;
 			this.TicksMax = (int)udTicks.Value;
-			CoViD.CL.Person.SegregationThreshold = (byte)this.udSegregation.Value;
+			CoViD.CL.Person.IsolationThreshold = (byte)this.udIsolation.Value;
 
 
 			this.grid1.SetXY(radius, "People");

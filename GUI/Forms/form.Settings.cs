@@ -56,7 +56,7 @@ namespace CoViD.GUI.Forms
 
 			this.udPeople.Value = this.INI.People;
 			this.udRadius.Value = this.INI.Radius;
-			this.udSegregation.Value = this.INI.Segregation;
+			this.udIsolation.Value = this.INI.Isolation;
 			this.udSteps.Value = this.INI.Steps;
 			this.udTicks.Value = this.INI.Ticks;
 		}
@@ -66,7 +66,7 @@ namespace CoViD.GUI.Forms
 			Program.INIGUI.Write(this.Name, "Location", this.Location);
 			Program.INIGUI.Write(this.Name, "Size", this.Size);
 
-			var ini = new CoViD.INI(udRadius, udPeople, udSteps, udTicks, udSegregation);
+			var ini = new CoViD.INI(udRadius, udPeople, udSteps, udTicks, udIsolation);
 
 			if (ini != this.INI)
 			{

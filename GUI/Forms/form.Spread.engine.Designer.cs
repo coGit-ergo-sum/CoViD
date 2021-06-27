@@ -36,7 +36,7 @@ namespace CoViD.GUI.Forms
 			this.TicksMax = this.INICoViD.Ticks; ;
 
 			this.tsPeople.Text = people.ToText();
-			this.tsSegregation.Text = this.INICoViD.Segregation.ToText();
+			this.tsIsolation.Text = this.INICoViD.Isolation.ToText();
 
 			this.grid1.SetXY(radius, "People");
 			this.grid2.SetXY(radius, "Contamination");
@@ -128,7 +128,7 @@ namespace CoViD.GUI.Forms
 
 			while (this.Grid.Ticks < this.TicksMax)
 			{
-				CoViD.CL.Person.SegregationThreshold = (byte)this.INICoViD.Segregation;
+				CoViD.CL.Person.IsolationThreshold = (byte)this.INICoViD.Isolation;
 
 				CoViD.Program.stopwatch.Restart();
 				//CoViD.Program.stopwatch.Start();

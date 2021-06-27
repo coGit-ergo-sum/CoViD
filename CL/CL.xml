@@ -413,13 +413,13 @@
         </member>
         <member name="P:CoViD.CL.Person.IsSegregated">
             <summary>
-            True if the mobility of this person is lower than 'SegregationThreshold'.
+            True if the mobility of this person is lower than 'IsolationThreshold'.
             (The person must stay at home (Locations[0]) when it is segregated.)
             </summary>
         </member>
-        <member name="F:CoViD.CL.Person.SegregationThreshold">
+        <member name="F:CoViD.CL.Person.IsolationThreshold">
             <summary>
-            A value imposed from the outside (a government) to decide who can move during a segregation period
+            A value imposed from the outside (a government) to decide who can move during an isolation period
             and who is forced to stay at home. (0 everyone is free to move; 255 eveyone is confinated at home.)
             </summary>
         </member>

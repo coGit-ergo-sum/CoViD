@@ -42,7 +42,7 @@
 			this.btnOk = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.udTicks = new CoViD.GUI.UC.UpDown();
-			this.udSegregation = new CoViD.GUI.UC.UpDown();
+			this.udIsolation = new CoViD.GUI.UC.UpDown();
 			this.udSteps = new CoViD.GUI.UC.UpDown();
 			this.udPeople = new CoViD.GUI.UC.UpDown();
 			this.udRadius = new CoViD.GUI.UC.UpDown();
@@ -99,7 +99,7 @@
 			// 
 			this.tabCoViD.Controls.Add(this.label1);
 			this.tabCoViD.Controls.Add(this.udTicks);
-			this.tabCoViD.Controls.Add(this.udSegregation);
+			this.tabCoViD.Controls.Add(this.udIsolation);
 			this.tabCoViD.Controls.Add(this.udSteps);
 			this.tabCoViD.Controls.Add(this.udPeople);
 			this.tabCoViD.Controls.Add(this.udRadius);
@@ -188,17 +188,17 @@
             0,
             0});
 			// 
-			// udSegregation
+			// udIsolation
 			// 
-			this.udSegregation.Caption = "Segregation %";
-			this.udSegregation.Decimals = ((sbyte)(0));
-			this.udSegregation.Location = new System.Drawing.Point(24, 248);
-			this.udSegregation.MaximumSize = new System.Drawing.Size(335, 45);
-			this.udSegregation.MinimumSize = new System.Drawing.Size(162, 45);
-			this.udSegregation.Name = "udSegregation";
-			this.udSegregation.Size = new System.Drawing.Size(226, 45);
-			this.udSegregation.TabIndex = 83;
-			this.udSegregation.Value = new decimal(new int[] {
+			this.udIsolation.Caption = "Isolation %";
+			this.udIsolation.Decimals = ((sbyte)(0));
+			this.udIsolation.Location = new System.Drawing.Point(24, 248);
+			this.udIsolation.MaximumSize = new System.Drawing.Size(335, 45);
+			this.udIsolation.MinimumSize = new System.Drawing.Size(162, 45);
+			this.udIsolation.Name = "udIsolation";
+			this.udIsolation.Size = new System.Drawing.Size(226, 45);
+			this.udIsolation.TabIndex = 83;
+			this.udIsolation.Value = new decimal(new int[] {
             0,
             0,
             0,
@@ -293,7 +293,7 @@
 		private System.Windows.Forms.TabControl tabINI;
 		private System.Windows.Forms.TabPage tabCoViD;
 		private UC.UpDown udTicks;
-		private UC.UpDown udSegregation;
+		private UC.UpDown udIsolation;
 		private UC.UpDown udSteps;
 		private UC.UpDown udPeople;
 		private UC.UpDown udRadius;
