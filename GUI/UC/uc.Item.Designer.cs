@@ -40,7 +40,7 @@
 			this.chk.BackColor = System.Drawing.Color.Transparent;
 			this.chk.Checked = true;
 			this.chk.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.chk.Location = new System.Drawing.Point(15, 1);
+			this.chk.Location = new System.Drawing.Point(16, 1);
 			this.chk.Margin = new System.Windows.Forms.Padding(0);
 			this.chk.Name = "chk";
 			this.chk.Size = new System.Drawing.Size(15, 15);
@@ -51,7 +51,6 @@
 			// 
 			// pnl
 			// 
-			this.pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pnl.Location = new System.Drawing.Point(1, 1);
 			this.pnl.Name = "pnl";
 			this.pnl.Size = new System.Drawing.Size(13, 13);

@@ -106,6 +106,8 @@ namespace CoViD.GUI.UC
 			set
 			{
 				this.pnl.BackColor = value;
+				//this.lblText.BackColor = value;
+				//this.chk.BackColor = value;
 			}
 			get { return this.pnl.BackColor; }
 		}

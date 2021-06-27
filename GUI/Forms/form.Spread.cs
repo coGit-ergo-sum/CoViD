@@ -300,13 +300,59 @@ namespace CoViD.GUI.Forms
 
 		private void SnapshotForm_Click(object sender, EventArgs e)
 		{
-			this.DrawToBitmap(this, "Form");
+			// ----------------------------------------------------------------------------------- //
+			// The control 'Legend1' belongs to the form but its location overlaps the tabControl
+			// for this reason the methods 'this.DrawToBitmap' does not print 'Legend1' (because
+			// 'tabControl1' hides it)
+			// To fix this bug the bmp for 'legend1' is merged runtime.
+			// ----------------------------------------------------------------------------------- //
+
+			// the screenshot of the form 'Spread' having the 'legend1' not rendered.
+			var form = new Bitmap(this.Width, this.Height);
+			this.DrawToBitmap(form, new Rectangle(0, 0, form.Width, form.Height));
+
+			using (Graphics graphics = Graphics.FromImage(form))
+			{           
+				// the screenshot of the 'legend1'.
+				var legend = new Bitmap(this.legend1.Width, this.legend1.Height);
+				this.legend1.DrawToBitmap(legend, new Rectangle(0, 0, legend.Width, legend.Height));
+
+				var location = new Point(this.tabControl1.Left + this.legend1.Left, this.tabControl1.Top + this.legend1.Top);
+				graphics.DrawImage(legend, location);
+			}
+
+			this.SaveBitmap(form, "Form");
 		}
 
 		private void SnapshotDiagram_Click(object sender, EventArgs e)
 		{
-			this.DrawToBitmap(tabControl1.SelectedTab, "Diagram");
+			var tab = new Bitmap(this.tabControl1.SelectedTab.Width, this.tabControl1.SelectedTab.Height);
+			this.tabControl1.SelectedTab.DrawToBitmap(tab, new Rectangle(0, 0, tab.Width, tab.Height));
+
+			this.SaveBitmap(tab, "Diagram");
 		}
+
+		private void SaveBitmap(Bitmap bmp, string name) {
+			var fileName = String.Format(
+				"{0:yyyy-MM-dd.hh-mm-ss}.{1}.{2}.png",
+				DateTime.Now,
+				name,
+				tabControl1.SelectedTab.Name
+			);
+			var fullFileName = System.IO.Path.Combine(this.SnapshotsPath, fileName);
+
+			if (System.IO.File.Exists(fullFileName))
+			{
+				System.Threading.Thread.Sleep(1000);
+				this.SaveBitmap(bmp, name);
+			}
+			else
+			{
+				bmp.Save(fullFileName);
+				System.Diagnostics.Process.Start(fullFileName);
+			}
+		}
+
 
 		private string SnapshotsPath
 		{
