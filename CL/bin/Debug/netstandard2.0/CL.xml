@@ -152,6 +152,43 @@
             Resets all the grid: clears contaminated, set Ticks = 0, calls Population.Reset() and sets to 0 the matrix Contamination
             </summary>
         </member>
+        <member name="T:CoViD.CL.Home">
+            <summary>
+            The starting point for every 'jorney'
+            </summary>
+        </member>
+        <member name="T:CoViD.CL.Hospital">
+            <summary>
+            The place where a person goes when its ilness become severe. 
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Hospital.Location">
+            <summary>
+            The posizion on the grid.
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Hospital.Beds">
+            <summary>
+            The number of bed available in the hospital.
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Hospital.#ctor(CoViD.CL.Point,System.Int32)">
+            <summary>
+            Main CTor (sets location and beds).
+            </summary>
+            <param name="location">The posizion on the grid.</param>
+            <param name="beds">The number of bed available in the hospital.</param>
+        </member>
+        <member name="M:CoViD.CL.Hospital.Tick">
+            <summary>
+            A unity of time (not implemented.)
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Hospital.Reset">
+            <summary>
+            Re sets the hospital at its inizial status (not implemented.)
+            </summary>
+        </member>
         <member name="T:CoViD.CL.Hospitals">
             <summary>
             A list of all the hospitals
@@ -171,6 +208,53 @@
             <summary>
             Ticks each hospital in the list.
             </summary>
+        </member>
+        <member name="T:CoViD.CL.Locations">
+            <summary>
+            The list of points on the grid, randomly generated, during a person's journey. 
+            (The hope is to find some source of real movements)
+            </summary>
+        </member>
+        <member name="P:CoViD.CL.Locations.Item(System.Int32)">
+            <summary>
+            Retrives the coordinates of a single location (point) 
+            </summary>
+            <param name="index">The index of the point.</param>
+            <returns>The location at the given index.</returns>
+        </member>
+        <member name="M:CoViD.CL.Locations.#ctor">
+            <summary>
+            Creates a list with only one point at '0, 0'.
+            </summary>
+            <returns>A list with only one point at '0, 0'</returns>
+        </member>
+        <member name="M:CoViD.CL.Locations.#ctor(System.Int32,System.Byte)">
+            <summary>
+            Create a list of points on the grid to simulate a person's movements.
+            The "grid is splitted in 4 different sub grids: cities. Each people moves
+            in its own city. 
+            Travellers can move across cities.
+            If Traveller is 1 (100%) there is only one big city
+            Points are taken randomly. 
+            (This method calls the other method in overload with 'travellers = 1')
+            </summary>
+            <param name="radius">"Grid" is a square which side is twice 'radius'.</param>
+            <param name="distribution">Change the distribution of the probability.</param>
+            <returns>A List of points simulating someone moving.</returns>
+        </member>
+        <member name="M:CoViD.CL.Locations.#ctor(System.Int32,System.Byte,Vi.Types.Percentage)">
+            <summary>
+            Create a list of points on the grid to simulate a person's movements.
+            The "grid is splitted in 4 different sub grids: cities. Each people moves
+            in its own city. 
+            Travellers can move across cities.
+            If Traveller is 1 (100%) there is only one big city
+            Points are taken randomly. 
+            (This method calls the other method in overload with 'travellers = 1')
+            </summary>
+            <param name="radius">"Grid" is a square which side is twice 'radius'.</param>
+            <param name="distribution">Change the distribution from 1: Omogeneous, 2:triangular, 3: parabolic ... Gaussian (should be  'The Central limit theorem' if I'm right.)</param>
+            <param name="traveller"></param>
         </member>
         <member name="T:CoViD.CL.Person.States">
             <summary>
@@ -456,6 +540,34 @@
             <param name="antibodyDecay"></param>
             <param name="mobility"></param>
         </member>
+        <member name="T:CoViD.CL.Point">
+            <summary>
+            The coordinates (x, y)  of the location in space.
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Point.X">
+            <summary>
+            The 'x' coordinate.
+            </summary>
+        </member>
+        <member name="F:CoViD.CL.Point.Y">
+            <summary>
+            The 'y' coordinate.
+            </summary>
+        </member>
+        <member name="M:CoViD.CL.Point.#ctor(System.Int32,System.Int32)">
+            <summary>
+            CTor. Sets the x, y values.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:CoViD.CL.Point.ToString">
+            <summary>
+            Makes each instance more readable during the Debug session.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:CoViD.CL.Population">
             <summary>
             
@@ -547,90 +659,6 @@
             Runs the single unit of time. (Resets all the counter calls 'Tick' on all the person and sets all the statistics):
             </summary>
         </member>
-        <member name="T:CoViD.CL.Locations">
-            <summary>
-            This class is a container of the main points (over the grid) reached by a person. 
-            Points are randomly generated, The hope is to find some source of real movements
-            </summary>
-        </member>
-        <member name="P:CoViD.CL.Locations.Item(System.Int32)">
-            <summary>
-            Retrives the coordinates of a single location (point) 
-            </summary>
-            <param name="index">The index of the point.</param>
-            <returns>The location at the given index.</returns>
-        </member>
-        <member name="M:CoViD.CL.Locations.#ctor">
-            <summary>
-            Creates a list with only one point at '0, 0'.
-            </summary>
-            <returns>A list with only one point at '0, 0'</returns>
-        </member>
-        <member name="M:CoViD.CL.Locations.#ctor(System.Int32,System.Byte)">
-            <summary>
-            Create a list of points on the grid to simulate a person's movements.
-            The "grid is splitted in 4 different sub grids: cities. Each people moves
-            in its own city. 
-            Travellers can move across cities.
-            If Traveller is 1 (100%) there is only one big city
-            Points are taken randomly. 
-            (This method calls the other method in overload with 'travellers = 1')
-            </summary>
-            <param name="radius">"Grid" is a square which side is twice 'radius'.</param>
-            <param name="distribution">Change the distribution of the probability.</param>
-            <returns>A List of points simulating someone moving.</returns>
-        </member>
-        <member name="M:CoViD.CL.Locations.#ctor(System.Int32,System.Byte,Vi.Types.Percentage)">
-            <summary>
-            Create a list of points on the grid to simulate a person's movements.
-            The "grid is splitted in 4 different sub grids: cities. Each people moves
-            in its own city. 
-            Travellers can move across cities.
-            If Traveller is 1 (100%) there is only one big city
-            Points are taken randomly. 
-            (This method calls the other method in overload with 'travellers = 1')
-            </summary>
-            <param name="radius">"Grid" is a square which side is twice 'radius'.</param>
-            <param name="distribution">Change the distribution from 1: Omogeneous, 2:triangular, 3: parabolic ... Gaussian (should be  'The Central limit theorem' if I'm right.)</param>
-            <param name="traveller"></param>
-        </member>
-        <member name="T:CoViD.CL.Home">
-            <summary>
-            The starting point for every 'jorney'
-            </summary>
-        </member>
-        <member name="T:CoViD.CL.Hospital">
-            <summary>
-            The place where a person goes when its ilness become severe. 
-            </summary>
-        </member>
-        <member name="F:CoViD.CL.Hospital.Location">
-            <summary>
-            The posizion on the grid.
-            </summary>
-        </member>
-        <member name="F:CoViD.CL.Hospital.Beds">
-            <summary>
-            The number of bed available in the hospital.
-            </summary>
-        </member>
-        <member name="M:CoViD.CL.Hospital.#ctor(CoViD.CL.Point,System.Int32)">
-            <summary>
-            Main CTor (sets location and beds).
-            </summary>
-            <param name="location">The posizion on the grid.</param>
-            <param name="beds">The number of bed available in the hospital.</param>
-        </member>
-        <member name="M:CoViD.CL.Hospital.Tick">
-            <summary>
-            A unity of time (not implemented.)
-            </summary>
-        </member>
-        <member name="M:CoViD.CL.Hospital.Reset">
-            <summary>
-            Re sets the hospital at its inizial status (not implemented.)
-            </summary>
-        </member>
         <member name="T:CoViD.CL.School">
             <summary>
             it's an accumulation point for youngsters
@@ -638,36 +666,8 @@
         </member>
         <member name="T:CoViD.CL.Workplace">
             <summary>
-            The accumulation point for mature people.
+            The generic working place.
             </summary>
-        </member>
-        <member name="T:CoViD.CL.Point">
-            <summary>
-            The coordinates (x, y)  of the location in space.
-            </summary>
-        </member>
-        <member name="F:CoViD.CL.Point.X">
-            <summary>
-            The 'x' coordinate.
-            </summary>
-        </member>
-        <member name="F:CoViD.CL.Point.Y">
-            <summary>
-            The 'y' coordinate.
-            </summary>
-        </member>
-        <member name="M:CoViD.CL.Point.#ctor(System.Int32,System.Int32)">
-            <summary>
-            CTor. Sets the x, y values.
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-        </member>
-        <member name="M:CoViD.CL.Point.ToString">
-            <summary>
-            Makes each instance more readable during the Debug session.
-            </summary>
-            <returns></returns>
         </member>
     </members>
 </doc>

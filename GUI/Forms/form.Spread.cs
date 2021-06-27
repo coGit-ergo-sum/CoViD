@@ -139,7 +139,7 @@ namespace CoViD.GUI.Forms
 
 				this.TicksMax = (int)this.INICoViD.Ticks;
 
-				this.grid2.Cartesian.Clear();
+				this.regionR.Cartesian.Clear();
 				this.xySIR.Cartesian.Clear();
 				this.xyDSIR.Cartesian.Clear();
 				this.xyContaminated.Cartesian.Clear();
@@ -231,13 +231,13 @@ namespace CoViD.GUI.Forms
 		{
 			try
 			{
-				var spazio = this.grid1.Left;
+				var spazio = this.regionL.Left;
 				var width = this.tabRegion.ClientSize.Width;
 				var w = (width - (4 * spazio)) / 2;
 
-				this.grid1.Width = w;
-				this.grid2.Width = w;
-				this.grid2.Left = this.grid2.Width + (3 * spazio);
+				this.regionL.Width = w;
+				this.regionR.Width = w;
+				this.regionR.Left = this.regionR.Width + (3 * spazio);
 			}
 			catch (System.Exception se)
 			{
@@ -249,9 +249,9 @@ namespace CoViD.GUI.Forms
 		{
 			try
 			{
-				var spazio = (this.tabRegion.ClientSize.Width - (this.grid1.Width + this.grid2.Width)) / 4;
-				this.grid1.Left = spazio;
-				this.grid2.Left = (3 * spazio) + this.grid1.Width;
+				var spazio = (this.tabRegion.ClientSize.Width - (this.regionL.Width + this.regionR.Width)) / 4;
+				this.regionL.Left = spazio;
+				this.regionR.Left = (3 * spazio) + this.regionL.Width;
 			}
 			catch (System.Exception se)
 			{

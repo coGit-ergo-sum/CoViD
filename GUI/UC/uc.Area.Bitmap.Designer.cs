@@ -11,7 +11,7 @@ using Vi.Tools.Extensions.Int;
 
 namespace CoViD.GUI.UC
 {
-	public partial class Grid : UserControl
+	public partial class Region : UserControl
 	{
 		public class Bitmap
 		{

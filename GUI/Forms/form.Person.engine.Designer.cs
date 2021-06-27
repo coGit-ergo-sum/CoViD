@@ -23,8 +23,8 @@ namespace CoViD.GUI.Forms
 			CoViD.CL.Person.IsolationThreshold = (byte)this.udIsolation.Value;
 
 
-			this.grid1.SetXY(radius, "People");
-			this.grid2.SetXY(radius, "Contamination");
+			this.regionL.SetXY(radius, "People");
+			this.regionR.SetXY(radius, "Contamination");
 
 			var tv = (this.TicksMax / 1);
 			this.xyViruses.SetXY(
@@ -66,11 +66,11 @@ namespace CoViD.GUI.Forms
 
 		private void Grid_Remove(float x, float y)
 		{
-			this.grid2.Cartesian.Point(x, y, Color.Black);
+			this.regionR.Cartesian.Point(x, y, Color.Black);
 		}
 		private void Grid_Add(float x, float y)
 		{
-			this.grid2.Cartesian.Point(x, y, Color.Red);
+			this.regionR.Cartesian.Point(x, y, Color.Red);
 		}
 
 		private void Play()
@@ -83,7 +83,7 @@ namespace CoViD.GUI.Forms
 
 			//	this.ShowPeople(this.Grid.Ticks);
 
-			//	this.grid1.Cartesian.Point(0, 0, this.Grid.Population[0].State.ToColor());
+			//	this.regionL.Cartesian.Point(0, 0, this.Grid.Population[0].State.ToColor());
 			//	this.xyViruses.Cartesian.Point(counter, this.Grid.Population[0].VirusPercent, this.Grid.Population[0].State.ToColor());
 			//	counter++;
 			//}
@@ -118,7 +118,7 @@ namespace CoViD.GUI.Forms
 			foreach (var person in this.Grid.Population)
 			{
 				var location = person.IsSevere ? this.Grid.Hospitals[0].Location : person.Location;
-				this.grid1.Cartesian.Point(location.X, location.Y, person.State.ToColor());
+				this.regionL.Cartesian.Point(location.X, location.Y, person.State.ToColor());
 				this.xyViruses.Cartesian.Point(tick, person.VirusPercent, person.State.ToColor());
 			}
 
@@ -137,18 +137,18 @@ namespace CoViD.GUI.Forms
 		////////////{
 		////////////	/////Application.DoEvents();
 
-		////////////	//this.grid2.Cartesian.Clear();
+		////////////	//this.regionR.Cartesian.Clear();
 
-		////////////	//var image2 = this.grid2.Cartesian.NewGraph();
+		////////////	//var image2 = this.regionR.Cartesian.NewGraph();
 
 			
 		////////////	foreach (var point in this.Grid.Contaminated)
 		////////////	{
-		////////////		this.grid2.Cartesian.Point(point.X, point.Y, Color.Red);
+		////////////		this.regionR.Cartesian.Point(point.X, point.Y, Color.Red);
 		////////////	}
 			
 
-		////////////	//this.grid2.Image = image2;
+		////////////	//this.regionR.Image = image2;
 
 		////////////	//Application.DoEvents();
 		////////////}

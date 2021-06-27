@@ -49,12 +49,6 @@
   <ItemGroup>
     <Compile Include="class.Settings.cs" />
     <Compile Include="Tools\Extensions\Extension.Profile.cs" />
-    <Compile Include="Tools\Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tools\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\form.Infection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +81,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\Class1.cs" />
     <Compile Include="Tools\Extensions\Extension.Person.cs" />
     <Compile Include="UC\class.Cartesian.cs" />
     <Compile Include="UC\uc.Item.cs">
@@ -95,6 +88,12 @@
     </Compile>
     <Compile Include="UC\uc.Item.Designer.cs">
       <DependentUpon>uc.Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\uc.Led.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\uc.Led.Designer.cs">
+      <DependentUpon>uc.Led.cs</DependentUpon>
     </Compile>
     <Compile Include="UC\uc.Legend.cs">
       <SubType>UserControl</SubType>
@@ -111,12 +110,6 @@
     <Compile Include="UC\uc.Area.Bitmap.Designer.cs">
       <DependentUpon>uc.Area.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC\uc.Led.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC\uc.Led.Designer.cs">
-      <DependentUpon>uc.Led.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC\uc.UpDown.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,9 +122,6 @@
     <Compile Include="UC\uc.XY.Designer.cs">
       <DependentUpon>uc.XY.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Tools\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\form.Infection.resx">
       <DependentUpon>form.Infection.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,15 +147,15 @@
     <EmbeddedResource Include="UC\uc.Item.resx">
       <DependentUpon>uc.Item.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC\uc.Led.resx">
+      <DependentUpon>uc.Led.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC\uc.Legend.resx">
       <DependentUpon>uc.Legend.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\uc.Area.resx">
       <DependentUpon>uc.Area.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC\uc.Led.resx">
-      <DependentUpon>uc.Led.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\uc.UpDown.resx">
       <DependentUpon>uc.UpDown.cs</DependentUpon>
@@ -223,8 +213,6 @@
     <None Include="Properties\Images\LedRed.32x32.png" />
     <None Include="Properties\Images\LedGrey.32x32.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Butta\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 using Vi.Tools.Extensions.Int;
 
 namespace CoViD.CL

@@ -41,7 +41,7 @@ namespace CoViD.GUI.Forms
 
 		private void up_Click(object sender, EventArgs e)
 		{
-			this.grid1.Cartesian.Clear();
+			this.regionL.Cartesian.Clear();
 			this.Initialize();
 		}
 
@@ -97,8 +97,8 @@ namespace CoViD.GUI.Forms
 			this.TicksMax = (int)this.udTicks.Value;
 
 			this.xyViruses.Cartesian.Clear();
-			this.grid1.Cartesian.Clear();
-			this.grid2.Cartesian.Clear();
+			this.regionL.Cartesian.Clear();
+			this.regionR.Cartesian.Clear();
 
 
 			this.Grid.Reset();

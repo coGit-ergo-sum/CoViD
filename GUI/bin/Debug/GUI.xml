@@ -97,37 +97,24 @@
             <param name="profile">The class Profile extended by this extension method.</param>
             <param name="settings">The set of values to store in the INI file.</param>
         </member>
-        <member name="F:CoViD.GUI.Tools.Watcher._watcher">
+        <member name="T:CoViD.GUI.Tools.Extensions.Person.Methods">
             <summary>
-            Watcher. Butta
+            extension methods for the 'Person.States' and the 'Person.SIRStates'
             </summary>
         </member>
-        <member name="M:CoViD.GUI.Tools.Watcher.Init">
+        <member name="M:CoViD.GUI.Tools.Extensions.Person.Methods.ToColor(CoViD.CL.Person.States)">
             <summary>
-            Init.
+            Used when plotting diagrams to get the color associated to the state.
             </summary>
+            <param name="state">One of the States</param>
+            <returns>The color associated with the current State</returns>
         </member>
-        <member name="M:CoViD.GUI.Tools.Watcher._watcher_Changed(System.Object,System.IO.FileSystemEventArgs)">
+        <member name="M:CoViD.GUI.Tools.Extensions.Person.Methods.ToColor(CoViD.CL.Person.SIRStates)">
             <summary>
-            Handler.
+            Used when plotting diagrams to get the color associated to the state.
             </summary>
-        </member>
-        <member name="F:CoViD.GUI.Form2.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.Form2.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:CoViD.GUI.Form2.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
+            <param name="state">One of the SIR states</param>
+            <returns>The color associated with the current SIRState</returns>
         </member>
         <member name="T:CoViD.GUI.Forms.Infection">
             <summary>
@@ -518,6 +505,23 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="F:CoViD.GUI.UC.Led.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Led.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Led.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="P:CoViD.GUI.UC.Legend.CheckBoxes">
             <summary>
             Hides the checkboxes lefting the colored icon still visible;
@@ -580,42 +584,100 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="M:CoViD.GUI.UC.Grid.Point(CoViD.CL.Point,System.Drawing.Color)">
+        <member name="T:CoViD.GUI.UC.Region">
+            <summary>
+            Plotting area specialized to display a square region having the point 0, 0 in the center of the space.
+            </summary>
+        </member>
+        <member name="T:CoViD.GUI.UC.Region.CoordinatesDelegate">
+            <summary>
+            The delegate for the event 'Coordinates'
+            </summary>
+            <param name="x">The current mouse's x position.</param>
+            <param name="y">The current mouse's y position.</param>
+        </member>
+        <member name="E:CoViD.GUI.UC.Region.Coordinates">
+            <summary>
+            Specializes the event 'mouseMove' to provide the position of the mouse on the diagram.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Region.OnCoordinates(System.Single,System.Single)">
+            <summary>
+            Method to 'safely' call the event 'Coordinates'.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="F:CoViD.GUI.UC.Region.Cartesian">
+            <summary>
+            The Cartesian Plane where points are plotted.
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.Region._Radius">
+            <summary>
+            The semi extention where the CoViD spreads
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Region.Radius">
+            <summary>
+            The semi extention where the CoViD spreads
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Region.Title">
+            <summary>
+            The title shown below the plotting area, in the middle of the available space.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Region.#ctor">
+            <summary>
+            Main CTor. Inizialize components; sets background color and positions.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Region.SetXY(System.Int32,System.String)">
+            <summary>
+            Sets the text around plotting area.
+            </summary>
+            <param name="radius"></param>
+            <param name="title"></param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Region.Cartesian_Coordinates(System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Region.Point(CoViD.CL.Point,System.Drawing.Color)">
             <summary>
             Draws a point over the drawing grid at position x, y
             </summary>
             <param name="point">The 'location' of the point.</param>
             <param name="color">The color of the new point.</param>
         </member>
-        <member name="F:CoViD.GUI.UC.Grid.components">
+        <member name="P:CoViD.GUI.UC.Region.Image">
+            <summary>
+            Sets thimage for the cartesian area.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Region.Grid_Resize(System.Object,System.EventArgs)">
+            <summary>
+            Resizes the Grid avoiding overflows
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:CoViD.GUI.UC.Region.components">
             <summary> 
             Required designer variable.
             </summary>
         </member>
-        <member name="M:CoViD.GUI.UC.Grid.Dispose(System.Boolean)">
+        <member name="M:CoViD.GUI.UC.Region.Dispose(System.Boolean)">
             <summary> 
             Clean up any resources being used.
             </summary>
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
-        <member name="M:CoViD.GUI.UC.Grid.InitializeComponent">
-            <summary> 
-            Required method for Designer support - do not modify 
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="F:CoViD.GUI.UC.Led.components">
-            <summary> 
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.UC.Led.Dispose(System.Boolean)">
-            <summary> 
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:CoViD.GUI.UC.Led.InitializeComponent">
+        <member name="M:CoViD.GUI.UC.Region.InitializeComponent">
             <summary> 
             Required method for Designer support - do not modify 
             the contents of this method with the code editor.

@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Vi.Tools.Extensions.String;
-using Vi.Tools.Extensions.Float;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace CoViD.GUI.Tools.Extensions.Person
 {
+	/// <summary>
+	/// extension methods for the 'Person.States' and the 'Person.SIRStates'
+	/// </summary>
 	public static class Methods
 	{
+		/// <summary>
+		/// Used when plotting diagrams to get the color associated to the state.
+		/// </summary>
+		/// <param name="state">One of the States</param>
+		/// <returns>The color associated with the current State</returns>
 		public static Color ToColor(this CoViD.CL.Person.States state)
 		{
 			var color =
@@ -26,6 +26,11 @@ namespace CoViD.GUI.Tools.Extensions.Person
 			return color;
 		}
 
+		/// <summary>
+		/// Used when plotting diagrams to get the color associated to the state.
+		/// </summary>
+		/// <param name="state">One of the SIR states</param>
+		/// <returns>The color associated with the current SIRState</returns>
 		public static Color ToColor(this CoViD.CL.Person.SIRStates state)
 		{
 			var color =

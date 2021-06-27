@@ -1,6 +1,6 @@
 ﻿namespace CoViD.GUI.UC
 {
-	partial class Grid
+	partial class Region
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -35,7 +35,7 @@
 			this.lblX = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.lblLabel = new System.Windows.Forms.Label();
+			this.lblTitle = new System.Windows.Forms.Label();
 			this.lblRadius = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.pctDrawingGrid = new System.Windows.Forms.PictureBox();
@@ -52,7 +52,7 @@
 			this.pnlMain.Controls.Add(this.lblX);
 			this.pnlMain.Controls.Add(this.label2);
 			this.pnlMain.Controls.Add(this.label5);
-			this.pnlMain.Controls.Add(this.lblLabel);
+			this.pnlMain.Controls.Add(this.lblTitle);
 			this.pnlMain.Controls.Add(this.lblRadius);
 			this.pnlMain.Controls.Add(this.label6);
 			this.pnlMain.Controls.Add(this.pctDrawingGrid);
@@ -131,18 +131,18 @@
 			this.label5.TabIndex = 31;
 			this.label5.Text = "X";
 			// 
-			// lblLabel
+			// lblTitle
 			// 
-			this.lblLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.lblLabel.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-			this.lblLabel.Location = new System.Drawing.Point(5, 536);
-			this.lblLabel.Name = "lblLabel";
-			this.lblLabel.Size = new System.Drawing.Size(503, 13);
-			this.lblLabel.TabIndex = 30;
-			this.lblLabel.Text = "Title";
-			this.lblLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
+			this.lblTitle.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+			this.lblTitle.Location = new System.Drawing.Point(5, 536);
+			this.lblTitle.Name = "lblTitle";
+			this.lblTitle.Size = new System.Drawing.Size(503, 13);
+			this.lblTitle.TabIndex = 30;
+			this.lblTitle.Text = "Title";
+			this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// lblRadius
 			// 
@@ -169,9 +169,9 @@
 			// 
 			// pctDrawingGrid
 			// 
-			this.pctDrawingGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pctDrawingGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			| System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.pctDrawingGrid.BackColor = System.Drawing.Color.Blue;
 			this.pctDrawingGrid.Location = new System.Drawing.Point(4, 24);
 			this.pctDrawingGrid.Name = "pctDrawingGrid";
@@ -203,7 +203,7 @@
 		private System.Windows.Forms.Label lblX;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label lblLabel;
+		private System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.Label lblRadius;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.PictureBox pctDrawingGrid;

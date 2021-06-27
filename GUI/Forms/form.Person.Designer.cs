@@ -33,8 +33,8 @@
 			this.tsmDisease = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabRegion = new System.Windows.Forms.TabPage();
-			this.grid2 = new CoViD.GUI.UC.Grid();
-			this.grid1 = new CoViD.GUI.UC.Grid();
+			this.regionR = new CoViD.GUI.UC.Region();
+			this.regionL = new CoViD.GUI.UC.Region();
 			this.xyViruses = new CoViD.GUI.XY();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.tsbSettings = new System.Windows.Forms.ToolStripButton();
@@ -108,8 +108,8 @@
 			// tabRegion
 			// 
 			this.tabRegion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.tabRegion.Controls.Add(this.grid2);
-			this.tabRegion.Controls.Add(this.grid1);
+			this.tabRegion.Controls.Add(this.regionR);
+			this.tabRegion.Controls.Add(this.regionL);
 			this.tabRegion.Controls.Add(this.xyViruses);
 			this.tabRegion.Location = new System.Drawing.Point(4, 22);
 			this.tabRegion.Name = "tabRegion";
@@ -118,25 +118,25 @@
 			this.tabRegion.TabIndex = 0;
 			this.tabRegion.Text = "Region";
 			// 
-			// grid2
+			// regionR
 			// 
-			this.grid2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.grid2.Label = "Title";
-			this.grid2.Location = new System.Drawing.Point(398, 257);
-			this.grid2.MinimumSize = new System.Drawing.Size(258, 297);
-			this.grid2.Name = "grid2";
-			this.grid2.Size = new System.Drawing.Size(362, 392);
-			this.grid2.TabIndex = 77;
+			this.regionR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.regionR.Location = new System.Drawing.Point(398, 257);
+			this.regionR.MinimumSize = new System.Drawing.Size(258, 297);
+			this.regionR.Name = "regionR";
+			this.regionR.Size = new System.Drawing.Size(362, 392);
+			this.regionR.TabIndex = 77;
+			this.regionR.Title = "Title";
 			// 
-			// grid1
+			// regionL
 			// 
-			this.grid1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-			this.grid1.Label = "Title";
-			this.grid1.Location = new System.Drawing.Point(30, 257);
-			this.grid1.MinimumSize = new System.Drawing.Size(258, 297);
-			this.grid1.Name = "grid1";
-			this.grid1.Size = new System.Drawing.Size(362, 392);
-			this.grid1.TabIndex = 40;
+			this.regionL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+			this.regionL.Location = new System.Drawing.Point(30, 257);
+			this.regionL.MinimumSize = new System.Drawing.Size(258, 297);
+			this.regionL.Name = "regionL";
+			this.regionL.Size = new System.Drawing.Size(362, 392);
+			this.regionL.TabIndex = 40;
+			this.regionL.Title = "Title";
 			// 
 			// xyViruses
 			// 
@@ -370,7 +370,7 @@
 			// toolStripStatusLabel2
 			// 
 			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-			this.toolStripStatusLabel2.Size = new System.Drawing.Size(116, 17);
+			this.toolStripStatusLabel2.Size = new System.Drawing.Size(115, 17);
 			this.toolStripStatusLabel2.Text = "Contaminated grids:";
 			this.toolStripStatusLabel2.ToolTipText = "The number of place contaminated by the virus.";
 			// 
@@ -469,7 +469,11 @@
 			this.udTicks.Name = "udTicks";
 			this.udTicks.Size = new System.Drawing.Size(214, 45);
 			this.udTicks.TabIndex = 74;
-			this.udTicks.Value = 3750;
+			this.udTicks.Value = new decimal(new int[] {
+            3750,
+            0,
+            0,
+            0});
 			// 
 			// udIsolation
 			// 
@@ -481,7 +485,11 @@
 			this.udIsolation.Name = "udIsolation";
 			this.udIsolation.Size = new System.Drawing.Size(177, 45);
 			this.udIsolation.TabIndex = 73;
-			this.udIsolation.Value = 5;
+			this.udIsolation.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
 			// 
 			// udSteps
 			// 
@@ -493,7 +501,11 @@
 			this.udSteps.Name = "udSteps";
 			this.udSteps.Size = new System.Drawing.Size(172, 45);
 			this.udSteps.TabIndex = 51;
-			this.udSteps.Value = 2;
+			this.udSteps.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
 			this.udSteps.Click += new System.EventHandler(this.up_Click);
 			// 
 			// udRadius
@@ -506,7 +518,11 @@
 			this.udRadius.Name = "udRadius";
 			this.udRadius.Size = new System.Drawing.Size(227, 45);
 			this.udRadius.TabIndex = 48;
-			this.udRadius.Value = 20000;
+			this.udRadius.Value = new decimal(new int[] {
+            20000,
+            0,
+            0,
+            0});
 			this.udRadius.Click += new System.EventHandler(this.up_Click);
 			// 
 			// Person
@@ -585,7 +601,7 @@
 		private System.Windows.Forms.ToolStripMenuItem tsmFilterI;
 		private System.Windows.Forms.ToolStripMenuItem tsmFilterR;
 		private XY xyViruses;
-		private UC.Grid grid2;
-		private UC.Grid grid1;
+		private UC.Region regionR;
+		private UC.Region regionL;
 	}
 }

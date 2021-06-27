@@ -38,8 +38,8 @@ namespace CoViD.GUI.Forms
 			this.tsPeople.Text = people.ToText();
 			this.tsIsolation.Text = this.INICoViD.Isolation.ToText();
 
-			this.grid1.SetXY(radius, "People");
-			this.grid2.SetXY(radius, "Contamination");
+			this.regionL.SetXY(radius, "People");
+			this.regionR.SetXY(radius, "Contamination");
 
 			this.xySIR.SetXY(
 				0, this.TicksMax, "0", this.TicksMax.ToText(), "Ticks",
@@ -64,8 +64,8 @@ namespace CoViD.GUI.Forms
 			);
 
 			// ------------------------------------------------------------------------------------- //
-			this.grid1.Cartesian.Clear();
-			this.grid2.Cartesian.Clear();
+			this.regionL.Cartesian.Clear();
+			this.regionR.Cartesian.Clear();
 
 			Application.DoEvents();
 			// ------------------------------------------------------------------------------------- //
@@ -113,11 +113,11 @@ namespace CoViD.GUI.Forms
 
 		private void Grid_Remove(float x, float y)
 		{
-			this.grid2.Cartesian.Point(x, y,  Color.Black);
+			this.regionR.Cartesian.Point(x, y,  Color.Black);
 		}
 		private void Grid_Add(float x, float y)
 		{
-			this.grid2.Cartesian.Point(x, y, Color.Red);
+			this.regionR.Cartesian.Point(x, y, Color.Red);
 		}
 
 		private void Play()
@@ -234,9 +234,9 @@ namespace CoViD.GUI.Forms
 
 		private void ShowPeople()
 		{
-			this.grid1.Cartesian.Clear();
+			this.regionL.Cartesian.Clear();
 
-			var image1 = this.grid1.Cartesian.NewGraph();
+			var image1 = this.regionL.Cartesian.NewGraph();
 
 			foreach (var person in this.Grid.Population)
 			{
@@ -256,22 +256,22 @@ namespace CoViD.GUI.Forms
 
 			}
 
-			this.grid1.Image = image1;
+			this.regionL.Image = image1;
 
 		}
 
 		private void ShowContaminated(int tick)
 		{
-			this.grid2.Cartesian.Clear();
+			this.regionR.Cartesian.Clear();
 
-			var image2 = this.grid2.Cartesian.NewGraph();
+			var image2 = this.regionR.Cartesian.NewGraph();
 
 			foreach (var point in this.Grid.Contaminated)
 			{
 				image2.Point(point.X, point.Y, Color.Red);
 			}
 
-			this.grid2.Image = image2;
+			this.regionR.Image = image2;
 
 		}
 

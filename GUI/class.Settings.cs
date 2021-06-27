@@ -83,7 +83,9 @@ namespace CoViD
 					iniL.GetType() == iniR.GetType() &&
 					iniL.Radius == iniR.Radius &&
 					iniL.People == iniR.People &&
+				
 					iniL.Isolation == iniR.Isolation &&
+
 					iniL.Steps == iniR.Steps &&
 					iniL.Ticks == iniR.Ticks
 				)

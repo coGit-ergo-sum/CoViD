@@ -8,14 +8,15 @@ using Vi.Tools.Extensions.Int;
 namespace CoViD.CL
 {
 	/// <summary>
-	/// This class is a container of the main points (over the grid) reached by a person. 
-	/// Points are randomly generated, The hope is to find some source of real movements
+	/// The list of points on the grid, randomly generated, during a person's journey. 
+	/// (The hope is to find some source of real movements)
 	/// </summary>
-	public class Locations : System.Collections.Generic.List<CoViD.CL.Point> //// System.Collections.Generic.List<CoViD.CL.Point> // 
+	public class Locations : System.Collections.Generic.List<CoViD.CL.Point> 
 	{
 
 		// The random number generation starts from a seed value. If the same seed is used repeatedly, 
 		// the same series of numbers is generated. 
+
 		private static Random Rnd = new Random();
 
 		/// <summary>

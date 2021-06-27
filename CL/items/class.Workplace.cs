@@ -5,10 +5,9 @@ using System.Text;
 namespace CoViD.CL
 {
 	/// <summary>
-	/// The accumulation point for mature people.
+	/// The generic working place.
 	/// </summary>
 	class Workplace
-
 	{
 	}
 }
