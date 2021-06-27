@@ -15,11 +15,11 @@ namespace CoViD.GUI.Tools.Extensions.Person
 		public static Color ToColor(this CoViD.CL.Person.States state)
 		{
 			var color =
-				state == CL.Person.States.Latency ? Color.Yellow:
-				state == CL.Person.States.Ill ? Color.Fuchsia :
-				state == CL.Person.States.Severe ? Color.Red :
+				state == CL.Person.States.Latency ? Color.Yellow :
+				state == CL.Person.States.Ill ? Color.FromArgb(102, 255, 51) : //Color.FromArgb(255, 153, 51) : //Color.FromArgb(255, 127, 0): // White :
+				state == CL.Person.States.Severe ? Color.FromArgb(255, 51, 0) : //Color.White: // Color.Red :
 				state == CL.Person.States.Convalescent ? Color.Cyan :
-				state == CL.Person.States.Immune ? Color.Green :
+				state == CL.Person.States.Immune ? Color.LightGray: // Color.Green :
 				state == CL.Person.States.Dead ? Color.Blue :
 				Color.FromArgb(100, 100, 100);
 
