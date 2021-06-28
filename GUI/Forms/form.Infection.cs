@@ -40,7 +40,10 @@ namespace CoViD.GUI.Forms
 			InitializeComponent();
 		}
 
-		private void Disease_Load(object sender, EventArgs e) { }
+		private void Disease_Load(object sender, EventArgs e) {
+			this.Location = Program.INIGUI.Read(this.Name, "Location", this.Location);
+			this.Size = Program.INIGUI.Read(this.Name, "Size", this.Size);
+		}
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
@@ -131,7 +134,8 @@ namespace CoViD.GUI.Forms
 
 		private void Disease_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			//Vi.Tools.Profile.Write(this.Name, "Location", this.Location.X, @"C:\Vi\Code\CSharp\CoViD\GUI\bin\Settings.ini", null);
+			Program.INIGUI.Write(this.Name, "Location", this.Location);
+			Program.INIGUI.Write(this.Name, "Size", this.Size);
 		}
 
 	}

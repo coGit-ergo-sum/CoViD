@@ -37,13 +37,14 @@
 			// 
 			// chk
 			// 
+			this.chk.AutoSize = true;
 			this.chk.BackColor = System.Drawing.Color.Transparent;
 			this.chk.Checked = true;
 			this.chk.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.chk.Location = new System.Drawing.Point(16, 1);
+			this.chk.Location = new System.Drawing.Point(15, 3);
 			this.chk.Margin = new System.Windows.Forms.Padding(0);
 			this.chk.Name = "chk";
-			this.chk.Size = new System.Drawing.Size(15, 15);
+			this.chk.Size = new System.Drawing.Size(15, 14);
 			this.chk.TabIndex = 6;
 			this.chk.TextAlign = System.Drawing.ContentAlignment.TopLeft;
 			this.chk.UseVisualStyleBackColor = false;
@@ -51,7 +52,7 @@
 			// 
 			// pnl
 			// 
-			this.pnl.Location = new System.Drawing.Point(1, 1);
+			this.pnl.Location = new System.Drawing.Point(1, 3);
 			this.pnl.Name = "pnl";
 			this.pnl.Size = new System.Drawing.Size(13, 13);
 			this.pnl.TabIndex = 7;
@@ -59,8 +60,7 @@
 			// 
 			// lblText
 			// 
-			this.lblText.AutoSize = true;
-			this.lblText.Location = new System.Drawing.Point(33, 1);
+			this.lblText.Location = new System.Drawing.Point(30, 3);
 			this.lblText.Name = "lblText";
 			this.lblText.Size = new System.Drawing.Size(35, 13);
 			this.lblText.TabIndex = 8;
@@ -76,7 +76,7 @@
 			this.Controls.Add(this.pnl);
 			this.Controls.Add(this.chk);
 			this.Name = "Item";
-			this.Size = new System.Drawing.Size(75, 15);
+			this.Size = new System.Drawing.Size(75, 22);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

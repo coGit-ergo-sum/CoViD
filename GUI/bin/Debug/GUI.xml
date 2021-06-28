@@ -301,7 +301,7 @@
         </member>
         <member name="T:CoViD.GUI.UC.Cartesian">
             <summary>
-            
+            This class implements the drawing area of a cartesian plane
             </summary>
         </member>
         <member name="T:CoViD.GUI.UC.Cartesian.CoordinatesDelegate">
@@ -362,6 +362,16 @@
         <member name="T:CoViD.GUI.UC.Cartesian.Bitmap">
             <summary>
             Specialize a 'Drawing.Graphics' to interact with a fixed rectangle grid and a given range of x-y values. 
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.Cartesian.Bitmap.Image">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoViD.GUI.UC.Cartesian.Bitmap.Graphics">
+            <summary>
+            
             </summary>
         </member>
         <member name="F:CoViD.GUI.UC.Cartesian.Bitmap.X2W">
@@ -457,6 +467,11 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="T:CoViD.GUI.UC.Item">
+            <summary>
+            Specializes a checkbox adding a colored square region to the left.
+            </summary>
+        </member>
         <member name="P:CoViD.GUI.UC.Item.TooltipText">
             <summary>
             The toolTip message
@@ -488,6 +503,42 @@
             Gets/Sets the checked status of the inner checkbox.
             </summary>
         </member>
+        <member name="P:CoViD.GUI.UC.Item.Color">
+            <summary>
+            Sets/Gets the background color of the small square at the left side of the control.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.UC.Item.Text">
+            <summary>
+            Set/Gets the text in the label and adjust the width of the control.
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Item.pnl_Click(System.Object,System.EventArgs)">
+            <summary>
+            Toggle the 'Checked' state of the checkbox.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CoViD.GUI.UC.Item.lblText_Click(System.Object,System.EventArgs)">
+            <summary>
+            Toggle the 'Checked' state of the checkbox. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:CoViD.GUI.UC.Item.CheckBox">
+            <summary>
+            Sets/gets checkbox's visibility
+            </summary>
+        </member>
+        <member name="M:CoViD.GUI.UC.Item.chk_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Raises the event 'CheckedChanged'.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="F:CoViD.GUI.UC.Item.components">
             <summary> 
             Required designer variable.
@@ -500,23 +551,6 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:CoViD.GUI.UC.Item.InitializeComponent">
-            <summary> 
-            Required method for Designer support - do not modify 
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="F:CoViD.GUI.UC.Led.components">
-            <summary> 
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:CoViD.GUI.UC.Led.Dispose(System.Boolean)">
-            <summary> 
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:CoViD.GUI.UC.Led.InitializeComponent">
             <summary> 
             Required method for Designer support - do not modify 
             the contents of this method with the code editor.
@@ -804,6 +838,16 @@
             </summary>
         </member>
         <member name="P:CoViD.GUI.Properties.Resources.Check">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Contamination_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:CoViD.GUI.Properties.Resources.Contamination1">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

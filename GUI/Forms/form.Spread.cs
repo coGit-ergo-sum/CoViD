@@ -215,6 +215,7 @@ namespace CoViD.GUI.Forms
 			}
 		}
 
+
 		private void tsbPeople_Click(object sender, EventArgs e)
 		{
 			try
@@ -405,6 +406,18 @@ namespace CoViD.GUI.Forms
 			catch (System.Exception se) {
 				se.Show();
 			}
+		}
+
+		private void tsbPerson_Click(object sender, EventArgs e)
+		{
+			var person = new CoViD.GUI.Forms.Person();
+			person.ShowDialog();
+		}
+
+		private void tsbInfection_Click(object sender, EventArgs e)
+		{
+			var infection = new CoViD.GUI.Forms.Infection();
+			infection.ShowDialog();
 		}
 	}
 }

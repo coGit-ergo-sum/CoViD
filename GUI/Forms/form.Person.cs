@@ -28,12 +28,17 @@ namespace CoViD.GUI.Forms
 		{
 			Initialize();
 			tsbPause.Visible = false;
+			this.Location = Program.INIGUI.Read(this.Name, "Location", this.Location);
+			this.Size = Program.INIGUI.Read(this.Name, "Size", this.Size);
 		}
 
 
 		private void Person_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			this.tsbPause_Click(null, null);
+
+			Program.INIGUI.Write(this.Name, "Location", this.Location);
+			Program.INIGUI.Write(this.Name, "Size", this.Size);
 		}
 		#endregion
 		

@@ -83,6 +83,26 @@ namespace CoViD.GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Contamination_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Contamination.32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Contamination1 {
+            get {
+                object obj = ResourceManager.GetObject("Contamination1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LedBlue_32x32 {
             get {
                 object obj = ResourceManager.GetObject("LedBlue.32x32", resourceCulture);

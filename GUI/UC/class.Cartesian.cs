@@ -4,10 +4,11 @@ using System.Windows.Forms;
 namespace CoViD.GUI.UC
 {
 	/// <summary>
-	/// 
+	/// This class implements the drawing area of a cartesian plane
 	/// </summary>
 	public class Cartesian
 	{
+		#region events
 		/// <summary>
 		/// The delegate for the event 'Coordinates'
 		/// </summary>
@@ -32,7 +33,9 @@ namespace CoViD.GUI.UC
 		/// This Field (a 'Cartesian.Bitmap') manages the interaction with it.
 		/// </summary>
 		public Cartesian.Bitmap Graph;
-
+		#endregion
+		
+		#region Max Min
 		/// <summary>
 		/// The maximum Y value the diagram can represents.
 		/// </summary>
@@ -52,7 +55,8 @@ namespace CoViD.GUI.UC
 		/// The Minimum X value the diagram can represents.
 		/// </summary>
 		public float XMin { get; private set; }
-
+		#endregion
+		
 		// Parameters for the equation of a line to map values from X axes to the width of the control.
 		private float KX;
 		private float MX;
@@ -71,7 +75,6 @@ namespace CoViD.GUI.UC
 		/// </summary>
 		public float ResolutionY { get; private set; }
 
-		//private Cartesian.Bitmap _Graph;
 		private System.Windows.Forms.PictureBox Pct;
 
 		/// <summary>
@@ -79,7 +82,14 @@ namespace CoViD.GUI.UC
 		/// </summary>
 		public class Bitmap
 		{
+			/// <summary>
+			/// 
+			/// </summary>
 			public System.Drawing.Bitmap Image;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			private System.Drawing.Graphics Graphics;
 
 			/// <summary>
@@ -102,18 +112,23 @@ namespace CoViD.GUI.UC
 			/// <param name="y2h"></param>
 			public Bitmap(
 				int width, int height,
-				Func<float, int> x2w, Func<float, int> y2h
+				Func<float, int> x2w, 
+				Func<float, int> y2h
 			)
 			{
-				this.Image = new System.Drawing.Bitmap(width, height);
+				try
+				{
+					this.Image = new System.Drawing.Bitmap(width, height);
 
+					this.Graphics = System.Drawing.Graphics.FromImage(this.Image);
 
-
-
-				this.Graphics = System.Drawing.Graphics.FromImage(this.Image);
-
-				this.X2W = x2w;
-				this.Y2H = y2h;
+					this.X2W = x2w;
+					this.Y2H = y2h;
+				}
+				catch (System.Exception se)
+				{
+					Console.Write(se);
+				}
 			}
 
 			/// <summary>
@@ -272,6 +287,10 @@ namespace CoViD.GUI.UC
 		private void Pct_Resize(object sender, EventArgs e)
 		{
 			this.Graph = this.NewGraph();
+			////////////int height = this.Pct.ClientSize.Height;
+			////////////int width = this.Pct.ClientSize.Width;
+			////////////this.ResolutionX = Math.Abs((this.XMax - this.XMin) / (float)width);
+			////////////this.ResolutionY = Math.Abs((this.YMax - this.YMin) / (float)height);
 		}
 
 		/// <summary>

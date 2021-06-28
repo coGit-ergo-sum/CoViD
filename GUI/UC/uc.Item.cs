@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using CoViD.GUI.Tools.Extensions.Person;
 using Vi.Tools.Extensions.Object;
 
 namespace CoViD.GUI.UC
 {
+	/// <summary>
+	/// Specializes a checkbox adding a colored square region to the left.
+	/// </summary>
 	public partial class Item : UserControl
 	{
-		////////private ToolTip _tt = new ToolTip();
 
 		/// <summary>
 		/// The toolTip message
@@ -80,7 +74,7 @@ namespace CoViD.GUI.UC
 		//////////	}
 		//////////}
 
-		private CoViD.CL.Person.States _State;
+		////////////private CoViD.CL.Person.States _State;
 
 		////////[DisplayName("State")]
 		////////[Category("CoViD")]
@@ -98,6 +92,9 @@ namespace CoViD.GUI.UC
 		////////}
 
 
+		/// <summary>
+		/// Sets/Gets the background color of the small square at the left side of the control.
+		/// </summary>
 		[DisplayName("Color")]
 		[Category("CoViD")]
 		[Description("The color associated to the state.")]
@@ -112,6 +109,9 @@ namespace CoViD.GUI.UC
 			get { return this.pnl.BackColor; }
 		}
 
+		/// <summary>
+		/// Set/Gets the text in the label and adjust the width of the control.
+		/// </summary>
 		[DisplayName("Text")]
 		[Category("CoViD")]
 		[Description(" Gets or sets the text associated with this control.")]
@@ -119,23 +119,47 @@ namespace CoViD.GUI.UC
 		{
 			set
 			{
+				//this.chk.Left = 2;
+				this.lblText.Left = this.chk.Left + this.chk.Width + 2;
+
+				this.lblText.AutoSize = true;
 				this.lblText.Text = value.ToString();
 				this.Width = this.lblText.Left + this.lblText.Width + 2;
+
+				/*
+				this.pnl.Left = this.chk.Left;
+				this.pnl.Top = 0; // this.Height - 2;
+				this.pnl.Width = this.Width - this.pnl.Left;
+				this.pnl.Height = 2;
+				*/
 			}
 			get { return this.lblText.Text; }
 		}
 
+		/// <summary>
+		/// Toggle the 'Checked' state of the checkbox.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void pnl_Click(object sender, EventArgs e)
 		{
 			this.chk.Checked = !this.chk.Checked;
 			//this.pnl.BackgroundImage = this.chk.Checked ? global::CoViD.GUI.Properties.Resources.Check : null;
 		}
 
+		/// <summary>
+		/// Toggle the 'Checked' state of the checkbox. 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void lblText_Click(object sender, EventArgs e)
 		{
 			this.chk.Checked = !this.chk.Checked;
 		}
 
+		/// <summary>
+		/// Sets/gets checkbox's visibility
+		/// </summary>
 		[DisplayName("CheckBox")]
 		[Category("CoViD")]
 		[Description("Sets the checkbox visible or not.")]
@@ -145,9 +169,16 @@ namespace CoViD.GUI.UC
 			set { 
 				this.chk.Visible = value;
 				this.lblText.Left = this.pnl.Left + this.pnl.Width + 1 + (value ? (this.chk.Width + 1) : 0);
+				//this.lblText.Left = this.chk.Left - 2 + (value ? (this.chk.Width + 2) : 0);
+				//this.pnl.Width = value ? this.Width : (this.lblText.Width - 2);
 			}
 		}
 
+		/// <summary>
+		/// Raises the event 'CheckedChanged'.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void chk_CheckedChanged(object sender, EventArgs e)
 		{
 			this.OnCheckedChanged();

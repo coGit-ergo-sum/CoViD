@@ -83,7 +83,6 @@ C:\Vi\Code\coGit-ergo-sum\CoViD\GUI\obj\Debug\CoViD.GUI.Forms.Settings.resources
 C:\Vi\Code\coGit-ergo-sum\CoViD\GUI\obj\Debug\CoViD.GUI.Forms.Spread.resources
 C:\Vi\Code\coGit-ergo-sum\CoViD\GUI\obj\Debug\CoViD.GUI.Properties.Resources.resources
 C:\Vi\Code\coGit-ergo-sum\CoViD\GUI\obj\Debug\CoViD.GUI.UC.Item.resources
-C:\Vi\Code\coGit-ergo-sum\CoViD\GUI\obj\Debug\CoViD.GUI.UC.Led.resources
 C:\Vi\Code\coGit-ergo-sum\CoViD\GUI\obj\Debug\CoViD.GUI.UC.Legend.resources
 C:\Vi\Code\coGit-ergo-sum\CoViD\GUI\obj\Debug\CoViD.GUI.UC.Region.resources
 C:\Vi\Code\coGit-ergo-sum\CoViD\GUI\obj\Debug\CoViD.GUI.UC.UpDown.resources

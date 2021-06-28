@@ -45,15 +45,9 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.ledSusceptibles = new CoViD.GUI.UC.Led();
 			this.xy1 = new CoViD.GUI.XY();
 			this.xy2 = new CoViD.GUI.XY();
-			this.led1 = new CoViD.GUI.UC.Led();
-			this.led2 = new CoViD.GUI.UC.Led();
-			this.led3 = new CoViD.GUI.UC.Led();
-			this.led4 = new CoViD.GUI.UC.Led();
-			this.led5 = new CoViD.GUI.UC.Led();
-			this.led6 = new CoViD.GUI.UC.Led();
+			this.legend1 = new CoViD.GUI.UC.Legend();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -145,7 +139,11 @@
 			this.udAntibodiesDecay.Name = "udAntibodiesDecay";
 			this.udAntibodiesDecay.Size = new System.Drawing.Size(221, 45);
 			this.udAntibodiesDecay.TabIndex = 65;
-			this.udAntibodiesDecay.Value = 0;
+			this.udAntibodiesDecay.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            131072});
 			this.udAntibodiesDecay.Click += new System.EventHandler(this.ud_Click);
 			// 
 			// udAntibodiesGrowth
@@ -158,7 +156,11 @@
 			this.udAntibodiesGrowth.Name = "udAntibodiesGrowth";
 			this.udAntibodiesGrowth.Size = new System.Drawing.Size(216, 45);
 			this.udAntibodiesGrowth.TabIndex = 64;
-			this.udAntibodiesGrowth.Value = 0;
+			this.udAntibodiesGrowth.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            131072});
 			this.udAntibodiesGrowth.Click += new System.EventHandler(this.ud_Click);
 			// 
 			// udVirusesGrowth
@@ -171,7 +173,11 @@
 			this.udVirusesGrowth.Name = "udVirusesGrowth";
 			this.udVirusesGrowth.Size = new System.Drawing.Size(209, 45);
 			this.udVirusesGrowth.TabIndex = 63;
-			this.udVirusesGrowth.Value = 0;
+			this.udVirusesGrowth.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            131072});
 			this.udVirusesGrowth.Click += new System.EventHandler(this.ud_Click);
 			// 
 			// udVirusesN
@@ -184,7 +190,11 @@
 			this.udVirusesN.Name = "udVirusesN";
 			this.udVirusesN.Size = new System.Drawing.Size(200, 45);
 			this.udVirusesN.TabIndex = 61;
-			this.udVirusesN.Value = 1000;
+			this.udVirusesN.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
 			this.udVirusesN.Click += new System.EventHandler(this.ud_Click);
 			// 
 			// btnNewEvolution
@@ -226,17 +236,6 @@
 			this.label5.Text = "%";
 			this.label5.Visible = false;
 			// 
-			// ledSusceptibles
-			// 
-			this.ledSusceptibles.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ledSusceptibles.Location = new System.Drawing.Point(168, 91);
-			this.ledSusceptibles.MaximumSize = new System.Drawing.Size(381, 22);
-			this.ledSusceptibles.MinimumSize = new System.Drawing.Size(22, 22);
-			this.ledSusceptibles.Name = "ledSusceptibles";
-			this.ledSusceptibles.Size = new System.Drawing.Size(97, 22);
-			this.ledSusceptibles.State = CoViD.CL.Person.States.Susceptible;
-			this.ledSusceptibles.TabIndex = 71;
-			// 
 			// xy1
 			// 
 			this.xy1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -253,71 +252,22 @@
 			this.xy2.Size = new System.Drawing.Size(1045, 346);
 			this.xy2.TabIndex = 30;
 			// 
-			// led1
+			// legend1
 			// 
-			this.led1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.led1.Location = new System.Drawing.Point(319, 91);
-			this.led1.MaximumSize = new System.Drawing.Size(381, 22);
-			this.led1.MinimumSize = new System.Drawing.Size(22, 22);
-			this.led1.Name = "led1";
-			this.led1.Size = new System.Drawing.Size(92, 22);
-			this.led1.State = CoViD.CL.Person.States.Latency;
-			this.led1.TabIndex = 72;
-			// 
-			// led2
-			// 
-			this.led2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.led2.Location = new System.Drawing.Point(412, 91);
-			this.led2.MaximumSize = new System.Drawing.Size(381, 22);
-			this.led2.MinimumSize = new System.Drawing.Size(22, 22);
-			this.led2.Name = "led2";
-			this.led2.Size = new System.Drawing.Size(53, 22);
-			this.led2.State = CoViD.CL.Person.States.Ill;
-			this.led2.TabIndex = 73;
-			// 
-			// led3
-			// 
-			this.led3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.led3.Location = new System.Drawing.Point(466, 91);
-			this.led3.MaximumSize = new System.Drawing.Size(381, 22);
-			this.led3.MinimumSize = new System.Drawing.Size(22, 22);
-			this.led3.Name = "led3";
-			this.led3.Size = new System.Drawing.Size(77, 22);
-			this.led3.State = CoViD.CL.Person.States.Severe;
-			this.led3.TabIndex = 74;
-			// 
-			// led4
-			// 
-			this.led4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.led4.Location = new System.Drawing.Point(542, 91);
-			this.led4.MaximumSize = new System.Drawing.Size(381, 22);
-			this.led4.MinimumSize = new System.Drawing.Size(22, 22);
-			this.led4.Name = "led4";
-			this.led4.Size = new System.Drawing.Size(111, 22);
-			this.led4.State = CoViD.CL.Person.States.Convalescent;
-			this.led4.TabIndex = 75;
-			// 
-			// led5
-			// 
-			this.led5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.led5.Location = new System.Drawing.Point(721, 91);
-			this.led5.MaximumSize = new System.Drawing.Size(381, 22);
-			this.led5.MinimumSize = new System.Drawing.Size(22, 22);
-			this.led5.Name = "led5";
-			this.led5.Size = new System.Drawing.Size(71, 22);
-			this.led5.State = CoViD.CL.Person.States.Dead;
-			this.led5.TabIndex = 76;
-			// 
-			// led6
-			// 
-			this.led6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.led6.Location = new System.Drawing.Point(792, 91);
-			this.led6.MaximumSize = new System.Drawing.Size(381, 22);
-			this.led6.MinimumSize = new System.Drawing.Size(22, 22);
-			this.led6.Name = "led6";
-			this.led6.Size = new System.Drawing.Size(84, 22);
-			this.led6.State = CoViD.CL.Person.States.Immune;
-			this.led6.TabIndex = 77;
+			this.legend1.BackColor = System.Drawing.SystemColors.Control;
+			this.legend1.CheckBoxes = false;
+			this.legend1.IsConvalescent = true;
+			this.legend1.IsDead = true;
+			this.legend1.IsIll = true;
+			this.legend1.IsImmune = true;
+			this.legend1.IsLatency = true;
+			this.legend1.IsSevere = true;
+			this.legend1.IsSIR = false;
+			this.legend1.IsSusceptible = true;
+			this.legend1.Location = new System.Drawing.Point(178, 96);
+			this.legend1.Name = "legend1";
+			this.legend1.Size = new System.Drawing.Size(730, 15);
+			this.legend1.TabIndex = 78;
 			// 
 			// Infection
 			// 
@@ -325,13 +275,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.ClientSize = new System.Drawing.Size(1084, 845);
-			this.Controls.Add(this.led6);
-			this.Controls.Add(this.led5);
-			this.Controls.Add(this.led4);
-			this.Controls.Add(this.led3);
-			this.Controls.Add(this.led2);
-			this.Controls.Add(this.led1);
-			this.Controls.Add(this.ledSusceptibles);
+			this.Controls.Add(this.legend1);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.txtXMax);
@@ -376,12 +320,6 @@
 		private UC.UpDown udVirusesGrowth;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
-		private UC.Led ledSusceptibles;
-		private UC.Led led1;
-		private UC.Led led2;
-		private UC.Led led3;
-		private UC.Led led4;
-		private UC.Led led5;
-		private UC.Led led6;
+		private UC.Legend legend1;
 	}
 }

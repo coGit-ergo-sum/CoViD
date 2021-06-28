@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -89,12 +90,6 @@
     <Compile Include="UC\uc.Item.Designer.cs">
       <DependentUpon>uc.Item.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC\uc.Led.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC\uc.Led.Designer.cs">
-      <DependentUpon>uc.Led.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC\uc.Legend.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,9 +142,6 @@
     <EmbeddedResource Include="UC\uc.Item.resx">
       <DependentUpon>uc.Item.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC\uc.Led.resx">
-      <DependentUpon>uc.Led.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC\uc.Legend.resx">
       <DependentUpon>uc.Legend.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -163,6 +155,7 @@
     <EmbeddedResource Include="UC\uc.XY.resx">
       <DependentUpon>uc.XY.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Diagrams\Cartesian.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -188,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\staff\snapshot.32x32.png" />
+    <None Include="Images\staff\Contamination.32x32.png" />
     <Content Include="Properties\Images\ALTEREGO.png" />
     <None Include="Properties\Images\settings.32x32.png" />
     <None Include="Properties\Images\refresh.New.32x32.png" />

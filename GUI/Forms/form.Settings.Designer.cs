@@ -36,16 +36,18 @@
 			this.tabINI = new System.Windows.Forms.TabControl();
 			this.tabCoViD = new System.Windows.Forms.TabPage();
 			this.label1 = new System.Windows.Forms.Label();
-			this.tabGUI = new System.Windows.Forms.TabPage();
-			this.txtINIGUI = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.btnOk = new System.Windows.Forms.Button();
-			this.btnCancel = new System.Windows.Forms.Button();
 			this.udTicks = new CoViD.GUI.UC.UpDown();
 			this.udIsolation = new CoViD.GUI.UC.UpDown();
 			this.udSteps = new CoViD.GUI.UC.UpDown();
 			this.udPeople = new CoViD.GUI.UC.UpDown();
 			this.udRadius = new CoViD.GUI.UC.UpDown();
+			this.tabGUI = new System.Windows.Forms.TabPage();
+			this.txtINIGUI = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.btnOk = new System.Windows.Forms.Button();
+			this.btnCancel = new System.Windows.Forms.Button();
+			this.tabPerson = new System.Windows.Forms.TabPage();
+			this.tabInfection = new System.Windows.Forms.TabPage();
 			this.menuStrip1.SuspendLayout();
 			this.tabINI.SuspendLayout();
 			this.tabCoViD.SuspendLayout();
@@ -88,6 +90,8 @@
 			// 
 			this.tabINI.Controls.Add(this.tabCoViD);
 			this.tabINI.Controls.Add(this.tabGUI);
+			this.tabINI.Controls.Add(this.tabPerson);
+			this.tabINI.Controls.Add(this.tabInfection);
 			this.tabINI.Location = new System.Drawing.Point(0, 27);
 			this.tabINI.Name = "tabINI";
 			this.tabINI.SelectedIndex = 0;
@@ -119,58 +123,6 @@
 			this.label1.Size = new System.Drawing.Size(225, 13);
 			this.label1.TabIndex = 85;
 			this.label1.Text = "Settings for the spread simulation of the CoViD";
-			// 
-			// tabGUI
-			// 
-			this.tabGUI.Controls.Add(this.txtINIGUI);
-			this.tabGUI.Controls.Add(this.label2);
-			this.tabGUI.Location = new System.Drawing.Point(4, 22);
-			this.tabGUI.Name = "tabGUI";
-			this.tabGUI.Padding = new System.Windows.Forms.Padding(3);
-			this.tabGUI.Size = new System.Drawing.Size(560, 398);
-			this.tabGUI.TabIndex = 1;
-			this.tabGUI.Text = "GUI";
-			this.tabGUI.UseVisualStyleBackColor = true;
-			// 
-			// txtINIGUI
-			// 
-			this.txtINIGUI.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtINIGUI.Location = new System.Drawing.Point(1, 22);
-			this.txtINIGUI.Multiline = true;
-			this.txtINIGUI.Name = "txtINIGUI";
-			this.txtINIGUI.Size = new System.Drawing.Size(557, 375);
-			this.txtINIGUI.TabIndex = 87;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(3, 3);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(135, 13);
-			this.label2.TabIndex = 86;
-			this.label2.Text = "Settings for the application.";
-			// 
-			// btnOk
-			// 
-			this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnOk.Location = new System.Drawing.Point(509, 457);
-			this.btnOk.Name = "btnOk";
-			this.btnOk.Size = new System.Drawing.Size(53, 33);
-			this.btnOk.TabIndex = 82;
-			this.btnOk.Text = "OK";
-			this.btnOk.UseVisualStyleBackColor = true;
-			// 
-			// btnCancel
-			// 
-			this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(391, 457);
-			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(112, 33);
-			this.btnCancel.TabIndex = 83;
-			this.btnCancel.Text = "Cancel";
-			this.btnCancel.UseVisualStyleBackColor = true;
 			// 
 			// udTicks
 			// 
@@ -252,6 +204,76 @@
             0,
             0});
 			// 
+			// tabGUI
+			// 
+			this.tabGUI.Controls.Add(this.txtINIGUI);
+			this.tabGUI.Controls.Add(this.label2);
+			this.tabGUI.Location = new System.Drawing.Point(4, 22);
+			this.tabGUI.Name = "tabGUI";
+			this.tabGUI.Padding = new System.Windows.Forms.Padding(3);
+			this.tabGUI.Size = new System.Drawing.Size(560, 398);
+			this.tabGUI.TabIndex = 1;
+			this.tabGUI.Text = "GUI";
+			this.tabGUI.UseVisualStyleBackColor = true;
+			// 
+			// txtINIGUI
+			// 
+			this.txtINIGUI.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtINIGUI.Location = new System.Drawing.Point(1, 22);
+			this.txtINIGUI.Multiline = true;
+			this.txtINIGUI.Name = "txtINIGUI";
+			this.txtINIGUI.Size = new System.Drawing.Size(557, 375);
+			this.txtINIGUI.TabIndex = 87;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(3, 3);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(135, 13);
+			this.label2.TabIndex = 86;
+			this.label2.Text = "Settings for the application.";
+			// 
+			// btnOk
+			// 
+			this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnOk.Location = new System.Drawing.Point(509, 457);
+			this.btnOk.Name = "btnOk";
+			this.btnOk.Size = new System.Drawing.Size(53, 33);
+			this.btnOk.TabIndex = 82;
+			this.btnOk.Text = "OK";
+			this.btnOk.UseVisualStyleBackColor = true;
+			// 
+			// btnCancel
+			// 
+			this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnCancel.Location = new System.Drawing.Point(391, 457);
+			this.btnCancel.Name = "btnCancel";
+			this.btnCancel.Size = new System.Drawing.Size(112, 33);
+			this.btnCancel.TabIndex = 83;
+			this.btnCancel.Text = "Cancel";
+			this.btnCancel.UseVisualStyleBackColor = true;
+			// 
+			// tabPerson
+			// 
+			this.tabPerson.Location = new System.Drawing.Point(4, 22);
+			this.tabPerson.Name = "tabPerson";
+			this.tabPerson.Size = new System.Drawing.Size(560, 398);
+			this.tabPerson.TabIndex = 2;
+			this.tabPerson.Text = "Person";
+			this.tabPerson.UseVisualStyleBackColor = true;
+			// 
+			// tabInfection
+			// 
+			this.tabInfection.Location = new System.Drawing.Point(4, 22);
+			this.tabInfection.Name = "tabInfection";
+			this.tabInfection.Size = new System.Drawing.Size(560, 398);
+			this.tabInfection.TabIndex = 3;
+			this.tabInfection.Text = "Infection";
+			this.tabInfection.UseVisualStyleBackColor = true;
+			// 
 			// Settings
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,5 +326,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtINIGUI;
+		private System.Windows.Forms.TabPage tabPerson;
+		private System.Windows.Forms.TabPage tabInfection;
 	}
 }

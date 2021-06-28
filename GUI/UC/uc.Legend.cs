@@ -82,6 +82,14 @@ namespace CoViD.GUI.UC
 
 			this.itmInfected.Left = this.itmLatency.Left;
 			this.itmRecovered.Left = this.itmIll.Left;
+
+			this.itmConvalescent.TooltipText = "The disease has passed its peak and the person is doing better (not the concept of recovery in SIR)";
+			this.itmSusceptible.TooltipText = "The number of susceptible individuals. When a susceptible and an infectious individual come into 'infectious contact', the susceptible individual contracts the disease and transitions to the infectious compartment. [Wiki]";
+			this.itmLatency.TooltipText = "Person in 'Latency': infected but still not contagious.";
+			this.itmIll.TooltipText = "People ill and contaious.";
+			this.itmSevere.TooltipText = "People with a severe illness condition in needs for hospitalization.";
+			this.itmImmune.TooltipText = "The people recovered alive from the illness.";
+			this.itmDead.TooltipText = "People recovered dead from the illness.";
 		}
 
 		/// <summary>
@@ -107,7 +115,7 @@ namespace CoViD.GUI.UC
 			}
 		}
 
-
+		#region IsXYZ
 		/// <summary>
 		/// Sets the visibility of the Items related to the SIR visualization.
 		/// </summary>
@@ -191,6 +199,8 @@ namespace CoViD.GUI.UC
 			get { return this.itmDead.Checked; }
 			set { this.itmDead.Checked = value; }
 		}
+		#endregion
+
 
 	}
 }

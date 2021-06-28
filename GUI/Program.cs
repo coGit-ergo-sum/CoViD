@@ -67,21 +67,9 @@ namespace CoViD
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			//Application.Run(new CoViD.GUI.Plot());
-			//Application.Run(new CoViD.GUI.Form1());
-			Application.Run(new GUI.Forms.Infection());
-			//Application.Run(new CoViD.GUI.Butta.frmCircle());
-			//Application.Run(new CoViD.GUI.Forms.Propagation());
 			//Application.Run(new CoViD.GUI.Forms.Person());
-			//Application.Run(new CoViD.GUI.Forms.MTI());
-
-			//Application.Run(new CoViD.GUI.Form1());
-			//Application.Run(new CoViD.GUI.Form2());
-			//Application.Run(new CoViD.GUI.Form3());
-			//Application.Run(new CoViD.GUI.Forms.MFI());
-
-			//Application.Run(new CoViD.GUI.Forms.Spread());
-			//Application.Run(new CoViD.GUI.MDI());
+			//Application.Run(new GUI.Forms.Infection());
+			Application.Run(new CoViD.GUI.Forms.Spread());
 		}
 	}
 }
