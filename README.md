@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="./Article Source_files/Main.css">
 <!--<base href="https://www.codeproject.com/KB/Articles/">--><base href=".">
 </head>
-<body data-new-gr-c-s-check-loaded="14.1018.0" data-gr-ext-installed="" style="padding:40px 40px 40px 40px;background-color:#eee;">
+<body data-new-gr-c-s-check-loaded="14.1018.0" data-gr-ext-installed="" style="padding:40px 40px 40px 40px;background-color:#eee;color:green;">
 <!--
 HTML for article "CoViD Spread Simulation (no SIR equations)" by CodeErgoSum
 URL: https://www.codeproject.com/KB/Articles/5306075.aspx
