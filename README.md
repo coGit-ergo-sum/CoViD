@@ -90,7 +90,7 @@ All formatting, additions and alterations Copyright © CodeProject, 1999-2021
 
 <p>This is the main form. Should be intuitive, in any case moving the mouse over every label will show a tooltip. The image shows a snapshot of a running simulation. The '<strong>Toolstrip</strong>' at the top of the page provides all the needed functionalities.</p>
 
-<p><img height="30px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/ToolStrip.png?raw=true" width="218px"></p>
+<p><img height="30px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/ToolStrip.PNG?raw=true" width="218px"></p>
 
 <ul>
 	<li>A <strong>Settings</strong> page</li>	<li><strong>Snapshots</strong> of the form</li>	<li>Run a <strong>new simulation</strong></li>	<li><strong>Restart</strong> the current simulation</li>	<li><strong>Stop/start</strong> the current simulation</li></ul>
