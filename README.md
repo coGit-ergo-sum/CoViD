@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0069)https://www.codeproject.com/script/Articles/ViewHtml.aspx?aid=5306075 -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Article Source</title>
+
 <link rel="stylesheet" type="text/css" href="./Article Source_files/Main.css">
 <!--<base href="https://www.codeproject.com/KB/Articles/">--><base href=".">
 </head>
@@ -41,8 +41,8 @@ All formatting, additions and alterations Copyright © CodeProject, 1999-2021
 
 <p><em><strong>Note</strong>: Download this zip file, only if you want to have a quick look at the source code of this project. For more structured actions, refer to the GitHub repository where there is always an updated version of all the code.</em></p>
 
-<ul class="download">
-	<li><a href="https://github.com/coGit-ergo-sum/CoViD" target="_blank">Download from GitHub </a></li></ul>
+<!--ul class="download">
+	<li><a href="https://github.com/coGit-ergo-sum/CoViD" target="_blank">Download from GitHub </a></li></ul-->
 
 <h2>Forewords</h2>
 
