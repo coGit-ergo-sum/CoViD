@@ -124,7 +124,7 @@ That proves the correctness of the new model and (much more important) proves th
 
 <p>This system is solved by exponential function just because <strong>ß and γ are supposed constant</strong>. We can revert the first and the last equation to get the expressions for ß and γ</p>
 
-<p><img height="44px" src="./Article Source_files/BetaGamma.gif" width="291px"></p>
+<p><img height="44px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/BetaGamma.gif" width="291px"></p>
 
 <p>(<em>where N = S + I + R</em>)</p>
 
