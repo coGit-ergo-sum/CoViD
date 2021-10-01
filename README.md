@@ -160,7 +160,7 @@ That proves the correctness of the new model and (much more important) proves th
 
 <p>The <strong>first button</strong> (the gear) of the '<strong>toolStrip</strong>' opens the Settings dialog:</p>
 
-<p><img height="30px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/ToolStrip.png?raw=true" width="218px"></p>
+<p><img height="30px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/ToolStrip.PNG?raw=true" width="218px"></p>
 
 <p><img height="533px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Form.Settings.png?raw=true" width="568px"></p>
 
