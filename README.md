@@ -5,7 +5,7 @@
 <!-- saved from url=(0069)https://www.codeproject.com/script/Articles/ViewHtml.aspx?aid=5306075 -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="./Article Source_files/Main.css">
+<link rel="stylesheet" type="text/css" href="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Main.css">
 <!--<base href="https://www.codeproject.com/KB/Articles/">--><base href=".">
 </head>
 <body data-new-gr-c-s-check-loaded="14.1018.0" data-gr-ext-installed="" style="padding:40px 40px 40px 40px;background-color:#eee;color:green;">
@@ -30,14 +30,14 @@ All formatting, additions and alterations Copyright © CodeProject, 1999-2021
 
 
 <ul class="download">
-	<li><a href="https://www.codeproject.com/KB/Articles/5306075/setup.zip">Download setup - 779.2 KB</a></li></ul>
+	<li><a href="https://github.com/coGit-ergo-sum/CoViD/blob/main/Setup/Debug/Setup.msi">Download setup - 779.2 KB</a></li></ul>
 
 <p><em><strong>Note</strong>: Unzip this file and choose one between the two files to setup the application: the '<strong>exe</strong>' or the '<strong>msi</strong>'.</em></p>
 
 <p><em><strong>Note</strong>: The development of this application is still in progress and it is not possible to change the configuration of the parameters for the viruses, the region, and the person '.</em></p>
 
 <ul class="download">
-	<li><a href="https://www.codeproject.com/KB/Articles/5306075/2021-06-25.1.CoViD.zip">Download source code - 2.7 MB</a></li></ul>
+	<li><a href="https://github.com/coGit-ergo-sum/CoViD/blob/main/GUI/Images/New/2021-06-25.1.CoViD.zip">Download source code - 2.7 MB</a></li></ul>
 
 <p><em><strong>Note</strong>: Download this zip file, only if you want to have a quick look at the source code of this project. For more structured actions, refer to the GitHub repository where there is always an updated version of all the code.</em></p>
 
