@@ -253,13 +253,13 @@ Program.INIGUI.Write(this.Name, "Size", this.Size);
 
 <p>Out of these questions, there is another couple of 'Points of interest': One is The 'Watcher'.</p>
 
-<p><img src="./Article Source_files/watcher.png" style="width: 640px; height: 400px"></p>
+<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/watcher.png" style="width: 640px; height: 400px"></p>
 
 <p>A simple application designed to keep watching a folder to back up any change. It is a simple tool that saved my life many times (I mean, professional life ;-) Anytime a debug session starts a history of all the changes is stored, providing a kind of much more effective '<strong>CTRL-Z</strong>'.</p>
 
 <p>The other is the '<strong>Tool</strong>' project: a collection of functionalities and extension methods to make the life of the developer much easier. Between all of them, I like this:</p>
 
-<p><img height="450px" src="./Article Source_files/Extension.String.PNG" width="361px"></p>
+<p><img height="450px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Extension.String.PNG" width="361px"></p>
 
 <p>In particular, the method '<code>isNull</code>' and its complementary '<code>isNotNull</code>'. Why? Think a little about them. They are absurd: you can write:</p>
 
