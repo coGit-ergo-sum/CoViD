@@ -236,7 +236,7 @@ Program.INIGUI.Write(this.Name, "Size", this.Size);
 
 <p>Fundamentally, a person moves over a region; can be infected and recovers. <code>Person.<b>Viruses</b></code> is the number of viruses in the body of the person. (<em>Should be regarded as the number of "unities" of viruses in the body of the person.</em>). <code>Person.<b>Locations</b></code> (list of points) the coordinates of the key points reached by the person. The person moves from a location to another with many 'steps' along a segment joining two consecutive locations. (The full movement is a broken line starting from the first location -usually home- to the last location.)</p>
 
-<p><img height="1033px" src="./Article Source_files/Person.png" width="307px"></p>
+<p><img height="1033px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Person.png?raw=true" width="307px"></p>
 
 <h3>Class <strong>Population</strong></h3>
 
