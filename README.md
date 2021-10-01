@@ -228,7 +228,7 @@ Program.INIGUI.Write(this.Name, "Size", this.Size);
 
 <p>It is a square region made of points. (<em>Simulates the place where people live and where the epidemic spreads.</em>) Analyzing the grid means to loop over a matrix. To avoid this, there is the field "<code>contaminated</code>", a list of points referencing contaminated points over the grid. Experience shows this list is always a small fraction of the grid and that makes this solution strategically acceptable for preserving performances.</p>
 
-<p><img height="743px" src="./Article Source_files/Grid.png" width="259px"></p>
+<p><img height="743px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Grid.png?raw=true" width="259px"></p>
 
 <p>Another key concept is '<code>Ticks</code>', a unity of time (20 minutes, more or less.) based on the dynamic of the virus and designed to take a limited number of '<code>Ticks</code>' to describe the full evolution of a virus.</p>
 
@@ -242,7 +242,7 @@ Program.INIGUI.Write(this.Name, "Size", this.Size);
 
 <p>This class is merely a container for statistical data.</p>
 
-<p><img height="402px" src="./Article Source_files/Popolation.png" width="235px"></p>
+<p><img height="402px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Popolation.png?raw=true" width="235px"></p>
 
 <p>The last class is '<code>Virus</code>', it is empty. That's because it is not important to model how the viruses evolve. What we care about is the final result: an array of the number of viruses (in a person) as a function of time.</p>
 
