@@ -18,8 +18,6 @@ All formatting, additions and alterations Copyright © CodeProject, 1999-2021
 
 
 
-<p><b>Please choose 'View Source' in your browser to view the HTML, or File | Save to save this 
-file to your hard drive for editing.</b></p>
 
 <hr class="Divider subdue">
 <div>
@@ -92,7 +90,7 @@ file to your hard drive for editing.</b></p>
 
 <p>This is the main form. Should be intuitive, in any case moving the mouse over every label will show a tooltip. The image shows a snapshot of a running simulation. The '<strong>Toolstrip</strong>' at the top of the page provides all the needed functionalities.</p>
 
-<p><img height="30px" src="./Article Source_files/ToolStrip.PNG" width="218px"></p>
+<p><img height="30px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/ToolStrip.png?raw=true" width="218px"></p>
 
 <ul>
 	<li>A <strong>Settings</strong> page</li>	<li><strong>Snapshots</strong> of the form</li>	<li>Run a <strong>new simulation</strong></li>	<li><strong>Restart</strong> the current simulation</li>	<li><strong>Stop/start</strong> the current simulation</li></ul>
@@ -105,7 +103,7 @@ file to your hard drive for editing.</b></p>
 
 <p>The <strong>right panel</strong> shows the same region, but in this case, red dots show the evolution of the contamination.</p>
 
-<p><img src="./Article Source_files/Form.Spread.1.png" style="width: 640px; height: 406px"></p>
+<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Form.Spread.1.png?raw=true" style="width: 640px; height: 406px"></p>
 
 <p>The tab <b>SIR</b></p>
 
@@ -114,7 +112,7 @@ That proves the correctness of the new model and (much more important) proves th
 
 <p><em>About the note in the introduction: this diagram is coherent with the SIR diagrams from the SIR model. In fact, the green and the blue function never decrease, and shrinking time (not always of the same amount) will produce the classic SIR representation.</em></p>
 
-<p><img src="./Article Source_files/2021-06-24.11-37-05.Form.tabSIR.png" style="height: 405px; width: 640px"></p>
+<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/2021-06-24.11-37-05.Form.tabSIR.png?raw=true" style="height: 405px; width: 640px"></p>
 
 <p>The tab <b>Delta SIR</b></p>
 
@@ -122,7 +120,7 @@ That proves the correctness of the new model and (much more important) proves th
 
 <p>The <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology" target="_blank">S.I.R. equations</a> [wikipedia] are the solutions of the following system of differential equations:</p>
 
-<p><img src="./Article Source_files/SIREquations1.png" style="width: 517px; height: 57px"></p>
+<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/SIREquations1.png?raw=true" style="width: 517px; height: 57px"></p>
 
 <p>This system is solved by exponential function just because <strong>ß and γ are supposed constant</strong>. We can revert the first and the last equation to get the expressions for ß and γ</p>
 
@@ -140,7 +138,7 @@ That proves the correctness of the new model and (much more important) proves th
 <ul>
 	<li>ß is the red function</li>	<li>γ is the green function</li></ul>
 
-<p><img src="./Article Source_files/2021-06-25.12-34-04.Form.tabDSIR.png" style="height: 405px; width: 640px"></p>
+<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/2021-06-25.12-34-04.Form.tabDSIR.png?raw=true" style="height: 405px; width: 640px"></p>
 
 <p>The image shows that from the point of view of this model, <strong>ß and γ are not constant</strong> at all. To think them to be constants could be acceptable in a small round of any given point. Instead, the resulting exponential is used to represent the whole evolution and that is truly a very big approximation.</p>
 
@@ -150,21 +148,21 @@ That proves the correctness of the new model and (much more important) proves th
 
 <p>This diagram shows the evolution of the number of contaminated points in the region.</p>
 
-<p><img src="./Article Source_files/2021-06-25.12-55-59.Form.tabContaminated.png" style="width: 640px; height: 405px"></p>
+<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/2021-06-25.12-55-59.Form.tabContaminated.png?raw=true" style="width: 640px; height: 405px"></p>
 
 <p>The tab <b>Performances</b></p>
 
 <p>This diagram shows the evolution of the computational power needed to run the model.</p>
 
-<p><img src="./Article Source_files/2021-06-25.01-00-34.Form.tabPerformances.png" style="width: 640px; height: 405px"></p>
+<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/2021-06-25.01-00-34.Form.tabPerformances.png?raw=true" style="width: 640px; height: 405px"></p>
 
 <h3>Form: <strong>Settings</strong></h3>
 
 <p>The <strong>first button</strong> (the gear) of the '<strong>toolStrip</strong>' opens the Settings dialog:</p>
 
-<p><img height="30px" src="./Article Source_files/ToolStrip.PNG" width="218px"></p>
+<p><img height="30px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/ToolStrip.png?raw=true" width="218px"></p>
 
-<p><img height="533px" src="./Article Source_files/Form.Settings.png" width="568px"></p>
+<p><img height="533px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Form.Settings.png?raw=true" width="568px"></p>
 
 <p>That shows two sets of settings. The <strong>first tab</strong>: contains the 'up-down' controls are used to set:</p>
 
@@ -210,7 +208,7 @@ When infinite dies are rolled, the distribution of the result is a Gaussian.</p>
 
 <p>The menu File opens the file INI directly into your default text editor:</p>
 
-<p><img height="113px" src="./Article Source_files/Settings.File.png" width="204px"></p>
+<p><img height="113px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Settings.File.png?raw=true" width="204px"></p>
 
 <p>Using an INI file is a very old technique but it works quite well and please, note how easy it is to store the location and size of the loading form:</p>
 
