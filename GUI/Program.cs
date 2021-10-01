@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Vi.Tools.Extensions.Float;
+using Vi.Tools.Extensions.Object;
 
 
 namespace CoViD
 {
 	static class Program
 	{
+
 		public const string Name = "Program";
 		public static Stopwatch stopwatch = new Stopwatch();
 		///////////////public static Vi.Tools.Profile profile;
@@ -38,6 +40,7 @@ namespace CoViD
 		{
 			var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
+
 			////////////var fileName = System.IO.Path.Combine(baseDirectory, "Settings.ini");
 			var fileNameCoViD = System.IO.Path.Combine(baseDirectory, "CoViD.ini");
 			var fileNameGUI = System.IO.Path.Combine(baseDirectory, "GUI.ini");
@@ -45,6 +48,9 @@ namespace CoViD
 			////////////Program.profile = new Vi.Tools.Profile(fileName);
 			Program.INIGUI = new Vi.Tools.Profile(fileNameGUI);
 			Program.INICoViD = new Vi.Tools.Profile(fileNameCoViD);
+
+			var bytes = "Ciccio".ToBytes();
+			var ini = bytes.Deserialize<string>();
 
 			if (baseDirectory.ToUpper().StartsWith(@"c:\vi\code".ToUpper())){
 

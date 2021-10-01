@@ -239,21 +239,21 @@
         </member>
         <member name="M:Vi.API.Kernel32.GetPrivateProfileSectionNames(System.Char[],System.Int32,System.String)">
             <summary>
-            
+            Retrieves the names of all sections in an initialization file.
             </summary>
-            <param name="characters"></param>
-            <param name="size"></param>
-            <param name="fileName"></param>
-            <returns></returns>
+            <param name="characters">A pointer to a buffer that receives the section names associated with the named file. The buffer is filled with one or more null-terminated strings; the last string is followed by a second null character.</param>
+            <param name="size">The size of the buffer pointed to by the lpszReturnBuffer parameter, in characters.</param>
+            <param name="fileName">The name of the initialization file. If this parameter is NULL, the function searches the Win.ini file. If this parameter does not contain a full path to the file, the system searches for the file in the Windows directory.</param>
+            <returns>The return value specifies the number of characters copied to the specified buffer, not including the terminating null character. If the buffer is not large enough to contain all the section names associated with the specified initialization file, the return value is equal to the size specified by nSize minus two.</returns>
         </member>
         <member name="M:Vi.API.Kernel32.GetPrivateProfileSectionNames(System.Byte[],System.Int32,System.String)">
             <summary>
-            
+            Retrieves the names of all sections in an initialization file.
             </summary>
-            <param name="bytes"></param>
-            <param name="size"></param>
-            <param name="fileName"></param>
-            <returns></returns>
+            <param name="bytes">A pointer to a buffer that receives the section names associated with the named file. The buffer is filled with one or more null-terminated strings; the last string is followed by a second null character.</param>
+            <param name="size">The size of the buffer pointed to by the lpszReturnBuffer parameter, in characters.</param>
+            <param name="fileName">The name of the initialization file. If this parameter is NULL, the function searches the Win.ini file. If this parameter does not contain a full path to the file, the system searches for the file in the Windows directory.</param>
+            <returns>The return value specifies the number of characters copied to the specified buffer, not including the terminating null character. If the buffer is not large enough to contain all the section names associated with the specified initialization file, the return value is equal to the size specified by nSize minus two.</returns>
         </member>
         <member name="M:Vi.API.Kernel32.GetPrivateProfileSectionNames(System.IntPtr,System.UInt32,System.String)">
             <summary>
@@ -276,9 +276,9 @@
         </member>
         <member name="M:Vi.API.Kernel32.GetLastError">
             <summary>
-            
+            Retrieves the calling thread's last-error code value. The last-error code is maintained on a per-thread basis. Multiple threads do not overwrite each other's last-error code.
             </summary>
-            <returns></returns>
+            <returns>Retrieves the calling thread's last-error code value. The last-error code is maintained on a per-thread basis. Multiple threads do not overwrite each other's last-error code.</returns>
         </member>
         <member name="T:Vi.API.User32">
             <summary>
@@ -1404,7 +1404,7 @@
         </member>
         <member name="T:Vi.Tools.Extensions.Object.Methods">
             <summary>
-            Collection of 'extension methods' for Int
+            Collection of 'extension methods' for objects
             </summary>
         </member>
         <member name="M:Vi.Tools.Extensions.Object.Methods.IsNull(System.Object)">
@@ -1419,8 +1419,22 @@
             Checks if an instance of an object is NOT null.
             </summary>
             <param name="value">The value to convert.</param>
-            <param name="default">Makes this method exception resislient.</param>
             <returns>Returns value != null;.</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Object.Methods.ToBytes(System.Object)">
+            <summary>
+            Serializes any object (marked as seriazable) to an array of bytes.
+            </summary>
+            <param name="value">Any object.</param>
+            <returns>The provided object translate in an array of byte</returns>
+        </member>
+        <member name="M:Vi.Tools.Extensions.Object.Methods.Deserialize``1(System.Byte[])">
+            <summary>
+            Converts an array of bytes (result of the method ToByte) to its original object.
+            </summary>
+            <typeparam name="T">The original type (or the expected type)</typeparam>
+            <param name="bytes">The array of bytes we want to turn back to its original type.</param>
+            <returns>An instance of the type T resulted after the deserialization.</returns>
         </member>
         <member name="T:Vi.Tools.Extensions.Int.Methods">
             <summary>
@@ -1463,6 +1477,20 @@
             <param name="value">The value to convert.</param>
             <param name="default">Makes this method exception resislient.</param>
             <returns>The DateTime associated to the value, @default otherwise.</returns>
+        </member>
+        <member name="T:Vi.Tools.Extensions.SqlConnection.Methods">
+            <summary>
+            Collection of 'extension methods' for 'SqlClient.SqlConnection'
+            </summary>
+        </member>
+        <member name="M:Vi.Tools.Extensions.SqlConnection.Methods.BackupScripts(System.Data.SqlClient.SqlConnection,System.String,System.String)">
+            <summary>
+            It is a DIY kind of versionig creating a 'History' of all the changes against db objects.
+            Loops on 'sys.sql_modules;' (list of 'scripts') and compare the script text against a stored script. When they are different then this method saves a backup copy.
+            </summary>
+            <param name="connection">The (current) connection object.</param>
+            <param name="tfsRoot">.</param>
+            <param name="backupRoot">.</param>
         </member>
         <member name="T:Vi.Tools.Extensions.String.Methods">
             <summary>
@@ -1838,16 +1866,16 @@
             <param name="min">The min value for the resulting value.</param>
             <param name="max">The max value for the resulting value.</param>
             <param name="iterations">Set the distribution 1: Linear (omogeneous) 2: Triangular; ... Gaussian</param>
-            <returns>A  random value between min and max with a specified distribution.</returns>
+            <returns>A random value between min and max with a specified distribution.</returns>
         </member>
         <member name="M:Vi.Tools.Extensions.Random.Methods.Bet(System.Random,System.Byte,Vi.Types.Percentage)">
             <summary>
             Compare a random value between 0 and 100 against the value of 'probability'
             </summary>
-            <param name="rnd"></param>
+            <param name="rnd">The object 'extended' by this method.</param>
             <param name="grade">The grade of the polinomial distribution.</param>
             <param name="probability">a number between 0 and 100. Grater becom 100 smallest becom 0</param>
-            <returns>A true if 'brobability is grater than a random value (rnd.next > probability)(</returns>
+            <returns>True if the random value is grater than 'brobability' (rnd.next > probability). False otherwise.(</returns>
         </member>
         <member name="M:Vi.Tools.Extensions.Random.Methods.Bet(System.Random,Vi.Types.Percentage)">
             <summary>
@@ -2253,13 +2281,6 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="M:Vi.Tools.Utilities.Join(System.Object[])">
-            <summary>
-            Una variante del Metodo 'String.Join' Converte il parametro 'value' in una stringa di valori separati da ';'  
-            /// </summary>
-            <param name="values">Lista di oggetti da mettere in sequenza. Di ognuno viene convertito in stringa e vengono rimosse le enetuali occorrenze di ';'. Si esegue  'value[x].ToString().Replace(";", " ").</param>
-            <returns>Una sequenza di stringhe separate da ' ; ' (compresi gli spazi). 'null' viene convertito in 'Empty'.</returns>
-        </member>
         <member name="T:Vi.Tools.Watcher">
             <summary>
             Observes a Directory and it's subDirectories, waiting for changes.
@@ -2332,57 +2353,19 @@
             </summary>
             <param name="e">the parameter provided by all the managed events:{Changed, Created, Deleted, Renamed}</param>
         </member>
-        <member name="T:Vi.SQLLogger">
-            <summary>
-             <img src="C:\Vi\Code\coGit-ergo-sum\Tools\Sandcastle\Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
-            <p>
-            Writes log directly into ad SQLServer Database  
-            comment added just to see what happens:
-            See /<see cref="T:System.Collections.Generic.IEnumerable`1" /> for more information.
-            <p />Another reference to IEnumerable&lt;T&gt;.</p>
-            </summary>
-            <summary>
-      <img src="Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
-      <img src=".\Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
-      <img src="..\Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
-      <img src="/Images/SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
-      <img src="./Images/SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
-      <img src="C:\Vi\Code\coGit-ergo-sum\Tools\Sandcastle\Images\SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
-      <img src="Tools/Images/SQLLogger.png" style="margin: 15px 0px 15px 0px;" />
-      <a href="#">LINK</a>
-      <br />
-      <p style="Padding: 15px 0px 0px 0px;">
-        This Interface is defined to implement the <b>"dependency injection"</b> in this project, by the method 'Vi.Logger.SetLogger'.<br />
-        Every class used to log messages (regardles the implementation), to be used by this Logger, must inherit from the Vi.ILog interface.
-      </p>
-
-      bla bla bla 56
-      <img src="Images/SQLLogger.pngHelp\Images\SQLLogger.png" />
-
-      <img src="Images/SQLLogger.png" />
-      <img src="tools/help/Images/SQLLogger.png" />
-      <img src="../../help/Images/SQLLogger.png" />
-      <img src="../../Images/SQLLogger.png" />
-      <img src="./Images/SQLLogger.png" />
-      <img src="Tools/Images/SQLLogger.png" />
-      the end !
-
-    </summary>
-            <remarks>
-            </remarks>
-        </member>
-        <member name="F:Vi.SQLLogger.ConnectionString">
+        <!-- Badly formed XML comment ignored for member "T:Vi.SQL.Logger" -->
+        <member name="F:Vi.SQL.Logger.ConnectionString">
             <summary>
             The classic connection strint ot the SQL Server DB.
             </summary>
         </member>
-        <member name="M:Vi.SQLLogger.#ctor(System.String)">
+        <member name="M:Vi.SQL.Logger.#ctor(System.String)">
             <summary>
             Main CTor (The only think it does is to store the connection string)
             </summary>
             <param name="connectionString"></param>
         </member>
-        <member name="M:Vi.SQLLogger.Debug(System.String,System.Int32,System.String,System.String)">
+        <member name="M:Vi.SQL.Logger.Debug(System.String,System.Int32,System.String,System.String)">
             <summary>
             This is the most verbose logging level (maximum volume setting). Debug should be out-of-bounds for a production system and used only for development and testing.
             </summary>
@@ -2397,7 +2380,7 @@
 
       </summary>
         </member>
-        <member name="M:Vi.SQLLogger.Fatal(System.String,System.Int32,System.String,System.String)">
+        <member name="M:Vi.SQL.Logger.Fatal(System.String,System.Int32,System.String,System.String)">
             <summary>
             Fatal is reserved for special exceptions/conditions where it is imperative that you can quickly pick out these events. 
             </summary>
@@ -2415,7 +2398,7 @@
     
   </summary>
         </member>
-        <member name="M:Vi.SQLLogger.Info(System.String,System.Int32,System.String,System.String)">
+        <member name="M:Vi.SQL.Logger.Info(System.String,System.Int32,System.String,System.String)">
             <summary>
             The 'Info' level is typically used to output information that is useful to the running and management of your system (production). 
             </summary>
@@ -2432,7 +2415,7 @@
 
     </summary>
         </member>
-        <member name="M:Vi.SQLLogger.Warn(System.String,System.Int32,System.String,System.String)">
+        <member name="M:Vi.SQL.Logger.Warn(System.String,System.Int32,System.String,System.String)">
             <summary>
             Warning is often used for handled 'exceptions' or other important log events.
             </summary>
@@ -2449,7 +2432,7 @@
     
     </summary>
         </member>
-        <member name="M:Vi.SQLLogger.Error(System.Exception,System.Int32,System.String,System.String)">
+        <member name="M:Vi.SQL.Logger.Error(System.Exception,System.Int32,System.String,System.String)">
             <summary>
             Error is used to log all unhandled exceptions. 
             </summary>
@@ -2468,8 +2451,7 @@
         </member>
         <member name="T:Vi.Types.Percentage">
             <summary>
-            A number or ratio expressed as a fraction of 1 (internally represented using the built-in 'System.decimal'. 
-            
+            A number or ratio expressed as a fraction of 1. (Internally represented using the built-in 'System.decimal'.) 
             It is often denoted using the percent sign, "%", although the abbreviations "pct.", "pct" and sometimes "pc" are also used. 
             A percentage is a dimensionless number; it has no unit of measurement. [Wikipedia]
             </summary>
@@ -2478,6 +2460,17 @@
             <summary>
             Decimal representation of the value: a number less-equal 1.
             </summary>
+            <remarks>
+            Why 'system.decimal 
+            The Decimal value type represents decimal numbers ranging from positive 79,228,162,514,264,337,593,543,950,335 
+            to negative 79,228,162,514,264,337,593,543,950,335. The default value of a Decimal is 0. The Decimal value type 
+            is appropriate for financial calculations that require large numbers of significant integral and fractional digits 
+            and no round-off errors. The Decimal type does not eliminate the need for rounding. Rather, it minimizes errors 
+            due to rounding. For example, the following code produces a result of 0.9999999999999999999999999999 instead of 1.
+            When the result of the division and multiplication is passed to the Round method, the result suffers no loss of 
+            precision, as the following code shows.
+             https://docs.microsoft.com/en-us/dotnet/api/system.decimal?view=net-5.0
+            </remarks>
         </member>
         <member name="M:Vi.Types.Percentage.#ctor(System.Decimal)">
             <summary>

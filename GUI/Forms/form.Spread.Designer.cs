@@ -153,7 +153,7 @@
 			this.tabSIR.Location = new System.Drawing.Point(4, 22);
 			this.tabSIR.Name = "tabSIR";
 			this.tabSIR.Padding = new System.Windows.Forms.Padding(3);
-			this.tabSIR.Size = new System.Drawing.Size(1143, 656);
+			this.tabSIR.Size = new System.Drawing.Size(1186, 617);
 			this.tabSIR.TabIndex = 1;
 			this.tabSIR.Text = "SIR";
 			this.tabSIR.ToolTipText = "The classical S.I.R. representation.";
@@ -164,7 +164,7 @@
 			this.tabDSIR.Controls.Add(this.xyDSIR);
 			this.tabDSIR.Location = new System.Drawing.Point(4, 22);
 			this.tabDSIR.Name = "tabDSIR";
-			this.tabDSIR.Size = new System.Drawing.Size(1143, 656);
+			this.tabDSIR.Size = new System.Drawing.Size(1186, 617);
 			this.tabDSIR.TabIndex = 4;
 			this.tabDSIR.Text = "Delta SIR";
 			this.tabDSIR.ToolTipText = "Visualization of the gap between the two model.";
@@ -175,7 +175,7 @@
 			this.tabContaminated.Controls.Add(this.xyContaminated);
 			this.tabContaminated.Location = new System.Drawing.Point(4, 22);
 			this.tabContaminated.Name = "tabContaminated";
-			this.tabContaminated.Size = new System.Drawing.Size(1143, 656);
+			this.tabContaminated.Size = new System.Drawing.Size(1186, 617);
 			this.tabContaminated.TabIndex = 2;
 			this.tabContaminated.Text = "Contaminated points";
 			this.tabContaminated.ToolTipText = "The evolution of the number of contaminated by the virus) points on the region.";
@@ -186,7 +186,7 @@
 			this.tabPerformances.Controls.Add(this.xyPerformances);
 			this.tabPerformances.Location = new System.Drawing.Point(4, 22);
 			this.tabPerformances.Name = "tabPerformances";
-			this.tabPerformances.Size = new System.Drawing.Size(1143, 656);
+			this.tabPerformances.Size = new System.Drawing.Size(1186, 617);
 			this.tabPerformances.TabIndex = 3;
 			this.tabPerformances.Text = "Performances";
 			this.tabPerformances.ToolTipText = "Visualization of the computational power needed to run the simulation.";
@@ -598,7 +598,7 @@
 			this.xySIR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
 			this.xySIR.Location = new System.Drawing.Point(5, 5);
 			this.xySIR.Name = "xySIR";
-			this.xySIR.Size = new System.Drawing.Size(1119, 621);
+			this.xySIR.Size = new System.Drawing.Size(1162, 582);
 			this.xySIR.TabIndex = 0;
 			// 
 			// xyDSIR
@@ -609,7 +609,7 @@
 			this.xyDSIR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
 			this.xyDSIR.Location = new System.Drawing.Point(5, 5);
 			this.xyDSIR.Name = "xyDSIR";
-			this.xyDSIR.Size = new System.Drawing.Size(1119, 621);
+			this.xyDSIR.Size = new System.Drawing.Size(1162, 582);
 			this.xyDSIR.TabIndex = 1;
 			// 
 			// xyContaminated
@@ -620,7 +620,7 @@
 			this.xyContaminated.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
 			this.xyContaminated.Location = new System.Drawing.Point(5, 5);
 			this.xyContaminated.Name = "xyContaminated";
-			this.xyContaminated.Size = new System.Drawing.Size(1119, 621);
+			this.xyContaminated.Size = new System.Drawing.Size(1162, 582);
 			this.xyContaminated.TabIndex = 0;
 			// 
 			// xyPerformances
@@ -631,7 +631,7 @@
 			this.xyPerformances.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
 			this.xyPerformances.Location = new System.Drawing.Point(5, 5);
 			this.xyPerformances.Name = "xyPerformances";
-			this.xyPerformances.Size = new System.Drawing.Size(1119, 621);
+			this.xyPerformances.Size = new System.Drawing.Size(1162, 582);
 			this.xyPerformances.TabIndex = 0;
 			// 
 			// Spread
@@ -645,7 +645,6 @@
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.toolStrip1);
 			this.DoubleBuffered = true;
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(1150, 730);
