@@ -228,7 +228,7 @@ Program.INIGUI.Write(this.Name, "Size", this.Size);
 
 <p>It is a square region made of points. (<em>Simulates the place where people live and where the epidemic spreads.</em>) Analyzing the grid means to loop over a matrix. To avoid this, there is the field "<code>contaminated</code>", a list of points referencing contaminated points over the grid. Experience shows this list is always a small fraction of the grid and that makes this solution strategically acceptable for preserving performances.</p>
 
-<p><img height="743px" src="https://github.com/coGit-ergo-sum/CoViD/raw/main/Article Source_files/Grid.png" width="259px"></p>
+<p><img height="743px" src="./Article Source_files/Grid.png" width="259px"></p>
 
 <p>Another key concept is '<code>Ticks</code>', a unity of time (20 minutes, more or less.) based on the dynamic of the virus and designed to take a limited number of '<code>Ticks</code>' to describe the full evolution of a virus.</p>
 
