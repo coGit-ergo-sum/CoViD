@@ -13,7 +13,7 @@ Modello computazionale basato su:
 - Simulazione di una **regione** (area geografica, territorio) popolata da **persone** che si muovono e interagiscono tra loro e con l’ambiente circostante  
 - Presenza di **entità** come scuole, ospedali e uffici  
 - Propagazione della malattia tramite contaminazione dinamica di **aree** e **individui**  
-- Le persone si contagiano tra loro o contaminano il territorio (starnutiscono, toccano), che a sua volta può contagiare altri individui
+- Le persone si contagiano tra loro o contaminano il territorio (tossiscono, starnutiscono, toccano), che a sua volta può contagiare altri individui
 
 ## 📈 Diagrammi rappresentativi  
 I due diagrammi principali rappresentano:
