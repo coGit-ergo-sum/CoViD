@@ -35,7 +35,7 @@ Diagrammi secondari (evolutivi):
 - Ignora il tempo reale e le onde epidemiche  
 - Non rappresenta la complessità del contagio in ambienti dinamici
 
-## 📈 Risultati notevoli  
+## 📜 Risultati notevoli  
 - La diffusione dipende più dalla **topologia** che dalle caratteristiche del virus  
 - Possibilità di calcolare dinamicamente **β** e **γ** (parametri SIR) e mostrarne la variabilità  
 - Visualizzazione intuitiva dell’impatto delle misure di contenimento
