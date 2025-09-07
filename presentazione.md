@@ -39,6 +39,7 @@ Diagrammi secondari (evolutivi):
 - La diffusione dipende più dalla **topologia** che dalle caratteristiche del virus  
 - Possibilità di calcolare dinamicamente **β** e **γ** (parametri SIR) e mostrarne la variabilità  
 - Visualizzazione intuitiva dell’impatto delle misure di contenimento
+- può esserci una notevole differenza tra il modello SIR (differenziale) e questo modello (computazionale)
 
 ## 🌍 Applicazioni  
 - Strumento didattico per **scuole** e **università**  
