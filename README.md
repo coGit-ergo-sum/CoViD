@@ -18,6 +18,7 @@ All formatting, additions, and alterations Copyright © CodeProject, 1999-2021
 
 
 
+
 <div>
 
 <h1 style="border:solid 0px red;margin-bottom:0px;">Epidemy Spread Simulator</h1>
@@ -33,7 +34,22 @@ All formatting, additions, and alterations Copyright © CodeProject, 1999-2021
 
 
 <p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Form.Spread.1.png?raw=true" style="width: 640px; height: 406px"></p>
+  <!-- 
+    **This screenshot represents the graphical interface of the application "Spread", a didactic simulator of epidemic diffusion.**
+    The image displays two **dynamic Cartesian planes**, used to visualize the current state of the simulation.
 
+    - **Left panel**: shows the **infected individuals**, represented as moving green dots. Each dot corresponds to a **single infected person**, whose position and color change over time to reflect their clinical status (e.g., latent, ill, severe, contagious, dead). The spatial distribution reflects the **topology of the simulated region**.
+
+    - **Right panel**: displays the **environmental contamination**, representing infected zones in the territory. This visualization is distinct from the individual-based view.
+
+    **The screenshot captures an intermediate stage of the simulation**, where the epidemic has just begun to spread.
+    Statistics indicate: **10,000 individuals**, **16 infected**, **0 recovered**, **0 immune**, **0 dead**, and **0 contaminated points**.
+
+    **This image serves as a didactic example**, illustrating one possible evolution of the simulated epidemic scenario.
+    It is useful for **explaining the computational model** and **providing a visual counterpart to textual descriptions**.
+
+    **Additional screenshots are available**, and a **video is planned** to show the temporal evolution and dynamics of the contagion.
+  -->
 <p>C# computational model for the spread of COVID-19, implemented without any SIR equations.</p>
   <!-- 
     **This screenshot represents the graphical interface of the application "Spread", a didactic simulator of epidemic diffusion.**
