@@ -128,11 +128,11 @@ That proves the correctness of the new model and (much more important) proves th
 
 <p>The <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology" target="_blank">S.I.R. equations</a> [wikipedia] are the solutions of the following system of differential equations:</p>
 
-<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/SIREquations1.png?raw=true" style="width: 517px; height: 57px"></p>
+<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/SIREquations1.Dark.png?raw=true" style="width: 517px; height: 57px"></p>
 
 <p>This system is solved by exponential function just because <strong>ß and γ are supposed constant</strong>. We can revert the first and the last equation to get the expressions for ß and γ</p>
 
-<p><img height="52px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/BetaGamma.gif" width="300px"></p>
+<p><img height="52px" src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/BetaGamma.Dark.png" width="300px"></p>
 
 <p>(<em>where N = S + I + R</em>)</p>
 
