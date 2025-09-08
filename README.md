@@ -14,9 +14,34 @@ Copyright 2021 by CodeErgoSum
 All formatting, additions, and alterations Copyright © CodeProject, 1999-2021
 -->
 
+<!--
+This project was created with the intention of planting a seed to inspire the community to further develop and complete a tool that, in its full scope, extends far beyond the capabilities of any single individual.
+
+The aim is to provide an open and flexible foundation upon which the community can collaborate, improve, and subject the model and its implementations to rigorous scientific validation. Only through collective contribution and transparent peer review can this project aspire to become a useful instrument worthy of recognition by the scientific community.
+
+I warmly invite anyone interested to contribute, suggest enhancements, propose new ideas, and above all, to help guide this work towards thorough and transparent validation.
+
+Thank you to all who are willing to dedicate time, expertise, and passion to this initiative.
+-->
 
 
 
+  <!-- 
+    **This screenshot represents the graphical interface of the application "Spread", a didactic simulator of epidemic diffusion.**
+    The image displays two **dynamic Cartesian planes**, used to visualize the current state of the simulation.
+
+    - **Left panel**: shows the **infected individuals**, represented as moving green dots. Each dot corresponds to a **single infected person**, whose position and color change over time to reflect their clinical status (e.g., latent, ill, severe, contagious, dead). The spatial distribution reflects the **topology of the simulated region**.
+
+    - **Right panel**: displays the **environmental contamination**, representing infected zones in the territory. This visualization is distinct from the individual-based view.
+
+    **The screenshot captures an intermediate stage of the simulation**, where the epidemic has just begun to spread.
+    Statistics indicate: **10,000 individuals**, **16 infected**, **0 recovered**, **0 immune**, **0 dead**, and **0 contaminated points**.
+
+    **This image serves as a didactic example**, illustrating one possible evolution of the simulated epidemic scenario.
+    It is useful for **explaining the computational model** and **providing a visual counterpart to textual descriptions**.
+
+    **Additional screenshots are available**, and a **video is planned** to show the temporal evolution and dynamics of the contagion.
+  -->
 
 
 <div>
