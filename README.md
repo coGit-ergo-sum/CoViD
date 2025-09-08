@@ -34,7 +34,7 @@ All formatting, additions, and alterations Copyright © CodeProject, 1999-2021
 
 <p><em><strong>Note</strong>: Unzip this file and choose one between the two files to set up the application: the '<strong>exe</strong>' or the '<strong>msi</strong>'.</em></p>
 
-<p><em><strong>Note</strong>: The development of this application is still in progress, and it is not possible to change the configuration of the parameters for the viruses, the region, and the person '.</em></p>
+<p><em><strong>Note</strong>: The development of this application is still in progress, and it is not possible to change the configuration of the parameters for the viruses, the region, and the person.</em></p>
 
 <ul class="download">
 	<li><a href="https://github.com/coGit-ergo-sum/CoViD/blob/main/GUI/Images/New/2021-06-25.1.CoViD.zip">Download source code - 2.7 MB</a></li></ul>
@@ -55,11 +55,19 @@ All formatting, additions, and alterations Copyright © CodeProject, 1999-2021
 <p>That means:</p>
 
 <ul>
-	<li>SIR is a linear model, and nature is anything but linear.
+	<li>
+		SIR is a linear model, and nature is anything but linear.
 	<p>(<em>Let me suggest this video: <a href="https://www.youtube.com/watch?v=R6NnCOs20GQ">The secret life of chaos</a> from Professor Jim Al-Khalili, BBC 4</em>)</p>
+	</li>
 
-	<iframe style="width:560px; height:315px" src="./Article Source_files/R6NnCOs20GQ.html" allowfullscreen="true"></iframe>
-	</li>	<li>The 'R' in 'SIR' stands for 'Recovered', and it doesn't matter if the person is healed or has died!</li>	<li>The SIR model doesn't have the dependency on 'time'. (SIR can 'predict' how S I and R will evolve, but not when it will happen. See the chapter "The tab SIR")</li>	<li>The spread of a disease can have waves (Covid has had at least 3 waves). The SIR model cannot have waves. It always results in an exponential evolution of the disease. In nature, all the <a href="https://en.wikipedia.org/wiki/Oscillation" target="_blank">"systems" that can have "waves"</a> have always two elements, each one acting "against" the other. (<em>In my personal opinion, this is the evidence that the SIR model is an over-simplified model, and it lacks a fundamental component capable of introducing the oscillatory nature that many epidemics have shown.</em>)</li></ul>
+ 
+ <li>The 'R' in 'SIR' stands for 'Recovered', and it doesn't matter if the person is healed or has died!</li>	
+ <li>The SIR model doesn't have the dependency on 'time'. (SIR can 'predict' how S I and R will evolve, but not when it will happen. See the chapter "The tab SIR")</li>	
+ <li>
+	 The spread of a disease can have waves (Covid has had at least 3 waves). The SIR model cannot have waves. It always results in an exponential evolution of the disease. In nature, all the <a href="https://en.wikipedia.org/wiki/Oscillation" target="_blank">"systems" that can have "waves"</a> have always two elements, each one acting "against" the other. (<em>In my personal opinion, this is the evidence that the SIR model is an over-simplified model, and it lacks a fundamental component capable of introducing the oscillatory nature that many epidemics have shown.</em>)
+ </li>
+ 
+ </ul>
 
 <p>After a century, SIR is squeezed like a lemon, but its limitations still remain. Perhaps, new ways to tackle the same problem will lead to new solutions. So, I believe, there is enough room to think about other, complementary models.</p>
 
@@ -68,7 +76,7 @@ All formatting, additions, and alterations Copyright © CodeProject, 1999-2021
 <ul>
 	<li><code>region</code> (a selected surface, for example, a city;)</li>	<li><code>people</code> that move over the region</li>	<li><code>disease</code> (CoViD for example)</li></ul>
 
-<p>A disease contaminates an area (a red dot in the right GUI panel) when someone moves over the area (a dot in the left GUI panel) becomes infected and after a short latency, becomes ill. The infected person, sneezing or touching, contaminates other points in the region. After a while, the person recovers as well as the area stops being contaminated.</p>
+<p>A disease contaminates an area (a red dot in the right GUI panel) when someone moves over the area (a dot in the left GUI panel) becomes infected, and after a short latency, becomes ill. The infected person, sneezing or touching, contaminates other points in the region. After a while, the person recovers as well as the area stops being contaminated.</p>
 
 <p>To let the model better adhere to reality, there are also other entities that act like 'accumulation points': schools, hospitals, and offices. Other factors are not yet implemented. For example, the vital dynamics; Immunity is not forever (as supposed here); vaccination campaigns.</p>
 
