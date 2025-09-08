@@ -1,5 +1,3 @@
-# CoViD
- C# model for the spread of COVID-19, implemented without any SIR equations.
 
 <!DOCTYPE html>
 <!-- saved from url=(0069)https://www.codeproject.com/script/Articles/ViewHtml.aspx?aid=5306075 -->
@@ -22,8 +20,21 @@ All formatting, additions, and alterations Copyright © CodeProject, 1999-2021
 
 <div>
 
+<h1 style="border:solid 0px red;margin-bottom:0px;">Epidemy Spread Simulator</h1>
+
+<span>Dynamic simulation of viral spread in realistic environments</span>
+
+<section id="objective">
+  <h2>🔬 Objective</h2>
+  <p>
+    To simulate the spread of an epidemic (CoViD-19) using a <strong>computational model alternative to the classic SIR</strong>, avoiding differential equations and aiming for a more realistic and dynamic representation.
+  </p>
+</section>
+
 
 <p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Form.Spread.1.png?raw=true" style="width: 640px; height: 406px"></p>
+
+<p>C# computational model for the spread of COVID-19, implemented without any SIR equations.</p>
   <!-- 
     **This screenshot represents the graphical interface of the application "Spread", a didactic simulator of epidemic diffusion.**
     The image displays two **dynamic Cartesian planes**, used to visualize the current state of the simulation.
