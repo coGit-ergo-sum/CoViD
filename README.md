@@ -333,7 +333,12 @@ var y = someOtherString.IsNull();</pre>
 <h2>History</h2>
 
 <ul>
-	<li>April-June 2020: I developed this application during the first lockdown</li>	<li>22<sup>nd</sup> May, 2021: Initial version. It took one year to take the decision to publish this work.</li>	<li>28<sup>th</sup> May, 2021: Published a second version.</li>	<li>25<sup>th</sup> June, 2021: Published the current version</li></ul>
+	<li>April-June 2020: I developed this application during the first lockdown</li>	
+	<li>22<sup>nd</sup> May, 2021: Initial version. It took one year to take the decision to publish this work.</li>	
+	<li>28<sup>th</sup> May, 2021: Published a second version.</li>	
+	<li>25<sup>th</sup> June, 2021: Published the current version</li>
+	<li>08<sup>th</sup> September, 2025: Update the ReadMe file.</li>
+</ul>
 
 
 </span>
