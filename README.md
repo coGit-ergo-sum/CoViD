@@ -19,10 +19,27 @@ All formatting, additions, and alterations Copyright © CodeProject, 1999-2021
 
 
 
-<hr class="Divider subdue">
+
 <div>
 
 
+<p><img src="https://github.com/coGit-ergo-sum/CoViD/blob/main/CodeProject/Article%20Source_files/Form.Spread.1.png?raw=true" style="width: 640px; height: 406px"></p>
+  <!-- 
+    **This screenshot represents the graphical interface of the application "Spread", a didactic simulator of epidemic diffusion.**
+    The image displays two **dynamic Cartesian planes**, used to visualize the current state of the simulation.
+
+    - **Left panel**: shows the **infected individuals**, represented as moving green dots. Each dot corresponds to a **single infected person**, whose position and color change over time to reflect their clinical status (e.g., latent, ill, severe, contagious, dead). The spatial distribution reflects the **topology of the simulated region**.
+
+    - **Right panel**: displays the **environmental contamination**, representing infected zones in the territory. This visualization is distinct from the individual-based view.
+
+    **The screenshot captures an intermediate stage of the simulation**, where the epidemic has just begun to spread.
+    Statistics indicate: **10,000 individuals**, **16 infected**, **0 recovered**, **0 immune**, **0 dead**, and **0 contaminated points**.
+
+    **This image serves as a didactic example**, illustrating one possible evolution of the simulated epidemic scenario.
+    It is useful for **explaining the computational model** and **providing a visual counterpart to textual descriptions**.
+
+    **Additional screenshots are available**, and a **video is planned** to show the temporal evolution and dynamics of the contagion.
+  -->
 
 
 <!-- Start Article -->
@@ -49,42 +66,26 @@ All formatting, additions, and alterations Copyright © CodeProject, 1999-2021
 <p>This project is not meant to be a substitute for the SIR model. The goal is to develop a tool that can give a <strong>computational representation</strong> for the spread of the disease. The hope for this project is that it could become an effective complement to other well-established solutions.</p>
 
 <h2>Introduction</h2>
-
-<p>The SIR model is a very powerful tool (no doubt), but it was developed a century ago when scientific paradigms were different. Looking today at SIR with a critical eye, it immediately appears that it suffers from some approximations that limit its ability to represent reality.</p>
-
-<p>That means:</p>
-
+<p>The SIR model is an incredibly powerful tool, yet it was developed a century ago when scientific paradigms were different. Looking at the SIR model today with a critical eye, it immediately becomes apparent that it relies on approximations that limit its ability to accurately represent reality.</p>
+<p>This is because:</p>
 <ul>
-	<li>
-		SIR is a linear model, and nature is anything but linear.
-	<p>(<em>Let me suggest this video: <a href="https://www.youtube.com/watch?v=R6NnCOs20GQ">The secret life of chaos</a> from Professor Jim Al-Khalili, BBC 4</em>)</p>
-	</li>
-
- 
- <li>The 'R' in 'SIR' stands for 'Recovered', and it doesn't matter if the person is healed or has died!</li>	
- <li>The SIR model doesn't have the dependency on 'time'. (SIR can 'predict' how S I and R will evolve, but not when it will happen. See the chapter "The tab SIR")</li>	
- <li>
-	 The spread of a disease can have waves (Covid has had at least 3 waves). The SIR model cannot have waves. It always results in an exponential evolution of the disease. In nature, all the <a href="https://en.wikipedia.org/wiki/Oscillation" target="_blank">"systems" that can have "waves"</a> have always two elements, each one acting "against" the other. (<em>In my personal opinion, this is the evidence that the SIR model is an over-simplified model, and it lacks a fundamental component capable of introducing the oscillatory nature that many epidemics have shown.</em>)
- </li>
- 
- </ul>
-
-<p>After a century, SIR is squeezed like a lemon, but its limitations still remain. Perhaps, new ways to tackle the same problem will lead to new solutions. So, I believe, there is enough room to think about other, complementary models.</p>
-
-<p>My try was to develop a C# application, to model the reality defining:</p>
-
+    <li>The SIR model is linear, whereas natural phenomena are anything but linear. (Let me suggest this video: <a href="https://www.youtube.com/watch?v=R6NnCOs20GQ">The secret life of chaos</a> from Professor Jim Al-Khalili, BBC 4)</li>
+    <li>In the SIR model, the 'R' stands for 'Recovered', without distinguishing whether the person has healed or died.</li>
+    <li>The SIR model does not account for the dependency on time. (While SIR can predict how S, I, and R will evolve, it cannot predict *when* it will happen. See the chapter "The tab SIR".)</li>
+    <li>The spread of a disease can occur in waves (e.g., Covid has had at least three waves). The SIR model cannot produce waves; it always results in an exponential evolution of the disease. In nature, systems that can have waves always have two elements acting in opposition to each other. (In my personal opinion, this demonstrates that the SIR model is an over-simplified model, lacking a fundamental component capable of introducing the oscillatory nature that many epidemics have shown.)</li>
+</ul>
+<p>After a century, the SIR model's limitations remain, despite its widespread use. Perhaps, new ways to tackle the same problem will lead to new, complementary solutions.</p>
+<p>My goal was to develop a C# application to model reality by defining:</p>
 <ul>
-	<li><code>region</code> (a selected surface, for example, a city;)</li>	<li><code>people</code> that move over the region</li>	<li><code>disease</code> (CoViD for example)</li></ul>
-
-<p>A disease contaminates an area (a red dot in the right GUI panel) when someone moves over the area (a dot in the left GUI panel) becomes infected, and after a short latency, becomes ill. The infected person, sneezing or touching, contaminates other points in the region. After a while, the person recovers as well as the area stops being contaminated.</p>
-
-<p>To let the model better adhere to reality, there are also other entities that act like 'accumulation points': schools, hospitals, and offices. Other factors are not yet implemented. For example, the vital dynamics; Immunity is not forever (as supposed here); vaccination campaigns.</p>
-
-<p>The evolution of the virus into an infected body is an array of values.</p>
-
-<p>One first result of this approach shows that the disease's spread is tightly correlated with the topology, instead of the characteristics of the virus.</p>
-
-<p>The model allows for the parametrization of most of the key factors affecting the spread of the disease. On the one hand, that makes the model very powerful, being able to represent many possible dynamics. On the other hand, all this versatility can be disorienting.</p>
+    <li>a <code>region</code> (a selected surface, for example, a city);</li>
+    <li><code>people</code> who move within the region;</li>
+    <li>a <code>disease</code> (e.g., CoViD).</li>
+</ul>
+<p>A disease contaminates an area (a red dot in the right GUI panel) when an individual who has become infected moves to that area. After a short latency, the individual becomes ill. The infected person, by sneezing or touching surfaces, contaminates other points in the region. After a while, the person recovers, and the area ceases to be contaminated.</p>
+<p>To make the model more realistic, other entities acting as 'accumulation points'—such as schools, hospitals, and offices—are included. Other factors are not yet implemented, for example, vital dynamics and the fact that immunity is not permanent (as it is currently assumed here) or vaccination campaigns.</p>
+<p>The evolution of the virus within an infected body is represented by an array of values.</p>
+<p>A primary result of this approach shows that the disease's spread is tightly correlated with the topology rather than the characteristics of the virus itself.</p>
+<p>The model allows for the parametrization of most of the key factors affecting the spread of the disease. On the one hand, this makes the model very powerful, as it can represent many possible dynamics. On the other hand, this versatility can be disorienting.</p>
 
 <h2>Background</h2>
 
