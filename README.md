@@ -46,14 +46,14 @@ Thank you to all who are willing to dedicate time, expertise, and passion to thi
 
 <div>
 
-<h1 style="border:solid 0px red;margin-bottom:0px;">Epidemy Spread Simulator</h1>
+<h1 style="border:solid 0px red;margin-bottom:0px;">Agent-Based (real life) Epidemic Spread Simulator </h1>
 
-<span>Dynamic simulation of viral spread in realistic environments</span>
+<span>A flexible agent-based simulation framework for realistic modelling of epidemic dynamics.</span>
 
 <section id="objective">
   <h2>🔬 Objective</h2>
   <p>
-    To simulate the spread of an epidemic (CoViD-19) using a <strong>computational model alternative to the classic SIR</strong>, avoiding differential equations and aiming for a more realistic and dynamic representation.
+    To simulate the spread of an epidemic (like CoViD-19) using a <strong>computational model</strong> complementary to the classic SIR, avoiding differential equations and aiming for a more realistic and dynamic representation.
   </p>
 </section>
 
